@@ -19,7 +19,7 @@ public class ProjectJava {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        System.out.println("salut ca va");
+        
     }
     
 }
