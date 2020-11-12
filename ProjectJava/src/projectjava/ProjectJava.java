@@ -6,6 +6,7 @@
 // Project realised by Thomas Poulain and Capucine Plantecoste - TD5 - ING3
 
 package projectjava;
+import java.util.Scanner ; 
 
 /**
  *
