@@ -10,7 +10,7 @@ import java.util.Scanner ;
 
 /**
  *
- * @author CAP
+ * @author thoma
  */
 public class ProjectJava {
 
@@ -20,6 +20,9 @@ public class ProjectJava {
     public static void main(String[] args) {
         // TODO code application logic here
         
+        App a= new App();
+        a.register();
+        a.newcustomers();
     }
     
 }

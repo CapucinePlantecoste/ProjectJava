@@ -7,13 +7,19 @@ package projectjava;
 
 /**
  *
- * @author CAP
+ * @author thoma
  */
-public abstract class Customer extends Person{
+public class Employee extends Person {
     
-    public Customer(String n, String fn, String u, String p, int i)
+    public Employee(String n, String fn, String u, String p, int i)
     {
         super(n,fn,u,p,i);
+    }
+    
+    @Override
+    public void display()
+    {
+        
     }
     
 }
