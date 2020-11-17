@@ -4,6 +4,8 @@
  * and open the template in the editor.
  */
 package projectjava;
+import javax.swing.* ; 
+import java.awt.* ; 
 
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -22,8 +24,8 @@ public class App {
     private ArrayList<Employee> emp=new ArrayList<Employee>();
     private ArrayList<Property> pr=new ArrayList<Property>();
     private static final String USERNAME = "root";
-    private static final String PASSWORD = "Manager26069700";
-    private static final String url = "jdbc:mysql://localhost:3306/ptest?autoReconnect=true&useSSL=false";
+    private static final String PASSWORD = "Thomas1012!";
+    private static final String url = "jdbc:mysql://localhost:3307/ptest?autoReconnect=true&useSSL=false";
     
     public App()
     {
@@ -400,9 +402,28 @@ public class App {
         }
         catch (SQLException e) {
             System.err.println(e);
-        }
-       
+        }      
        
     }
-
+    /*public void affichage ()
+    {
+        final int width=1000;
+        final int height=400; 
+        
+        JFrame window=new JFrame();
+        window.setSize(width,height);
+        JPanel panel = new JPanel () ;
+        JLabel welcome = new JLabel ("Welcome to the platform. Please, click on one of the following button : ") ; 
+        window.add(panel) ; 
+        panel.setBackground(Color.LIGHT_GRAY);                 
+        panel.add (welcome) ;
+        
+        JLabel titre1 = new JLabel ("Already logged in ? ") ; 
+        panel.add(titre1) ; 
+        
+        
+        
+        window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);         
+        window.setVisible(true);
+    }*/
 }
