@@ -1,22 +1,16 @@
 // Project realised by Thomas Poulain and Capucine Plantecoste - TD5 - ING3
 
 package projectjava;
-import java.util.Scanner ; 
 
-/**
- *
- * @author thoma
- */
 public class ProjectJava {
 
     
     public static void main(String[] args) {
         // TODO code application logic here       
-         
-        App a= new App(); 
-                
-        new Jframe().setVisible(true); 
-        
+       
+        new First().setVisible(true); 
+        App a= new App();  
+          
         a.register();        
         a.newcustomers();
         
