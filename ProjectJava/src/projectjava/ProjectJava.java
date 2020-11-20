@@ -11,10 +11,10 @@ public class ProjectJava {
 
     
     public static void main(String[] args) {
-        // TODO code application logic here
-        
+        // TODO code application logic here       
          
         App a= new App(); 
+                
         new Jframe().setVisible(true); 
         
         a.register();        
