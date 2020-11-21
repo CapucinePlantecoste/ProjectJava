@@ -9,11 +9,11 @@ package projectjava;
  *
  * @author CAP
  */
-public abstract class Customer extends Person{
+public abstract class Customer extends Person{//Customer class represents both byuers and sellers 
     
-    public Customer(String n, String fn, String u, String p, int i)
+    public Customer(String n, String fn, String u, String p, int i)//constructor 
     {
-        super(n,fn,u,p,i);
+        super(n,fn,u,p,i);//constructor of the Person class 
     }
     
 }

@@ -3,10 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package projectjava;
-import javax.swing.* ; 
-import java.awt.* ; 
+package projectjava;//All the librairies included
 
+import javax.swing.*;
+import java.awt.*;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -19,66 +19,63 @@ import java.util.Scanner;
  */
 public class App {
 
-    private ArrayList<Buyer> buyers;
-    private ArrayList<Seller> sellers;
-    private ArrayList<Employee> emp;
-    private ArrayList<Property> pr;
-    private static final String USERNAME = "root";
-    private static final String PASSWORD = "Manager26069700";
-    private static final String url = "jdbc:mysql://localhost:3306/ptest?autoReconnect=true&useSSL=false";
+    private ArrayList<Buyer> buyers;//ArrayList of all the buyers contained in the database
+    private ArrayList<Seller> sellers;//ArrayList of all the sellers contained in the database
+    private ArrayList<Employee> emp;//ArrayList of all the employees contained in the database
+    private ArrayList<Property> pr;//ArrayList of all the buyers properties in the database
+    private static final String USERNAME = "root";//Username of MySql database
+    private static final String PASSWORD = "Thomas1012!";//Password of MySQL database
+    private static final String url = "jdbc:mysql://localhost:3307/ptest?autoReconnect=true&useSSL=false";
     private First f;
-    
-    
-    public App()
-    {
-        this.application();
-        
+
+    public App() {
+        this.application();//Constructor of the class
+
     }
 
-    public void register() {
+    public void register() {//function enabling the user to register 
         Connection conn = null;
-         buyers=new ArrayList<Buyer>();
-         emp=new ArrayList<Employee>();
-         sellers=new ArrayList<Seller>();
-         pr=new ArrayList<Property>();
-         
+        buyers = new ArrayList<Buyer>();//ArrayList of all the buyers contained in the database
+        emp = new ArrayList<Employee>();//ArrayList of all the employees contained in the database
+        sellers = new ArrayList<Seller>();//ArrayList of all the sellers contained in the database
+        pr = new ArrayList<Property>();//ArrayList of all the properties contained in the database
+
         try {
 
-            conn = DriverManager.getConnection(url, USERNAME, PASSWORD);
+            conn = DriverManager.getConnection(url, USERNAME, PASSWORD);//Connect to the database
             Statement stmt = conn.createStatement();
 
-            String sqtStat1 = "SELECT * FROM employee";
-            ResultSet result = stmt.executeQuery(sqtStat1);
+            String sqtStat1 = "SELECT * FROM employee";//We get the different values of the different columns of the table employee
+            ResultSet result = stmt.executeQuery(sqtStat1);//we execute the query 
             while (result.next()) {
-                
-                String a = result.getString("name");
+
+                String a = result.getString("name");//First column of the table 
                 String b = result.getString("familyname");
                 String c = result.getString("username");
                 String d = result.getString("password");
                 int e = result.getInt("id");
-                emp.add(new Employee(a, b, c, d, e));
+                emp.add(new Employee(a, b, c, d, e));//we create an employee object with the values get ahead
 
             }
 
-            String sqtStat2 = "SELECT * From buyer";
-            ResultSet result2 = stmt.executeQuery(sqtStat2);
+            String sqtStat2 = "SELECT * From buyer";//We get the different values of the different columns of the table buyer
+            ResultSet result2 = stmt.executeQuery(sqtStat2);//we execute the query 
             while (result2.next()) {
-               
-                String a = result2.getString("name");
+
+                String a = result2.getString("name");//First column of the table 
                 String b = result2.getString("familyname");
                 String c = result2.getString("username");
                 String d = result2.getString("password");
                 int e = result2.getInt("id");
-                
+
                 buyers.add(new Buyer(a, b, c, d, e));
-                
 
             }
 
-            String sqtStat3 = "SELECT * From seller";
-            ResultSet result3 = stmt.executeQuery(sqtStat3);
+            String sqtStat3 = "SELECT * From seller";//We get the different values of the different columns of the table seller
+            ResultSet result3 = stmt.executeQuery(sqtStat3);//we execute the query 
             while (result3.next()) {
-                String a = result3.getString("name");
+                String a = result3.getString("name");//First column of the table 
                 String b = result3.getString("familyname");
                 String c = result3.getString("username");
                 String d = result3.getString("password");
@@ -86,10 +83,10 @@ public class App {
                 sellers.add(new Seller(a, b, c, d, e));
 
             }
-            String sqtStat4 = "SELECT * From house";
-            ResultSet result4 = stmt.executeQuery(sqtStat4);
+            String sqtStat4 = "SELECT * From house";//We get the different values of the different columns of the table house
+            ResultSet result4 = stmt.executeQuery(sqtStat4);//we execute the query
             while (result4.next()) {
-                int a = result4.getInt("id");
+                int a = result4.getInt("id");//First column of the table 
                 double p = result4.getDouble("price");
                 String l = result4.getString("location");
                 int nr = result4.getInt("numberrooms");
@@ -99,13 +96,13 @@ public class App {
                 double s = result4.getDouble("surface");
                 double gs = result4.getDouble("gardensurface");
                 boolean sp = result4.getBoolean("swimmingpool");
-                pr.add(new House(a,p,l,nr,nbr,nf,tv,s,gs,sp));
+                pr.add(new House(a, p, l, nr, nbr, nf, tv, s, gs, sp));
 
             }
-            String sqtStat5 = "SELECT * From apartment";
-            ResultSet result5 = stmt.executeQuery(sqtStat5);
+            String sqtStat5 = "SELECT * From apartment";//We get the different values of the different columns of the table apartment
+            ResultSet result5 = stmt.executeQuery(sqtStat5);//we execute the query
             while (result5.next()) {
-                int a = result5.getInt("id");
+                int a = result5.getInt("id");//First column of the table 
                 double p = result5.getDouble("price");
                 String l = result5.getString("location");
                 int nr = result5.getInt("numberrooms");
@@ -116,349 +113,288 @@ public class App {
                 boolean elv = result5.getBoolean("elevator");
                 int fn = result5.getInt("floornumber");
                 boolean prkg = result5.getBoolean("parking");
-                pr.add(new Appartment(a,p,l,nr,nbr,nf,tv,s,elv,fn,prkg));
+                pr.add(new Appartment(a, p, l, nr, nbr, nf, tv, s, elv, fn, prkg));
 
             }
-            
 
-        } catch (SQLException e) {
+        } catch (SQLException e) {//Possible MY SQL exception 
             System.err.println(e);
         }
 
     }
-    
-   
-   
-    public void loginb()
-    {
-      
+
+    public void loginb() {
+
         //Pour tester on saisit à la mian password et username
         //On rentre notre username et notre mot de passe
         //for(int i=0;i<buyers.size();++i)
        /* {
-            if (buyers.get(i).getusername().equals(username)&&buyers.get(i).getpassword().equals(password))
-            {
-                return buyers.get(i);
-            }
+         if (buyers.get(i).getusername().equals(username)&&buyers.get(i).getpassword().equals(password))
+         {
+         return buyers.get(i);
+         }
             
-        }
+         }
         
-        return null;*/
-        
-        
+         return null;*/
     }
     /*public Buyer testloginb()
-    {
-        if(this.loginb()==null)
-        {
-       do
-       {
-           System.out.println("Error. Your password and username don't match");
-           System.out.println("Please try again");
+     {
+     if(this.loginb()==null)
+     {
+     do
+     {
+     System.out.println("Error. Your password and username don't match");
+     System.out.println("Please try again");
            
            
-       }while( this.loginb()==null);// ou si on clique pas  sur bouton entree
-       // ! nom boutton is selected
+     }while( this.loginb()==null);// ou si on clique pas  sur bouton entree
+     // ! nom boutton is selected
        
-        }
+     }
 
        
-       return this.loginb();
-    }*/
-    
+     return this.loginb();
+     }*/
+
     /*
-    public Seller logins()
-    {
-        String username=this.writeusername();
-        String password=this.writepassword();
-        //Pour tester on saisit à la mian password et username
-        //On rentre notre username et notre mot de passe
-        for(int i=0;i<sellers.size();++i)
-        {
-            if (sellers.get(i).getusername().equals(username)&&sellers.get(i).getpassword().equals(password))
-            {
-                return sellers.get(i);
-            }
+     public Seller logins()
+     {
+     String username=this.writeusername();
+     String password=this.writepassword();
+     //Pour tester on saisit à la mian password et username
+     //On rentre notre username et notre mot de passe
+     for(int i=0;i<sellers.size();++i)
+     {
+     if (sellers.get(i).getusername().equals(username)&&sellers.get(i).getpassword().equals(password))
+     {
+     return sellers.get(i);
+     }
             
-        }
+     }
         
-        return null;
-    }
-    public Seller testlogins()
-    {
-        if(this.logins()==null)
-        {
-       do
-       {
-           System.out.println("Error. Your password and username don't match");
-           System.out.println("Please try again");
+     return null;
+     }
+     public Seller testlogins()
+     {
+     if(this.logins()==null)
+     {
+     do
+     {
+     System.out.println("Error. Your password and username don't match");
+     System.out.println("Please try again");
            
            
-       }while( this.logins()==null);// ou si on clique pas  sur bouton entree
-       // ! nom boutton is selected
+     }while( this.logins()==null);// ou si on clique pas  sur bouton entree
+     // ! nom boutton is selected
        
-        }
+     }
 
        
-       return this.logins();
-    }
+     return this.logins();
+     }
     
-    public Employee logine()
-    {
-        String username=this.writeusername();
-        String password=this.writepassword();
-        //Pour tester on saisit à la mian password et username
-        //On rentre notre username et notre mot de passe
-        for(int i=0;i<emp.size();++i)
-        {
-            if (emp.get(i).getusername().equals(username)&&emp.get(i).getpassword().equals(password))
-            {
-                return emp.get(i);
-            }
+     public Employee logine()
+     {
+     String username=this.writeusername();
+     String password=this.writepassword();
+     //Pour tester on saisit à la mian password et username
+     //On rentre notre username et notre mot de passe
+     for(int i=0;i<emp.size();++i)
+     {
+     if (emp.get(i).getusername().equals(username)&&emp.get(i).getpassword().equals(password))
+     {
+     return emp.get(i);
+     }
             
-        }
+     }
         
-        return null;
-    }
+     return null;
+     }
     
-    public Employee testlogine()
-    {
-        if(this.logine()==null)
-        {
-       do
-       {
-           System.out.println("Error. Your password and username don't match");
-           System.out.println("Please try again");
+     public Employee testlogine()
+     {
+     if(this.logine()==null)
+     {
+     do
+     {
+     System.out.println("Error. Your password and username don't match");
+     System.out.println("Please try again");
            
            
-       }while( this.logine()==null);// ou si on clique pas  sur bouton entree
-       // ! nom boutton is selected
+     }while( this.logine()==null);// ou si on clique pas  sur bouton entree
+     // ! nom boutton is selected
        
-        }
+     }
 
        
-       return this.logine();
-    }
-    public void mainmenu()
-    {
+     return this.logine();
+     }
+     public void mainmenu()
+     {
         
-        //SI l'utilisateur clique sur le bouton "Connexion buyer"
+     //SI l'utilisateur clique sur le bouton "Connexion buyer"
       
-       //S'il a clique sur entree if(this.testloginb()==null)
-        //afficher le menu princiapl
-       // else
-        //afficher.this.testloginb()
+     //S'il a clique sur entree if(this.testloginb()==null)
+     //afficher le menu princiapl
+     // else
+     //afficher.this.testloginb()
         
-        // Si l'utilisateur clique sur le bouton "Connexion seller"
-        //S'il a clique sur entree if(this.testlogins()==null)
-        //afficher le menu princiapl
-       // else
-        //afficher.this.testlogins()
+     // Si l'utilisateur clique sur le bouton "Connexion seller"
+     //S'il a clique sur entree if(this.testlogins()==null)
+     //afficher le menu princiapl
+     // else
+     //afficher.this.testlogins()
         
-        //S'il a clique sur entree if(this.testlogine()==null)
-        //afficher le menu princiapl
-       // else
-        //afficher.this.testlogine()
+     //S'il a clique sur entree if(this.testlogine()==null)
+     //afficher le menu princiapl
+     // else
+     //afficher.this.testlogine()
         
-        //S'il a clique sur le bouton You don't have an account et you want to create one
-        //creer an account
+     //S'il a clique sur le bouton You don't have an account et you want to create one
+     //creer an account
         
         
        
         
         
-    }*/
-    
-    //  A customer can't have the same username as an already existing seller or buyer
-    public int checkusername(String a)
-    {
-        int nb=0;
-        for(int i=0;i<sellers.size();++i)
+     }*/
+    // This fnction is used to ensure a customer can't have the same username as an already existing seller or buyer
+    public int checkusername(String a) {
+        int nb = 0;
+        for (int i = 0; i < sellers.size(); ++i)//we go through our sellers username list
         {
-            if (sellers.get(i).getusername().equals(a))
-                nb++;
+            if (sellers.get(i).getusername().equals(a))//we check if one of them is equal to the new one
+            {
+                nb++;//if nb = 1, the username already exists 
+            }
         }
-        for(int j=0;j<buyers.size();++j)
+        for (int j = 0; j < buyers.size(); ++j)//we go through our buyers username list
         {
-            if(buyers.get(j).getusername().equals(a))
-                nb++;
+            if (buyers.get(j).getusername().equals(a))//we check if one of them is equal to the new one
+            {
+                nb++;//if nb = 1, the username already exists 
+            }
         }
-        return nb;
+        return nb;//We will use this value later and make sure it is equal to zero
     }
-    
-    
-    public void newcustomerb()
-    {
+
+    public void newcustomerb() {
         //affichage du choix entre etre un nouveau buyer ou ou nouveau seller
         //SI on clique sur le bouton etre un nouveau buyer
-        //Nouvel affichage avec les champs a rentrer
-        Scanner a =new Scanner(System.in);
-       System.out.println("Name :");
-       String n =a.next();
-       System.out.println("Family name :");
-       String fn =a.next();
-       
-       System.out.println(" Username : ");
-           String u=a.next();
-       
-       if(this.checkusername(u)!=0)
-       do
-       {
-           
-           System.out.println(" This username already exists, choose another one");
-           System.out.println("Username");
-            u=a.next();
-         
-           
-           
-       }while( this.checkusername(u)!=0);
-       System.out.println(" Password");
-       String p=a.next();
-       int id;
-       id=buyers.get(buyers.size()-1).getid()+1;
-       buyers.add(new Buyer(n,fn,u,p,id)); 
-       
-       Connection conn = null;
-        try {
+        Scanner a = new Scanner(System.in);
+        System.out.println("Name :");//For a new user, we ask for the name
+        String n = a.next();
+        System.out.println("Family name :");// for the family name
+        String fn = a.next();
 
-            conn = DriverManager.getConnection(url, USERNAME, PASSWORD);
-            Statement stmt = conn.createStatement();
-            
-            conn.setAutoCommit(false);
-            try
-            {
-          
-             
-         stmt.executeUpdate("INSERT INTO buyer " + " (id, name, familyname, username, password) " + "VALUES" + "('"+id+"','"+n+"','"+fn+"','"+u+"','"+p+"' )");
-         conn.commit();
-            }
-         
-         
-         
-         
-       
-         catch(SQLException f)
-                 {
-                 System.err.println(f);
-                 }
+        System.out.println(" Username : ");//for the username 
+        String u = a.next();
+
+        if (this.checkusername(u) != 0) {//we use the previous function to make sure the username is not already taken 
+            do {
+
+                System.out.println(" This username already exists, choose another one");
+                System.out.println("Username");//chose an other username
+                u = a.next();
+
+            } while (this.checkusername(u) != 0);
         }
-        catch (SQLException e) {
-            System.err.println(e);
-        }
-       
-    }
-    public void newcustomers()
-    {
-           Scanner a =new Scanner(System.in);
-       System.out.println("Name :");
-       String n =a.next();
-       System.out.println("Family name :");
-       String fn =a.next();
-       
-       System.out.println(" Username : ");
-           String u=a.next();
-       
-       if(this.checkusername(u)!=0)
-       do
-       {
-           
-           System.out.println(" This username already exists, choose another one");
-           System.out.println("Username");
-            u=a.next();
-         
-           
-           
-       }while( this.checkusername(u)!=0);
-       System.out.println(" Password");
-       String p=a.next();
-       int id;
-       id=sellers.get(sellers.size()-1).getid()+1;
- 
-       sellers.add(new Seller(n,fn,u,p,id));  
+        System.out.println(" Password");//ask for the password 
+        String p = a.next();
+        int id;
+        id = buyers.get(buyers.size() - 1).getid() + 1;//we define the id of the buyer  
+        buyers.add(new Buyer(n, fn, u, p, id));//we add a new buyer in the array list of buyers 
+
         Connection conn = null;
         try {
 
             conn = DriverManager.getConnection(url, USERNAME, PASSWORD);
             Statement stmt = conn.createStatement();
-            
+
             conn.setAutoCommit(false);
-            try
-            {
-          
-             
-         stmt.executeUpdate("INSERT INTO seller " + " (id, name, familyname, username, password) " + "VALUES" + "('"+id+"','"+n+"','"+fn+"','"+u+"','"+p+"' )");
-         conn.commit();
+            try {//we also put the new customer into our database 
+
+                stmt.executeUpdate("INSERT INTO buyer " + " (id, name, familyname, username, password) " + "VALUES" + "('" + id + "','" + n + "','" + fn + "','" + u + "','" + p + "' )");
+                conn.commit();
+            } catch (SQLException f) {//possible MySql exception
+                System.err.println(f);
             }
-         
-         
-         
-         
-       
-         catch(SQLException f)
-                 {
-                 System.err.println(f);
-                 }
-        }
-        catch (SQLException e) {
+        } catch (SQLException e) {//Possible MySql connection exception
             System.err.println(e);
-        }      
-       
+        }
+
     }
-    
-    public ArrayList<Buyer> getbuyers()
-    {
+
+    public void newcustomers() {//function that creates a new seller
+        Scanner a = new Scanner(System.in);
+        System.out.println("Name :");//For a new user, we ask for the name
+        String n = a.next();
+        System.out.println("Family name :");// for the family name
+        String fn = a.next();
+
+        System.out.println(" Username : ");// for the username
+        String u = a.next();
+
+        if (this.checkusername(u) != 0) {//we use the previous function to make sure the username is not already taken
+            do {
+
+                System.out.println(" This username already exists, choose another one");//chose an other username
+                System.out.println("Username");
+                u = a.next();
+
+            } while (this.checkusername(u) != 0);
+        }
+        System.out.println(" Password");//ask for the password 
+        String p = a.next();
+        int id;
+        id = sellers.get(sellers.size() - 1).getid() + 1;//we define the id of the buyer  
+
+        sellers.add(new Seller(n, fn, u, p, id));//we add a new buyer in the array list of buyers 
+        Connection conn = null;
+        try {
+
+            conn = DriverManager.getConnection(url, USERNAME, PASSWORD);
+            Statement stmt = conn.createStatement();
+
+            conn.setAutoCommit(false);
+            try {//we also put the new customer into our database 
+
+                stmt.executeUpdate("INSERT INTO seller " + " (id, name, familyname, username, password) " + "VALUES" + "('" + id + "','" + n + "','" + fn + "','" + u + "','" + p + "' )");
+                conn.commit();
+            } catch (SQLException f) {//possible MySql exception
+                System.err.println(f);
+            }
+        } catch (SQLException e) {//possible MySql connection exception
+            System.err.println(e);
+        }
+
+    }
+
+    public ArrayList<Buyer> getbuyers() {//buyers getter 
         return buyers;
     }
-    public ArrayList<Seller> getsellers()
-    {
+
+    public ArrayList<Seller> getsellers() {//sellers getter
         return sellers;
     }
-    public ArrayList<Employee> getemp()
-    {
+
+    public ArrayList<Employee> getemp() {//employee getter
         return emp;
     }
-    public void afficher()
-    {
+
+    public void afficher() {//display the frame 
         f.setVisible(true);
         //comparer directement ici
     }
-    
-    public void application()
-    {
-       
-        this.register();
-        f=new First(buyers, sellers, emp);
-       
-        f.setVisible(true);
- 
-     
-       
-       // f.getcjf().compare(this.getbuyers(), this.getsellers(), this.getemp());
-        
-        
-        
-        
-        
+
+    public void application() { 
+
+        this.register();//We call the first function, to regoster 
+        f = new First(buyers, sellers, emp);//we create an object of the frame with its 3 arguments 
+
+        f.setVisible(true);//we open the frame and let it visible 
+
+        // f.getcjf().compare(this.getbuyers(), this.getsellers(), this.getemp());
     }
-    /*public void affichage ()
-    {
-        final int width=1000;
-        final int height=400; 
-        
-        JFrame window=new JFrame();
-        window.setSize(width,height);
-        JPanel panel = new JPanel () ;
-        JLabel welcome = new JLabel ("Welcome to the platform. Please, click on one of the following button : ") ; 
-        window.add(panel) ; 
-        panel.setBackground(Color.LIGHT_GRAY);                 
-        panel.add (welcome) ;
-        
-        JLabel titre1 = new JLabel ("Already logged in ? ") ; 
-        panel.add(titre1) ; 
-        
-        
-        
-        window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);         
-        window.setVisible(true);
-    }*/
 }

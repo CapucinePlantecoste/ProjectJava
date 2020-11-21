@@ -14,9 +14,9 @@ public class Buyer extends Customer{
     
     
     
-    public Buyer(String n, String fn, String u, String p, int i)
+    public Buyer(String n, String fn, String u, String p, int i)//no more attributes than in the customer class
     {
-        super(n,fn,u,p,i);
+        super(n,fn,u,p,i);//constructor of customer class
     }
     
     @Override

@@ -11,7 +11,7 @@ package projectjava;
  */
 public abstract class Property {
     
-    private int id;
+    private int id;//All the attributes that are common to a house and an apartment 
     private double price;
     private String location;
     private int numberrooms;
@@ -20,7 +20,7 @@ public abstract class Property {
     private int numberfloors;
     private double surface;
     
-    public Property(int i, double p, String l, int nr, int nbr, int nbf, int tv, double s)
+    public Property(int i, double p, String l, int nr, int nbr, int nbf, int tv, double s)//Constructor
     {
         id=i;
         price=p;

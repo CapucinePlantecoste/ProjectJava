@@ -15,11 +15,11 @@ public class First extends javax.swing.JFrame {
     /**
      * Creates new form First
      */
-    public First(ArrayList<Buyer> b, ArrayList<Seller> s, ArrayList<Employee> e) {
-        initComponents();
-        buyers=b;
-        sellers=s;
-        emp=e;
+    public First(ArrayList<Buyer> b, ArrayList<Seller> s, ArrayList<Employee> e) {//Constructor of the First CLass
+        initComponents();//We initalize the components, through a function automatically created by Netbeans. 
+        buyers=b;//Array List of all the buyers 
+        sellers=s;//Array List of all the sellers
+        emp=e;//Array List of all the employee
     }
 
     /**
@@ -156,55 +156,41 @@ public class First extends javax.swing.JFrame {
 
     // Connect as a buyer button
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-        //this.setVisible (false) ;
-        //new ConnectingJFrame().setVisible(true);        
-        this.toBack();//Si on fait la touche retour alors ca m'emmene ici 
-         newframe = new ConnectingJFrame ("buyers", buyers,sellers, emp);//creation d'une page newSignInJframe
+        // TODO add your handling code here:              
+        this.toBack();//We go back on this page if the user clicks on the back button the next page  
+         newframe = new ConnectingJFrame ("buyers", buyers,sellers, emp);//If the user clicks on connect as a buyer
          
-        newframe.setVisible (true); 
+        newframe.setVisible (true); //we open the new frame
         newframe.toFront();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     //Connect as a seller button
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
-        //this.setVisible (false) ;
-        //new ConnectingJFrame().setVisible(true);
-        
-        this.toBack();//Si on fait la touche retour alors ca m'emmene ici 
-        newframe = new ConnectingJFrame ("sellers", buyers, sellers, emp);//creation d'une page newSignInJframe
-        newframe.setVisible (true); 
+        this.toBack();//We go back on this page if the user clicks on the back button the next page 
+        newframe = new ConnectingJFrame ("sellers", buyers, sellers, emp);//If the user clicks on connect as a buyer
+        newframe.setVisible (true); //we open the new frame
         newframe.toFront();          
     }//GEN-LAST:event_jButton4ActionPerformed
 
     //COnnect as an employee button
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
         // TODO add your handling code here:
-        //this.setVisible (false) ;
-        //new ConnectingJFrame().setVisible(true);
-        this.toBack();//Si on fait la touche retour alors ca m'emmene ici 
-         newframe = new ConnectingJFrame ("employee", buyers,sellers, emp);//creation d'une page newSignInJframe
-        newframe.setVisible (true); 
+        this.toBack();//We go back on this page if the user clicks on the back button the next page 
+         newframe = new ConnectingJFrame ("employee", buyers,sellers, emp);//If the user clicks on connect as a buyer
+        newframe.setVisible (true); //we open the new frame
         newframe.toFront();
     }//GEN-LAST:event_jButton6ActionPerformed
 
     //Button to sign in
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
         // TODO add your handling code here:
-        //this.setVisible (false) ;
-        //new SignInJFrame().setVisible(true);        
-        this.toBack();//Si on fait la touche retour alors ca m'emmene ici 
-        SignInJFrame newframe = new SignInJFrame (buyers, sellers, emp);//creation d'une page newSignInJframe
-        newframe.setVisible (true); 
+        this.toBack();//We go back on this page if the user clicks on the back button the next page
+        SignInJFrame newframe = new SignInJFrame (buyers, sellers, emp);//If the user clicks on connect as a buyer
+        newframe.setVisible (true); //we open the new frame
         newframe.toFront();
     }//GEN-LAST:event_jButton7ActionPerformed
 
-   public ConnectingJFrame getcjf()
-   {
-       System.out.println("coucou");
-       return newframe;
-   }
     /**
      * @param args the command line arguments
      */
@@ -236,22 +222,22 @@ public class First extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             @Override
             public void run() {
-                new First(buyers, sellers, emp).setVisible(true);
+                new First(buyers, sellers, emp).setVisible(true);//We call the frame to run the process  
                 
             }
         });
     }
     
-    public  void setArrayList (ArrayList<Buyer> b)
+    public  void setArrayList (ArrayList<Buyer> b)// function that sets an arraylist of buyers 
     {
         buyers=b;
     }
 
-    private static ArrayList<Buyer> buyers=new ArrayList<Buyer>();
-    private static ArrayList<Seller> sellers = new ArrayList<Seller>();
-    private static ArrayList<Employee> emp= new ArrayList<Employee>();
+    private static ArrayList<Buyer> buyers=new ArrayList<Buyer>();//Array List of all the buyers 
+    private static ArrayList<Seller> sellers = new ArrayList<Seller>();//Array List of all the sellers 
+    private static ArrayList<Employee> emp= new ArrayList<Employee>();//Array List of all the employees 
     
-    private String type;
+    private String type;//String corresponding to the type of the user (if he is a buyer, a seller or an employee)
     private ConnectingJFrame newframe;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
