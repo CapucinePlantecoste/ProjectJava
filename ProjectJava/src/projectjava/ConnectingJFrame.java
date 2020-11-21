@@ -5,6 +5,8 @@
  */
 package projectjava;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author CAP
@@ -14,8 +16,13 @@ public class ConnectingJFrame extends javax.swing.JFrame {
     /**
      * Creates new form ConnectingJFrame
      */
-    public ConnectingJFrame() {
+    public ConnectingJFrame(String t, ArrayList<Buyer> b, ArrayList<Seller> s, ArrayList<Employee> e) {
         initComponents();
+        type = t;
+        buyers = b;
+        sellers = s;
+        emp = e;
+
     }
 
     /**
@@ -43,8 +50,6 @@ public class ConnectingJFrame extends javax.swing.JFrame {
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setLayout(null);
-
-        jLabel2.setIcon(new javax.swing.ImageIcon("C:\\Users\\CAP\\Desktop\\MOI\\logo projet info.png")); // NOI18N
         jPanel2.add(jLabel2);
         jLabel2.setBounds(1090, 100, 60, 100);
 
@@ -143,37 +148,113 @@ public class ConnectingJFrame extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 1575, Short.MAX_VALUE)
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 2256, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 825, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 1504, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    //bouton pour se logIn
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         // TODO add your handling code here:
+        // we have to check here the username and the password
+
+        password = jTextField1.getText();
+        username = jTextField2.getText();
+        int j=0;
+        if (type.equals("buyers")) {
+
+            for (int i = 0; i < buyers.size(); ++i) {
+
+                if (buyers.get(i).getpassword().equals(password) && buyers.get(i).getusername().equals(username)) {
+                    // appeler la nouvelle frame de seller
+
+                    System.out.println("connecte");
+                    j++;
+
+                }
+                
+
+            }
+            if(j==0)
+            {
+                System.out.println("erreur");
+            }
+        }
+        else if (type.equals("sellers")) {
+
+            for (int i = 0; i < sellers.size(); ++i) {
+
+                if (sellers.get(i).getpassword().equals(password) && sellers.get(i).getusername().equals(username)) {
+                    // appeler la nouvelle frame de seller
+
+                    System.out.println("connecte");
+
+                }
+            }
+            if(j==0)
+            {
+                System.out.println("erreur");
+            }
+        }
+        else
+        {
+            for (int i=0;i<emp.size();++i)
+            {
+                if(emp.get(i).getpassword().equals(password) && emp.get(i).getusername().equals(username))
+                {
+                    System.out.println("connecte");
+                }
+            }
+            if(j==0)
+            {
+                System.out.println("erreur");
+            }
+        }
+
+
     }//GEN-LAST:event_jButton5ActionPerformed
 
+    
+
+    
+
+    //password
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField1ActionPerformed
 
+    //username
     private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField2ActionPerformed
 
+    //bouton back
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         this.toBack();
-        setVisible(false) ;
-        new First().toFront();
-        new First().setState(java.awt.Frame.NORMAL) ;
+        setVisible(false);
+        new First(buyers, sellers, emp).toFront();
+        new First(buyers, sellers, emp).setState(java.awt.Frame.NORMAL);
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    public String getusername() {
+        return username;
+    }
+
+    public String getpassword() {
+        return password;
+    }
+
+    public void setArrayList(ArrayList<Buyer> b) {
+        buyers = b;
+    }
 
     /**
      * @param args the command line arguments
@@ -204,12 +285,19 @@ public class ConnectingJFrame extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
+            @Override
             public void run() {
-                new ConnectingJFrame().setVisible(true);
+                new ConnectingJFrame(type, buyers, sellers, emp).setVisible(true);
             }
         });
     }
 
+    private static ArrayList<Buyer> buyers = new ArrayList<>();
+    private static ArrayList<Seller> sellers = new ArrayList<>();
+    private static ArrayList<Employee> emp = new ArrayList<>();
+    private static String type;
+    private String password;
+    private String username;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton5;

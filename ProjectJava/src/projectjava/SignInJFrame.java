@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package projectjava;
+import java.util.ArrayList;
 
 /**
  *
@@ -14,8 +15,11 @@ public class SignInJFrame extends javax.swing.JFrame {
     /**
      * Creates new form SignInJFrame
      */
-    public SignInJFrame() {
+    public SignInJFrame(ArrayList<Buyer> b, ArrayList<Seller> s, ArrayList<Employee> e) {
         initComponents();
+        buyers=b;
+        sellers=s;
+        emp=e;
     }
 
     /**
@@ -200,11 +204,11 @@ public class SignInJFrame extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 1575, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 2256, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 825, Short.MAX_VALUE)
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 1504, Short.MAX_VALUE)
         );
 
         pack();
@@ -236,10 +240,10 @@ public class SignInJFrame extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        this.toBack(); //c'est le bouton pause
+        this.toBack(); //c'est le bouton retour
         setVisible(false) ; 
-        new First().toFront();
-        new First().setState(java.awt.Frame.NORMAL) ; 
+        new First(buyers, sellers,emp).toFront();
+        new First(buyers, sellers, emp).setState(java.awt.Frame.NORMAL) ; 
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
@@ -271,12 +275,18 @@ public class SignInJFrame extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
+            @Override
             public void run() {
-                new SignInJFrame().setVisible(true);
+                new SignInJFrame(buyers,sellers, emp).setVisible(true);
             }
         });
     }
 
+    
+    private static ArrayList<Buyer> buyers=new ArrayList<>();
+    private static ArrayList<Seller> sellers=new ArrayList<>();
+    private static ArrayList<Employee> emp=new ArrayList<>();
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton5;

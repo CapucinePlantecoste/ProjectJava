@@ -19,21 +19,29 @@ import java.util.Scanner;
  */
 public class App {
 
-    private ArrayList<Buyer> buyers=new ArrayList<Buyer>();
-    private ArrayList<Seller> sellers=new ArrayList<Seller>();
-    private ArrayList<Employee> emp=new ArrayList<Employee>();
-    private ArrayList<Property> pr=new ArrayList<Property>();
+    private ArrayList<Buyer> buyers;
+    private ArrayList<Seller> sellers;
+    private ArrayList<Employee> emp;
+    private ArrayList<Property> pr;
     private static final String USERNAME = "root";
-    private static final String PASSWORD = "Thomas1012!";
-    private static final String url = "jdbc:mysql://localhost:3307/ptest?autoReconnect=true&useSSL=false";
+    private static final String PASSWORD = "Manager26069700";
+    private static final String url = "jdbc:mysql://localhost:3306/ptest?autoReconnect=true&useSSL=false";
+    private First f;
+    
     
     public App()
     {
-        this.register();
+        this.application();
+        
     }
 
     public void register() {
         Connection conn = null;
+         buyers=new ArrayList<Buyer>();
+         emp=new ArrayList<Employee>();
+         sellers=new ArrayList<Seller>();
+         pr=new ArrayList<Property>();
+         
         try {
 
             conn = DriverManager.getConnection(url, USERNAME, PASSWORD);
@@ -42,6 +50,7 @@ public class App {
             String sqtStat1 = "SELECT * FROM employee";
             ResultSet result = stmt.executeQuery(sqtStat1);
             while (result.next()) {
+                
                 String a = result.getString("name");
                 String b = result.getString("familyname");
                 String c = result.getString("username");
@@ -54,6 +63,7 @@ public class App {
             String sqtStat2 = "SELECT * From buyer";
             ResultSet result2 = stmt.executeQuery(sqtStat2);
             while (result2.next()) {
+               
                 String a = result2.getString("name");
                 String b = result2.getString("familyname");
                 String c = result2.getString("username");
@@ -117,27 +127,15 @@ public class App {
 
     }
     
-    public String writeusername()
+   
+   
+    public void loginb()
     {
-        Scanner a=new Scanner(System.in);
-        System.out.println("Username :");
-        return a.next();
-        
-    }
-    public String writepassword()
-    {
-        Scanner a=new Scanner(System.in);
-        System.out.println("Password :");
-        return a.next();
-    }
-    public Buyer loginb()
-    {
-        String username=this.writeusername();
-        String password=this.writepassword();
+      
         //Pour tester on saisit à la mian password et username
         //On rentre notre username et notre mot de passe
-        for(int i=0;i<buyers.size();++i)
-        {
+        //for(int i=0;i<buyers.size();++i)
+       /* {
             if (buyers.get(i).getusername().equals(username)&&buyers.get(i).getpassword().equals(password))
             {
                 return buyers.get(i);
@@ -145,11 +143,11 @@ public class App {
             
         }
         
-        return null;
+        return null;*/
         
         
     }
-    public Buyer testloginb()
+    /*public Buyer testloginb()
     {
         if(this.loginb()==null)
         {
@@ -166,8 +164,9 @@ public class App {
 
        
        return this.loginb();
-    }
+    }*/
     
+    /*
     public Seller logins()
     {
         String username=this.writeusername();
@@ -268,7 +267,7 @@ public class App {
        
         
         
-    }
+    }*/
     
     //  A customer can't have the same username as an already existing seller or buyer
     public int checkusername(String a)
@@ -404,6 +403,42 @@ public class App {
             System.err.println(e);
         }      
        
+    }
+    
+    public ArrayList<Buyer> getbuyers()
+    {
+        return buyers;
+    }
+    public ArrayList<Seller> getsellers()
+    {
+        return sellers;
+    }
+    public ArrayList<Employee> getemp()
+    {
+        return emp;
+    }
+    public void afficher()
+    {
+        f.setVisible(true);
+        //comparer directement ici
+    }
+    
+    public void application()
+    {
+       
+        this.register();
+        f=new First(buyers, sellers, emp);
+       
+        f.setVisible(true);
+ 
+     
+       
+       // f.getcjf().compare(this.getbuyers(), this.getsellers(), this.getemp());
+        
+        
+        
+        
+        
     }
     /*public void affichage ()
     {

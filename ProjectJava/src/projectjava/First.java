@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package projectjava;
+import java.util.ArrayList;
 
 /**
  *
@@ -14,8 +15,11 @@ public class First extends javax.swing.JFrame {
     /**
      * Creates new form First
      */
-    public First() {
+    public First(ArrayList<Buyer> b, ArrayList<Seller> s, ArrayList<Employee> e) {
         initComponents();
+        buyers=b;
+        sellers=s;
+        emp=e;
     }
 
     /**
@@ -123,8 +127,6 @@ public class First extends javax.swing.JFrame {
 
         jPanel2.add(jPanel4);
         jPanel4.setBounds(0, 0, 750, 850);
-
-        jLabel2.setIcon(new javax.swing.ImageIcon("C:\\Users\\CAP\\Desktop\\MOI\\logo projet info.png")); // NOI18N
         jPanel2.add(jLabel2);
         jLabel2.setBounds(1120, 270, 90, 100);
 
@@ -140,58 +142,69 @@ public class First extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 1575, Short.MAX_VALUE)
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 2256, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 825, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 1504, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    // Connect as a buyer button
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         //this.setVisible (false) ;
         //new ConnectingJFrame().setVisible(true);        
         this.toBack();//Si on fait la touche retour alors ca m'emmene ici 
-        ConnectingJFrame newframe = new ConnectingJFrame ();//creation d'une page newSignInJframe
+         newframe = new ConnectingJFrame ("buyers", buyers,sellers, emp);//creation d'une page newSignInJframe
+         
         newframe.setVisible (true); 
         newframe.toFront();
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    //Connect as a seller button
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
         //this.setVisible (false) ;
         //new ConnectingJFrame().setVisible(true);
+        
         this.toBack();//Si on fait la touche retour alors ca m'emmene ici 
-        ConnectingJFrame newframe = new ConnectingJFrame ();//creation d'une page newSignInJframe
+        newframe = new ConnectingJFrame ("sellers", buyers, sellers, emp);//creation d'une page newSignInJframe
         newframe.setVisible (true); 
         newframe.toFront();          
     }//GEN-LAST:event_jButton4ActionPerformed
 
+    //COnnect as an employee button
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
         // TODO add your handling code here:
         //this.setVisible (false) ;
         //new ConnectingJFrame().setVisible(true);
         this.toBack();//Si on fait la touche retour alors ca m'emmene ici 
-        ConnectingJFrame newframe = new ConnectingJFrame ();//creation d'une page newSignInJframe
+         newframe = new ConnectingJFrame ("employee", buyers,sellers, emp);//creation d'une page newSignInJframe
         newframe.setVisible (true); 
         newframe.toFront();
     }//GEN-LAST:event_jButton6ActionPerformed
 
+    //Button to sign in
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
         // TODO add your handling code here:
         //this.setVisible (false) ;
         //new SignInJFrame().setVisible(true);        
         this.toBack();//Si on fait la touche retour alors ca m'emmene ici 
-        SignInJFrame newframe = new SignInJFrame ();//creation d'une page newSignInJframe
+        SignInJFrame newframe = new SignInJFrame (buyers, sellers, emp);//creation d'une page newSignInJframe
         newframe.setVisible (true); 
         newframe.toFront();
     }//GEN-LAST:event_jButton7ActionPerformed
 
+   public ConnectingJFrame getcjf()
+   {
+       System.out.println("coucou");
+       return newframe;
+   }
     /**
      * @param args the command line arguments
      */
@@ -221,12 +234,25 @@ public class First extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
+            @Override
             public void run() {
-                new First().setVisible(true);
+                new First(buyers, sellers, emp).setVisible(true);
+                
             }
         });
     }
+    
+    public  void setArrayList (ArrayList<Buyer> b)
+    {
+        buyers=b;
+    }
 
+    private static ArrayList<Buyer> buyers=new ArrayList<Buyer>();
+    private static ArrayList<Seller> sellers = new ArrayList<Seller>();
+    private static ArrayList<Employee> emp= new ArrayList<Employee>();
+    
+    private String type;
+    private ConnectingJFrame newframe;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton4;
