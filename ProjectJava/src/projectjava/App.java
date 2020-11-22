@@ -395,10 +395,7 @@ public class App {
 
         f.setVisible(true);//we open the frame and let it visible 
        
-        for (int i=0;i<sellers.size();++i)
-        {
-            System.out.println(sellers.get(i).getusername());
-        }
+        
 
         // f.getcjf().compare(this.getbuyers(), this.getsellers(), this.getemp());
     }
