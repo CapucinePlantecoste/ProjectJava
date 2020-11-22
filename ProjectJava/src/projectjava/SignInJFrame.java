@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.*;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -48,7 +49,6 @@ public class SignInJFrame extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
         jTextField2 = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
@@ -56,6 +56,9 @@ public class SignInJFrame extends javax.swing.JFrame {
         jTextField3 = new javax.swing.JTextField();
         jTextField4 = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jPasswordField1 = new javax.swing.JPasswordField();
+        jPasswordField2 = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -138,23 +141,15 @@ public class SignInJFrame extends javax.swing.JFrame {
             }
         });
         jPanel2.add(jButton5);
-        jButton5.setBounds(990, 580, 100, 23);
+        jButton5.setBounds(990, 630, 100, 23);
 
         jLabel7.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(0, 153, 153));
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel7.setText("Password");
+        jLabel7.setText("Confirm Password ");
         jLabel7.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel2.add(jLabel7);
-        jLabel7.setBounds(940, 460, 70, 26);
-
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
-            }
-        });
-        jPanel2.add(jTextField1);
-        jTextField1.setBounds(940, 490, 210, 40);
+        jLabel7.setBounds(940, 540, 150, 26);
 
         jLabel9.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(0, 153, 153));
@@ -208,6 +203,30 @@ public class SignInJFrame extends javax.swing.JFrame {
         jPanel2.add(jLabel4);
         jLabel4.setBounds(1010, 130, 70, 70);
 
+        jLabel8.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(0, 153, 153));
+        jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel8.setText("Password");
+        jLabel8.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jPanel2.add(jLabel8);
+        jLabel8.setBounds(940, 460, 70, 26);
+
+        jPasswordField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jPasswordField1ActionPerformed(evt);
+            }
+        });
+        jPanel2.add(jPasswordField1);
+        jPasswordField1.setBounds(940, 570, 210, 40);
+
+        jPasswordField2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jPasswordField2ActionPerformed(evt);
+            }
+        });
+        jPanel2.add(jPasswordField2);
+        jPasswordField2.setBounds(940, 490, 210, 40);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -234,16 +253,15 @@ public class SignInJFrame extends javax.swing.JFrame {
         
         
         // rajouter dans ce if la condition le password et le check password egaux
-        if (jTextField1.getText().trim().isEmpty() || jTextField2.getText().trim().isEmpty() || jTextField3.getText().trim().isEmpty() || jTextField4.getText().trim().isEmpty() || jTextField5.getText().trim().isEmpty() ) {
-            // redemander a tout prendre
-           // afficher message d'erreur et redemander à mettre
-            System.out.println("truc vide");
+        if (jPasswordField2.getText().trim().isEmpty() || jTextField2.getText().trim().isEmpty() || jTextField3.getText().trim().isEmpty() || jTextField4.getText().trim().isEmpty() || jPasswordField2.getText().trim().isEmpty() ) {
+            
+            JOptionPane.showMessageDialog(null, "One or several fields are empty. Please, try again.");
         
         }
-        /*else if( !jTextField1.getText().equals(jTextField5.getText()))
+        else if( !jPasswordField2.getText().equals(jPasswordField1.getText()))
         {
-            // Mot de passe pas identiques
-        }*/
+            JOptionPane.showMessageDialog(null, "The two passwords are not the same. Please, try again.");
+        }
                 else {
             
             if (tampon == 1) {
@@ -251,12 +269,11 @@ public class SignInJFrame extends javax.swing.JFrame {
                t=this.test();
                
                 if (t != 0) {
-                    System.out.println("Username already used please choose antoher one");
-                    // faire message d'erreur et demander la resaisie
-                    // Faire un Joption pane 
+                    JOptionPane.showMessageDialog(null, "Username already used. Please, chose another one."); 
                 } else {
                     
                     this.addbuyer();
+                    JOptionPane.showMessageDialog(null, "The accouont has been successfully created");
                     //AFFICHER L'INTERFACE DU NOUVEL ARRIVANT
 
                 }
@@ -267,9 +284,10 @@ public class SignInJFrame extends javax.swing.JFrame {
                 
                t=this.test();
                if (t != 0) {
-                    System.out.println("Username already used please choose antoher one");
+                    JOptionPane.showMessageDialog(null, "Username already used. Please, chose another one.");
                 } else {
                     this.addseller();
+                    JOptionPane.showMessageDialog(null, "The accouont has been successfully created");
                     //AFFICHER L'INTERFACE DU NOUVEL ARRIVANT
 
                 }
@@ -281,7 +299,7 @@ public class SignInJFrame extends javax.swing.JFrame {
 
     public void addbuyer()
     {
-       buyers.add(new Buyer(jTextField3.getText(), jTextField2.getText(), jTextField4.getText(), jTextField1.getText()));
+       buyers.add(new Buyer(jTextField3.getText(), jTextField2.getText(), jTextField4.getText(), jPasswordField2.getText()));
                     Connection conn = null;
                     try {
 
@@ -291,7 +309,7 @@ public class SignInJFrame extends javax.swing.JFrame {
                         conn.setAutoCommit(false);
                         try {//we also put the new customer into our database 
 
-                            stmt.executeUpdate("INSERT INTO buyer " + " (name, familyname, username, password) " + "VALUES" + "('" + jTextField3.getText()+ "','" + jTextField2.getText() + "','" + jTextField4.getText() + "','" + jTextField1.getText() + "' )");
+                            stmt.executeUpdate("INSERT INTO buyer " + " (name, familyname, username, password) " + "VALUES" + "('" + jTextField3.getText()+ "','" + jTextField2.getText() + "','" + jTextField4.getText() + "','" + jPasswordField2.getText() + "' )");
                             conn.commit();
                         } catch (SQLException f) {//possible MySql exception
                             System.err.println(f);
@@ -303,7 +321,7 @@ public class SignInJFrame extends javax.swing.JFrame {
     
     public void addseller()
     {
-        sellers.add(new Seller(jTextField3.getText(), jTextField2.getText(), jTextField4.getText(), jTextField1.getText()));
+        sellers.add(new Seller(jTextField3.getText(), jTextField2.getText(), jTextField4.getText(), jPasswordField2.getText()));
                     Connection conn = null;
                     try {
 
@@ -313,7 +331,7 @@ public class SignInJFrame extends javax.swing.JFrame {
                         conn.setAutoCommit(false);
                         try {//we also put the new customer into our database 
 
-                            stmt.executeUpdate("INSERT INTO seller " + " ( name, familyname, username, password) " + "VALUES" + "('" + jTextField3.getText()+ "','" + jTextField2.getText() + "','" + jTextField4.getText() + "','" + jTextField1.getText() + "' )");
+                            stmt.executeUpdate("INSERT INTO seller " + " ( name, familyname, username, password) " + "VALUES" + "('" + jTextField3.getText()+ "','" + jTextField2.getText() + "','" + jTextField4.getText() + "','" + jPasswordField2.getText() + "' )");
                             conn.commit();
                         } catch (SQLException f) {//possible MySql exception
                             System.err.println(f);
@@ -344,10 +362,6 @@ public class SignInJFrame extends javax.swing.JFrame {
         
         
     }
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
-
     private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField2ActionPerformed
@@ -378,6 +392,14 @@ public class SignInJFrame extends javax.swing.JFrame {
         new First(buyers, sellers, emp, url, USERNAME, PASSWORD).toFront();//We go back on the FIrst page
         new First(buyers, sellers, emp, url, USERNAME, PASSWORD).setState(java.awt.Frame.NORMAL);
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jPasswordField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPasswordField1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jPasswordField1ActionPerformed
+
+    private void jPasswordField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPasswordField2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jPasswordField2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -434,10 +456,12 @@ public class SignInJFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel4;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JPasswordField jPasswordField1;
+    private javax.swing.JPasswordField jPasswordField2;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;

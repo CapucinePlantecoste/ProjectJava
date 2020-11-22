@@ -24,8 +24,8 @@ public class App {
     private ArrayList<Employee> emp;//ArrayList of all the employees contained in the database
     private ArrayList<Property> pr;//ArrayList of all the buyers properties in the database
     private static final String USERNAME = "root";//Username of MySql database
-    private static final String PASSWORD = "Manager26069700";//Password of MySQL database
-    private static final String url = "jdbc:mysql://localhost:3306/ptest?autoReconnect=true&useSSL=false";
+    private static final String PASSWORD = "Thomas1012!";//Password of MySQL database
+    private static final String url = "jdbc:mysql://localhost:3307/ptest?autoReconnect=true&useSSL=false";
     private First f;
 
     public App() {

@@ -46,9 +46,9 @@ public class ConnectingJFrame extends javax.swing.JFrame {//this frame correspon
         jButton1 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
         jTextField2 = new javax.swing.JTextField();
+        jPasswordField1 = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -124,14 +124,6 @@ public class ConnectingJFrame extends javax.swing.JFrame {//this frame correspon
         jPanel2.add(jLabel7);
         jLabel7.setBounds(1020, 350, 100, 26);
 
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
-            }
-        });
-        jPanel2.add(jTextField1);
-        jTextField1.setBounds(1020, 380, 230, 50);
-
         jLabel9.setFont(new java.awt.Font("Calibri", 0, 24)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(0, 153, 153));
         jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -147,6 +139,14 @@ public class ConnectingJFrame extends javax.swing.JFrame {//this frame correspon
         });
         jPanel2.add(jTextField2);
         jTextField2.setBounds(1020, 250, 230, 50);
+
+        jPasswordField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jPasswordField1ActionPerformed(evt);
+            }
+        });
+        jPanel2.add(jPasswordField1);
+        jPasswordField1.setBounds(1030, 390, 220, 50);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -169,7 +169,7 @@ public class ConnectingJFrame extends javax.swing.JFrame {//this frame correspon
         // TODO add your handling code here:
         // we have to check here the username and the password
 
-        password = jTextField1.getText();//we get the field of the password 
+        password = jPasswordField1.getText();//we get the field of the password 
         username = jTextField2.getText();//we get the field of the username
         int j=0;
         if (type.equals("buyers")) {//if the customer is a buyer
@@ -180,6 +180,7 @@ public class ConnectingJFrame extends javax.swing.JFrame {//this frame correspon
                     //Connexion succeeded
                     //appeler la nouvelle frame de seller
                     j++;
+                    JOptionPane.showMessageDialog(null, "Connection worked");
                 }
                 
 
@@ -197,6 +198,7 @@ public class ConnectingJFrame extends javax.swing.JFrame {//this frame correspon
                     // appeler la nouvelle frame de buyer
                     //Connexion succeeded
                     j++;
+                    JOptionPane.showMessageDialog(null, "Connection worked");
 
                 }
             }
@@ -213,6 +215,7 @@ public class ConnectingJFrame extends javax.swing.JFrame {//this frame correspon
                 {//connexion worked
                     //appeler la frame de employee
                     j++; 
+                    JOptionPane.showMessageDialog(null, "Connection worked");
                 }
             }
             if(j==0)//connection didn't succeed because password and/or username are wrong
@@ -228,11 +231,6 @@ public class ConnectingJFrame extends javax.swing.JFrame {//this frame correspon
 
     
 
-    //password
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
-
     //username
     private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
         // TODO add your handling code here:
@@ -246,6 +244,10 @@ public class ConnectingJFrame extends javax.swing.JFrame {//this frame correspon
         new First(buyers, sellers, emp, url, USERNAME,PASSWORD).toFront();//we go back on the first page 
         new First(buyers, sellers, emp, url, USERNAME, PASSWORD).setState(java.awt.Frame.NORMAL);
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jPasswordField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPasswordField1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jPasswordField1ActionPerformed
 
     public String getusername() {//we get the username 
         return username;
@@ -314,7 +316,7 @@ public class ConnectingJFrame extends javax.swing.JFrame {//this frame correspon
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel4;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JTextField jTextField2;
     // End of variables declaration//GEN-END:variables
 }
