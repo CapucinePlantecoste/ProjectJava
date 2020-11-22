@@ -11,9 +11,9 @@ package projectjava;
  */
 public class Employee extends Person {//Employee is a derived class of Person
     
-    public Employee(String n, String fn, String u, String p, int i)//COnstructor 
+    public Employee(String n, String fn, String u, String p)//COnstructor 
     {
-        super(n,fn,u,p,i);//constructor of the Person class
+        super(n,fn,u,p);//constructor of the Person class
     }
     
     @Override

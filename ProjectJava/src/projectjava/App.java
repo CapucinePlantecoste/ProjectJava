@@ -24,8 +24,8 @@ public class App {
     private ArrayList<Employee> emp;//ArrayList of all the employees contained in the database
     private ArrayList<Property> pr;//ArrayList of all the buyers properties in the database
     private static final String USERNAME = "root";//Username of MySql database
-    private static final String PASSWORD = "Thomas1012!";//Password of MySQL database
-    private static final String url = "jdbc:mysql://localhost:3307/ptest?autoReconnect=true&useSSL=false";
+    private static final String PASSWORD = "Manager26069700";//Password of MySQL database
+    private static final String url = "jdbc:mysql://localhost:3306/ptest?autoReconnect=true&useSSL=false";
     private First f;
 
     public App() {
@@ -53,8 +53,8 @@ public class App {
                 String b = result.getString("familyname");
                 String c = result.getString("username");
                 String d = result.getString("password");
-                int e = result.getInt("id");
-                emp.add(new Employee(a, b, c, d, e));//we create an employee object with the values get ahead
+                
+                emp.add(new Employee(a, b, c, d));//we create an employee object with the values get ahead
 
             }
 
@@ -66,9 +66,9 @@ public class App {
                 String b = result2.getString("familyname");
                 String c = result2.getString("username");
                 String d = result2.getString("password");
-                int e = result2.getInt("id");
+                
 
-                buyers.add(new Buyer(a, b, c, d, e));
+                buyers.add(new Buyer(a, b, c, d));
 
             }
 
@@ -79,8 +79,8 @@ public class App {
                 String b = result3.getString("familyname");
                 String c = result3.getString("username");
                 String d = result3.getString("password");
-                int e = result3.getInt("id");
-                sellers.add(new Seller(a, b, c, d, e));
+                
+                sellers.add(new Seller(a, b, c, d));
 
             }
             String sqtStat4 = "SELECT * From house";//We get the different values of the different columns of the table house
@@ -279,7 +279,7 @@ public class App {
         return nb;//We will use this value later and make sure it is equal to zero
     }
 
-    public void newcustomerb() {
+    /* public void newcustomerb() {
         //affichage du choix entre etre un nouveau buyer ou ou nouveau seller
         //SI on clique sur le bouton etre un nouveau buyer
         Scanner a = new Scanner(System.in);
@@ -324,9 +324,9 @@ public class App {
             System.err.println(e);
         }
 
-    }
+    }*/
 
-    public void newcustomers() {//function that creates a new seller
+    /*public void newcustomers() {//function that creates a new seller
         Scanner a = new Scanner(System.in);
         System.out.println("Name :");//For a new user, we ask for the name
         String n = a.next();
@@ -369,7 +369,7 @@ public class App {
             System.err.println(e);
         }
 
-    }
+    }*/
 
     public ArrayList<Buyer> getbuyers() {//buyers getter 
         return buyers;
@@ -391,9 +391,14 @@ public class App {
     public void application() { 
 
         this.register();//We call the first function, to regoster 
-        f = new First(buyers, sellers, emp);//we create an object of the frame with its 3 arguments 
+        f = new First(buyers, sellers, emp, url, USERNAME,PASSWORD);//we create an object of the frame with its 3 arguments 
 
         f.setVisible(true);//we open the frame and let it visible 
+       
+        for (int i=0;i<sellers.size();++i)
+        {
+            System.out.println(sellers.get(i).getusername());
+        }
 
         // f.getcjf().compare(this.getbuyers(), this.getsellers(), this.getemp());
     }

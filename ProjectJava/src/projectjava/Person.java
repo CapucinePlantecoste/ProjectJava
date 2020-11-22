@@ -15,28 +15,20 @@ public abstract class Person {
     private String familyname;
     private String username;
     private String password;
-    private int id;
     
-    public Person(String n, String fn, String u, String p, int i)//constructor 
+    
+    public Person(String n, String fn, String u, String p)//constructor 
     {
         name=n;
         familyname=fn;
         username=u;
         password=p;
-        id=i;
+        
     }
     
     public abstract void display();//Overwritten function in the subclasses
     
-    public int getid()//function to get the id of the person
-    {
-        return id;
-    }
     
-    public void setid(int i)//function to set the id of the person
-    {
-        id=i;
-    }
     
     public String getusername()//function to get the username of the person
     {
