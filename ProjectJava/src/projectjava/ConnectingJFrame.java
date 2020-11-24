@@ -152,12 +152,12 @@ public class ConnectingJFrame extends javax.swing.JFrame {//this frame correspon
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 2256, Short.MAX_VALUE)
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 1575, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 1504, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 850, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
@@ -178,9 +178,13 @@ public class ConnectingJFrame extends javax.swing.JFrame {//this frame correspon
 
                 if (buyers.get(i).getpassword().equals(password) && buyers.get(i).getusername().equals(username)) {//we check if the username and password correspond to those in the database  
                     //Connexion succeeded
-                    //appeler la nouvelle frame de seller
+                    
                     j++;
-                    JOptionPane.showMessageDialog(null, "Connection worked");
+                    BuyerFirst newframe = new BuyerFirst(buyers.get(i),buyers, sellers, emp, url, USERNAME,PASSWORD);
+                    newframe.nom();  
+         
+                    newframe.setVisible (true); //we open the new frame
+                    newframe.toFront();
                 }
                 
 
@@ -195,10 +199,13 @@ public class ConnectingJFrame extends javax.swing.JFrame {//this frame correspon
             for (int i = 0; i < sellers.size(); ++i) {//we go through the whole list of sellers
 
                 if (sellers.get(i).getpassword().equals(password) && sellers.get(i).getusername().equals(username)) {//we check if the username and password correspond to those in the database  
-                    // appeler la nouvelle frame de buyer
-                    //Connexion succeeded
+                    
                     j++;
-                    JOptionPane.showMessageDialog(null, "Connection worked");
+                   SellerFirst newframe = new SellerFirst(sellers.get(i),buyers, sellers, emp, url, USERNAME,PASSWORD);
+                   newframe.nom();
+         
+                    newframe.setVisible (true); //we open the new frame
+                    newframe.toFront();
 
                 }
             }
@@ -215,7 +222,11 @@ public class ConnectingJFrame extends javax.swing.JFrame {//this frame correspon
                 {//connexion worked
                     //appeler la frame de employee
                     j++; 
-                    JOptionPane.showMessageDialog(null, "Connection worked");
+                    EmployeeFirst newframe = new EmployeeFirst(emp.get(i),buyers, sellers, emp, url, USERNAME,PASSWORD);
+                    newframe.nom();
+         
+                    newframe.setVisible (true); //we open the new frame
+                    newframe.toFront();
                 }
             }
             if(j==0)//connection didn't succeed because password and/or username are wrong

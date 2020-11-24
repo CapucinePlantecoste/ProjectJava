@@ -146,12 +146,12 @@ public class First extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 2256, Short.MAX_VALUE)
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 1575, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 1504, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 850, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
@@ -162,28 +162,52 @@ public class First extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:              
         this.toBack();//We go back on this page if the user clicks on the back button the next page  
-         newframe = new ConnectingJFrame ("buyers", buyers,sellers, emp,url, USERNAME, PASSWORD);//If the user clicks on connect as a buyer
+        
+        newframe = new ConnectingJFrame ("buyers", buyers,sellers, emp,url, USERNAME, PASSWORD);//If the user clicks on connect as a buyer
          
         newframe.setVisible (true); //we open the new frame
         newframe.toFront();
+        
+        BuyerFirst newframe2 = new BuyerFirst (buyers.get(buyers.size()-1),buyers, sellers, emp, url, USERNAME, PASSWORD);//If the user clicks on connect as a buyer
+        //newframe2.setVisible (true); //we open the new frame
+        newframe2.toFront();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     //Connect as a seller button
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
         this.toBack();//We go back on this page if the user clicks on the back button the next page 
+        
         newframe = new ConnectingJFrame ("sellers", buyers, sellers, emp, url, USERNAME, PASSWORD);//If the user clicks on connect as a buyer
         newframe.setVisible (true); //we open the new frame
-        newframe.toFront();          
+        newframe.toFront(); 
+        
+        SellerFirst newframe2 = new SellerFirst (sellers.get(sellers.size()-1), buyers, sellers, emp, url, USERNAME, PASSWORD);//If the user clicks on connect as a buyer
+        newframe2.toFront();
+        
+        SellerNewProperty newframe3 = new SellerNewProperty (sellers.get(sellers.size()-1), buyers, sellers, emp, url, USERNAME, PASSWORD);//If the user clicks on connect as a buyer
+        newframe3.toFront();
+        
+        SellerNewPropertyApartment newframe4 = new SellerNewPropertyApartment (sellers.get(sellers.size()-1), buyers, sellers, emp, url, USERNAME, PASSWORD);//If the user clicks on connect as a buyer
+        newframe4.toFront();
+        
+        SellerNewPropertyHouse newframe5 = new SellerNewPropertyHouse (sellers.get(sellers.size()-1), buyers, sellers, emp, url, USERNAME, PASSWORD);//If the user clicks on connect as a buyer
+        newframe5.toFront();
+        
     }//GEN-LAST:event_jButton4ActionPerformed
 
     //COnnect as an employee button
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
         // TODO add your handling code here:
         this.toBack();//We go back on this page if the user clicks on the back button the next page 
-         newframe = new ConnectingJFrame ("employee", buyers,sellers, emp, url, USERNAME, PASSWORD);//If the user clicks on connect as a buyer
+        
+        newframe = new ConnectingJFrame ("employee", buyers,sellers, emp, url, USERNAME, PASSWORD);//If the user clicks on connect as a buyer
         newframe.setVisible (true); //we open the new frame
         newframe.toFront();
+        
+        EmployeeFirst newframe2 = new EmployeeFirst (emp.get(emp.size()-1),buyers, sellers, emp, url, USERNAME, PASSWORD);//If the user clicks on connect as a buyer
+        //newframe2.setVisible (true); //we open the new frame
+        newframe2.toFront();
     }//GEN-LAST:event_jButton6ActionPerformed
 
     //Button to sign in

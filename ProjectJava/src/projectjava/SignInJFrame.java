@@ -231,11 +231,11 @@ public class SignInJFrame extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 2256, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 1575, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 1504, Short.MAX_VALUE)
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 850, Short.MAX_VALUE)
         );
 
         pack();
@@ -273,7 +273,18 @@ public class SignInJFrame extends javax.swing.JFrame {
                 } else {
                     
                     this.addbuyer();
-                    JOptionPane.showMessageDialog(null, "The accouont has been successfully created");
+                    
+                    
+                    //add buyer.get(buyers.size()-1)
+                    
+                    
+                    BuyerFirst newframe = new BuyerFirst(buyers.get(buyers.size()-1),buyers, sellers, emp, url, USERNAME,PASSWORD);
+                    newframe.nom();
+                    //If the user clicks on connect as a buyer
+         
+                    newframe.setVisible (true); //we open the new frame
+                    newframe.toFront();
+                    JOptionPane.showMessageDialog(null, "The account has been successfully created");
                     //AFFICHER L'INTERFACE DU NOUVEL ARRIVANT
 
                 }
@@ -287,7 +298,12 @@ public class SignInJFrame extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(null, "Username already used. Please, chose another one.");
                 } else {
                     this.addseller();
-                    JOptionPane.showMessageDialog(null, "The accouont has been successfully created");
+                    SellerFirst newframe = new SellerFirst(sellers.get(sellers.size()-1), buyers, sellers, emp, url, USERNAME,PASSWORD);
+                    newframe.nom();
+         
+                    newframe.setVisible (true); //we open the new frame
+                    newframe.toFront();
+                    JOptionPane.showMessageDialog(null, "The account has been successfully created");
                     //AFFICHER L'INTERFACE DU NOUVEL ARRIVANT
 
                 }
