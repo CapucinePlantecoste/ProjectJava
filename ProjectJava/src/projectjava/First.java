@@ -15,11 +15,12 @@ public class First extends javax.swing.JFrame {
     /**
      * Creates new form First
      */
-    public First(ArrayList<Buyer> b, ArrayList<Seller> s, ArrayList<Employee> e, String u, String us, String p) {//Constructor of the First CLass
+    public First(ArrayList<Buyer> b, ArrayList<Seller> s, ArrayList<Employee> e, ArrayList<Property>prop, String u, String us, String p) {//Constructor of the First CLass
         initComponents();//We initalize the components, through a function automatically created by Netbeans. 
         buyers=b;//Array List of all the buyers 
         sellers=s;//Array List of all the sellers
         emp=e;//Array List of all the employee
+        pr=prop;
         url=u;
         USERNAME=us;
         PASSWORD=p;
@@ -163,14 +164,14 @@ public class First extends javax.swing.JFrame {
         // TODO add your handling code here:              
         this.toBack();//We go back on this page if the user clicks on the back button the next page  
         
-        newframe = new ConnectingJFrame ("buyers", buyers,sellers, emp,url, USERNAME, PASSWORD);//If the user clicks on connect as a buyer
+        newframe = new ConnectingJFrame ("buyers", buyers,sellers, emp,pr,url, USERNAME, PASSWORD);//If the user clicks on connect as a buyer
          
         newframe.setVisible (true); //we open the new frame
         newframe.toFront();
         
-        BuyerFirst newframe2 = new BuyerFirst (buyers.get(buyers.size()-1),buyers, sellers, emp, url, USERNAME, PASSWORD);//If the user clicks on connect as a buyer
+       // BuyerFirst newframe2 = new BuyerFirst (buyers.get(buyers.size()-1),buyers, sellers, emp, url, USERNAME, PASSWORD);//If the user clicks on connect as a buyer
         //newframe2.setVisible (true); //we open the new frame
-        newframe2.toFront();
+       // newframe2.toFront();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     //Connect as a seller button
@@ -178,21 +179,21 @@ public class First extends javax.swing.JFrame {
         // TODO add your handling code here:
         this.toBack();//We go back on this page if the user clicks on the back button the next page 
         
-        newframe = new ConnectingJFrame ("sellers", buyers, sellers, emp, url, USERNAME, PASSWORD);//If the user clicks on connect as a buyer
+        newframe = new ConnectingJFrame ("sellers", buyers, sellers, emp,pr, url, USERNAME, PASSWORD);//If the user clicks on connect as a buyer
         newframe.setVisible (true); //we open the new frame
         newframe.toFront(); 
         
-        SellerFirst newframe2 = new SellerFirst (sellers.get(sellers.size()-1), buyers, sellers, emp, url, USERNAME, PASSWORD);//If the user clicks on connect as a buyer
-        newframe2.toFront();
+        //SellerFirst newframe2 = new SellerFirst (sellers.get(sellers.size()-1), buyers, sellers, emp, url, USERNAME, PASSWORD);//If the user clicks on connect as a buyer
+        //newframe2.toFront();
         
-        SellerNewProperty newframe3 = new SellerNewProperty (sellers.get(sellers.size()-1), buyers, sellers, emp, url, USERNAME, PASSWORD);//If the user clicks on connect as a buyer
-        newframe3.toFront();
+        //SellerNewProperty newframe3 = new SellerNewProperty (sellers.get(sellers.size()-1), buyers, sellers, emp, url, USERNAME, PASSWORD);//If the user clicks on connect as a buyer
+        //newframe3.toFront();
         
-        SellerNewPropertyApartment newframe4 = new SellerNewPropertyApartment (sellers.get(sellers.size()-1), buyers, sellers, emp, url, USERNAME, PASSWORD);//If the user clicks on connect as a buyer
-        newframe4.toFront();
+        //SellerNewPropertyApartment newframe4 = new SellerNewPropertyApartment (sellers.get(sellers.size()-1), buyers, sellers, emp, url, USERNAME, PASSWORD);//If the user clicks on connect as a buyer
+        //newframe4.toFront();
         
-        SellerNewPropertyHouse newframe5 = new SellerNewPropertyHouse (sellers.get(sellers.size()-1), buyers, sellers, emp, url, USERNAME, PASSWORD);//If the user clicks on connect as a buyer
-        newframe5.toFront();
+       // SellerNewPropertyHouse newframe5 = new SellerNewPropertyHouse (sellers.get(sellers.size()-1), buyers, sellers, emp, url, USERNAME, PASSWORD);//If the user clicks on connect as a buyer
+        //newframe5.toFront();
         
     }//GEN-LAST:event_jButton4ActionPerformed
 
@@ -201,20 +202,20 @@ public class First extends javax.swing.JFrame {
         // TODO add your handling code here:
         this.toBack();//We go back on this page if the user clicks on the back button the next page 
         
-        newframe = new ConnectingJFrame ("employee", buyers,sellers, emp, url, USERNAME, PASSWORD);//If the user clicks on connect as a buyer
+        newframe = new ConnectingJFrame ("employee", buyers,sellers, emp,pr, url, USERNAME, PASSWORD);//If the user clicks on connect as a buyer
         newframe.setVisible (true); //we open the new frame
         newframe.toFront();
         
-        EmployeeFirst newframe2 = new EmployeeFirst (emp.get(emp.size()-1),buyers, sellers, emp, url, USERNAME, PASSWORD);//If the user clicks on connect as a buyer
+        //EmployeeFirst newframe2 = new EmployeeFirst (emp.get(emp.size()-1),buyers, sellers, emp, url, USERNAME, PASSWORD);//If the user clicks on connect as a buyer
         //newframe2.setVisible (true); //we open the new frame
-        newframe2.toFront();
+        //newframe2.toFront();
     }//GEN-LAST:event_jButton6ActionPerformed
 
     //Button to sign in
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
         // TODO add your handling code here:
         this.toBack();//We go back on this page if the user clicks on the back button the next page
-        SignInJFrame newframe = new SignInJFrame (buyers, sellers, emp, url, USERNAME, PASSWORD);//If the user clicks on connect as a buyer
+        SignInJFrame newframe = new SignInJFrame (buyers, sellers, emp,pr, url, USERNAME, PASSWORD);//If the user clicks on connect as a buyer
         newframe.setVisible (true); //we open the new frame
         newframe.toFront();
     }//GEN-LAST:event_jButton7ActionPerformed
@@ -250,7 +251,7 @@ public class First extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             @Override
             public void run() {
-                new First(buyers, sellers, emp, url, USERNAME, PASSWORD).setVisible(true);//We call the frame to run the process  
+                new First(buyers, sellers, emp, pr,url, USERNAME, PASSWORD).setVisible(true);//We call the frame to run the process  
                 
             }
         });
@@ -261,6 +262,7 @@ public class First extends javax.swing.JFrame {
     private static ArrayList<Buyer> buyers=new ArrayList<Buyer>();//Array List of all the buyers 
     private static ArrayList<Seller> sellers = new ArrayList<Seller>();//Array List of all the sellers 
     private static ArrayList<Employee> emp= new ArrayList<Employee>();//Array List of all the employees 
+    private static ArrayList<Property> pr= new ArrayList<Property>();
     private static String url;
     private static String PASSWORD;
     private static String USERNAME;

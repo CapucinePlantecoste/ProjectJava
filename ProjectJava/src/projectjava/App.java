@@ -24,8 +24,8 @@ public class App {
     private ArrayList<Employee> emp;//ArrayList of all the employees contained in the database
     private ArrayList<Property> pr;//ArrayList of all the buyers properties in the database
     private static final String USERNAME = "root";//Username of MySql database
-    private static final String PASSWORD = "Thomas1012!";//Password of MySQL database
-    private static final String url = "jdbc:mysql://localhost:3307/ptest?autoReconnect=true&useSSL=false";
+    private static final String PASSWORD = "Manager26069700";//Password of MySQL database
+    private static final String url = "jdbc:mysql://localhost:3306/ptest?autoReconnect=true&useSSL=false";
     private First f;
 
     public App() {
@@ -53,8 +53,9 @@ public class App {
                 String b = result.getString("familyname");
                 String c = result.getString("username");
                 String d = result.getString("password");
+               int e=result.getInt("idemployee");
                 
-                emp.add(new Employee(a, b, c, d));//we create an employee object with the values get ahead
+                emp.add(new Employee(e,a, b, c, d));//we create an employee object with the values get ahead
 
             }
 
@@ -66,9 +67,10 @@ public class App {
                 String b = result2.getString("familyname");
                 String c = result2.getString("username");
                 String d = result2.getString("password");
+                int e=result2.getInt("idbuyer");
                 
 
-                buyers.add(new Buyer(a, b, c, d));
+                buyers.add(new Buyer(e,a, b, c, d));
 
             }
 
@@ -79,14 +81,18 @@ public class App {
                 String b = result3.getString("familyname");
                 String c = result3.getString("username");
                 String d = result3.getString("password");
+                int e=result3.getInt("idseller");
                 
-                sellers.add(new Seller(a, b, c, d));
+                sellers.add(new Seller(e,a, b, c, d));
 
             }
-            String sqtStat4 = "SELECT * From house";//We get the different values of the different columns of the table house
+            String sqtStat4 = "SELECT * From property";//We get the different values of the different columns of the table house
             ResultSet result4 = stmt.executeQuery(sqtStat4);//we execute the query
             while (result4.next()) {
+                if(result4.getString("type").equals("House"))
+                {
                 int a = result4.getInt("id");//First column of the table 
+                String d=result4.getString("description");
                 double p = result4.getDouble("price");
                 String l = result4.getString("location");
                 int nr = result4.getInt("numberrooms");
@@ -96,26 +102,30 @@ public class App {
                 double s = result4.getDouble("surface");
                 double gs = result4.getDouble("gardensurface");
                 boolean sp = result4.getBoolean("swimmingpool");
-                pr.add(new House(a, p, l, nr, nbr, nf, tv, s, gs, sp));
+                int ids=result4.getInt("idseller");
+                pr.add(new House(a,d, p, l, nr, nbr, nf, tv, s,ids,"House", gs, sp));
+                }
+                else
+                {
+                     int a = result4.getInt("id");//First column of the table 
+                     String d=result4.getString("description");
+                double p = result4.getDouble("price");
+                String l = result4.getString("location");
+                int nr = result4.getInt("numberrooms");
+                int nbr = result4.getInt("numberbedrooms");
+                int nf = result4.getInt("numberfloors");
+                int tv = result4.getInt(("timevisited"));
+                double s = result4.getDouble("surface");
+                boolean elv = result4.getBoolean("elevator");
+                int fn = result4.getInt("floornumber");
+                boolean prkg = result4.getBoolean("parking");
+                int ids=result4.getInt("idseller");
+                pr.add(new Appartment(a,d, p, l, nr, nbr, nf, tv, s,ids,"Apartment", elv, fn, prkg));
+
+                }
 
             }
-            String sqtStat5 = "SELECT * From apartment";//We get the different values of the different columns of the table apartment
-            ResultSet result5 = stmt.executeQuery(sqtStat5);//we execute the query
-            while (result5.next()) {
-                int a = result5.getInt("id");//First column of the table 
-                double p = result5.getDouble("price");
-                String l = result5.getString("location");
-                int nr = result5.getInt("numberrooms");
-                int nbr = result5.getInt("numberbedrooms");
-                int nf = result5.getInt("numberfloors");
-                int tv = result5.getInt(("timevisited"));
-                double s = result5.getDouble("surface");
-                boolean elv = result5.getBoolean("elevator");
-                int fn = result5.getInt("floornumber");
-                boolean prkg = result5.getBoolean("parking");
-                pr.add(new Appartment(a, p, l, nr, nbr, nf, tv, s, elv, fn, prkg));
-
-            }
+            
 
         } catch (SQLException e) {//Possible MY SQL exception 
             System.err.println(e);
@@ -391,7 +401,7 @@ public class App {
     public void application() { 
 
         this.register();//We call the first function, to regoster 
-        f = new First(buyers, sellers, emp, url, USERNAME,PASSWORD);//we create an object of the frame with its 3 arguments 
+        f = new First(buyers, sellers, emp, pr,url, USERNAME,PASSWORD);//we create an object of the frame with its 3 arguments 
 
         f.setVisible(true);//we open the frame and let it visible 
        

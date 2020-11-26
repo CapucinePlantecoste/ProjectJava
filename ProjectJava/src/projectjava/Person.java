@@ -15,10 +15,12 @@ public abstract class Person {
     private String familyname;
     private String username;
     private String password;
+    private int id;
     
     
-    public Person(String n, String fn, String u, String p)//constructor 
+    public Person(int i,String n, String fn, String u, String p)//constructor 
     {
+        id=i;
         name=n;
         familyname=fn;
         username=u;
@@ -62,5 +64,9 @@ public abstract class Person {
       public void setfamilyname(String fn)//function to set the family name of the person
       {
           familyname=fn;
+      }
+      public int getid()
+      {
+          return id;
       }
 }

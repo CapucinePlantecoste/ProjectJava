@@ -11,9 +11,9 @@ package projectjava;
  */
 public class Seller extends Person {
     
-    public Seller (String n, String fn, String u, String p)//Constructor
+    public Seller (int i,String n, String fn, String u, String p)//Constructor
     {
-        super(n,fn,u,p);//Constructor of the Person class
+        super(i,n,fn,u,p);//Constructor of the Person class
     }
     
     @Override

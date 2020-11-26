@@ -14,11 +14,19 @@ public class House extends Property {
     private double gardensurface;//Attributes that do not exist in the Property class
     private boolean swimmingpool;
     
-    public House(int i, double p, String l, int nr, int nbr, int nbf, int tv, double s, double gs, boolean sp)//Constructor
+    public House(int i,String d, double p, String l, int nr, int nbr, int nbf, int tv, double s,int ids,String t, double gs, boolean sp)//Constructor
     {
-        super(i,p,l,nr,nbr,nbf,tv,s);//constructor of the property class
+        super(i,d,p,l,nr,nbr,nbf,tv,s,ids,t);//constructor of the property class
         gardensurface=gs;
         swimmingpool=sp;
+    }
+    public double getgardensurface()
+    {
+        return gardensurface;
+    }
+    public boolean swimmingpool()
+    {
+        return swimmingpool;
     }
     
     

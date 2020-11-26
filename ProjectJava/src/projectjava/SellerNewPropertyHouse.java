@@ -16,10 +16,11 @@ public class SellerNewPropertyHouse extends javax.swing.JFrame {
     /**
      * Creates new form SellerNewPropertyHouse
      */
-    public SellerNewPropertyHouse(Seller a, ArrayList<Buyer> b, ArrayList<Seller> s, ArrayList<Employee> e, String u, String us, String p) {
+    public SellerNewPropertyHouse(Seller a, ArrayList<Buyer> b, ArrayList<Seller> s, ArrayList<Employee> e, ArrayList<Property>prop, String u, String us, String p) {
         buyers = b;//Array List of buyers
         sellers = s;//Array List of sellers
         emp = e;//Array List of employees
+        pr=prop;
         url=u;
         USERNAME=us;
         PASSWORD=p;
@@ -251,8 +252,8 @@ public class SellerNewPropertyHouse extends javax.swing.JFrame {
         // TODO add your handling code here:
         this.toBack();//if we click on the back button
         setVisible(false);//this page disappears
-        new SellerFirst(newseller, buyers, sellers, emp, url, USERNAME,PASSWORD).toFront();//we go back on the first page
-        new SellerFirst(newseller,buyers, sellers, emp, url, USERNAME, PASSWORD).setState(java.awt.Frame.NORMAL);
+        new SellerFirst(newseller, buyers, sellers, emp,pr, url, USERNAME,PASSWORD).toFront();//we go back on the first page
+        new SellerFirst(newseller,buyers, sellers, emp,pr, url, USERNAME, PASSWORD).setState(java.awt.Frame.NORMAL);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
@@ -260,9 +261,9 @@ public class SellerNewPropertyHouse extends javax.swing.JFrame {
         //faire code pour log out
         this.toBack();
         setVisible(false);//this page disappears
-        new First(buyers, sellers, emp, url, USERNAME,PASSWORD).toFront();//we go back on the first page
-        new First(buyers, sellers, emp, url, USERNAME, PASSWORD).setState(java.awt.Frame.NORMAL);
-        new First(buyers, sellers, emp, url, USERNAME, PASSWORD).setVisible(true);
+        new First(buyers, sellers, emp, pr,url, USERNAME,PASSWORD).toFront();//we go back on the first page
+        new First(buyers, sellers, emp, pr,url, USERNAME, PASSWORD).setState(java.awt.Frame.NORMAL);
+        new First(buyers, sellers, emp,pr, url, USERNAME, PASSWORD).setVisible(true);
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
@@ -299,7 +300,7 @@ public class SellerNewPropertyHouse extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new SellerNewPropertyHouse(newseller, buyers, sellers, emp, url, USERNAME,PASSWORD).setVisible(true);
+                new SellerNewPropertyHouse(newseller, buyers, sellers, emp,pr, url, USERNAME,PASSWORD).setVisible(true);
             }
         });
     }
@@ -307,6 +308,7 @@ public class SellerNewPropertyHouse extends javax.swing.JFrame {
     private static ArrayList<Buyer> buyers = new ArrayList<>();//array list of all the application buyers 
     private static ArrayList<Seller> sellers = new ArrayList<>();//array list of all the application sellers 
     private static ArrayList<Employee> emp = new ArrayList<>();//array list of all the application sellers 
+    private static ArrayList<Property>pr=new ArrayList<>();
     private static String url;// Url of connection
     private static String PASSWORD;// PASSWORD of the mysql account
     private static String USERNAME;

@@ -11,9 +11,9 @@ package projectjava;
  */
 public abstract class Customer extends Person{//Customer class represents both byuers and sellers 
     
-    public Customer(String n, String fn, String u, String p)//constructor 
+    public Customer(int i,String n, String fn, String u, String p)//constructor 
     {
-        super(n,fn,u,p);//constructor of the Person class 
+        super(i,n,fn,u,p);//constructor of the Person class 
     }
     
 }

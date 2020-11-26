@@ -15,13 +15,28 @@ public class Appartment extends Property {
     private int floornumber;
     private boolean parking;//attributes that were not in the property class
     
-     public Appartment (int i, double p, String l, int nr, int nbr, int nbf, int tv, double s,boolean e, int fnb, boolean prkg)//Constructor
+     public Appartment (int i,String d, double p, String l, int nr, int nbr, int nbf, int tv, double s,int ids,String t,boolean e, int fnb, boolean prkg)//Constructor
     {
-        super(i,p,l,nr,nbr,nbf,tv,s);//constructor of property
+        super(i,d,p,l,nr,nbr,nbf,tv,s, ids,t);//constructor of property
         elevator=e;
         floornumber=fnb;
         parking=prkg;
         
         
     }
+     
+     public boolean getelevator()
+     {
+         return elevator;
+     }
+     
+     public int floornumber()
+     {
+         return floornumber;
+     }
+     
+     public boolean parking()
+     {
+         return parking;
+     }
 }
