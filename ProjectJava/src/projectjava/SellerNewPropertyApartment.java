@@ -433,6 +433,7 @@ public class SellerNewPropertyApartment extends javax.swing.JFrame {
         else
         {
            this.addapartment();
+           JOptionPane.showMessageDialog(null, "Your apartment has been successfully registered for sale");
         }
     }//GEN-LAST:event_jButton2ActionPerformed
 

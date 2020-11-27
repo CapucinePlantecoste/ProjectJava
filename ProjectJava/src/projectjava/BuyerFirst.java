@@ -6,6 +6,9 @@
 package projectjava;
 
 import java.util.ArrayList;
+import javax.swing.JOptionPane; 
+
+ 
 
 /**
  *
@@ -316,7 +319,6 @@ public class BuyerFirst extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton5ActionPerformed
 
     //See my viewings
-    // A completer
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
         ArrayList<Visit> myviewings = new ArrayList<>();
@@ -327,16 +329,17 @@ public class BuyerFirst extends javax.swing.JFrame {
             }
         }
         if (myviewings.size() == 0) {
-            //JOptionPane You don't have any viewing
-            //test
-            System.out.println("Don't have any viewing");
+            JOptionPane.showMessageDialog(null, "You do not have any viewing"); //message shown to say so
         } else {
             for (int i = 0; i < myviewings.size(); ++i) {
                 //test
                 System.out.println(myviewings.get(i).getidemp());
             }
+            BuyerViewings a= new BuyerViewings (newbuyer, buyers, sellers, emp, pr, v, o, myviewings); 
+            a.setVisible(true); 
             //Affichr la page avec une combo box de tous les viewings
         }
+        
 
 
     }//GEN-LAST:event_jButton2ActionPerformed
@@ -399,18 +402,15 @@ public class BuyerFirst extends javax.swing.JFrame {
             }
         }
         if (results.size() == 0) {
-            //JoptionPane
-            //test
-            System.out.println("No results found");
+            JOptionPane.showMessageDialog(null, "No results found"); //message shown to say so
+            
         } else {
-            //JCOmboBox por favor
-            for (int i = 0; i < results.size(); ++i) {
-                System.out.println(results.get(i).getdescription());
-            }
+            
+            
+            BuyerResults a= new BuyerResults (newbuyer, buyers, sellers, emp, pr, v, o, results); 
+            a.setVisible(true); 
             
         }
-        
-        System.out.println();
 
 
     }//GEN-LAST:event_jButton3ActionPerformed
@@ -509,12 +509,14 @@ public class BuyerFirst extends javax.swing.JFrame {
         }
 
         if (myoffers.size() == 0) {
-            System.out.println("Don't have any offer");
-            // JOption Pane you havn't make any offer
+            JOptionPane.showMessageDialog(null, "You do not have any offer"); //message shown to say so
+            
         } else {
             for (int i = 0; i < myoffers.size(); ++i) {
                 System.out.println(myoffers.get(i).getprice());
             }
+            BuyerOffer a= new BuyerOffer (newbuyer, buyers, sellers, emp, pr, v, o, myoffers); 
+            a.setVisible(true);
             //Jotpion Pane classique
         }
     }//GEN-LAST:event_jButton1ActionPerformed

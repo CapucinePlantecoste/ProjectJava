@@ -6,6 +6,7 @@
 package projectjava;
 
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -64,21 +65,19 @@ public class SellerFirst extends javax.swing.JFrame {
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 409, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                .addContainerGap(130, Short.MAX_VALUE)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 450, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 409, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(160, 160, 160))
-            .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGap(53, 53, 53)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 629, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(58, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addContainerGap(312, Short.MAX_VALUE)
+                .addContainerGap(308, Short.MAX_VALUE)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(198, 198, 198)
+                .addGap(202, 202, 202)
                 .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(20, 20, 20))
         );
@@ -169,13 +168,15 @@ public class SellerFirst extends javax.swing.JFrame {
         this.setmyprop();
 
         if (myprop.size() == 0) {
-            //JOptionPane No result found
-            System.out.println("pas de maison");
+            JOptionPane.showMessageDialog(null, "You have no properties for sale"); //message shown to say so
+            
         } else {
             //afficher le JcomboBox avec toutes les maisons a voir pour affichage
             for (int i = 0; i < myprop.size(); ++i) {
                 System.out.println(myprop.get(i).getdescription());
             }
+            SellerProperty a= new SellerProperty (newseller, buyers, sellers, emp, pr, v, o, myprop); 
+            a.setVisible(true);
         }
     }//GEN-LAST:event_jButton2ActionPerformed
 
@@ -184,15 +185,15 @@ public class SellerFirst extends javax.swing.JFrame {
         // TODO add your handling code here:
         this.setmyoffers();
         if (myoffers.size() == 0) {
-            System.out.println("No offers made for one of your properties or you don't have any property");
-            //JOptionPane
+            JOptionPane.showMessageDialog(null, "No offers made for one of your properties or you don't have any property"); //message shown to say so
+            
         } else {
-            //afficher le JcomboBox avec toutes les offres a voir pour affichage
-            //test
             for (int i = 0; i < myoffers.size(); ++i) {
                 
                 System.out.println(myoffers.get(i).getprice());
             }
+            SellerOffer a= new SellerOffer (newseller, buyers, sellers, emp, pr, v, o, myoffers); 
+            a.setVisible(true);
         }
 
 

@@ -81,7 +81,7 @@ public abstract class Property {
     public String gettype()
     {
           return type;
-            }
+    }
     
     public void setsold(boolean a)
     {

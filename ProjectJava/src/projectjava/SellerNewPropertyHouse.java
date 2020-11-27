@@ -387,6 +387,7 @@ public class SellerNewPropertyHouse extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "One or several fields are empty. Please, try again.");
         } else {
             this.addhouse();
+            JOptionPane.showMessageDialog(null, "Your house has been successfully registered for sale");
         }
     }//GEN-LAST:event_jButton2ActionPerformed
 
