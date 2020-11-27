@@ -8,6 +8,7 @@ insert into buyer values ( 03,'Emmanuel', 'Macron', 'manu', 'president') ;
 insert into buyer values ( 04,'Franck', 'Poulain', 'franckpln', 'microsoft123') ; 
 insert into buyer values ( 05,'Laurence', 'Godnair', 'laurencegdr', 'melann!') ; 
 insert into buyer values ( 06,'Killian', 'Poulain', 'killianpln', '123456') ; 
+
 select * from buyer ;
 
 drop table employee;
@@ -47,6 +48,7 @@ insert into seller values ( 10003,'Henri', 'Petrelli', 'henriptl', 'corsica') ;
 insert into seller values ( 10004,'Thierry', 'Cancelier', 'thierryplt', 'trouville') ; 
 insert into seller values ( 10005,'Delphine', 'Fontaine', 'delphineplt', 'jetmonchat') ; 
 insert into seller values ( 10006,'Cassandre', 'Ferrand', 'cassandreplt', '123456') ; 
+
 select * from seller ;
 
 drop table offer;

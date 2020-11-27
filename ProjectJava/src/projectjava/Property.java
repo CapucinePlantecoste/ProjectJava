@@ -22,7 +22,7 @@ public abstract class Property {
     private int idseller;
     private String description;
     private String type;
-    
+    private boolean sold;
     public Property(int i,String d, double p, String l, int nr, int nbr, int nbf, int tv, double s, int ids, String t)//Constructor
     {
         id=i;
@@ -36,6 +36,7 @@ public abstract class Property {
         surface=s;
         idseller=ids;
         type=t;
+        sold=false;
     }
     
     public int getidseller()
@@ -65,7 +66,7 @@ public abstract class Property {
     {
         return timevisited;
     }
-    public int numberfloors()
+    public int getnumberfloors()
     {
         return numberfloors;
     }
@@ -81,4 +82,31 @@ public abstract class Property {
     {
           return type;
             }
+    
+    public void setsold(boolean a)
+    {
+        sold=a;
+    }
+    public boolean getsold()
+    {
+        return sold;
+    }
+    
+    public int getid()
+    {
+        return id;
+    }
+    public void setid( int a)
+    {
+        id=a;
+    }
+    
+    public abstract boolean getelevator();
+    public abstract int getfloornumber();
+    public abstract boolean getparking();
+    public abstract int getelevatorsql();
+    public abstract int getparkingsql();
+    public abstract double getgardensurface();
+    public abstract boolean getswimmingpool();
+    public abstract int getswimmingpoolsql();
 }

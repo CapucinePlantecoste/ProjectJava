@@ -16,14 +16,14 @@ public class BuyerFirst extends javax.swing.JFrame {
     /**
      * Creates new form BuyerFirst
      */
-    public BuyerFirst(Buyer a, ArrayList<Buyer> b, ArrayList<Seller> s, ArrayList<Employee> e, ArrayList<Property> prop, String u, String us, String p) {
+    public BuyerFirst(Buyer a, ArrayList<Buyer> b, ArrayList<Seller> s, ArrayList<Employee> e, ArrayList<Property> prop, ArrayList<Visit> vis, ArrayList<Offer> off) {
         buyers = b;//Array List of buyers
         sellers = s;//Array List of sellers
         emp = e;//Array List of employees
         pr = prop;
-        url = u;
-        USERNAME = us;
-        PASSWORD = p;
+        v = vis;
+        o = off;
+
         newbuyer = a;
         tampon = 1;
 
@@ -77,6 +77,11 @@ public class BuyerFirst extends javax.swing.JFrame {
         jButton1.setBackground(new java.awt.Color(255, 255, 255));
         jButton1.setFont(new java.awt.Font("Calibri", 0, 24)); // NOI18N
         jButton1.setText("See my offers");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jButton2.setBackground(new java.awt.Color(255, 255, 255));
         jButton2.setFont(new java.awt.Font("Calibri", 0, 24)); // NOI18N
@@ -94,16 +99,16 @@ public class BuyerFirst extends javax.swing.JFrame {
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGap(250, 250, 250)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 262, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 262, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
                 .addContainerGap(171, Short.MAX_VALUE)
                 .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 409, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(160, 160, 160))
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGap(250, 250, 250)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 262, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 262, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel4Layout.createSequentialGroup()
                     .addGap(173, 173, 173)
@@ -113,9 +118,9 @@ public class BuyerFirst extends javax.swing.JFrame {
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addContainerGap(274, Short.MAX_VALUE)
+                .addContainerGap(259, Short.MAX_VALUE)
                 .addComponent(jButton2)
-                .addGap(71, 71, 71)
+                .addGap(86, 86, 86)
                 .addComponent(jButton1)
                 .addGap(147, 147, 147)
                 .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -303,100 +308,108 @@ public class BuyerFirst extends javax.swing.JFrame {
         // TODO add your handling code here:
         //this.toBack();//if we click on the back button
         setVisible(false);//this page disappears 
-        new First(buyers, sellers, emp, pr, url, USERNAME, PASSWORD).toFront();//we go back on the first page 
-        new First(buyers, sellers, emp, pr, url, USERNAME, PASSWORD).setState(java.awt.Frame.NORMAL);
-        new First(buyers, sellers, emp, pr, url, USERNAME, PASSWORD).setVisible(true);
+        new First(buyers, sellers, emp, pr, v, o).toFront();//we go back on the first page 
+        new First(buyers, sellers, emp, pr, v, o).setState(java.awt.Frame.NORMAL);
+        new First(buyers, sellers, emp, pr, v, o).setVisible(true);
 
 
     }//GEN-LAST:event_jButton5ActionPerformed
 
+    //See my viewings
+    // A completer
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
+        ArrayList<Visit> myviewings = new ArrayList<>();
+
+        for (int i = 0; i < v.size(); ++i) {
+            if (v.get(i).getidbuyer() == newbuyer.getid()) {
+                myviewings.add(v.get(i));
+            }
+        }
+        if (myviewings.size() == 0) {
+            //JOptionPane You don't have any viewing
+            //test
+            System.out.println("Don't have any viewing");
+        } else {
+            for (int i = 0; i < myviewings.size(); ++i) {
+                //test
+                System.out.println(myviewings.get(i).getidemp());
+            }
+            //Affichr la page avec une combo box de tous les viewings
+        }
+
 
     }//GEN-LAST:event_jButton2ActionPerformed
 
     // Search Button !!!!!!!!!!!!!!
+    // coucou caca c'est ici que ca se passe
+    // Il faut que tu fasses deux trucs
+    // Si la liste results a une size de 0 alors tu affiches un JoptionPane en disant no Result found
+    //SInon alors tu fais le jcombobox a partir de ce que t'as dans results
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
         double minpr = this.getvalue7();
         double maxpr = this.getvalue2();
         double minsurf = this.getvalue1();
-        double maxsurf=this.getvalue5();
-        double minnbrooms=this.getvalue6();
-        double minnbbedrooms=this.getvalue4();
-        if(tampon==1)
-        {
-            if(jTextField3.getText().isEmpty())
-            {
-                for(int i=0;i<pr.size();i++)
-                {
-                    if(pr.get(i).getprice()>minpr &&pr.get(i).getprice()<maxpr&&pr.get(i).getsurface()>minsurf && pr.get(i).getsurface()<maxsurf&&pr.get(i).getnumberrooms()>minnbrooms&&pr.get(i).getnumberbedrooms()>minnbbedrooms)
-                    {
+        double maxsurf = this.getvalue5();
+        double minnbrooms = this.getvalue6();
+        double minnbbedrooms = this.getvalue4();
+        ArrayList<Property> results = new ArrayList<>();
+        if (tampon == 1) {
+            if (jTextField3.getText().isEmpty()) {
+                for (int i = 0; i < pr.size(); i++) {
+                    if (pr.get(i).getprice() > minpr && pr.get(i).getprice() < maxpr && pr.get(i).getsurface() > minsurf && pr.get(i).getsurface() < maxsurf && pr.get(i).getnumberrooms() > minnbrooms && pr.get(i).getnumberbedrooms() > minnbbedrooms) {
+                        results.add(pr.get(i));
+                    }
+                }
+            } else {
+                for (int i = 0; i < pr.size(); i++) {
+                    if (pr.get(i).getlocation().equals(jTextField3.getText()) && pr.get(i).getprice() > minpr && pr.get(i).getprice() < maxpr && pr.get(i).getsurface() > minsurf && pr.get(i).getsurface() < maxsurf && pr.get(i).getnumberrooms() > minnbrooms && pr.get(i).getnumberbedrooms() > minnbbedrooms) {
                         results.add(pr.get(i));
                     }
                 }
             }
-            else
-            {
-               for(int i=0;i<pr.size();i++)
-                {
-                    if(pr.get(i).getlocation().equals(jTextField3.getText())&&pr.get(i).getprice()>minpr &&pr.get(i).getprice()<maxpr&&pr.get(i).getsurface()>minsurf && pr.get(i).getsurface()<maxsurf&&pr.get(i).getnumberrooms()>minnbrooms&&pr.get(i).getnumberbedrooms()>minnbbedrooms)
-                    {
+        } else if (tampon == 2) {
+            if (jTextField3.getText().isEmpty()) {
+                for (int i = 0; i < pr.size(); i++) {
+                    if (pr.get(i).gettype().equals("House") && pr.get(i).getprice() > minpr && pr.get(i).getprice() < maxpr && pr.get(i).getsurface() > minsurf && pr.get(i).getsurface() < maxsurf && pr.get(i).getnumberrooms() > minnbrooms && pr.get(i).getnumberbedrooms() > minnbbedrooms) {
                         results.add(pr.get(i));
                     }
-                } 
-            }
-        }
-        else if (tampon==2)
-        {
-            if(jTextField3.getText().isEmpty())
-            {
-                for(int i=0;i<pr.size();i++)
-                {
-                    if(pr.get(i).gettype().equals("House")&&pr.get(i).getprice()>minpr &&pr.get(i).getprice()<maxpr&&pr.get(i).getsurface()>minsurf && pr.get(i).getsurface()<maxsurf&&pr.get(i).getnumberrooms()>minnbrooms&&pr.get(i).getnumberbedrooms()>minnbbedrooms)
-                    {
+                }
+            } else {
+                for (int i = 0; i < pr.size(); i++) {
+                    if (pr.get(i).gettype().equals("House") && pr.get(i).getlocation().equals(jTextField3.getText()) && pr.get(i).getprice() > minpr && pr.get(i).getprice() < maxpr && pr.get(i).getsurface() > minsurf && pr.get(i).getsurface() < maxsurf && pr.get(i).getnumberrooms() > minnbrooms && pr.get(i).getnumberbedrooms() > minnbbedrooms) {
                         results.add(pr.get(i));
                     }
                 }
             }
-            else
-            {
-               for(int i=0;i<pr.size();i++)
-                {
-                    if(pr.get(i).gettype().equals("House")&&pr.get(i).getlocation().equals(jTextField3.getText())&&pr.get(i).getprice()>minpr &&pr.get(i).getprice()<maxpr&&pr.get(i).getsurface()>minsurf && pr.get(i).getsurface()<maxsurf&&pr.get(i).getnumberrooms()>minnbrooms&&pr.get(i).getnumberbedrooms()>minnbbedrooms)
-                    {
+        } else if (tampon == 3) {
+            if (jTextField3.getText().isEmpty()) {
+                for (int i = 0; i < pr.size(); i++) {
+                    if (pr.get(i).gettype().equals("Apartment") && pr.get(i).getprice() > minpr && pr.get(i).getprice() < maxpr && pr.get(i).getsurface() > minsurf && pr.get(i).getsurface() < maxsurf && pr.get(i).getnumberrooms() > minnbrooms && pr.get(i).getnumberbedrooms() > minnbbedrooms) {
                         results.add(pr.get(i));
                     }
-                } 
-            }
-        }
-         else if (tampon==3)
-        {
-            if(jTextField3.getText().isEmpty())
-            {
-                for(int i=0;i<pr.size();i++)
-                {
-                    if(pr.get(i).gettype().equals("Apartment")&&pr.get(i).getprice()>minpr &&pr.get(i).getprice()<maxpr&&pr.get(i).getsurface()>minsurf && pr.get(i).getsurface()<maxsurf&&pr.get(i).getnumberrooms()>minnbrooms&&pr.get(i).getnumberbedrooms()>minnbbedrooms)
-                    {
+                }
+            } else {
+                for (int i = 0; i < pr.size(); i++) {
+                    if (pr.get(i).gettype().equals("Apartment") && pr.get(i).getlocation().equals(jTextField3.getText()) && pr.get(i).getprice() > minpr && pr.get(i).getprice() < maxpr && pr.get(i).getsurface() > minsurf && pr.get(i).getsurface() < maxsurf && pr.get(i).getnumberrooms() > minnbrooms && pr.get(i).getnumberbedrooms() > minnbbedrooms) {
                         results.add(pr.get(i));
                     }
                 }
             }
-            else
-            {
-               for(int i=0;i<pr.size();i++)
-                {
-                    if(pr.get(i).gettype().equals("Apartment")&&pr.get(i).getlocation().equals(jTextField3.getText())&&pr.get(i).getprice()>minpr &&pr.get(i).getprice()<maxpr&&pr.get(i).getsurface()>minsurf && pr.get(i).getsurface()<maxsurf&&pr.get(i).getnumberrooms()>minnbrooms&&pr.get(i).getnumberbedrooms()>minnbbedrooms)
-                    {
-                        results.add(pr.get(i));
-                    }
-                } 
+        }
+        if (results.size() == 0) {
+            //JoptionPane
+            //test
+            System.out.println("No results found");
+        } else {
+            //JCOmboBox por favor
+            for (int i = 0; i < results.size(); ++i) {
+                System.out.println(results.get(i).getdescription());
             }
+            
         }
-        for (int i=0;i<results.size();++i)
-        {
-            System.out.println(results.get(i).getdescription());
-        }
+        
         System.out.println();
 
 
@@ -485,6 +498,27 @@ public class BuyerFirst extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jTextField5ActionPerformed
 
+    //See my offers button
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        ArrayList<Offer> myoffers = new ArrayList<>();
+        for (int i = 0; i < o.size(); ++i) {
+            if (o.get(i).getidbuyer() == newbuyer.getid()) {
+                myoffers.add(o.get(i));
+            }
+        }
+
+        if (myoffers.size() == 0) {
+            System.out.println("Don't have any offer");
+            // JOption Pane you havn't make any offer
+        } else {
+            for (int i = 0; i < myoffers.size(); ++i) {
+                System.out.println(myoffers.get(i).getprice());
+            }
+            //Jotpion Pane classique
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     public double getvalue7() {
         double minpr;
         if (jTextField7.getText().trim().isEmpty()) {
@@ -518,43 +552,33 @@ public class BuyerFirst extends javax.swing.JFrame {
 
     public double getvalue5() {
         double maxsurf;
-        
-        if (jTextField5.getText().trim().isEmpty())
-        {
+
+        if (jTextField5.getText().trim().isEmpty()) {
             maxsurf = 300000000;
+        } else {
+            maxsurf = Double.parseDouble(jTextField5.getText());
         }
-        else
-        {
-                maxsurf=Double.parseDouble(jTextField5.getText());
-         }
         return maxsurf;
     }
-    
-    public double getvalue6()
-    {
+
+    public double getvalue6() {
         double minnbrooms;
-           if (jTextField6.getText().trim().isEmpty())
-        {
+        if (jTextField6.getText().trim().isEmpty()) {
             minnbrooms = 0;
+        } else {
+            minnbrooms = Double.parseDouble(jTextField6.getText());
         }
-        else
-        {
-                minnbrooms=Double.parseDouble(jTextField6.getText());
-         }
         return minnbrooms;
-        
+
     }
-    public double getvalue4()
-    {
-         double minnbbedrooms;
-           if (jTextField4.getText().trim().isEmpty())
-        {
+
+    public double getvalue4() {
+        double minnbbedrooms;
+        if (jTextField4.getText().trim().isEmpty()) {
             minnbbedrooms = 0;
+        } else {
+            minnbbedrooms = Double.parseDouble(jTextField4.getText());
         }
-        else
-        {
-                minnbbedrooms=Double.parseDouble(jTextField4.getText());
-         }
         return minnbbedrooms;
     }
 
@@ -592,7 +616,7 @@ public class BuyerFirst extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new BuyerFirst(newbuyer, buyers, sellers, emp, pr, url, PASSWORD, USERNAME).setVisible(true);
+                new BuyerFirst(newbuyer, buyers, sellers, emp, pr, v, o).setVisible(true);
             }
         });
     }
@@ -601,10 +625,9 @@ public class BuyerFirst extends javax.swing.JFrame {
     private static ArrayList<Seller> sellers = new ArrayList<>();//array list of all the application sellers 
     private static ArrayList<Employee> emp = new ArrayList<>();//array list of all the application sellers 
     private static ArrayList<Property> pr = new ArrayList<>();
-    private static ArrayList<Property> results = new ArrayList<>();
-    private static String url;// Url of connection
-    private static String PASSWORD;// PASSWORD of the mysql account
-    private static String USERNAME;
+    private static ArrayList<Visit> v = new ArrayList<>();
+    private static ArrayList<Offer> o = new ArrayList<>();
+
     private static Buyer newbuyer;
     int tampon;
 

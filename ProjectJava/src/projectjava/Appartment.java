@@ -25,18 +25,69 @@ public class Appartment extends Property {
         
     }
      
+     
+     @Override
+     public int getfloornumber()
+     {
+         return floornumber;
+     }
+     
+     @Override
+     public boolean getparking()
+     {
+         return parking;
+     }
+     
+     @Override
      public boolean getelevator()
      {
          return elevator;
      }
      
-     public int floornumber()
+     @Override
+    public int getelevatorsql()
      {
-         return floornumber;
+        int a;
+         if(this.getelevator()==true)
+         {
+            a=1; 
+         }
+         else
+         {
+             a=0;
+         }
+         return a;
      }
-     
-     public boolean parking()
-     {
-         return parking;
-     }
+    
+    @Override
+    public int getparkingsql()
+    {
+        int a;
+         if(this.getparking()==true)
+         {
+            a=1; 
+         }
+         else
+         {
+             a=0;
+         }
+         return a;
+    }
+    @Override
+    public double getgardensurface()
+    {
+        return 1;
+    }
+    
+     @Override
+    public boolean getswimmingpool()
+    {
+        return true;
+    }
+    
+    @Override
+    public int getswimmingpoolsql()
+    {
+        return 1;
+    }
 }

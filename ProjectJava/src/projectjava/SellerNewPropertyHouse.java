@@ -6,6 +6,7 @@
 package projectjava;
 
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -16,15 +17,15 @@ public class SellerNewPropertyHouse extends javax.swing.JFrame {
     /**
      * Creates new form SellerNewPropertyHouse
      */
-    public SellerNewPropertyHouse(Seller a, ArrayList<Buyer> b, ArrayList<Seller> s, ArrayList<Employee> e, ArrayList<Property>prop, String u, String us, String p) {
+    public SellerNewPropertyHouse(Seller a, ArrayList<Buyer> b, ArrayList<Seller> s, ArrayList<Employee> e, ArrayList<Property> prop, ArrayList<Visit> vis, ArrayList<Offer> off) {
         buyers = b;//Array List of buyers
         sellers = s;//Array List of sellers
         emp = e;//Array List of employees
-        pr=prop;
-        url=u;
-        USERNAME=us;
-        PASSWORD=p;
-        newseller = a ;
+        pr = prop;
+        v = vis;
+        o = off;
+        newseller = a;
+        tampon = 1;
         initComponents();
     }
 
@@ -64,6 +65,8 @@ public class SellerNewPropertyHouse extends javax.swing.JFrame {
         jComboBox2 = new javax.swing.JComboBox();
         jButton2 = new javax.swing.JButton();
         jLabel14 = new javax.swing.JLabel();
+        jTextField8 = new javax.swing.JTextField();
+        jLabel11 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -95,6 +98,10 @@ public class SellerNewPropertyHouse extends javax.swing.JFrame {
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                .addContainerGap(71, Short.MAX_VALUE)
+                .addComponent(jLabel3)
+                .addGap(64, 64, 64))
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel4Layout.createSequentialGroup()
@@ -102,17 +109,11 @@ public class SellerNewPropertyHouse extends javax.swing.JFrame {
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 417, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addGap(33, 33, 33)
-                        .addComponent(jButton1)))
+                        .addComponent(jButton1))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGap(158, 158, 158)
+                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 409, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                .addContainerGap(71, Short.MAX_VALUE)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 409, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(160, 160, 160))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                        .addComponent(jLabel3)
-                        .addGap(64, 64, 64))))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -123,9 +124,9 @@ public class SellerNewPropertyHouse extends javax.swing.JFrame {
                 .addComponent(jLabel1)
                 .addGap(65, 65, 65)
                 .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 231, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 192, Short.MAX_VALUE)
                 .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(20, 20, 20))
+                .addGap(53, 53, 53))
         );
 
         jPanel2.add(jPanel4);
@@ -202,27 +203,73 @@ public class SellerNewPropertyHouse extends javax.swing.JFrame {
         jLabel13.setBounds(1210, 450, 200, 30);
         jPanel2.add(jTextField1);
         jTextField1.setBounds(1210, 210, 200, 30);
+
+        jTextField2.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextField2KeyTyped(evt);
+            }
+        });
         jPanel2.add(jTextField2);
         jTextField2.setBounds(1210, 300, 200, 30);
+
+        jTextField3.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextField3KeyTyped(evt);
+            }
+        });
         jPanel2.add(jTextField3);
         jTextField3.setBounds(950, 210, 160, 30);
+
+        jTextField4.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextField4KeyTyped(evt);
+            }
+        });
         jPanel2.add(jTextField4);
         jTextField4.setBounds(1210, 480, 200, 30);
+
+        jTextField5.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextField5KeyTyped(evt);
+            }
+        });
         jPanel2.add(jTextField5);
         jTextField5.setBounds(950, 300, 160, 30);
+
+        jTextField6.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextField6KeyTyped(evt);
+            }
+        });
         jPanel2.add(jTextField6);
         jTextField6.setBounds(950, 390, 160, 30);
+
+        jTextField7.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextField7KeyTyped(evt);
+            }
+        });
         jPanel2.add(jTextField7);
         jTextField7.setBounds(1210, 390, 200, 30);
 
         jComboBox2.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
         jComboBox2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Yes", "No" }));
+        jComboBox2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox2ActionPerformed(evt);
+            }
+        });
         jPanel2.add(jComboBox2);
         jComboBox2.setBounds(950, 480, 59, 29);
 
         jButton2.setBackground(new java.awt.Color(255, 255, 255));
         jButton2.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
         jButton2.setText("Confirm the introduction of this property");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
         jPanel2.add(jButton2);
         jButton2.setBounds(1010, 660, 350, 40);
 
@@ -231,6 +278,12 @@ public class SellerNewPropertyHouse extends javax.swing.JFrame {
         jLabel14.setText("This property will be verified by our services before being publically displayed");
         jPanel2.add(jLabel14);
         jLabel14.setBounds(880, 730, 600, 30);
+        jPanel2.add(jTextField8);
+        jTextField8.setBounds(960, 600, 460, 26);
+
+        jLabel11.setText("Description");
+        jPanel2.add(jLabel11);
+        jLabel11.setBounds(960, 560, 150, 20);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -252,8 +305,8 @@ public class SellerNewPropertyHouse extends javax.swing.JFrame {
         // TODO add your handling code here:
         this.toBack();//if we click on the back button
         setVisible(false);//this page disappears
-        new SellerFirst(newseller, buyers, sellers, emp,pr, url, USERNAME,PASSWORD).toFront();//we go back on the first page
-        new SellerFirst(newseller,buyers, sellers, emp,pr, url, USERNAME, PASSWORD).setState(java.awt.Frame.NORMAL);
+        new SellerFirst(newseller, buyers, sellers, emp, pr, v, o).toFront();//we go back on the first page
+        new SellerFirst(newseller, buyers, sellers, emp, pr, v, o).setState(java.awt.Frame.NORMAL);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
@@ -261,14 +314,97 @@ public class SellerNewPropertyHouse extends javax.swing.JFrame {
         //faire code pour log out
         this.toBack();
         setVisible(false);//this page disappears
-        new First(buyers, sellers, emp, pr,url, USERNAME,PASSWORD).toFront();//we go back on the first page
-        new First(buyers, sellers, emp, pr,url, USERNAME, PASSWORD).setState(java.awt.Frame.NORMAL);
-        new First(buyers, sellers, emp,pr, url, USERNAME, PASSWORD).setVisible(true);
+        new First(buyers, sellers, emp, pr, v, o).toFront();//we go back on the first page
+        new First(buyers, sellers, emp, pr, v, o).setState(java.awt.Frame.NORMAL);
+        new First(buyers, sellers, emp, pr, v, o).setVisible(true);
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton6ActionPerformed
+
+    private void jComboBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox2ActionPerformed
+        // TODO add your handling code here:
+        String selected = (String) jComboBox2.getSelectedItem();
+        if (selected.equals("Yes")) {
+            tampon = 1;
+        } else if (selected.equals("No")) {
+            tampon = 2;
+        }
+    }//GEN-LAST:event_jComboBox2ActionPerformed
+
+    private void jTextField3KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField3KeyTyped
+        // TODO add your handling code here:
+        char c = evt.getKeyChar();
+        if (Character.isLetter(c) && !evt.isAltDown()) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_jTextField3KeyTyped
+
+    private void jTextField5KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField5KeyTyped
+        // TODO add your handling code here:
+        char c = evt.getKeyChar();
+        if (Character.isLetter(c) && !evt.isAltDown()) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_jTextField5KeyTyped
+
+    private void jTextField2KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField2KeyTyped
+        // TODO add your handling code here:
+        char c = evt.getKeyChar();
+        if (Character.isLetter(c) && !evt.isAltDown()) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_jTextField2KeyTyped
+
+    private void jTextField6KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField6KeyTyped
+        // TODO add your handling code here:
+        char c = evt.getKeyChar();
+        if (Character.isLetter(c) && !evt.isAltDown()) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_jTextField6KeyTyped
+
+    private void jTextField7KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField7KeyTyped
+        // TODO add your handling code here:
+        char c = evt.getKeyChar();
+        if (Character.isLetter(c) && !evt.isAltDown()) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_jTextField7KeyTyped
+
+    private void jTextField4KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField4KeyTyped
+        // TODO add your handling code here:
+        char c = evt.getKeyChar();
+        if (Character.isLetter(c) && !evt.isAltDown()) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_jTextField4KeyTyped
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        if (jTextField1.getText().trim().isEmpty() || jTextField2.getText().trim().isEmpty() || jTextField3.getText().trim().isEmpty() || jTextField4.getText().trim().isEmpty() || jTextField5.getText().trim().isEmpty() || jTextField6.getText().trim().isEmpty() || jTextField7.getText().trim().isEmpty() || jTextField8.getText().trim().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "One or several fields are empty. Please, try again.");
+        } else {
+            this.addhouse();
+        }
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    public void addhouse() {
+
+        int idlast = pr.get(pr.size() - 1).getid();
+        int newid = idlast + 1;
+        PropertyDAOImpl pdao = new PropertyDAOImpl();
+
+        if (tampon == 1) {
+            pr.add(new House(newid, jTextField8.getText(), Double.parseDouble(jTextField3.getText()), jTextField1.getText(), Integer.parseInt(jTextField5.getText()), Integer.parseInt(jTextField2.getText()), Integer.parseInt(jTextField6.getText()), 0, Double.parseDouble(jTextField7.getText()), newseller.getid(), "House", Double.parseDouble(jTextField4.getText()), true));
+
+        } else {
+             pr.add(new House(newid, jTextField8.getText(), Double.parseDouble(jTextField3.getText()), jTextField1.getText(), Integer.parseInt(jTextField5.getText()), Integer.parseInt(jTextField2.getText()), Integer.parseInt(jTextField6.getText()), 0, Double.parseDouble(jTextField7.getText()), newseller.getid(), "House", Double.parseDouble(jTextField4.getText()), false));
+        }
+        pdao.addproperty(pr.get(pr.size() - 1), 2);
+
+    }
 
     /**
      * @param args the command line arguments
@@ -300,7 +436,7 @@ public class SellerNewPropertyHouse extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new SellerNewPropertyHouse(newseller, buyers, sellers, emp,pr, url, USERNAME,PASSWORD).setVisible(true);
+                new SellerNewPropertyHouse(newseller, buyers, sellers, emp, pr, v, o).setVisible(true);
             }
         });
     }
@@ -308,11 +444,11 @@ public class SellerNewPropertyHouse extends javax.swing.JFrame {
     private static ArrayList<Buyer> buyers = new ArrayList<>();//array list of all the application buyers 
     private static ArrayList<Seller> sellers = new ArrayList<>();//array list of all the application sellers 
     private static ArrayList<Employee> emp = new ArrayList<>();//array list of all the application sellers 
-    private static ArrayList<Property>pr=new ArrayList<>();
-    private static String url;// Url of connection
-    private static String PASSWORD;// PASSWORD of the mysql account
-    private static String USERNAME;
-    private static Seller newseller ; 
+    private static ArrayList<Property> pr = new ArrayList<>();
+    private static ArrayList<Visit> v = new ArrayList<>();
+    private static ArrayList<Offer> o = new ArrayList<>();
+    private static Seller newseller;
+    private int tampon;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
@@ -321,6 +457,7 @@ public class SellerNewPropertyHouse extends javax.swing.JFrame {
     private javax.swing.JComboBox jComboBox2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
@@ -341,5 +478,6 @@ public class SellerNewPropertyHouse extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField5;
     private javax.swing.JTextField jTextField6;
     private javax.swing.JTextField jTextField7;
+    private javax.swing.JTextField jTextField8;
     // End of variables declaration//GEN-END:variables
 }

@@ -16,15 +16,14 @@ public class SellerFirst extends javax.swing.JFrame {
     /**
      * Creates new form SellerFirst
      */
-    public SellerFirst(Seller a, ArrayList<Buyer> b, ArrayList<Seller> s, ArrayList<Employee> e, ArrayList<Property> prop, String u, String us, String p) {
+    public SellerFirst(Seller a, ArrayList<Buyer> b, ArrayList<Seller> s, ArrayList<Employee> e, ArrayList<Property> prop, ArrayList<Visit> vis, ArrayList<Offer> off) {
         buyers = b;//Array List of buyers
         sellers = s;//Array List of sellers
         emp = e;//Array List of employees
-        pr=prop;
-        url=u;
-        USERNAME=us;
-        PASSWORD=p;
-        newseller = a ; 
+        pr = prop;
+        v = vis;
+        o = off;
+        newseller = a;
         initComponents();
     }
 
@@ -101,6 +100,11 @@ public class SellerFirst extends javax.swing.JFrame {
         jButton1.setBackground(new java.awt.Color(255, 255, 255));
         jButton1.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
         jButton1.setText("See my offers");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
         jPanel2.add(jButton1);
         jButton1.setBounds(1050, 550, 300, 40);
 
@@ -144,29 +148,83 @@ public class SellerFirst extends javax.swing.JFrame {
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         // TODO add your handling code here:
-        this.toBack(); 
+        this.toBack();
         setVisible(false);//this page disappears 
-        new First(buyers, sellers, emp,pr, url, USERNAME,PASSWORD).toFront();//we go back on the first page 
-        new First(buyers, sellers, emp,pr, url, USERNAME, PASSWORD).setState(java.awt.Frame.NORMAL);
-        new First(buyers, sellers, emp,pr, url, USERNAME, PASSWORD).setVisible(true);
+        new First(buyers, sellers, emp, pr, v, o).toFront();//we go back on the first page 
+        new First(buyers, sellers, emp, pr, v, o).setState(java.awt.Frame.NORMAL);
+        new First(buyers, sellers, emp, pr, v, o).setVisible(true);
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here: 
-        new SellerNewProperty (newseller, buyers, sellers, emp, pr, url, PASSWORD, USERNAME).setVisible(true); 
-        
-        new SellerNewProperty (newseller, buyers, sellers, emp,pr, url, PASSWORD, USERNAME).toFront(); 
+        new SellerNewProperty(newseller, buyers, sellers, emp, pr, v, o).setVisible(true);
+
+        new SellerNewProperty(newseller, buyers, sellers, emp, pr, v, o).toFront();
     }//GEN-LAST:event_jButton3ActionPerformed
 
+    //See my current properties
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
+
+        this.setmyprop();
+
+        if (myprop.size() == 0) {
+            //JOptionPane No result found
+            System.out.println("pas de maison");
+        } else {
+            //afficher le JcomboBox avec toutes les maisons a voir pour affichage
+            for (int i = 0; i < myprop.size(); ++i) {
+                System.out.println(myprop.get(i).getdescription());
+            }
+        }
     }//GEN-LAST:event_jButton2ActionPerformed
 
-    public void nom()
-    {
-        jLabel1.setText("We are very pleased to see you again " + newseller.getname()+ "!");
+    // See my offers
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        this.setmyoffers();
+        if (myoffers.size() == 0) {
+            System.out.println("No offers made for one of your properties or you don't have any property");
+            //JOptionPane
+        } else {
+            //afficher le JcomboBox avec toutes les offres a voir pour affichage
+            //test
+            for (int i = 0; i < myoffers.size(); ++i) {
+                
+                System.out.println(myoffers.get(i).getprice());
+            }
+        }
+
+
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    public void nom() {
+        jLabel1.setText("We are very pleased to see you again " + newseller.getname() + "!");
     }
-    
+
+    public void setmyprop() {
+        for (int i = 0; i < pr.size(); ++i) {
+            //As we call the setmyprop method in several places, we have to make sure that we don't have twice the same property so we use the contains method
+            if (pr.get(i).getidseller() == newseller.getid() && !myprop.contains(pr.get(i))) {
+                myprop.add(pr.get(i));
+            }
+        }
+    }
+
+    public void setmyoffers() {
+        myprop.clear();
+        this.setmyprop();
+        for (int i = 0; i < o.size(); ++i) {
+            for (int j = 0; j < myprop.size(); ++j) {
+                if (o.get(i).getidprop() == myprop.get(j).getid()) {
+                    myoffers.add(o.get(i));
+                }
+            }
+
+        }
+
+    }
+
     /**
      * @param args the command line arguments
      */
@@ -197,7 +255,8 @@ public class SellerFirst extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new SellerFirst(newseller, buyers, sellers, emp,pr, url, PASSWORD, USERNAME).setVisible(true);
+                new SellerFirst(newseller, buyers, sellers, emp, pr, v, o).setVisible(true);
+
             }
         });
     }
@@ -205,11 +264,14 @@ public class SellerFirst extends javax.swing.JFrame {
     private static ArrayList<Buyer> buyers = new ArrayList<>();//array list of all the application buyers 
     private static ArrayList<Seller> sellers = new ArrayList<>();//array list of all the application sellers 
     private static ArrayList<Employee> emp = new ArrayList<>();//array list of all the application sellers 
-    private static ArrayList<Property>pr=new ArrayList<>();
-    private static String url;// Url of connection
-    private static String PASSWORD;// PASSWORD of the mysql account
-    private static String USERNAME;
-    private static Seller newseller ; 
+    private static ArrayList<Property> pr = new ArrayList<>();
+    private static ArrayList<Visit> v = new ArrayList<>();
+    private static ArrayList<Offer> o = new ArrayList<>();
+
+    private static ArrayList<Property> myprop = new ArrayList<>();
+    private static ArrayList<Offer> myoffers = new ArrayList<>();
+
+    private static Seller newseller;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;

@@ -20,14 +20,75 @@ public class House extends Property {
         gardensurface=gs;
         swimmingpool=sp;
     }
+    @Override
     public double getgardensurface()
     {
         return gardensurface;
     }
-    public boolean swimmingpool()
+    
+    @Override
+    public boolean getswimmingpool()
     {
         return swimmingpool;
     }
     
+    @Override
+    public boolean getelevator()
+    {
+        return true;
+    }
     
+    @Override
+    public boolean getparking()
+    {
+        return true;
+    }
+    @Override
+    public int getfloornumber()
+    {
+        return 1;
+    }
+    @Override
+    public int getelevatorsql()
+     {
+        int a;
+         if(this.getelevator()==true)
+         {
+            a=1; 
+         }
+         else
+         {
+             a=0;
+         }
+         return a;
+     }
+    @Override
+    public int getparkingsql()
+    {
+        int a;
+         if(this.getparking()==true)
+         {
+            a=1; 
+         }
+         else
+         {
+             a=0;
+         }
+         return a;
+    }
+    
+    @Override
+    public int getswimmingpoolsql()
+    {
+        int a;
+        if(this.getswimmingpool()==true)
+        {
+            a=1;
+        }
+        else
+        {
+            a=0;
+        }
+        return a;
+    }
 }
