@@ -49,6 +49,10 @@ public class Visit {
     {
         System.out.println(ts.toString());
     }
+    public Timestamp gettime()
+    {
+        return ts ; 
+    }
     /*public java.sql.Date getdate()
     {
         return d;
