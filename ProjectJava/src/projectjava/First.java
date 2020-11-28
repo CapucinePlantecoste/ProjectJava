@@ -4,7 +4,15 @@
  * and open the template in the editor.
  */
 package projectjava;
+import View.SignInJFrame;
+import Model.Visit;
+import Model.Seller;
+import Model.Property;
+import Controller.Offer;
+import Model.Employee;
+import Model.Buyer;
 import java.util.ArrayList;
+
 
 /**
  *

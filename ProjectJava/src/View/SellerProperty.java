@@ -3,9 +3,17 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package projectjava;
+package View;
 
+import View.SellerFirst;
+import Model.Visit;
+import Model.Seller;
+import Model.Property;
+import Controller.Offer;
+import Model.Employee;
+import Model.Buyer;
 import java.util.ArrayList;
+import projectjava.First;
 
 /**
  *
@@ -27,6 +35,7 @@ public class SellerProperty extends javax.swing.JFrame {
         myprop = myp ; 
         
         initComponents();
+        this.initjcb1();
     }
 
     /**
@@ -156,21 +165,23 @@ public class SellerProperty extends javax.swing.JFrame {
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
         // TODO add your handling code here:
 
-        for(int i=0 ; i<myprop.size(); i++)
-        {
-            int t=0 ; 
-            for (int j = 0; j<jComboBox1.getItemCount(); j++)
-            {
-                if (jComboBox1.getItemAt(j).equals(myprop.get(i).getdescription()))
-                {
-                    t++  ; 
+        int tampon = 0;
+
+        String selected = (String) jComboBox1.getSelectedItem();
+        if (selected.equals("Select one of your properties for sale")) {
+            //jPanelApartment.hide();
+            //jPanelHouse.hide();
+        } else {
+            for (int i = 0; i < myprop.size(); i++) {
+                if (selected.equals(myprop.get(i).getdescription())) {
+
+                    tampon = i;
                 }
+
             }
-            if (t==0)
-            {
-                jComboBox1.addItem(myprop.get(i).getdescription());
-            }          
-        }    
+        }
+
+            //this.display(result.get(tampon));
     }//GEN-LAST:event_jComboBox1ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -190,6 +201,14 @@ public class SellerProperty extends javax.swing.JFrame {
         new First(buyers, sellers, emp, pr, v, o).setVisible(true);
     }//GEN-LAST:event_jButton5ActionPerformed
 
+    public void initjcb1()
+    {
+         for (int i = 0; i < myprop.size(); i++) {
+
+            jComboBox1.addItem(myprop.get(i).getdescription());
+
+        }
+    }
     /**
      * @param args the command line arguments
      */

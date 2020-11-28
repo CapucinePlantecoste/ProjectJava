@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package projectjava;//All the librairies included
+package Controller;//All the librairies included
 
+import Model.Buyer;
 import javax.swing.*;
 import java.awt.*;
 import java.sql.DriverManager;
@@ -12,6 +13,18 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.sql.*;
 import java.util.Scanner;
+import projectjava.BuyerDAOImpl;
+import Model.Employee;
+import projectjava.EmployeeDAOImpl;
+import projectjava.First;
+import projectjava.OfferDAOImpl;
+import Model.Property;
+import projectjava.PropertyDAOImpl;
+import Model.Seller;
+import projectjava.SellerDAOImpl;
+import Model.Visit;
+import projectjava.VisitDAOImpl;
+
 
 /**
  *

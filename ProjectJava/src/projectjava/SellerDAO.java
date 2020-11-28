@@ -5,6 +5,7 @@
  */
 package projectjava;
 
+import Model.Seller;
 import java.util.ArrayList;
 
 /**

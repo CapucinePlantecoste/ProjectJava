@@ -3,20 +3,19 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package projectjava;
+package Model;
 
+import Controller.Person;
 
 /**
  *
  * @author thoma
  */
-public class Buyer extends Customer{
+public class Seller extends Person {
     
-    
-    
-    public Buyer(int i,String n, String fn, String u, String p)//no more attributes than in the customer class
+    public Seller (int i,String n, String fn, String u, String p)//Constructor
     {
-        super(i,n,fn,u,p);//constructor of customer class
+        super(i,n,fn,u,p);//Constructor of the Person class
     }
     
     @Override
@@ -24,6 +23,4 @@ public class Buyer extends Customer{
     {
         //affichage à voir apres
     }
-    
-   
 }

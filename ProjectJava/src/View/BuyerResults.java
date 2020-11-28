@@ -3,10 +3,18 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package projectjava;
+package View;
 
+import View.BuyerFirst;
+import Model.Visit;
+import Model.Seller;
+import Model.Property;
+import Controller.Offer;
+import Model.Employee;
+import Model.Buyer;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
+import projectjava.First;
 
 /**
  *
@@ -17,7 +25,7 @@ public class BuyerResults extends javax.swing.JFrame {
     /**
      * Creates new form BuyerResults
      */
-    public BuyerResults(Buyer a, ArrayList<Buyer> b, ArrayList<Seller> s, ArrayList<Employee> e, ArrayList<Property> prop, ArrayList<Visit> vis, ArrayList<Offer> off,ArrayList<Property> r) {
+    public BuyerResults(Buyer a, ArrayList<Buyer> b, ArrayList<Seller> s, ArrayList<Employee> e, ArrayList<Property> prop, ArrayList<Visit> vis, ArrayList<Offer> off, ArrayList<Property> r) {
         buyers = b;//Array List of buyers
         sellers = s;//Array List of sellers
         emp = e;//Array List of employees
@@ -25,14 +33,17 @@ public class BuyerResults extends javax.swing.JFrame {
         v = vis;
         o = off;
 
-        newbuyer = a;     
-        
-        result = r ; 
-        
-        
+        newbuyer = a;
+
+        result = r;
+
         initComponents();
-        jPanelHouse.hide();
         jPanelApartment.hide();
+        jPanelHouse.hide();
+        
+
+        this.initjcb1();
+
     }
 
     /**
@@ -271,7 +282,7 @@ public class BuyerResults extends javax.swing.JFrame {
                         .addComponent(jLabelNumberFloors, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jLabelGardenSurface, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanelHouseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton2)
                     .addComponent(jButton3))
@@ -387,7 +398,7 @@ public class BuyerResults extends javax.swing.JFrame {
                         .addGap(1, 1, 1)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabelParking, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 19, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanelApartmentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton4)
                     .addComponent(jButton6))
@@ -425,42 +436,25 @@ public class BuyerResults extends javax.swing.JFrame {
 
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
         // TODO add your handling code here:
-        
-        jPanelApartment.show();
-        jPanelHouse.hide();
-        for(int i=0 ; i<result.size(); i++)
-        {
-            int t=0 ; 
-            for (int j = 0; j<jComboBox1.getItemCount(); j++)
-            {
-                if (jComboBox1.getItemAt(j).equals(result.get(i).getdescription()))
-                {
-                    t++  ; 
-                }
-            }
-            if (t==0)
-            {
-                jComboBox1.addItem(result.get(i).getdescription());
-                
-            }          
-        }        
+
+        int tampon = 0;
+
         String selected = (String) jComboBox1.getSelectedItem();
-        if (selected.equals("Select one of the following property"))
-        {}
-        else 
-        {
-            for (int i =0 ; i<result.size(); i++)
-            {
-                if (selected.equals(result.get(i).getdescription()))
-                {
-                    property = result.get(i); 
+        if (selected.equals("Select one of the following properties")) {
+           jPanelApartment.hide();
+           jPanelHouse.hide();
+        } else {
+            for (int i = 0; i < result.size(); i++) {
+                if (selected.equals(result.get(i).getdescription())) {
+
+                    tampon = i;
+                    
                 }
-                System.out.println (property.gettype()); 
+
             }
-            //if (a.gettype().equals("Apartment"))
-            //{
-                //jLabel2.setText("We are very pleased to see you again " + newbuyer.getname() + "!");
-            //}
+
+            
+            this.display(result.get(tampon));
         }
     }//GEN-LAST:event_jComboBox1ActionPerformed
 
@@ -470,10 +464,63 @@ public class BuyerResults extends javax.swing.JFrame {
         setVisible(false);//this page disappears
         new BuyerFirst(newbuyer, buyers, sellers, emp, pr, v, o).toFront();//we go back on the first page
         new BuyerFirst(newbuyer, buyers, sellers, emp, pr, v, o).setState(java.awt.Frame.NORMAL);
-        
+
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    
+    public void display(Property nprop) {
+        if (nprop.gettype().equals("Apartment")) {
+            
+            jLabelDescription1.setText(" Description : " + nprop.getdescription());
+            jLabelPrice2.setText(" Price : " + Double.toString(nprop.getprice()));
+            jLabelNumberFloors1.setText(" Number of floors : " + Integer.toString(nprop.getnumberfloors()));
+            jLabelFloorNumber.setText(" Floor Number : " + Integer.toString(nprop.getfloornumber()));
+            if (nprop.getparking() == true) {
+                jLabelParking.setText(" Parking : Yes");
+            } else {
+                jLabelParking.setText(" Parking : No");
+            }
+            jLabelNumberRooms2.setText(" Number of rooms : " + Integer.toString(nprop.getnumberrooms()));
+            jLabelLocation2.setText(" Location : " + nprop.getlocation());
+            jLabelNumberBedrooms3.setText(" Number of bedrooms : " + Integer.toString(nprop.getnumberbedrooms()));
+            jLabelNumberSurface1.setText(" Surface : " + Double.toString(nprop.getsurface()));
+            if (nprop.getelevator() == true) {
+                jLabelElevator.setText(" Elevator : Yes");
+            } else {
+                jLabelElevator.setText("Elevator : No");
+            }
+            System.out.println("coucou");
+           jPanelApartment.show();
+            jPanelHouse.hide();
+
+        } else {
+            jLabelDescription.setText(" Description : " + nprop.getdescription());
+            jLabelPrice.setText(" Price : " + Double.toString(nprop.getprice()));
+            jLabelNumberFloors.setText(" Number of floors : " + Integer.toString(nprop.getnumberfloors()));
+            jLabelGardenSurface.setText(" Garden surface : " + Double.toString(nprop.getgardensurface()));
+            jLabelLocation1.setText(" Location : " + nprop.getlocation());
+            jLabelNumberRooms1.setText(" Number of rooms : " + Integer.toString(nprop.getnumberrooms()));
+            jLabelNumberBedrooms2.setText(" Number of bedrooms : " + Integer.toString(nprop.getnumberbedrooms()));
+            jLabelNumberSurface.setText(" Surface : " + Double.toString(nprop.getsurface()));
+            if (nprop.getswimmingpool() == true) {
+                jLabelSwimmingPool.setText(" Swimmingpool : Yes");
+            } else {
+                jLabelSwimmingPool.setText("Swimmingpool : No");
+            }
+            jPanelHouse.show();
+            
+            jPanelApartment.hide();
+
+        }
+    }
+
+    public void initjcb1() {
+        for (int i = 0; i < result.size(); i++) {
+
+            jComboBox1.addItem(result.get(i).getdescription());
+
+        }
+    }
+
     /**
      * @param args the command line arguments
      */
@@ -504,20 +551,18 @@ public class BuyerResults extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new BuyerResults( newbuyer, buyers, sellers, emp, pr, v, o, result).setVisible(true);
+                new BuyerResults(newbuyer, buyers, sellers, emp, pr, v, o, result).setVisible(true);
             }
         });
     }
 
-    
     private static ArrayList<Buyer> buyers = new ArrayList<>();//array list of all the application buyers 
     private static ArrayList<Seller> sellers = new ArrayList<>();//array list of all the application sellers 
     private static ArrayList<Employee> emp = new ArrayList<>();//array list of all the application sellers 
     private static ArrayList<Property> pr = new ArrayList<>();
     private static ArrayList<Visit> v = new ArrayList<>();
-    private static ArrayList<Offer> o = new ArrayList<>();    
+    private static ArrayList<Offer> o = new ArrayList<>();
     private static ArrayList<Property> result = new ArrayList<>();
-    private static Property property ;
 
     private static Buyer newbuyer;
     // Variables declaration - do not modify//GEN-BEGIN:variables

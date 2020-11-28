@@ -3,10 +3,18 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package projectjava;
+package View;
 
+import View.BuyerViewings;
+import Model.Visit;
+import Model.Seller;
+import Model.Property;
+import Controller.Offer;
+import Model.Employee;
+import Model.Buyer;
 import java.util.ArrayList;
 import javax.swing.JOptionPane; 
+import projectjava.First;
 
  
 
@@ -331,10 +339,7 @@ public class BuyerFirst extends javax.swing.JFrame {
         if (myviewings.size() == 0) {
             JOptionPane.showMessageDialog(null, "You do not have any viewing"); //message shown to say so
         } else {
-            for (int i = 0; i < myviewings.size(); ++i) {
-                //test
-                System.out.println(myviewings.get(i).getidemp());
-            }
+        
             BuyerViewings a= new BuyerViewings (newbuyer, buyers, sellers, emp, pr, v, o, myviewings); 
             a.setVisible(true); 
             //Affichr la page avec une combo box de tous les viewings
@@ -512,9 +517,7 @@ public class BuyerFirst extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "You do not have any offer"); //message shown to say so
             
         } else {
-            for (int i = 0; i < myoffers.size(); ++i) {
-                System.out.println(myoffers.get(i).getprice());
-            }
+            
             BuyerOffer a= new BuyerOffer (newbuyer, buyers, sellers, emp, pr, v, o, myoffers); 
             a.setVisible(true);
             //Jotpion Pane classique

@@ -3,29 +3,40 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package projectjava;
+package View;
 
+import View.SellerFirst;
+import Model.Visit;
+import Model.Seller;
+import Model.Property;
+import Controller.Offer;
+import Model.Employee;
+import Model.Appartment;
+import Model.Buyer;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
+import projectjava.First;
+import projectjava.PropertyDAOImpl;
 
 /**
  *
  * @author CAP
  */
-public class SellerNewPropertyHouse extends javax.swing.JFrame {
+public class SellerNewPropertyApartment extends javax.swing.JFrame {
 
     /**
-     * Creates new form SellerNewPropertyHouse
+     * Creates new form SellerNewPropertyApartment
      */
-    public SellerNewPropertyHouse(Seller a, ArrayList<Buyer> b, ArrayList<Seller> s, ArrayList<Employee> e, ArrayList<Property> prop, ArrayList<Visit> vis, ArrayList<Offer> off) {
+    public SellerNewPropertyApartment(Seller a, ArrayList<Buyer> b, ArrayList<Seller> s, ArrayList<Employee> e, ArrayList<Property>prop, ArrayList<Visit> vis, ArrayList<Offer> off) {
         buyers = b;//Array List of buyers
         sellers = s;//Array List of sellers
         emp = e;//Array List of employees
-        pr = prop;
-        v = vis;
-        o = off;
-        newseller = a;
-        tampon = 1;
+        pr=prop;
+        v=vis;
+        o=off;
+        newseller = a ;
+        tampon1=1;
+        tampon2=1;
         initComponents();
     }
 
@@ -53,6 +64,7 @@ public class SellerNewPropertyHouse extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
@@ -61,12 +73,13 @@ public class SellerNewPropertyHouse extends javax.swing.JFrame {
         jTextField4 = new javax.swing.JTextField();
         jTextField5 = new javax.swing.JTextField();
         jTextField6 = new javax.swing.JTextField();
+        jComboBox1 = new javax.swing.JComboBox();
         jTextField7 = new javax.swing.JTextField();
         jComboBox2 = new javax.swing.JComboBox();
         jButton2 = new javax.swing.JButton();
         jLabel14 = new javax.swing.JLabel();
         jTextField8 = new javax.swing.JTextField();
-        jLabel11 = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -81,7 +94,7 @@ public class SellerNewPropertyHouse extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Calibri", 0, 36)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Introduce a new house");
+        jLabel1.setText("Introduce a new apartment");
 
         jLabel3.setFont(new java.awt.Font("Calibri", 0, 24)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
@@ -111,7 +124,7 @@ public class SellerNewPropertyHouse extends javax.swing.JFrame {
                         .addGap(33, 33, 33)
                         .addComponent(jButton1))
                     .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGap(158, 158, 158)
+                        .addGap(136, 136, 136)
                         .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 409, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -122,15 +135,15 @@ public class SellerNewPropertyHouse extends javax.swing.JFrame {
                 .addComponent(jButton1)
                 .addGap(135, 135, 135)
                 .addComponent(jLabel1)
-                .addGap(65, 65, 65)
+                .addGap(62, 62, 62)
                 .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 192, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 177, Short.MAX_VALUE)
                 .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(53, 53, 53))
+                .addGap(71, 71, 71))
         );
 
         jPanel2.add(jPanel4);
-        jPanel4.setBounds(30, 0, 740, 830);
+        jPanel4.setBounds(0, 0, 740, 830);
 
         jButton5.setBackground(new java.awt.Color(255, 255, 255));
         jButton5.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
@@ -186,9 +199,15 @@ public class SellerNewPropertyHouse extends javax.swing.JFrame {
 
         jLabel10.setBackground(new java.awt.Color(255, 255, 255));
         jLabel10.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
-        jLabel10.setText("Swimming Pool");
+        jLabel10.setText("Elevator");
         jPanel2.add(jLabel10);
         jLabel10.setBounds(950, 450, 200, 30);
+
+        jLabel11.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel11.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
+        jLabel11.setText("Parking");
+        jPanel2.add(jLabel11);
+        jLabel11.setBounds(950, 540, 200, 30);
 
         jLabel12.setBackground(new java.awt.Color(255, 255, 255));
         jLabel12.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
@@ -198,9 +217,15 @@ public class SellerNewPropertyHouse extends javax.swing.JFrame {
 
         jLabel13.setBackground(new java.awt.Color(255, 255, 255));
         jLabel13.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
-        jLabel13.setText("Garden Surface");
+        jLabel13.setText("Floor Number ");
         jPanel2.add(jLabel13);
         jLabel13.setBounds(1210, 450, 200, 30);
+
+        jTextField1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextField1KeyTyped(evt);
+            }
+        });
         jPanel2.add(jTextField1);
         jTextField1.setBounds(1210, 210, 200, 30);
 
@@ -244,6 +269,16 @@ public class SellerNewPropertyHouse extends javax.swing.JFrame {
         jPanel2.add(jTextField6);
         jTextField6.setBounds(950, 390, 160, 30);
 
+        jComboBox1.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Yes", "No" }));
+        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox1ActionPerformed(evt);
+            }
+        });
+        jPanel2.add(jComboBox1);
+        jComboBox1.setBounds(950, 570, 59, 29);
+
         jTextField7.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 jTextField7KeyTyped(evt);
@@ -279,11 +314,11 @@ public class SellerNewPropertyHouse extends javax.swing.JFrame {
         jPanel2.add(jLabel14);
         jLabel14.setBounds(880, 730, 600, 30);
         jPanel2.add(jTextField8);
-        jTextField8.setBounds(960, 600, 460, 26);
+        jTextField8.setBounds(1110, 570, 400, 26);
 
-        jLabel11.setText("Description");
-        jPanel2.add(jLabel11);
-        jLabel11.setBounds(960, 560, 150, 20);
+        jLabel15.setText("Description");
+        jPanel2.add(jLabel15);
+        jLabel15.setBounds(1120, 540, 160, 20);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -305,8 +340,8 @@ public class SellerNewPropertyHouse extends javax.swing.JFrame {
         // TODO add your handling code here:
         this.toBack();//if we click on the back button
         setVisible(false);//this page disappears
-        new SellerFirst(newseller, buyers, sellers, emp, pr, v, o).toFront();//we go back on the first page
-        new SellerFirst(newseller, buyers, sellers, emp, pr, v, o).setState(java.awt.Frame.NORMAL);
+        new SellerFirst(newseller, buyers, sellers, emp,pr,v,o).toFront();//we go back on the first page
+        new SellerFirst(newseller,buyers, sellers, emp,pr,v,o).setState(java.awt.Frame.NORMAL);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
@@ -314,24 +349,15 @@ public class SellerNewPropertyHouse extends javax.swing.JFrame {
         //faire code pour log out
         this.toBack();
         setVisible(false);//this page disappears
-        new First(buyers, sellers, emp, pr, v, o).toFront();//we go back on the first page
-        new First(buyers, sellers, emp, pr, v, o).setState(java.awt.Frame.NORMAL);
-        new First(buyers, sellers, emp, pr, v, o).setVisible(true);
+        new First(buyers, sellers, emp,pr,v,o).toFront();//we go back on the first page
+        new First(buyers, sellers, emp,pr,v,o).setState(java.awt.Frame.NORMAL);
+        new First(buyers, sellers, emp,pr,v,o).setVisible(true);
+
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton6ActionPerformed
-
-    private void jComboBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox2ActionPerformed
-        // TODO add your handling code here:
-        String selected = (String) jComboBox2.getSelectedItem();
-        if (selected.equals("Yes")) {
-            tampon = 1;
-        } else if (selected.equals("No")) {
-            tampon = 2;
-        }
-    }//GEN-LAST:event_jComboBox2ActionPerformed
 
     private void jTextField3KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField3KeyTyped
         // TODO add your handling code here:
@@ -349,14 +375,6 @@ public class SellerNewPropertyHouse extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jTextField5KeyTyped
 
-    private void jTextField2KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField2KeyTyped
-        // TODO add your handling code here:
-        char c = evt.getKeyChar();
-        if (Character.isLetter(c) && !evt.isAltDown()) {
-            evt.consume();
-        }
-    }//GEN-LAST:event_jTextField2KeyTyped
-
     private void jTextField6KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField6KeyTyped
         // TODO add your handling code here:
         char c = evt.getKeyChar();
@@ -373,6 +391,14 @@ public class SellerNewPropertyHouse extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jTextField7KeyTyped
 
+    private void jTextField2KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField2KeyTyped
+        // TODO add your handling code here:
+        char c = evt.getKeyChar();
+        if (Character.isLetter(c) && !evt.isAltDown()) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_jTextField2KeyTyped
+
     private void jTextField4KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField4KeyTyped
         // TODO add your handling code here:
         char c = evt.getKeyChar();
@@ -381,32 +407,88 @@ public class SellerNewPropertyHouse extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jTextField4KeyTyped
 
+    private void jComboBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox2ActionPerformed
+        // TODO add your handling code here:
+       String selected = (String) jComboBox2.getSelectedItem();
+        if(selected.equals("Yes"))
+        {
+            tampon2=1;
+        }
+        else if(selected.equals("No"))
+        {
+            tampon2=2;
+        }
+    }//GEN-LAST:event_jComboBox2ActionPerformed
+
+    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+        // TODO add your handling code here:
+        String selected = (String) jComboBox1.getSelectedItem();
+        if(selected.equals("Yes"))
+        {
+            tampon1=1;
+        }
+        else if(selected.equals("No"))
+        {
+            tampon1=2;
+        }
+    }//GEN-LAST:event_jComboBox1ActionPerformed
+
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-        if (jTextField1.getText().trim().isEmpty() || jTextField2.getText().trim().isEmpty() || jTextField3.getText().trim().isEmpty() || jTextField4.getText().trim().isEmpty() || jTextField5.getText().trim().isEmpty() || jTextField6.getText().trim().isEmpty() || jTextField7.getText().trim().isEmpty() || jTextField8.getText().trim().isEmpty()) {
+        
+        if(jTextField1.getText().trim().isEmpty() || jTextField2.getText().trim().isEmpty() || jTextField3.getText().trim().isEmpty()|| jTextField4.getText().trim().isEmpty()|| jTextField5.getText().trim().isEmpty()||jTextField6.getText().trim().isEmpty()||jTextField7.getText().trim().isEmpty()||jTextField8.getText().trim().isEmpty())
+        {
             JOptionPane.showMessageDialog(null, "One or several fields are empty. Please, try again.");
-        } else {
-            this.addhouse();
-            JOptionPane.showMessageDialog(null, "Your house has been successfully registered for sale");
+        }
+        else
+        {
+           this.addapartment();
+           JOptionPane.showMessageDialog(null, "Your apartment has been successfully registered for sale");
         }
     }//GEN-LAST:event_jButton2ActionPerformed
 
-    public void addhouse() {
+    private void jTextField1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField1KeyTyped
+        // TODO add your handling code here:
+        char c=evt.getKeyChar();
+      if(Character.isDigit(c))
+      {
+         evt.consume();
+      }
+    }//GEN-LAST:event_jTextField1KeyTyped
 
-        int idlast = pr.get(pr.size() - 1).getid();
-        int newid = idlast + 1;
-        PropertyDAOImpl pdao = new PropertyDAOImpl();
-
-        if (tampon == 1) {
-            pr.add(new House(newid, jTextField8.getText(), Double.parseDouble(jTextField3.getText()), jTextField1.getText(), Integer.parseInt(jTextField5.getText()), Integer.parseInt(jTextField2.getText()), Integer.parseInt(jTextField6.getText()), 0, Double.parseDouble(jTextField7.getText()), newseller.getid(), "House", Double.parseDouble(jTextField4.getText()), true));
-
-        } else {
-             pr.add(new House(newid, jTextField8.getText(), Double.parseDouble(jTextField3.getText()), jTextField1.getText(), Integer.parseInt(jTextField5.getText()), Integer.parseInt(jTextField2.getText()), Integer.parseInt(jTextField6.getText()), 0, Double.parseDouble(jTextField7.getText()), newseller.getid(), "House", Double.parseDouble(jTextField4.getText()), false));
+    
+    public void addapartment()
+    {
+        int idlast=pr.get(pr.size()-1).getid();
+        int newid=idlast+1;
+        PropertyDAOImpl pdao=new PropertyDAOImpl();
+        if(tampon1==1)
+        {
+                if(tampon2==1)
+                {
+                    pr.add(new Appartment(newid,jTextField8.getText(),Double.parseDouble(jTextField3.getText()),jTextField1.getText(),Integer.parseInt(jTextField5.getText()),Integer.parseInt(jTextField2.getText()),Integer.parseInt(jTextField6.getText()),0,Double.parseDouble(jTextField7.getText()),newseller.getid(),"Apartment",true,Integer.parseInt(jTextField4.getText()),true));
+                    
+                }
+                else
+                {
+                    pr.add(new Appartment(newid,jTextField8.getText(),Double.parseDouble(jTextField3.getText()),jTextField1.getText(),Integer.parseInt(jTextField5.getText()),Integer.parseInt(jTextField2.getText()),Integer.parseInt(jTextField6.getText()),0,Double.parseDouble(jTextField7.getText()),newseller.getid(),"Apartment",false,Integer.parseInt(jTextField4.getText()),true));
+                }
         }
-        pdao.addproperty(pr.get(pr.size() - 1), 2);
-
+        else
+        {
+            if (tampon2==1)
+            {
+                pr.add(new Appartment(newid,jTextField8.getText(),Double.parseDouble(jTextField3.getText()),jTextField1.getText(),Integer.parseInt(jTextField5.getText()),Integer.parseInt(jTextField2.getText()),Integer.parseInt(jTextField6.getText()),0,Double.parseDouble(jTextField7.getText()),newseller.getid(),"Apartment",true,Integer.parseInt(jTextField4.getText()),false));
+            }
+            else
+            {
+                pr.add(new Appartment(newid,jTextField8.getText(),Double.parseDouble(jTextField3.getText()),jTextField1.getText(),Integer.parseInt(jTextField5.getText()),Integer.parseInt(jTextField2.getText()),Integer.parseInt(jTextField6.getText()),0,Double.parseDouble(jTextField7.getText()),newseller.getid(),"Apartment",false,Integer.parseInt(jTextField4.getText()),false));
+            }
+        }
+        pdao.addproperty(pr.get(pr.size()-1),1);
+        
+        
     }
-
     /**
      * @param args the command line arguments
      */
@@ -424,37 +506,40 @@ public class SellerNewPropertyHouse extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(SellerNewPropertyHouse.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(SellerNewPropertyApartment.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(SellerNewPropertyHouse.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(SellerNewPropertyApartment.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(SellerNewPropertyHouse.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(SellerNewPropertyApartment.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(SellerNewPropertyHouse.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(SellerNewPropertyApartment.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new SellerNewPropertyHouse(newseller, buyers, sellers, emp, pr, v, o).setVisible(true);
+                new SellerNewPropertyApartment(newseller, buyers, sellers, emp,pr,v,o).setVisible(true);
             }
         });
     }
+    
 
     private static ArrayList<Buyer> buyers = new ArrayList<>();//array list of all the application buyers 
     private static ArrayList<Seller> sellers = new ArrayList<>();//array list of all the application sellers 
     private static ArrayList<Employee> emp = new ArrayList<>();//array list of all the application sellers 
-    private static ArrayList<Property> pr = new ArrayList<>();
-    private static ArrayList<Visit> v = new ArrayList<>();
-    private static ArrayList<Offer> o = new ArrayList<>();
-    private static Seller newseller;
-    private int tampon;
+    private static ArrayList<Property> pr=new ArrayList<>();
+    private static ArrayList<Visit>v=new ArrayList<>();
+    private static ArrayList<Offer>o=new ArrayList<>();
+    private static Seller newseller ; 
+    private int tampon1;
+    private int tampon2;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
+    private javax.swing.JComboBox jComboBox1;
     private javax.swing.JComboBox jComboBox2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -462,6 +547,7 @@ public class SellerNewPropertyHouse extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

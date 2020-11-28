@@ -5,6 +5,7 @@
  */
 package projectjava;
 
+import Model.Employee;
 import java.util.ArrayList;
 
 /**

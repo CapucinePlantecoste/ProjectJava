@@ -4,11 +4,13 @@
  * and open the template in the editor.
  */
 package projectjava;
+import Model.Visit;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.sql.Timestamp;
 
 /**
  *
@@ -35,8 +37,12 @@ public class VisitDAOImpl implements VisitDAO {
                 int c= result.getInt("idemployee");
                 int d = result.getInt("idproperty");
                 int e = result.getInt("idbuyer");
+                Timestamp ts=result.getObject("schedule", Timestamp.class);
+                System.out.println(ts);
+                System.out.println(ts.toString());
+                
 
-                visits.add(new Visit(a, b, d, c));//we create an employee object with the values get ahead
+                visits.add(new Visit(a, b, d, c,ts));//we create an employee object with the values get ahead
 
             }
             conn.close();
@@ -49,6 +55,7 @@ public class VisitDAOImpl implements VisitDAO {
     @Override
     public void addvisit(Visit a)
     {
+        
         
     }
     

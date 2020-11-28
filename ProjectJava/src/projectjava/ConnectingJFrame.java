@@ -4,6 +4,15 @@
  * and open the template in the editor.
  */
 package projectjava;
+import View.BuyerFirst;
+import View.EmployeeFirst;
+import View.SellerFirst;
+import Model.Visit;
+import Model.Seller;
+import Model.Property;
+import Controller.Offer;
+import Model.Employee;
+import Model.Buyer;
 import javax.swing.JOptionPane; 
 
 import java.util.ArrayList;

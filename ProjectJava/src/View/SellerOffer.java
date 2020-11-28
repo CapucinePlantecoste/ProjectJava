@@ -3,9 +3,17 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package projectjava;
+package View;
 
+import View.SellerFirst;
+import Model.Visit;
+import Model.Seller;
+import Model.Property;
+import Controller.Offer;
+import Model.Employee;
+import Model.Buyer;
 import java.util.ArrayList;
+import projectjava.First;
 
 /**
  *
@@ -27,6 +35,7 @@ public class SellerOffer extends javax.swing.JFrame {
         myoffers= myo ;
         
         initComponents();
+        this.initjcb1();
     }
 
     /**
@@ -141,13 +150,17 @@ public class SellerOffer extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 1575, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 1360, Short.MAX_VALUE)
+                .addGap(200, 200, 200))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 850, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -156,26 +169,35 @@ public class SellerOffer extends javax.swing.JFrame {
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
         // TODO add your handling code here:
         
+        int tampon = 0;
+        
+
+        String selected = (String) jComboBox1.getSelectedItem();
+        if (selected.equals("Select one of your offers")) {
+            
+            //jPanelOffer.hide();
+        } else {
+            for (int i = 0; i < myoffers.size(); ++i) {
+                {
+                    for(int j=0;j<pr.size();++j)
+                    {
+                        if(selected.equals(pr.get(j).getdescription()))
+                        {
+                           
+                            tampon=i;
+                            
+                        }
+                    }
+                }
+                
+                
+            }
+               
+            //this.display(myoffers.get(tampon));
+
+            }
         
         
-        for(int i=0 ; i<myoffers.size(); i++)
-        {
-            int t=0 ;
-            for (int j = 0; j<jComboBox1.getItemCount(); j++)
-            {
-                if (jComboBox1.getItemAt(j).equals(pr.get(i).getdescription()))
-                {
-                    t++;
-                }
-            }
-            if (t==0)
-            {
-                if (myoffers.get(i).getidprop()==pr.get(i).getid())
-                {
-                    jComboBox1.addItem(pr.get(i).getdescription());
-                }
-            }
-        }
     }//GEN-LAST:event_jComboBox1ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -195,6 +217,19 @@ public class SellerOffer extends javax.swing.JFrame {
         new First(buyers, sellers, emp, pr, v, o).setVisible(true);
     }//GEN-LAST:event_jButton5ActionPerformed
 
+    public void initjcb1()
+    {
+        for(int i=0;i<myoffers.size();++i)
+        {
+            for(int j=0;j<pr.size();++j)
+            {
+                if(myoffers.get(i).getidprop()==pr.get(j).getid())
+                {
+                    jComboBox1.addItem(pr.get(j).getdescription());
+                }
+            }
+        }
+    }
     /**
      * @param args the command line arguments
      */

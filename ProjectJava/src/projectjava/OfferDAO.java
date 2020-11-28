@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package projectjava;
+import Controller.Offer;
 import java.util.ArrayList;
 
 /**

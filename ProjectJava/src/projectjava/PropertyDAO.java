@@ -5,6 +5,7 @@
  */
 package projectjava;
 
+import Model.Property;
 import java.util.ArrayList;
 
 /**

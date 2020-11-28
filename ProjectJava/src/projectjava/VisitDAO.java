@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package projectjava;
+import Model.Visit;
 import java.util.ArrayList;
 
 /**

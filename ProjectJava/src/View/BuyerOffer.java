@@ -3,9 +3,17 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package projectjava;
+package View;
 
+import View.BuyerFirst;
+import Model.Visit;
+import Model.Seller;
+import Model.Property;
+import Controller.Offer;
+import Model.Employee;
+import Model.Buyer;
 import java.util.ArrayList;
+import projectjava.First;
 
 /**
  *
@@ -16,7 +24,7 @@ public class BuyerOffer extends javax.swing.JFrame {
     /**
      * Creates new form BuyerOffer
      */
-    public BuyerOffer(Buyer a, ArrayList<Buyer> b, ArrayList<Seller> s, ArrayList<Employee> e, ArrayList<Property> prop, ArrayList<Visit> vis, ArrayList<Offer> off,ArrayList<Offer> myo) {
+    public BuyerOffer(Buyer a, ArrayList<Buyer> b, ArrayList<Seller> s, ArrayList<Employee> e, ArrayList<Property> prop, ArrayList<Visit> vis, ArrayList<Offer> off, ArrayList<Offer> myo) {
         buyers = b;//Array List of buyers
         sellers = s;//Array List of sellers
         emp = e;//Array List of employees
@@ -24,11 +32,15 @@ public class BuyerOffer extends javax.swing.JFrame {
         v = vis;
         o = off;
 
-        newbuyer = a;        
-        myoffers = myo ; 
+        newbuyer = a;
+       
+        myoffers = myo;
         
+      
         
+
         initComponents();
+        this.initjcb1();
     }
 
     /**
@@ -158,25 +170,33 @@ public class BuyerOffer extends javax.swing.JFrame {
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
         // TODO add your handling code here:
 
-        for(int i=0 ; i<myoffers.size(); i++)
-        {
-            int t=0 ;
-            for (int j = 0; j<jComboBox1.getItemCount(); j++)
-            {
-                if (jComboBox1.getItemAt(j).equals(pr.get(i).getdescription()))
+        int tampon = 0;
+        
+
+        String selected = (String) jComboBox1.getSelectedItem();
+        if (selected.equals("Select one of the following properties")) {
+            
+            //jPanelOffer.hide();
+        } else {
+            for (int i = 0; i < myoffers.size(); i++) {
                 {
-                    t++;
+                    for(int j=0;j<pr.size();++j)
+                    {
+                        if(selected.equals(pr.get(j).getdescription()))
+                        {
+                            tampon=i;
+                        }
+                    }
                 }
+                
+                
             }
-            if (t==0)
-            {
-                if (myoffers.get(i).getidprop()==pr.get(i).getid())
-                {
-                    jComboBox1.addItem(pr.get(i).getdescription());
-                    
-                }
+               
+            //this.display(myoffers.get(tampon));
+
             }
-        }
+
+            
 
     }//GEN-LAST:event_jComboBox1ActionPerformed
 
@@ -196,6 +216,21 @@ public class BuyerOffer extends javax.swing.JFrame {
         new First(buyers, sellers, emp, pr, v, o).setState(java.awt.Frame.NORMAL);
         new First(buyers, sellers, emp, pr, v, o).setVisible(true);
     }//GEN-LAST:event_jButton5ActionPerformed
+
+    public void initjcb1() {
+        
+        for (int i = 0; i < myoffers.size(); ++i) {
+            for (int j = 0; j < pr.size(); ++j) {
+                
+                if (myoffers.get(i).getidprop() == pr.get(j).getid()) {
+                    jComboBox1.addItem(pr.get(j).getdescription());
+                   
+                }
+            }
+
+        }
+        
+    }
 
     /**
      * @param args the command line arguments
@@ -227,7 +262,7 @@ public class BuyerOffer extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new BuyerOffer( newbuyer, buyers, sellers, emp, pr, v, o, myoffers).setVisible(true);
+                new BuyerOffer(newbuyer, buyers, sellers, emp, pr, v, o, myoffers).setVisible(true);
             }
         });
     }
@@ -237,7 +272,7 @@ public class BuyerOffer extends javax.swing.JFrame {
     private static ArrayList<Employee> emp = new ArrayList<>();//array list of all the application sellers 
     private static ArrayList<Property> pr = new ArrayList<>();
     private static ArrayList<Visit> v = new ArrayList<>();
-    private static ArrayList<Offer> o = new ArrayList<>();      
+    private static ArrayList<Offer> o = new ArrayList<>();
     private static ArrayList<Offer> myoffers = new ArrayList<>();
 
     private static Buyer newbuyer;

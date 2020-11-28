@@ -5,6 +5,7 @@
  */
 package projectjava;
 
+import Model.Seller;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;

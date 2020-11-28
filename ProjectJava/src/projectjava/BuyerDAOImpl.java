@@ -5,6 +5,7 @@
  */
 package projectjava;
 
+import Model.Buyer;
 import java.util.ArrayList;
 import java.sql.Statement;
 

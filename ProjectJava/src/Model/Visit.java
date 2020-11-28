@@ -3,7 +3,8 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package projectjava;
+package Model;
+import java.sql.Timestamp;
 import java.sql.Timestamp;
 /**
  *
@@ -16,19 +17,23 @@ public class Visit {
     private int idbuyer;
     private int idprop;
     private int idemp;
+    Timestamp ts;
     
-    public Visit(int i, int idb, int idp, int ide)
+    public Visit(int i, int idb, int idp, int ide, Timestamp t)
     {
         id=i;
         idbuyer=idb;
         idprop=idp;
         idemp=ide;
+        ts=t;
     }
     
     public int getidbuyer()
     {
         return idbuyer;
     }
+    
+    
     
     public int getidprop()
     {
@@ -38,6 +43,11 @@ public class Visit {
     public int getidemp()
     {
         return idemp;
+    }
+    
+    public void displaydate()
+    {
+        System.out.println(ts.toString());
     }
     /*public java.sql.Date getdate()
     {

@@ -3,27 +3,35 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package projectjava;
+package View;
 
+import Model.Visit;
+import Model.Seller;
+import Model.Property;
+import Controller.Offer;
+import Model.Employee;
+import Model.Buyer;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
+import projectjava.First;
 
 /**
  *
  * @author CAP
  */
-public class EmployeeFirst extends javax.swing.JFrame {
+public class SellerFirst extends javax.swing.JFrame {
 
     /**
-     * Creates new form EmployeeFirst
+     * Creates new form SellerFirst
      */
-    public EmployeeFirst(Employee a, ArrayList<Buyer> b, ArrayList<Seller> s, ArrayList<Employee> e, ArrayList<Property> prop, ArrayList<Visit> vis, ArrayList<Offer>off) {
+    public SellerFirst(Seller a, ArrayList<Buyer> b, ArrayList<Seller> s, ArrayList<Employee> e, ArrayList<Property> prop, ArrayList<Visit> vis, ArrayList<Offer> off) {
         buyers = b;//Array List of buyers
         sellers = s;//Array List of sellers
         emp = e;//Array List of employees
-        pr=prop;
-        v=vis;
-        o=off;
-        newemployee = a ; 
+        pr = prop;
+        v = vis;
+        o = off;
+        newseller = a;
         initComponents();
     }
 
@@ -37,18 +45,21 @@ public class EmployeeFirst extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel2 = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jButton5 = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setLayout(null);
+        jPanel2.add(jLabel2);
+        jLabel2.setBounds(1090, 100, 60, 100);
 
         jPanel4.setBackground(new java.awt.Color(0, 153, 153));
 
@@ -61,22 +72,19 @@ public class EmployeeFirst extends javax.swing.JFrame {
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
-                .addContainerGap(119, Short.MAX_VALUE)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 409, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(160, 160, 160))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 505, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(116, 116, 116))))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                .addContainerGap(130, Short.MAX_VALUE)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 450, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 409, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(160, 160, 160))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addContainerGap(324, Short.MAX_VALUE)
+                .addContainerGap(308, Short.MAX_VALUE)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(186, 186, 186)
+                .addGap(202, 202, 202)
                 .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(20, 20, 20))
         );
@@ -93,30 +101,40 @@ public class EmployeeFirst extends javax.swing.JFrame {
             }
         });
         jPanel2.add(jButton5);
-        jButton5.setBounds(1370, 80, 100, 23);
+        jButton5.setBounds(1360, 100, 100, 23);
 
         jButton1.setBackground(new java.awt.Color(255, 255, 255));
         jButton1.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
-        jButton1.setText("Remove a property");
+        jButton1.setText("See my offers");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
         jPanel2.add(jButton1);
-        jButton1.setBounds(1010, 480, 300, 40);
-
-        jButton3.setBackground(new java.awt.Color(255, 255, 255));
-        jButton3.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
-        jButton3.setText("See the properties awaiting for sale");
-        jPanel2.add(jButton3);
-        jButton3.setBounds(1010, 350, 300, 40);
+        jButton1.setBounds(1050, 550, 300, 40);
 
         jButton2.setBackground(new java.awt.Color(255, 255, 255));
         jButton2.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
-        jButton2.setText("Confirm the booked viewings");
+        jButton2.setText("See my current properties");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
         jPanel2.add(jButton2);
-        jButton2.setBounds(1010, 410, 300, 40);
+        jButton2.setBounds(1050, 390, 300, 40);
+
+        jButton3.setBackground(new java.awt.Color(255, 255, 255));
+        jButton3.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
+        jButton3.setText("Introduce new property");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+        jPanel2.add(jButton3);
+        jButton3.setBounds(1050, 470, 300, 40);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -136,22 +154,81 @@ public class EmployeeFirst extends javax.swing.JFrame {
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         // TODO add your handling code here:
-        this.toBack(); 
+        this.toBack();
         setVisible(false);//this page disappears 
-        new First(buyers, sellers, emp,pr,v,o).toFront();//we go back on the first page 
-        new First(buyers, sellers, emp,pr,v,o).setState(java.awt.Frame.NORMAL);
-        new First(buyers, sellers, emp,pr,v,o).setVisible(true);
+        new First(buyers, sellers, emp, pr, v, o).toFront();//we go back on the first page 
+        new First(buyers, sellers, emp, pr, v, o).setState(java.awt.Frame.NORMAL);
+        new First(buyers, sellers, emp, pr, v, o).setVisible(true);
     }//GEN-LAST:event_jButton5ActionPerformed
 
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here: 
+        new SellerNewProperty(newseller, buyers, sellers, emp, pr, v, o).setVisible(true);
+
+        new SellerNewProperty(newseller, buyers, sellers, emp, pr, v, o).toFront();
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    //See my current properties
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+
+        this.setmyprop();
+
+        if (myprop.size() == 0) {
+            JOptionPane.showMessageDialog(null, "You have no properties for sale"); //message shown to say so
+            
+        } else {
+            //afficher le JcomboBox avec toutes les maisons a voir pour affichage
+            for (int i = 0; i < myprop.size(); ++i) {
+                System.out.println(myprop.get(i).getdescription());
+            }
+            SellerProperty a= new SellerProperty (newseller, buyers, sellers, emp, pr, v, o, myprop); 
+            a.setVisible(true);
+        }
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    // See my offers
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+        this.setmyoffers();
+        if (myoffers.size() == 0) {
+            JOptionPane.showMessageDialog(null, "No offers made for one of your properties or you don't have any property"); //message shown to say so
+            
+        } else {
+            SellerOffer a= new SellerOffer (newseller, buyers, sellers, emp, pr, v, o, myoffers); 
+            a.setVisible(true);
+        }
+
+
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    public void nom()
-    {
-        jLabel1.setText("We are very pleased to see you again " + newemployee.getname()+ "!");
+    public void nom() {
+        jLabel1.setText("We are very pleased to see you again " + newseller.getname() + "!");
     }
-    
+
+    public void setmyprop() {
+        for (int i = 0; i < pr.size(); ++i) {
+            //As we call the setmyprop method in several places, we have to make sure that we don't have twice the same property so we use the contains method
+            if (pr.get(i).getidseller() == newseller.getid() && !myprop.contains(pr.get(i))) {
+                myprop.add(pr.get(i));
+            }
+        }
+    }
+
+    public void setmyoffers() {
+        myprop.clear();
+        this.setmyprop();
+        for (int i = 0; i < o.size(); ++i) {
+            for (int j = 0; j < myprop.size(); ++j) {
+                if (o.get(i).getidprop() == myprop.get(j).getid()) {
+                    myoffers.add(o.get(i));
+                }
+            }
+
+        }
+
+    }
+
     /**
      * @param args the command line arguments
      */
@@ -169,20 +246,21 @@ public class EmployeeFirst extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(EmployeeFirst.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(SellerFirst.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(EmployeeFirst.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(SellerFirst.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(EmployeeFirst.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(SellerFirst.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(EmployeeFirst.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(SellerFirst.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new EmployeeFirst(newemployee, buyers, sellers, emp,pr,v,o).setVisible(true);
+                new SellerFirst(newseller, buyers, sellers, emp, pr, v, o).setVisible(true);
+
             }
         });
     }
@@ -190,17 +268,21 @@ public class EmployeeFirst extends javax.swing.JFrame {
     private static ArrayList<Buyer> buyers = new ArrayList<>();//array list of all the application buyers 
     private static ArrayList<Seller> sellers = new ArrayList<>();//array list of all the application sellers 
     private static ArrayList<Employee> emp = new ArrayList<>();//array list of all the application sellers 
-    private static ArrayList<Property> pr=new ArrayList<>();
-    private static ArrayList<Visit>v=new ArrayList<>();
-    private static ArrayList<Offer>o=new ArrayList<>();
-    
-    private static Employee newemployee ; 
+    private static ArrayList<Property> pr = new ArrayList<>();
+    private static ArrayList<Visit> v = new ArrayList<>();
+    private static ArrayList<Offer> o = new ArrayList<>();
+
+    private static ArrayList<Property> myprop = new ArrayList<>();
+    private static ArrayList<Offer> myoffers = new ArrayList<>();
+
+    private static Seller newseller;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel4;

@@ -5,6 +5,9 @@
  */
 package projectjava;
 
+import Model.Property;
+import Controller.House;
+import Model.Appartment;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;

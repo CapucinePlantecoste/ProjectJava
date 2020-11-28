@@ -3,13 +3,22 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package projectjava;
+package View;
 
+import Model.Visit;
+import Model.Seller;
+import Model.Property;
+import Controller.Offer;
+import Model.Employee;
+import Model.Buyer;
 import java.util.ArrayList;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.*;
 import javax.swing.JOptionPane;
+import projectjava.BuyerDAOImpl;
+import projectjava.First;
+import projectjava.SellerDAOImpl;
 
 /**
  *
