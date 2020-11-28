@@ -33,6 +33,7 @@ public class SellerFirst extends javax.swing.JFrame {
         o = off;
         newseller = a;
         initComponents();
+       
     }
 
     /**
@@ -202,6 +203,7 @@ public class SellerFirst extends javax.swing.JFrame {
     // See my offers
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+        myoffers.clear();
         this.setmyoffers();
         if (myoffers.size() == 0) {
             JOptionPane.showMessageDialog(null, "No offers made for one of your properties or you don't have any property"); //message shown to say so
@@ -217,6 +219,7 @@ public class SellerFirst extends javax.swing.JFrame {
     //See me current properties
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
+        myprop.clear();
         this.setmyprop();
 
         if (myprop.size() == 0) {
@@ -224,9 +227,7 @@ public class SellerFirst extends javax.swing.JFrame {
             
         } else {
             //afficher le JcomboBox avec toutes les maisons a voir pour affichage
-            for (int i = 0; i < myprop.size(); ++i) {
-                System.out.println(myprop.get(i).getdescription());
-            }
+            
             SellerProperty a= new SellerProperty (newseller, buyers, sellers, emp, pr, v, o, myprop); 
             a.setVisible(true);
         }
@@ -245,6 +246,7 @@ public class SellerFirst extends javax.swing.JFrame {
             //As we call the setmyprop method in several places, we have to make sure that we don't have twice the same property so we use the contains method
             if (pr.get(i).getidseller() == newseller.getid() && !myprop.contains(pr.get(i))) {
                 myprop.add(pr.get(i));
+             
             }
         }
     }
