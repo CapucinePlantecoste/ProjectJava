@@ -226,6 +226,11 @@ public class First extends javax.swing.JFrame {
         SignInJFrame newframe = new SignInJFrame (buyers, sellers, emp,pr,v,o);//If the user clicks on connect as a buyer
         newframe.setVisible (true); //we open the new frame
         newframe.toFront();
+          for(int i=0; i<v.size();++i)
+        {
+            System.out.println(v.get(i).getid());
+        }
+        
     }//GEN-LAST:event_jButton7ActionPerformed
 
     /**

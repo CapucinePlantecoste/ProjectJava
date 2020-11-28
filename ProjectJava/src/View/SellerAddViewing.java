@@ -5,7 +5,6 @@
  */
 package View;
 
-
 import javax.swing.JOptionPane;
 import Model.Visit;
 import Model.Seller;
@@ -15,6 +14,14 @@ import Model.Employee;
 import Model.Buyer;
 import java.util.ArrayList;
 import projectjava.First;
+import java.sql.Timestamp;
+import java.util.Calendar;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.text.ParseException;
+import projectjava.VisitDAOImpl;
+
+
 /**
  *
  * @author CAP
@@ -34,10 +41,10 @@ public class SellerAddViewing extends javax.swing.JFrame {
         newseller = a;
         myprop = myp;
         initComponents();
-        this.initjcb1(); 
-       
-    }
+        this.initjcb1();
+        jPanel1.hide();
 
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -48,6 +55,7 @@ public class SellerAddViewing extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jTextFieldDay = new javax.swing.JTextField();
         jPanel2 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
@@ -58,16 +66,24 @@ public class SellerAddViewing extends javax.swing.JFrame {
         jButton5 = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
-        jTextFieldDay = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jTextFieldMonth = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         jTextFieldHour = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
+        jButton2 = new javax.swing.JButton();
         jLabel9 = new javax.swing.JLabel();
         jTextFieldYear = new javax.swing.JTextField();
         jTextFieldMinutes = new javax.swing.JTextField();
+        jTextField1 = new javax.swing.JTextField();
+
+        jTextFieldDay.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
+        jTextFieldDay.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldDayActionPerformed(evt);
+            }
+        });
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -161,13 +177,6 @@ public class SellerAddViewing extends javax.swing.JFrame {
         jLabel3.setForeground(new java.awt.Color(0, 153, 153));
         jLabel3.setText("Month");
 
-        jTextFieldDay.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
-        jTextFieldDay.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldDayActionPerformed(evt);
-            }
-        });
-
         jLabel4.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(0, 153, 153));
         jLabel4.setText("Enter the date of the viewing");
@@ -182,6 +191,11 @@ public class SellerAddViewing extends javax.swing.JFrame {
                 jTextFieldMonthActionPerformed(evt);
             }
         });
+        jTextFieldMonth.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextFieldMonthKeyTyped(evt);
+            }
+        });
 
         jLabel7.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(0, 153, 153));
@@ -193,10 +207,22 @@ public class SellerAddViewing extends javax.swing.JFrame {
                 jTextFieldHourActionPerformed(evt);
             }
         });
+        jTextFieldHour.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextFieldHourKeyTyped(evt);
+            }
+        });
 
         jLabel8.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(0, 153, 153));
         jLabel8.setText("Hour");
+
+        jButton2.setText("Validate");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jLabel9.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(0, 153, 153));
@@ -208,11 +234,30 @@ public class SellerAddViewing extends javax.swing.JFrame {
                 jTextFieldYearActionPerformed(evt);
             }
         });
+        jTextFieldYear.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextFieldYearKeyTyped(evt);
+            }
+        });
 
         jTextFieldMinutes.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
         jTextFieldMinutes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldMinutesActionPerformed(evt);
+            }
+        });
+        jTextFieldMinutes.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jTextFieldMinutesKeyPressed(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextFieldMinutesKeyTyped(evt);
+            }
+        });
+
+        jTextField1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextField1KeyTyped(evt);
             }
         });
 
@@ -238,13 +283,17 @@ public class SellerAddViewing extends javax.swing.JFrame {
                                     .addComponent(jLabel9)
                                     .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextFieldMonth, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextFieldHour, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextFieldDay, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextFieldYear, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextFieldMinutes, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(187, Short.MAX_VALUE))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jTextFieldMonth, javax.swing.GroupLayout.DEFAULT_SIZE, 212, Short.MAX_VALUE)
+                            .addComponent(jTextFieldHour, javax.swing.GroupLayout.DEFAULT_SIZE, 212, Short.MAX_VALUE)
+                            .addComponent(jTextFieldYear, javax.swing.GroupLayout.DEFAULT_SIZE, 212, Short.MAX_VALUE)
+                            .addComponent(jTextFieldMinutes, javax.swing.GroupLayout.DEFAULT_SIZE, 212, Short.MAX_VALUE)
+                            .addComponent(jTextField1))))
+                .addContainerGap(182, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(0, 310, Short.MAX_VALUE)
+                .addComponent(jButton2)
+                .addGap(271, 271, 271))
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel1Layout.createSequentialGroup()
                     .addGap(82, 82, 82)
@@ -254,10 +303,10 @@ public class SellerAddViewing extends javax.swing.JFrame {
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(54, 54, 54)
+                .addGap(53, 53, 53)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextFieldDay, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(22, 22, 22)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -274,16 +323,18 @@ public class SellerAddViewing extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextFieldMinutes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(62, 62, 62)
+                .addComponent(jButton2)
+                .addContainerGap(86, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel1Layout.createSequentialGroup()
                     .addGap(21, 21, 21)
                     .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(230, Short.MAX_VALUE)))
+                    .addContainerGap(401, Short.MAX_VALUE)))
         );
 
         jPanel2.add(jPanel1);
-        jPanel1.setBounds(800, 260, 670, 270);
+        jPanel1.setBounds(800, 260, 670, 450);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -314,17 +365,19 @@ public class SellerAddViewing extends javax.swing.JFrame {
         // TODO add your handling code here:
         this.toBack();//if we click on the back button
         setVisible(false);//this page disappears
-        new SellerFirst(newseller, buyers, sellers, emp,pr,v,o).toFront();//we go back on the first page
-        new SellerFirst(newseller,buyers, sellers, emp,pr,v,o).setState(java.awt.Frame.NORMAL);
+        new SellerFirst(newseller, buyers, sellers, emp, pr, v, o).toFront();//we go back on the first page
+        new SellerFirst(newseller, buyers, sellers, emp, pr, v, o).setState(java.awt.Frame.NORMAL);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
         // TODO add your handling code here:
 
+        
         int tampon = 0;
 
         String selected = (String) jComboBox1.getSelectedItem();
         if (selected.equals("Select one of your properties for sale")) {
+            jPanel1.hide();
 
         } else {
             for (int i = 0; i < myprop.size(); i++) {
@@ -334,7 +387,10 @@ public class SellerAddViewing extends javax.swing.JFrame {
                 }
 
             }
+            jPanel1.show();
+
         }
+
     }//GEN-LAST:event_jComboBox1ActionPerformed
 
     private void jTextFieldDayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldDayActionPerformed
@@ -357,14 +413,136 @@ public class SellerAddViewing extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldMinutesActionPerformed
 
-    public void initjcb1()
-    {
-         for (int i = 0; i < myprop.size(); i++) {
+    private void jTextFieldMonthKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldMonthKeyTyped
+        // TODO add your handling code here:
+        char c = evt.getKeyChar();
+        if (!Character.isDigit(c)) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_jTextFieldMonthKeyTyped
+
+    private void jTextField1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField1KeyTyped
+        // TODO add your handling code here:
+        char c = evt.getKeyChar();
+        if (!Character.isDigit(c)) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_jTextField1KeyTyped
+
+    private void jTextFieldYearKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldYearKeyTyped
+        // TODO add your handling code here:
+        char c = evt.getKeyChar();
+        if (!Character.isDigit(c)) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_jTextFieldYearKeyTyped
+
+    private void jTextFieldHourKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldHourKeyTyped
+        // TODO add your handling code here:
+        char c = evt.getKeyChar();
+        if (!Character.isDigit(c)) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_jTextFieldHourKeyTyped
+
+    private void jTextFieldMinutesKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldMinutesKeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldMinutesKeyPressed
+
+    private void jTextFieldMinutesKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldMinutesKeyTyped
+        // TODO add your handling code here:
+        char c = evt.getKeyChar();
+        if (!Character.isDigit(c)) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_jTextFieldMinutesKeyTyped
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        Date date=new Date();
+        Timestamp ts= new Timestamp(date.getTime());
+        SimpleDateFormat sdf= new SimpleDateFormat ("yyyy-MM-dd hh:mm:ss");
+      
+        int tampon = 0;
+        int c;
+        
+        String selected = (String) jComboBox1.getSelectedItem();
+        for (int i = 0; i < myprop.size(); i++) {
+            if (selected.equals(myprop.get(i).getdescription())) {
+
+                tampon = i;
+            }
+
+        }
+        //TO see which house or apartment is concerner by this new viewing
+        
+        int size= emp.size()-1;
+        int randomnumber = 0 + (int)(Math.random() * ((size - 0) + 1));
+        
+        
+
+        if (jTextFieldYear.getText().trim().isEmpty() || jTextFieldMonth.getText().trim().isEmpty() || jTextField1.getText().trim().isEmpty() || jTextFieldHour.getText().trim().isEmpty() || jTextFieldMinutes.getText().trim().isEmpty()) {
+            System.out.println("coucou");
+            JOptionPane.showMessageDialog(null, "One or several fields are empty. Please, try again.");
+        } else {
+            if (jTextFieldYear.getText().length() != 4 || jTextFieldMonth.getText().length() != 2 || jTextField1.getText().length() != 2 || jTextFieldHour.getText().length() != 2 || jTextFieldMinutes.getText().length() != 2) {
+                JOptionPane.showMessageDialog(null, "Wrong date format");
+            } else {
+                if (Integer.parseInt(jTextFieldMonth.getText()) > 12 || Integer.parseInt(jTextFieldMonth.getText())<1 || Integer.parseInt(jTextField1.getText()) > 31 || Integer.parseInt(jTextField1.getText())<1 || Integer.parseInt(jTextFieldHour.getText()) > 23 || Integer.parseInt(jTextFieldMinutes.getText()) > 59) {
+                    JOptionPane.showMessageDialog(null, " Impossible date");
+                }
+                else
+                {
+                    if((jTextFieldMonth.getText().equals("02")|| jTextFieldMonth.getText().equals("04") ||jTextFieldMonth.getText().equals("06")|| jTextFieldMonth.getText().equals("09") || jTextFieldMonth.getText().equals("11")) && (jTextField1.getText().equals("31")))
+                    {
+                        JOptionPane.showMessageDialog(null, " This date doesn't exist");
+                    }
+                    else
+                    {
+                        String newd=(jTextFieldYear.getText()+"-"+jTextFieldMonth.getText()+"-"+jTextField1.getText()+" "+jTextFieldHour.getText()+":"+jTextFieldMinutes.getText()+":00");
+                        try
+                        {
+                            Date dateparse=sdf.parse(newd);
+                            Timestamp d=new Timestamp(dateparse.getTime());
+                            System.out.println(d);
+                            c=d.compareTo(ts);
+                       if(c<0)
+                       {
+                          JOptionPane.showMessageDialog(null, "Date already passed"); 
+                       }
+                       else
+                       {
+                           JOptionPane.showMessageDialog(null, "Date valid"); 
+                           v.add(new Visit(v.get(v.size()-1).getid()+1,-1,pr.get(tampon).getid(),emp.get(randomnumber).getid(),d,30));
+                            VisitDAOImpl vdao=new VisitDAOImpl();
+                            vdao.addvisit(v.get(v.size()-1));
+                           
+                       }
+                        }
+                        catch(ParseException e)
+                        {
+                            e.printStackTrace();
+                        }
+                       /* System.out.println(jTextFieldYear.getText());
+                        int y=Integer.parseInt(jTextFieldYear.getText());
+                        System.out.println(y);*/
+                        
+                      
+                    }
+                }
+            }
+        }
+        
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    public void initjcb1() {
+        for (int i = 0; i < myprop.size(); i++) {
 
             jComboBox1.addItem(myprop.get(i).getdescription());
 
         }
     }
+
     /**
      * @param args the command line arguments
      */
@@ -409,10 +587,13 @@ public class SellerAddViewing extends javax.swing.JFrame {
 
     private static ArrayList<Property> myprop = new ArrayList<>();
     private static ArrayList<Offer> myoffers = new ArrayList<>();
+   
+    
 
     private static Seller newseller;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton5;
     private javax.swing.JComboBox jComboBox1;
     private javax.swing.JLabel jLabel1;
@@ -427,6 +608,7 @@ public class SellerAddViewing extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel4;
+    private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextFieldDay;
     private javax.swing.JTextField jTextFieldHour;
     private javax.swing.JTextField jTextFieldMinutes;

@@ -12,6 +12,7 @@ public class ProjectJava {
        
        // new First().setVisible(true); 
         App a= new App();  //Creation of an App object 
+        
           
          
 

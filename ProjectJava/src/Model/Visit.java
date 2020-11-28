@@ -5,7 +5,7 @@
  */
 package Model;
 import java.sql.Timestamp;
-import java.sql.Timestamp;
+
 /**
  *
  * @author thoma
@@ -18,14 +18,16 @@ public class Visit {
     private int idprop;
     private int idemp;
     Timestamp ts;
+    private int duration;
     
-    public Visit(int i, int idb, int idp, int ide, Timestamp t)
+    public Visit(int i, int idb, int idp, int ide, Timestamp t, int d )
     {
         id=i;
         idbuyer=idb;
         idprop=idp;
         idemp=ide;
         ts=t;
+        duration=d;
     }
     
     public int getidbuyer()
@@ -52,6 +54,16 @@ public class Visit {
     public Timestamp gettime()
     {
         return ts ; 
+    }
+    
+    public int getduration()
+    {
+        return duration;
+    }
+    
+    public int getid()
+    {
+        return id;
     }
     /*public java.sql.Date getdate()
     {

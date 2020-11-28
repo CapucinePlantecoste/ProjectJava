@@ -38,11 +38,11 @@ public class VisitDAOImpl implements VisitDAO {
                 int d = result.getInt("idproperty");
                 int e = result.getInt("idbuyer");
                 Timestamp ts=result.getObject("schedule", Timestamp.class);
-                System.out.println(ts);
-                System.out.println(ts.toString());
+                int f=result.getInt("duration");
+               
                 
 
-                visits.add(new Visit(a, b, d, c,ts));//we create an employee object with the values get ahead
+                visits.add(new Visit(a, b, d, c,ts,f));//we create an employee object with the values get ahead
 
             }
             conn.close();
@@ -55,7 +55,28 @@ public class VisitDAOImpl implements VisitDAO {
     @Override
     public void addvisit(Visit a)
     {
-        
+        Connection conn = null;
+        try {
+
+            DataSource db = new DataSource();
+            conn = db.createConnection();
+            Statement stmt = conn.createStatement();
+
+            conn.setAutoCommit(false);
+            try {//we also put the new customer into our database 
+
+                
+                
+               
+                stmt.executeUpdate("INSERT INTO visit " + " (idvisit,schedule, idemployee, idbuyer, idproperty,duration) " + "VALUES" + "('" + a.getid() + "','" + a.gettime() + "','"+a.getidemp()+"',null,'" + a.getidprop() + "','" + a.getduration() + "' )");
+                conn.commit();
+                conn.close();
+            } catch (SQLException f) {//possible MySql exception
+                System.err.println(f);
+            }
+        } catch (SQLException e) {//Possible MySql connection exception
+            System.err.println(e);
+        }
         
     }
     

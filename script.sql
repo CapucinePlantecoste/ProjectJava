@@ -56,6 +56,7 @@ create table offer(idoffer int, idbuyer int, idproperty int, price double, forei
 insert into offer values (01, 01, 01, 150000);
 select * from offer;
 drop table visit;
-create table visit(idvisit int, schedule datetime , idemployee int, idbuyer int, idproperty int, foreign key (idproperty) references Property(id), foreign key (idemployee) references Employee(idemployee), foreign key (idbuyer) references Buyer(idbuyer), primary key (idvisit));
-insert into visit values(01, '2000-01-01 18:00:00', 1001, 01, 01);
+create table visit(idvisit int, schedule datetime , idemployee int, idbuyer int, idproperty int, duration int,  foreign key (idproperty) references Property(id), foreign key (idemployee) references Employee(idemployee), foreign key (idbuyer) references Buyer(idbuyer), primary key (idvisit));
+insert into visit values(01, '2000-01-01 18:00:00', 1001, 01, 01, 30);
+insert into visit values (02, '2000-01-02 19:00:00', 1001, null, 01,30);
 select * from visit;

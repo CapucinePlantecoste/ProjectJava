@@ -95,9 +95,18 @@ public class App {
     public void application() { 
 
         this.register();//We call the first function, to regoster 
+        for(int i=0; i<v.size();++i)
+        {
+            System.out.println(v.get(i).getid());
+        }
         f = new First(buyers, sellers, emp, pr,v,o);//we create an object of the frame with its 3 arguments 
 
         f.setVisible(true);//we open the frame and let it visible 
+         for(int i=0; i<v.size();++i)
+        {
+            System.out.println(v.get(i).getid());
+        }
+        
        
             
       
