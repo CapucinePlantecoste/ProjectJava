@@ -235,6 +235,20 @@ public class SellerFirst extends javax.swing.JFrame {
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
         // TODO add your handling code here:
+        myprop.clear();
+        this.setmyprop();
+
+        if (myprop.size() == 0) {
+            JOptionPane.showMessageDialog(null, "You have no properties for sale so you cannot add no viewings"); //message shown to say so
+            
+        }
+        else {
+        
+        
+        
+            SellerAddViewing a = new SellerAddViewing (newseller, buyers, sellers, emp, pr, v, o, myprop); 
+            a.setVisible(true); 
+        }
     }//GEN-LAST:event_jButton6ActionPerformed
 
     public void nom() {
