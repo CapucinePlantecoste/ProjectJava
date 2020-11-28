@@ -49,10 +49,22 @@ public class BuyerViewings extends javax.swing.JFrame {
     public void display (Visit inch)
     {
         
+       
+        int stamp=0;
+    
+        for(int i=0;i<pr.size();++i)
+        {
+            if(pr.get(i).getid()==inch.getidprop())
+            {
+                stamp=i;
+            }
+        }
+        
         jLabelHour.setText("Time of the visit : " + inch.gettime());
-        //recuperer l'id de la propriété 
-        int idtemp = inch.getidprop(); 
-        String selected = (String) jComboBox1.getSelectedItem();
+        jLabelDescription.setText(" Description : "+pr.get(stamp).getdescription());
+        jLabelLocation.setText( " Location : "+pr.get(stamp).getlocation());
+        jLabelPrice.setText( " Price : "+pr.get(stamp).getprice());
+        
         //if (selected.equals(la description de la propriete(idprop)))
         //jLabelDescription.setText("Description of the property : " + )
        

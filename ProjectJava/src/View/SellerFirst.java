@@ -196,19 +196,7 @@ public class SellerFirst extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
 
-        this.setmyprop();
-
-        if (myprop.size() == 0) {
-            JOptionPane.showMessageDialog(null, "You have no properties for sale"); //message shown to say so
-            
-        } else {
-            //afficher le JcomboBox avec toutes les maisons a voir pour affichage
-            for (int i = 0; i < myprop.size(); ++i) {
-                System.out.println(myprop.get(i).getdescription());
-            }
-            SellerProperty a= new SellerProperty (newseller, buyers, sellers, emp, pr, v, o, myprop); 
-            a.setVisible(true);
-        }
+        
     }//GEN-LAST:event_jButton2ActionPerformed
 
     // See my offers
@@ -226,8 +214,22 @@ public class SellerFirst extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    //See me current properties
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
+        this.setmyprop();
+
+        if (myprop.size() == 0) {
+            JOptionPane.showMessageDialog(null, "You have no properties for sale"); //message shown to say so
+            
+        } else {
+            //afficher le JcomboBox avec toutes les maisons a voir pour affichage
+            for (int i = 0; i < myprop.size(); ++i) {
+                System.out.println(myprop.get(i).getdescription());
+            }
+            SellerProperty a= new SellerProperty (newseller, buyers, sellers, emp, pr, v, o, myprop); 
+            a.setVisible(true);
+        }
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
