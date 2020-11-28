@@ -63,35 +63,10 @@ public class BuyerViewings extends javax.swing.JFrame {
         jLabelHour.setText("Time of the visit : " + inch.gettime());
         jLabelDescription.setText(" Description : "+pr.get(stamp).getdescription());
         jLabelLocation.setText( " Location : "+pr.get(stamp).getlocation());
-        jLabelPrice.setText( " Price : "+pr.get(stamp).getprice());
-        
-        //if (selected.equals(la description de la propriete(idprop)))
-        //jLabelDescription.setText("Description of the property : " + )
+        jLabelPrice.setText( " Price : "+pr.get(stamp).getprice()+ "€");
        
         jPanelViewings.show();
         
-        
-        
-        /*jLabelDescription1.setText(" Description : " + nprop.getdescription());
-            jLabelPrice2.setText(" Price : " + Double.toString(nprop.getprice()));
-            jLabelNumberFloors1.setText(" Number of floors : " + Integer.toString(nprop.getnumberfloors()));
-            jLabelFloorNumber.setText(" Floor Number : " + Integer.toString(nprop.getfloornumber()));
-            if (nprop.getparking() == true) {
-                jLabelParking.setText(" Parking : Yes");
-            } else {
-                jLabelParking.setText(" Parking : No");
-            }
-            jLabelNumberRooms2.setText(" Number of rooms : " + Integer.toString(nprop.getnumberrooms()));
-            jLabelLocation2.setText(" Location : " + nprop.getlocation());
-            jLabelNumberBedrooms3.setText(" Number of bedrooms : " + Integer.toString(nprop.getnumberbedrooms()));
-            jLabelNumberSurface1.setText(" Surface : " + Double.toString(nprop.getsurface()));
-            if (nprop.getelevator() == true) {
-                jLabelElevator.setText(" Elevator : Yes");
-            } else {
-                jLabelElevator.setText("Elevator : No");
-            }
-            System.out.println("coucou");
-           jPanelApartment.show();*/
         
     }
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -111,6 +86,7 @@ public class BuyerViewings extends javax.swing.JFrame {
         jLabelLocation = new javax.swing.JLabel();
         jLabelPrice = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
+        jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -225,6 +201,9 @@ public class BuyerViewings extends javax.swing.JFrame {
         jLabel1.setForeground(new java.awt.Color(0, 153, 153));
         jLabel1.setText("Details of the Viewing : ");
 
+        jButton2.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
+        jButton2.setText("This visit has been done ");
+
         javax.swing.GroupLayout jPanelViewingsLayout = new javax.swing.GroupLayout(jPanelViewings);
         jPanelViewings.setLayout(jPanelViewingsLayout);
         jPanelViewingsLayout.setHorizontalGroup(
@@ -237,11 +216,13 @@ public class BuyerViewings extends javax.swing.JFrame {
                         .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanelViewingsLayout.createSequentialGroup()
                             .addGap(147, 147, 147)
                             .addComponent(jLabel1)))
-                    .addComponent(jLabelDescription, javax.swing.GroupLayout.PREFERRED_SIZE, 293, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanelViewingsLayout.createSequentialGroup()
                         .addComponent(jLabelLocation, javax.swing.GroupLayout.PREFERRED_SIZE, 293, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(34, 34, 34)
-                        .addComponent(jLabelPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jLabelPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanelViewingsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(jButton2)
+                        .addComponent(jLabelDescription, javax.swing.GroupLayout.PREFERRED_SIZE, 293, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(73, Short.MAX_VALUE))
         );
         jPanelViewingsLayout.setVerticalGroup(
@@ -257,11 +238,13 @@ public class BuyerViewings extends javax.swing.JFrame {
                     .addComponent(jLabelPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(28, 28, 28)
                 .addComponent(jLabelDescription, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(37, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
+                .addComponent(jButton2)
+                .addGap(30, 30, 30))
         );
 
         jPanel2.add(jPanelViewings);
-        jPanelViewings.setBounds(880, 350, 620, 260);
+        jPanelViewings.setBounds(880, 350, 620, 310);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -384,6 +367,7 @@ public class BuyerViewings extends javax.swing.JFrame {
     private static Buyer newbuyer;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton5;
     private javax.swing.JComboBox jComboBox1;
     private javax.swing.JLabel jLabel1;

@@ -36,6 +36,7 @@ public class SellerOffer extends javax.swing.JFrame {
         
         initComponents();
         this.initjcb1();
+        jPanelOffers.hide();
     }
 
     /**
@@ -54,6 +55,12 @@ public class SellerOffer extends javax.swing.JFrame {
         jComboBox1 = new javax.swing.JComboBox();
         jButton1 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
+        jPanelOffers = new javax.swing.JPanel();
+        jLabelDescription = new javax.swing.JLabel();
+        jLabelLocation = new javax.swing.JLabel();
+        jLabelPrice = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabelRealPrice = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -136,6 +143,69 @@ public class SellerOffer extends javax.swing.JFrame {
         jPanel2.add(jButton5);
         jButton5.setBounds(1420, 30, 100, 23);
 
+        jPanelOffers.setBackground(new java.awt.Color(255, 255, 255));
+
+        jLabelDescription.setBackground(new java.awt.Color(255, 255, 255));
+        jLabelDescription.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
+        jLabelDescription.setForeground(new java.awt.Color(0, 153, 153));
+
+        jLabelLocation.setBackground(new java.awt.Color(255, 255, 255));
+        jLabelLocation.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
+        jLabelLocation.setForeground(new java.awt.Color(0, 153, 153));
+
+        jLabelPrice.setBackground(new java.awt.Color(255, 255, 255));
+        jLabelPrice.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
+        jLabelPrice.setForeground(new java.awt.Color(0, 153, 153));
+
+        jLabel1.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel1.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 153, 153));
+        jLabel1.setText("Details of the Offer : ");
+
+        jLabelRealPrice.setBackground(new java.awt.Color(255, 255, 255));
+        jLabelRealPrice.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
+        jLabelRealPrice.setForeground(new java.awt.Color(0, 153, 153));
+
+        javax.swing.GroupLayout jPanelOffersLayout = new javax.swing.GroupLayout(jPanelOffers);
+        jPanelOffers.setLayout(jPanelOffersLayout);
+        jPanelOffersLayout.setHorizontalGroup(
+            jPanelOffersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelOffersLayout.createSequentialGroup()
+                .addGroup(jPanelOffersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanelOffersLayout.createSequentialGroup()
+                        .addGap(274, 274, 274)
+                        .addComponent(jLabel1))
+                    .addGroup(jPanelOffersLayout.createSequentialGroup()
+                        .addGap(37, 37, 37)
+                        .addGroup(jPanelOffersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabelDescription, javax.swing.GroupLayout.PREFERRED_SIZE, 293, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabelLocation, javax.swing.GroupLayout.PREFERRED_SIZE, 293, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(31, 31, 31)
+                        .addGroup(jPanelOffersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabelPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabelRealPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(41, Short.MAX_VALUE))
+        );
+        jPanelOffersLayout.setVerticalGroup(
+            jPanelOffersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelOffersLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(30, 30, 30)
+                .addGroup(jPanelOffersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanelOffersLayout.createSequentialGroup()
+                        .addComponent(jLabelDescription, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(26, 26, 26)
+                        .addGroup(jPanelOffersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabelLocation, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabelPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jLabelRealPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(97, Short.MAX_VALUE))
+        );
+
+        jPanel2.add(jPanelOffers);
+        jPanelOffers.setBounds(850, 300, 620, 260);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -181,13 +251,34 @@ public class SellerOffer extends javax.swing.JFrame {
                 
             }
                
-            //this.display(myoffers.get(tampon));
+            this.display(myoffers.get(tampon));
 
             }
         
         
     }//GEN-LAST:event_jComboBox1ActionPerformed
 
+    
+    public void display (Offer a)
+    {
+        int stamp=0;
+    
+        for(int i=0;i<pr.size();++i)
+        {
+            if(pr.get(i).getid()==a.getidprop())
+            {
+                stamp=i;
+            }
+        }
+        
+        jLabelDescription.setText(" Description : "+pr.get(stamp).getdescription());
+        jLabelLocation.setText( " Location : "+pr.get(stamp).getlocation());
+        jLabelRealPrice.setText("Price of the property : " +pr.get(stamp).getprice()+"€");
+        jLabelPrice.setText ("Amount of the offer : "+a.getprice()+"€");
+        
+       
+        jPanelOffers.show();
+    }
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         this.toBack();//if we click on the back button
@@ -266,9 +357,15 @@ public class SellerOffer extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton5;
     private javax.swing.JComboBox jComboBox1;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabelDescription;
+    private javax.swing.JLabel jLabelLocation;
+    private javax.swing.JLabel jLabelPrice;
+    private javax.swing.JLabel jLabelRealPrice;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanelOffers;
     // End of variables declaration//GEN-END:variables
 }
