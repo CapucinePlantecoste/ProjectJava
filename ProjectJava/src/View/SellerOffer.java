@@ -61,6 +61,8 @@ public class SellerOffer extends javax.swing.JFrame {
         jLabelPrice = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jLabelRealPrice = new javax.swing.JLabel();
+        jButton2 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -166,6 +168,10 @@ public class SellerOffer extends javax.swing.JFrame {
         jLabelRealPrice.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
         jLabelRealPrice.setForeground(new java.awt.Color(0, 153, 153));
 
+        jButton2.setText("Accept the offer");
+
+        jButton3.setText("Decline the offer");
+
         javax.swing.GroupLayout jPanelOffersLayout = new javax.swing.GroupLayout(jPanelOffers);
         jPanelOffers.setLayout(jPanelOffersLayout);
         jPanelOffersLayout.setHorizontalGroup(
@@ -179,11 +185,19 @@ public class SellerOffer extends javax.swing.JFrame {
                         .addGap(37, 37, 37)
                         .addGroup(jPanelOffersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabelDescription, javax.swing.GroupLayout.PREFERRED_SIZE, 293, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabelLocation, javax.swing.GroupLayout.PREFERRED_SIZE, 293, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(31, 31, 31)
+                            .addComponent(jLabelLocation, javax.swing.GroupLayout.PREFERRED_SIZE, 293, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelOffersLayout.createSequentialGroup()
+                                .addComponent(jButton2)
+                                .addGap(19, 19, 19)))
                         .addGroup(jPanelOffersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabelPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabelRealPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addGroup(jPanelOffersLayout.createSequentialGroup()
+                                .addGap(31, 31, 31)
+                                .addGroup(jPanelOffersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabelPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabelRealPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(jPanelOffersLayout.createSequentialGroup()
+                                .addGap(46, 46, 46)
+                                .addComponent(jButton3)))))
                 .addContainerGap(41, Short.MAX_VALUE))
         );
         jPanelOffersLayout.setVerticalGroup(
@@ -200,7 +214,11 @@ public class SellerOffer extends javax.swing.JFrame {
                             .addComponent(jLabelLocation, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabelPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(jLabelRealPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(97, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 48, Short.MAX_VALUE)
+                .addGroup(jPanelOffersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton2)
+                    .addComponent(jButton3))
+                .addGap(26, 26, 26))
         );
 
         jPanel2.add(jPanelOffers);
@@ -355,6 +373,8 @@ public class SellerOffer extends javax.swing.JFrame {
     private static Seller newseller;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton5;
     private javax.swing.JComboBox jComboBox1;
     private javax.swing.JLabel jLabel1;

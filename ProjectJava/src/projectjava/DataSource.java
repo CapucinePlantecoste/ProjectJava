@@ -23,9 +23,9 @@ public class DataSource {
     {
         try
         {
-            String url="jdbc:mysql://localhost:3306/ptest?autoReconnect=true&useSSL=false";
+            String url="jdbc:mysql://localhost:3307/ptest?autoReconnect=true&useSSL=false";
             String user="root";
-            String password="Manager26069700";
+            String password="Thomas1012!";
             conn=DriverManager.getConnection(url, user,password);
         }
         catch(Exception e)

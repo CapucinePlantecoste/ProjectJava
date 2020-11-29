@@ -199,10 +199,13 @@ public class EmployeeFirst extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
+        
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
+        EmployeeNewProperty a = new EmployeeNewProperty (newemployee, newseller, buyers, sellers, emp,pr,v,o); 
+        a.setVisible(true);
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
@@ -256,7 +259,8 @@ public class EmployeeFirst extends javax.swing.JFrame {
     private static ArrayList<Visit>v=new ArrayList<>();
     private static ArrayList<Offer>o=new ArrayList<>();
     
-    private static Employee newemployee ; 
+    private static Employee newemployee ;
+    private static Seller newseller ;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
