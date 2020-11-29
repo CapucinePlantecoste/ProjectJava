@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Controller;
+package Model;
 
 /**
  *
@@ -16,14 +16,17 @@ public class Offer {
     private int idproperty;
     private double price;
     private boolean accepted;
+    private boolean declined;
     
-    public Offer(int i, int idb, int idp, double p)
+    public Offer(int i, int idb, int idp, double p, boolean a, boolean d)
     {
         id=i;
         idbuyer=idb;
         idproperty=idp;
         price=p;
-        accepted=false;
+        accepted=a;
+        declined=d;
+        
     }
     
     public int getidbuyer()
@@ -57,4 +60,14 @@ public class Offer {
         return id;
     }
     
+    public boolean getdeclined()
+    {
+        return declined;
+    }
+    
+    public void setdeclined(boolean d)
+    {
+        declined=d;
+    }
+            
 }

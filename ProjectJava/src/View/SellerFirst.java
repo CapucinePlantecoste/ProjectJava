@@ -8,7 +8,7 @@ package View;
 import Model.Visit;
 import Model.Seller;
 import Model.Property;
-import Controller.Offer;
+import Model.Offer;
 import Model.Employee;
 import Model.Buyer;
 import java.util.ArrayList;
@@ -291,7 +291,7 @@ public class SellerFirst extends javax.swing.JFrame {
         this.setmyprop();
         for (int i = 0; i < o.size(); ++i) {
             for (int j = 0; j < myprop.size(); ++j) {
-                if (o.get(i).getidprop() == myprop.get(j).getid()) {
+                if (o.get(i).getidprop() == myprop.get(j).getid()&& (o.get(i).getdeclined()==false)&& (myprop.get(j).getsold()==false)) {
                     myoffers.add(o.get(i));
                 }
             }

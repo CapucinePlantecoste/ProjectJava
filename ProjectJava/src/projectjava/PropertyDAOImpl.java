@@ -6,7 +6,7 @@
 package projectjava;
 
 import Model.Property;
-import Controller.House;
+import Model.House;
 import Model.Appartment;
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -44,7 +44,8 @@ public class PropertyDAOImpl implements PropertyDAO {
                     double gs = result4.getDouble("gardensurface");
                     boolean sp = result4.getBoolean("swimmingpool");
                     int ids = result4.getInt("idseller");
-                    pr.add(new House(a, d, p, l, nr, nbr, nf, tv, s, ids, "House", gs, sp));
+                    boolean sold=result4.getBoolean("sold");
+                    pr.add(new House(a, d, p, l, nr, nbr, nf, tv, s, ids,sold, "House", gs, sp));
                 } else {
                     int a = result4.getInt("id");//First column of the table 
                     String d = result4.getString("description");
@@ -59,7 +60,8 @@ public class PropertyDAOImpl implements PropertyDAO {
                     int fn = result4.getInt("floornumber");
                     boolean prkg = result4.getBoolean("parking");
                     int ids = result4.getInt("idseller");
-                    pr.add(new Appartment(a, d, p, l, nr, nbr, nf, tv, s, ids, "Apartment", elv, fn, prkg));
+                    boolean sold=result4.getBoolean("sold");
+                    pr.add(new Appartment(a, d, p, l, nr, nbr, nf, tv, s, ids,sold, "Apartment", elv, fn, prkg));
 
                 }
 
@@ -129,6 +131,34 @@ public class PropertyDAOImpl implements PropertyDAO {
         } catch (SQLException e) {//Possible MySql connection exception
             System.err.println(e);
         }
+    }
+    
+    @Override 
+    public void offeraccepted(Property a)
+    {
+         Connection conn = null;
+        try {
+
+            DataSource db = new DataSource();
+            conn = db.createConnection();
+            Statement stmt = conn.createStatement();
+
+            conn.setAutoCommit(false);
+            try {//we also put the new customer into our database 
+
+                
+                    stmt.executeUpdate("UPDATE property SET sold=true where id='"+a.getid()+"';");
+                
+                conn.commit();
+                conn.close();
+
+            } catch (SQLException f) {//possible MySql exception
+                System.err.println(f);
+            }
+        } catch (SQLException e) {//Possible MySql connection exception
+            System.err.println(e);
+        }
+        
     }
             
 }

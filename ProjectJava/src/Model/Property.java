@@ -23,7 +23,7 @@ public abstract class Property {
     private String description;
     private String type;
     private boolean sold;
-    public Property(int i,String d, double p, String l, int nr, int nbr, int nbf, int tv, double s, int ids, String t)//Constructor
+    public Property(int i,String d, double p, String l, int nr, int nbr, int nbf, int tv, double s, int ids, boolean soldprop,String t)//Constructor
     {
         id=i;
         description=d;
@@ -36,7 +36,7 @@ public abstract class Property {
         surface=s;
         idseller=ids;
         type=t;
-        sold=false;
+        sold=soldprop;
     }
     
     public int getidseller()

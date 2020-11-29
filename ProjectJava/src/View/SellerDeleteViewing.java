@@ -5,7 +5,7 @@
  */
 package View;
 
-import Controller.Offer;
+import Model.Offer;
 import Model.Buyer;
 import Model.Employee;
 import Model.Property;

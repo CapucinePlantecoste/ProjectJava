@@ -9,11 +9,14 @@ import View.SellerFirst;
 import Model.Visit;
 import Model.Seller;
 import Model.Property;
-import Controller.Offer;
+import Model.Offer;
 import Model.Employee;
 import Model.Buyer;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 import projectjava.First;
+import projectjava.OfferDAOImpl;
+import projectjava.PropertyDAOImpl;
 
 /**
  *
@@ -100,14 +103,14 @@ public class SellerOffer extends javax.swing.JFrame {
                 .addComponent(jButton1)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                .addContainerGap(171, Short.MAX_VALUE)
+                .addContainerGap(184, Short.MAX_VALUE)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 409, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 299, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(160, 160, 160))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(215, 215, 215))))
+                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 409, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(147, 147, 147))))
             .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel4Layout.createSequentialGroup()
                     .addGap(173, 173, 173)
@@ -121,9 +124,9 @@ public class SellerOffer extends javax.swing.JFrame {
                 .addComponent(jButton1)
                 .addGap(139, 139, 139)
                 .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 305, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 220, Short.MAX_VALUE)
                 .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(20, 20, 20))
+                .addGap(105, 105, 105))
             .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel4Layout.createSequentialGroup()
                     .addGap(70, 70, 70)
@@ -169,8 +172,18 @@ public class SellerOffer extends javax.swing.JFrame {
         jLabelRealPrice.setForeground(new java.awt.Color(0, 153, 153));
 
         jButton2.setText("Accept the offer");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jButton3.setText("Decline the offer");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanelOffersLayout = new javax.swing.GroupLayout(jPanelOffers);
         jPanelOffers.setLayout(jPanelOffersLayout);
@@ -313,6 +326,88 @@ public class SellerOffer extends javax.swing.JFrame {
         new First(buyers, sellers, emp, pr, v, o).setState(java.awt.Frame.NORMAL);
         new First(buyers, sellers, emp, pr, v, o).setVisible(true);
     }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        OfferDAOImpl odao= new OfferDAOImpl();
+        PropertyDAOImpl pdao= new PropertyDAOImpl();
+        int tampon=0;
+        int tampon2=0;
+        int tampon3=0;
+        String selected = (String) jComboBox1.getSelectedItem();
+        for (int i = 0; i < myoffers.size(); ++i) {
+                {
+                    for(int j=0;j<pr.size();++j)
+                    {
+                        if(selected.equals(pr.get(j).getdescription()+" idoffer : "+myoffers.get(i).getid()))
+                        {
+                           
+                            tampon=i;
+                            tampon2=j;
+                            
+                        }
+                    }
+                }
+        }
+        
+        for(int k=0;k<o.size();++k)
+        {
+            if(o.get(k).getid()==myoffers.get(tampon).getid())
+            {
+                tampon3=k;
+            }
+        }
+        
+        odao.acceptoffer(o.get(tampon3), o);
+        pdao.offeraccepted(pr.get(tampon2));
+        pr.get(tampon2).setsold(true);
+        myoffers.get(tampon).setaccepted(true);
+        for(int l=0;l<o.size();++l)
+        {
+            if((o.get(l).getidprop()==myoffers.get(tampon).getidprop()) && (o.get(l).getid()!=myoffers.get(tampon).getid()))
+            {
+                o.get(l).setdeclined(true);
+            }
+        }
+        JOptionPane.showMessageDialog(null, "This offer has been accepted");
+        this.setVisible(false);
+            SellerFirst a=new SellerFirst(newseller, buyers, sellers, emp, pr, v, o);
+            a.setVisible(true);
+        
+        
+        
+        
+        
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+        OfferDAOImpl odao= new OfferDAOImpl();
+        int tampon=0;
+        String selected = (String) jComboBox1.getSelectedItem();
+        for (int i = 0; i < myoffers.size(); ++i) {
+                {
+                    for(int j=0;j<pr.size();++j)
+                    {
+                        if(selected.equals(pr.get(j).getdescription()+" idoffer : "+myoffers.get(i).getid()))
+                        {
+                           
+                            tampon=i;
+                            
+                            
+                        }
+                    }
+                }
+        }
+        odao.declineoffer(myoffers.get(tampon));
+        myoffers.get(tampon).setdeclined(true);
+        JOptionPane.showMessageDialog(null, "This offer has been declined");
+        this.setVisible(false);
+            SellerFirst a=new SellerFirst(newseller, buyers, sellers, emp, pr, v, o);
+            a.setVisible(true);
+        
+        
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     public void initjcb1()
     {

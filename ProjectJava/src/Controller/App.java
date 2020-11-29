@@ -5,6 +5,7 @@
  */
 package Controller;//All the librairies included
 
+import Model.Offer;
 import Model.Buyer;
 import javax.swing.*;
 import java.awt.*;

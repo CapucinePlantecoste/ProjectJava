@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package projectjava;
-import Controller.Offer;
+import Model.Offer;
 import java.util.ArrayList;
 
 /**
@@ -15,4 +15,6 @@ public interface OfferDAO {
     
     ArrayList<Offer> registeroffer();
     void addoffer(Offer a);
+    void acceptoffer(Offer a, ArrayList<Offer> o);
+    void declineoffer(Offer a);
 }

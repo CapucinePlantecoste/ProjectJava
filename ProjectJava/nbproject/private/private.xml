@@ -17,7 +17,6 @@
             <file>file:/C:/Users/thoma/OneDrive/Documents/GitHub/ProjectJava/ProjectJava/src/projectjava/BuyerDAOImpl.java</file>
             <file>file:/C:/Users/thoma/OneDrive/Documents/GitHub/ProjectJava/ProjectJava/src/View/SellerNewProperty.java</file>
             <file>file:/C:/Users/thoma/OneDrive/Documents/GitHub/ProjectJava/ProjectJava/src/projectjava/BuyerDAO.java</file>
-            <file>file:/C:/Users/thoma/OneDrive/Documents/GitHub/ProjectJava/ProjectJava/src/Controller/Offer.java</file>
             <file>file:/C:/Users/thoma/OneDrive/Documents/GitHub/ProjectJava/ProjectJava/src/Model/Appartment.java</file>
             <file>file:/C:/Users/thoma/OneDrive/Documents/GitHub/ProjectJava/ProjectJava/src/View/SellerNewPropertyApartment.java</file>
             <file>file:/C:/Users/thoma/OneDrive/Documents/GitHub/ProjectJava/ProjectJava/src/View/BuyerOffer.java</file>
@@ -25,17 +24,17 @@
             <file>file:/C:/Users/thoma/OneDrive/Documents/GitHub/ProjectJava/ProjectJava/src/Model/Property.java</file>
             <file>file:/C:/Users/thoma/OneDrive/Documents/GitHub/ProjectJava/ProjectJava/src/View/SellerProperty.java</file>
             <file>file:/C:/Users/thoma/OneDrive/Documents/GitHub/ProjectJava/ProjectJava/src/View/BuyerResults.java</file>
-            <file>file:/C:/Users/thoma/OneDrive/Documents/GitHub/ProjectJava/ProjectJava/src/Controller/House.java</file>
+            <file>file:/C:/Users/thoma/OneDrive/Documents/GitHub/ProjectJava/ProjectJava/src/Model/Offer.java</file>
             <file>file:/C:/Users/thoma/OneDrive/Documents/GitHub/ProjectJava/ProjectJava/src/projectjava/SellerDAO.java</file>
             <file>file:/C:/Users/thoma/OneDrive/Documents/GitHub/ProjectJava/ProjectJava/src/View/SellerFirst.java</file>
             <file>file:/C:/Users/thoma/OneDrive/Documents/GitHub/ProjectJava/ProjectJava/src/View/BuyerFirst.java</file>
             <file>file:/C:/Users/thoma/OneDrive/Documents/GitHub/ProjectJava/ProjectJava/src/projectjava/DataSource.java</file>
-            <file>file:/C:/Users/thoma/OneDrive/Documents/GitHub/ProjectJava/ProjectJava/src/Controller/Person.java</file>
             <file>file:/C:/Users/thoma/OneDrive/Documents/GitHub/ProjectJava/ProjectJava/src/Model/Customer.java</file>
             <file>file:/C:/Users/thoma/OneDrive/Documents/GitHub/ProjectJava/ProjectJava/src/View/SignInJFrame.java</file>
             <file>file:/C:/Users/thoma/OneDrive/Documents/GitHub/ProjectJava/ProjectJava/src/projectjava/OfferDAO.java</file>
             <file>file:/C:/Users/thoma/OneDrive/Documents/GitHub/ProjectJava/ProjectJava/src/View/SellerDeleteViewing.java</file>
             <file>file:/C:/Users/thoma/OneDrive/Documents/GitHub/ProjectJava/ProjectJava/src/Model/Buyer.java</file>
+            <file>file:/C:/Users/thoma/OneDrive/Documents/GitHub/ProjectJava/ProjectJava/src/Model/Person.java</file>
             <file>file:/C:/Users/thoma/OneDrive/Documents/GitHub/ProjectJava/ProjectJava/src/View/EmployeeFirst.java</file>
             <file>file:/C:/Users/thoma/OneDrive/Documents/GitHub/ProjectJava/ProjectJava/src/projectjava/VisitDAO.java</file>
             <file>file:/C:/Users/thoma/OneDrive/Documents/GitHub/ProjectJava/ProjectJava/src/projectjava/logo%20projet%20info.png</file>
@@ -44,6 +43,7 @@
             <file>file:/C:/Users/thoma/OneDrive/Documents/GitHub/ProjectJava/ProjectJava/src/projectjava/VisitDAOImpl.java</file>
             <file>file:/C:/Users/thoma/OneDrive/Documents/GitHub/ProjectJava/ProjectJava/src/Controller/ProjectJava.java</file>
             <file>file:/C:/Users/thoma/OneDrive/Documents/GitHub/ProjectJava/ProjectJava/src/Model/Employee.java</file>
+            <file>file:/C:/Users/thoma/OneDrive/Documents/GitHub/ProjectJava/ProjectJava/src/Model/House.java</file>
             <file>file:/C:/Users/thoma/OneDrive/Documents/GitHub/ProjectJava/ProjectJava/src/projectjava/PropertyDAOImpl.java</file>
             <file>file:/C:/Users/thoma/OneDrive/Documents/GitHub/ProjectJava/ProjectJava/src/View/SellerOffer.java</file>
         </group>

@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Controller;
+package Model;
 
 import Model.Property;
 
@@ -16,9 +16,9 @@ public class House extends Property {
     private double gardensurface;//Attributes that do not exist in the Property class
     private boolean swimmingpool;
     
-    public House(int i,String d, double p, String l, int nr, int nbr, int nbf, int tv, double s,int ids,String t, double gs, boolean sp)//Constructor
+    public House(int i,String d, double p, String l, int nr, int nbr, int nbf, int tv, double s,int ids, boolean soldprop,String t, double gs, boolean sp)//Constructor
     {
-        super(i,d,p,l,nr,nbr,nbf,tv,s,ids,t);//constructor of the property class
+        super(i,d,p,l,nr,nbr,nbf,tv,s,ids,soldprop,t);//constructor of the property class
         gardensurface=gs;
         swimmingpool=sp;
     }

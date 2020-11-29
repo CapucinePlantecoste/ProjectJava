@@ -17,5 +17,7 @@ public interface PropertyDAO {
     ArrayList<Property> registerproperty();
     void addproperty(Property a, int b);
     void updatetv(Property a);
+    void offeraccepted(Property a);
+    
     
 }

@@ -5,8 +5,6 @@
  */
 package Model;
 
-import Controller.Person;
-
 /**
  *
  * @author thoma

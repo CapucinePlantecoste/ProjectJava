@@ -9,7 +9,7 @@ import View.SellerFirst;
 import Model.Visit;
 import Model.Seller;
 import Model.Property;
-import Controller.Offer;
+import Model.Offer;
 import Model.Employee;
 import Model.Appartment;
 import Model.Buyer;
@@ -466,23 +466,23 @@ public class SellerNewPropertyApartment extends javax.swing.JFrame {
         {
                 if(tampon2==1)
                 {
-                    pr.add(new Appartment(newid,jTextField8.getText(),Double.parseDouble(jTextField3.getText()),jTextField1.getText(),Integer.parseInt(jTextField5.getText()),Integer.parseInt(jTextField2.getText()),Integer.parseInt(jTextField6.getText()),0,Double.parseDouble(jTextField7.getText()),newseller.getid(),"Apartment",true,Integer.parseInt(jTextField4.getText()),true));
+                    pr.add(new Appartment(newid,jTextField8.getText(),Double.parseDouble(jTextField3.getText()),jTextField1.getText(),Integer.parseInt(jTextField5.getText()),Integer.parseInt(jTextField2.getText()),Integer.parseInt(jTextField6.getText()),0,Double.parseDouble(jTextField7.getText()),newseller.getid(),false,"Apartment",true,Integer.parseInt(jTextField4.getText()),true));
                     
                 }
                 else
                 {
-                    pr.add(new Appartment(newid,jTextField8.getText(),Double.parseDouble(jTextField3.getText()),jTextField1.getText(),Integer.parseInt(jTextField5.getText()),Integer.parseInt(jTextField2.getText()),Integer.parseInt(jTextField6.getText()),0,Double.parseDouble(jTextField7.getText()),newseller.getid(),"Apartment",false,Integer.parseInt(jTextField4.getText()),true));
+                    pr.add(new Appartment(newid,jTextField8.getText(),Double.parseDouble(jTextField3.getText()),jTextField1.getText(),Integer.parseInt(jTextField5.getText()),Integer.parseInt(jTextField2.getText()),Integer.parseInt(jTextField6.getText()),0,Double.parseDouble(jTextField7.getText()),newseller.getid(),false,"Apartment",false,Integer.parseInt(jTextField4.getText()),true));
                 }
         }
         else
         {
             if (tampon2==1)
             {
-                pr.add(new Appartment(newid,jTextField8.getText(),Double.parseDouble(jTextField3.getText()),jTextField1.getText(),Integer.parseInt(jTextField5.getText()),Integer.parseInt(jTextField2.getText()),Integer.parseInt(jTextField6.getText()),0,Double.parseDouble(jTextField7.getText()),newseller.getid(),"Apartment",true,Integer.parseInt(jTextField4.getText()),false));
+                pr.add(new Appartment(newid,jTextField8.getText(),Double.parseDouble(jTextField3.getText()),jTextField1.getText(),Integer.parseInt(jTextField5.getText()),Integer.parseInt(jTextField2.getText()),Integer.parseInt(jTextField6.getText()),0,Double.parseDouble(jTextField7.getText()),newseller.getid(),false,"Apartment",true,Integer.parseInt(jTextField4.getText()),false));
             }
             else
             {
-                pr.add(new Appartment(newid,jTextField8.getText(),Double.parseDouble(jTextField3.getText()),jTextField1.getText(),Integer.parseInt(jTextField5.getText()),Integer.parseInt(jTextField2.getText()),Integer.parseInt(jTextField6.getText()),0,Double.parseDouble(jTextField7.getText()),newseller.getid(),"Apartment",false,Integer.parseInt(jTextField4.getText()),false));
+                pr.add(new Appartment(newid,jTextField8.getText(),Double.parseDouble(jTextField3.getText()),jTextField1.getText(),Integer.parseInt(jTextField5.getText()),Integer.parseInt(jTextField2.getText()),Integer.parseInt(jTextField6.getText()),0,Double.parseDouble(jTextField7.getText()),newseller.getid(),false,"Apartment",false,Integer.parseInt(jTextField4.getText()),false));
             }
         }
         pdao.addproperty(pr.get(pr.size()-1),1);

@@ -9,8 +9,8 @@ import View.SellerFirst;
 import Model.Visit;
 import Model.Seller;
 import Model.Property;
-import Controller.Offer;
-import Controller.House;
+import Model.Offer;
+import Model.House;
 import Model.Employee;
 import Model.Buyer;
 import java.util.ArrayList;
@@ -408,10 +408,10 @@ public class SellerNewPropertyHouse extends javax.swing.JFrame {
         PropertyDAOImpl pdao = new PropertyDAOImpl();
 
         if (tampon == 1) {
-            pr.add(new House(newid, jTextField8.getText(), Double.parseDouble(jTextField3.getText()), jTextField1.getText(), Integer.parseInt(jTextField5.getText()), Integer.parseInt(jTextField2.getText()), Integer.parseInt(jTextField6.getText()), 0, Double.parseDouble(jTextField7.getText()), newseller.getid(), "House", Double.parseDouble(jTextField4.getText()), true));
+            pr.add(new House(newid, jTextField8.getText(), Double.parseDouble(jTextField3.getText()), jTextField1.getText(), Integer.parseInt(jTextField5.getText()), Integer.parseInt(jTextField2.getText()), Integer.parseInt(jTextField6.getText()), 0, Double.parseDouble(jTextField7.getText()), newseller.getid(),false, "House", Double.parseDouble(jTextField4.getText()), true));
 
         } else {
-             pr.add(new House(newid, jTextField8.getText(), Double.parseDouble(jTextField3.getText()), jTextField1.getText(), Integer.parseInt(jTextField5.getText()), Integer.parseInt(jTextField2.getText()), Integer.parseInt(jTextField6.getText()), 0, Double.parseDouble(jTextField7.getText()), newseller.getid(), "House", Double.parseDouble(jTextField4.getText()), false));
+             pr.add(new House(newid, jTextField8.getText(), Double.parseDouble(jTextField3.getText()), jTextField1.getText(), Integer.parseInt(jTextField5.getText()), Integer.parseInt(jTextField2.getText()), Integer.parseInt(jTextField6.getText()), 0, Double.parseDouble(jTextField7.getText()), newseller.getid(),false,"House", Double.parseDouble(jTextField4.getText()), false));
         }
         pdao.addproperty(pr.get(pr.size() - 1), 2);
 

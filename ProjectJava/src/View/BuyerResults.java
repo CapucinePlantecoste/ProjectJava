@@ -9,7 +9,7 @@ import View.BuyerFirst;
 import Model.Visit;
 import Model.Seller;
 import Model.Property;
-import Controller.Offer;
+import Model.Offer;
 import Model.Employee;
 import Model.Buyer;
 import java.util.ArrayList;
