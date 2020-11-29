@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package projectjava;
+import View.ConnectingJFrame;
 import View.SignInJFrame;
 import Model.Visit;
 import Model.Seller;
@@ -176,6 +177,7 @@ public class First extends javax.swing.JFrame {
          
         newframe.setVisible (true); //we open the new frame
         newframe.toFront();
+        this.setVisible(false);
         
        // BuyerFirst newframe2 = new BuyerFirst (buyers.get(buyers.size()-1),buyers, sellers, emp, url, USERNAME, PASSWORD);//If the user clicks on connect as a buyer
         //newframe2.setVisible (true); //we open the new frame
@@ -190,6 +192,7 @@ public class First extends javax.swing.JFrame {
         newframe = new ConnectingJFrame ("sellers", buyers, sellers, emp,pr,v,o);//If the user clicks on connect as a buyer
         newframe.setVisible (true); //we open the new frame
         newframe.toFront(); 
+        this.setVisible(false);
         
         //SellerFirst newframe2 = new SellerFirst (sellers.get(sellers.size()-1), buyers, sellers, emp, url, USERNAME, PASSWORD);//If the user clicks on connect as a buyer
         //newframe2.toFront();
@@ -213,6 +216,7 @@ public class First extends javax.swing.JFrame {
         newframe = new ConnectingJFrame ("employee", buyers,sellers, emp,pr,v,o);//If the user clicks on connect as a buyer
         newframe.setVisible (true); //we open the new frame
         newframe.toFront();
+        this.setVisible(false);
         
         //EmployeeFirst newframe2 = new EmployeeFirst (emp.get(emp.size()-1),buyers, sellers, emp, url, USERNAME, PASSWORD);//If the user clicks on connect as a buyer
         //newframe2.setVisible (true); //we open the new frame
@@ -226,10 +230,7 @@ public class First extends javax.swing.JFrame {
         SignInJFrame newframe = new SignInJFrame (buyers, sellers, emp,pr,v,o);//If the user clicks on connect as a buyer
         newframe.setVisible (true); //we open the new frame
         newframe.toFront();
-          for(int i=0; i<v.size();++i)
-        {
-            System.out.println(v.get(i).getid());
-        }
+       this.setVisible(false);
         
     }//GEN-LAST:event_jButton7ActionPerformed
 

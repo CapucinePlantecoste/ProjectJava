@@ -103,4 +103,32 @@ public class PropertyDAOImpl implements PropertyDAO {
             System.err.println(e);
         }
     }
+    
+    @Override
+    public void updatetv(Property a)
+    {
+         Connection conn = null;
+        try {
+
+            DataSource db = new DataSource();
+            conn = db.createConnection();
+            Statement stmt = conn.createStatement();
+
+            conn.setAutoCommit(false);
+            try {//we also put the new customer into our database 
+
+                
+                    stmt.executeUpdate("UPDATE property SET timevisited='"+a.gettimevisited()+"' where id='"+a.getid()+"';");
+                
+                conn.commit();
+                conn.close();
+
+            } catch (SQLException f) {//possible MySql exception
+                System.err.println(f);
+            }
+        } catch (SQLException e) {//Possible MySql connection exception
+            System.err.println(e);
+        }
+    }
+            
 }

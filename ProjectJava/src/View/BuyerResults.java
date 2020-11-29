@@ -137,14 +137,14 @@ public class BuyerResults extends javax.swing.JFrame {
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGap(287, 287, 287)
-                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel4Layout.createSequentialGroup()
                         .addGap(46, 46, 46)
                         .addComponent(jButton1))
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addGap(196, 196, 196)
-                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 410, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 410, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGap(287, 287, 287)
+                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 282, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel4Layout.createSequentialGroup()
@@ -494,7 +494,7 @@ public class BuyerResults extends javax.swing.JFrame {
            jPanelHouse.hide();
         } else {
             for (int i = 0; i < result.size(); i++) {
-                if (selected.equals(result.get(i).getdescription())) {
+                if (selected.equals(result.get(i).getdescription()+" id : "+result.get(i).getid())) {
 
                     tampon = i;
                     
@@ -562,7 +562,7 @@ public class BuyerResults extends javax.swing.JFrame {
             } else {
                 jLabelElevator.setText("Elevator : No");
             }
-            System.out.println("coucou");
+            
            jPanelApartment.show();
             jPanelHouse.hide();
 
@@ -590,7 +590,7 @@ public class BuyerResults extends javax.swing.JFrame {
     public void initjcb1() {
         for (int i = 0; i < result.size(); i++) {
 
-            jComboBox1.addItem(result.get(i).getdescription());
+            jComboBox1.addItem(result.get(i).getdescription()+" id : "+result.get(i).getid());
 
         }
     }

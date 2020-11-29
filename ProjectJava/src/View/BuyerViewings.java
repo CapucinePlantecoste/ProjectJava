@@ -12,7 +12,11 @@ import Controller.Offer;
 import Model.Employee;
 import Model.Buyer;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 import projectjava.First;
+import projectjava.PropertyDAO;
+import projectjava.PropertyDAOImpl;
+import projectjava.VisitDAOImpl;
 
 /**
  *
@@ -128,7 +132,7 @@ public class BuyerViewings extends javax.swing.JFrame {
                 .addComponent(jButton1)
                 .addContainerGap(621, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(171, Short.MAX_VALUE)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
                         .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 409, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -137,8 +141,8 @@ public class BuyerViewings extends javax.swing.JFrame {
                         .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(253, 253, 253))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(215, 215, 215))))
+                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 313, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(146, 146, 146))))
             .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel4Layout.createSequentialGroup()
                     .addGap(173, 173, 173)
@@ -203,6 +207,11 @@ public class BuyerViewings extends javax.swing.JFrame {
 
         jButton2.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
         jButton2.setText("This visit has been done ");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanelViewingsLayout = new javax.swing.GroupLayout(jPanelViewings);
         jPanelViewings.setLayout(jPanelViewingsLayout);
@@ -277,7 +286,7 @@ public class BuyerViewings extends javax.swing.JFrame {
                 
                     for(int j=0;j<pr.size();++j)
                     {
-                        if(selected.equals(pr.get(j).getdescription()))
+                        if(selected.equals(pr.get(j).getdescription()+" idvisit:"+myviewings.get(i).getid()))
                         {                           
                             tampon=i;                            
                         }
@@ -306,6 +315,47 @@ public class BuyerViewings extends javax.swing.JFrame {
         new First(buyers, sellers, emp, pr, v, o).setVisible(true);
     }//GEN-LAST:event_jButton5ActionPerformed
 
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        
+        PropertyDAOImpl pdao=new PropertyDAOImpl();
+        VisitDAOImpl vdao=new VisitDAOImpl();
+        int tampon=0;
+        int tampon2=0;
+        int tampon3=0;
+        String selected = (String) jComboBox1.getSelectedItem();
+        for (int i = 0; i < myviewings.size(); i++) {
+                
+                    for(int j=0;j<pr.size();++j)
+                    {
+                        if(selected.equals(pr.get(j).getdescription()+" idvisit: "+myviewings.get(i).getid()))
+                        {                           
+                            tampon=i;  
+                            tampon2=j;
+                        }
+                    }                    
+                }
+        for(int k=0;k<v.size();++k)
+        {
+            if(v.get(k).getid()==myviewings.get(tampon).getid())
+            {
+                tampon3=k;
+            }
+        }
+        pr.get(tampon2).settimevisited(pr.get(tampon2).gettimevisited()+1);
+        pdao.updatetv(pr.get(tampon2));
+        vdao.deleteviewing(myviewings.get(tampon));
+        myviewings.remove(myviewings.get(tampon));
+        v.remove(v.get(tampon3));
+        JOptionPane.showMessageDialog(null," Thank you for this update");
+        
+        
+        
+        
+        
+        
+    }//GEN-LAST:event_jButton2ActionPerformed
+
     
     public void initjcb1()
     {
@@ -313,7 +363,7 @@ public class BuyerViewings extends javax.swing.JFrame {
             for (int j = 0; j < pr.size(); ++j) {
                 
                 if (myviewings.get(i).getidprop() == pr.get(j).getid()) {
-                    jComboBox1.addItem(pr.get(j).getdescription());
+                    jComboBox1.addItem(pr.get(j).getdescription()+" idvisit: "+myviewings.get(i).getid());
                    
                 }
             }

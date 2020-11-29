@@ -52,4 +52,9 @@ public class Offer {
         accepted=a;
     }
     
+    public int getid()
+    {
+        return id;
+    }
+    
 }

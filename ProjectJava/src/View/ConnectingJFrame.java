@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package projectjava;
+package View;
 import View.BuyerFirst;
 import View.EmployeeFirst;
 import View.SellerFirst;
@@ -16,6 +16,7 @@ import Model.Buyer;
 import javax.swing.JOptionPane; 
 
 import java.util.ArrayList;
+import projectjava.First;
 
 /**
  *
@@ -262,8 +263,10 @@ public class ConnectingJFrame extends javax.swing.JFrame {//this frame correspon
         // TODO add your handling code here:
         this.toBack();//if we click on the back button
         setVisible(false);//this page disappears 
-        new First(buyers, sellers, emp, pr,v,o).toFront();//we go back on the first page 
-        new First(buyers, sellers, emp,pr,v,o).setState(java.awt.Frame.NORMAL);
+        First a=new First(buyers, sellers, emp, pr,v,o);
+        a.toFront();//we go back on the first page 
+        a.setState(java.awt.Frame.NORMAL);
+        a.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jPasswordField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPasswordField1ActionPerformed

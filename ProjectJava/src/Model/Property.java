@@ -101,6 +101,11 @@ public abstract class Property {
         id=a;
     }
     
+    public void settimevisited(int a )
+    {
+        timevisited=a;
+    }
+    
     public abstract boolean getelevator();
     public abstract int getfloornumber();
     public abstract boolean getparking();

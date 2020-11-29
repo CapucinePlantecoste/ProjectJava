@@ -33,6 +33,7 @@ public class SellerFirst extends javax.swing.JFrame {
         o = off;
         newseller = a;
         initComponents();
+        
        
     }
 
@@ -193,9 +194,29 @@ public class SellerFirst extends javax.swing.JFrame {
         new SellerNewProperty(newseller, buyers, sellers, emp, pr, v, o).toFront();
     }//GEN-LAST:event_jButton3ActionPerformed
 
-    //See my current properties
+    //Delete a viewing
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
+        ArrayList<Property> propviewing=new ArrayList<>();
+        myviewings.clear();
+        this.setmyviewings();
+        for(int i=0;i<myviewings.size();++i)
+        {
+            for(int j=0;j<myprop.size();++j)
+            
+                if((myviewings.get(i).getidprop()==myprop.get(j).getid())&& (!propviewing.contains(myprop.get(j))))
+                    propviewing.add(myprop.get(j));
+        }
+        if(propviewing.size()==0)
+        {
+            JOptionPane.showMessageDialog(null, "No visit found for any of your properties");
+        }
+        else
+        {
+            SellerDeleteViewing a =new SellerDeleteViewing(newseller, buyers, sellers, emp, pr, v, o, myviewings, propviewing);
+            a.setVisible(true);
+        }
+        
 
         
     }//GEN-LAST:event_jButton2ActionPerformed
@@ -278,6 +299,22 @@ public class SellerFirst extends javax.swing.JFrame {
         }
 
     }
+    
+    public void setmyviewings()
+    {
+        myprop.clear();
+        this.setmyprop();
+        for (int i = 0; i < v.size(); ++i) {
+            for (int j = 0; j < myprop.size(); ++j) {
+                if (v.get(i).getidprop() == myprop.get(j).getid()) {
+                    myviewings.add(v.get(i));
+                }
+            }
+
+        }
+
+    }
+    
 
     /**
      * @param args the command line arguments
@@ -324,6 +361,7 @@ public class SellerFirst extends javax.swing.JFrame {
 
     private static ArrayList<Property> myprop = new ArrayList<>();
     private static ArrayList<Offer> myoffers = new ArrayList<>();
+    private static ArrayList<Visit> myviewings=new ArrayList<>();
 
     private static Seller newseller;
     // Variables declaration - do not modify//GEN-BEGIN:variables

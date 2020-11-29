@@ -105,7 +105,7 @@ public class BuyerOffer extends javax.swing.JFrame {
                 .addComponent(jButton1)
                 .addContainerGap(621, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(171, Short.MAX_VALUE)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
                         .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 409, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -114,8 +114,8 @@ public class BuyerOffer extends javax.swing.JFrame {
                         .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(253, 253, 253))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(215, 215, 215))))
+                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 352, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(107, 107, 107))))
             .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel4Layout.createSequentialGroup()
                     .addGap(173, 173, 173)
@@ -246,7 +246,7 @@ public class BuyerOffer extends javax.swing.JFrame {
                 {
                     for(int j=0;j<pr.size();++j)
                     {
-                        if(selected.equals(pr.get(j).getdescription()))
+                        if(selected.equals(pr.get(j).getdescription()+" idoffer :"+myoffers.get(i).getid()))
                         {
                             tampon=i;
                         }
@@ -309,7 +309,7 @@ public class BuyerOffer extends javax.swing.JFrame {
             for (int j = 0; j < pr.size(); ++j) {
                 
                 if (myoffers.get(i).getidprop() == pr.get(j).getid()) {
-                    jComboBox1.addItem(pr.get(j).getdescription());
+                    jComboBox1.addItem(pr.get(j).getdescription()+" idoffer: "+myoffers.get(i).getid());
                    
                 }
             }

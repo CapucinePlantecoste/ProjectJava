@@ -138,8 +138,8 @@ public class SellerAddViewing extends javax.swing.JFrame {
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 391, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(159, 159, 159))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(243, 243, 243))))
+                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 335, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(152, 152, 152))))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -373,20 +373,14 @@ public class SellerAddViewing extends javax.swing.JFrame {
         // TODO add your handling code here:
 
         
-        int tampon = 0;
+       
 
         String selected = (String) jComboBox1.getSelectedItem();
         if (selected.equals("Select one of your properties for sale")) {
             jPanel1.hide();
 
         } else {
-            for (int i = 0; i < myprop.size(); i++) {
-                if (selected.equals(myprop.get(i).getdescription())) {
-
-                    tampon = i;
-                }
-
-            }
+            
             jPanel1.show();
 
         }
@@ -464,15 +458,23 @@ public class SellerAddViewing extends javax.swing.JFrame {
         SimpleDateFormat sdf= new SimpleDateFormat ("yyyy-MM-dd hh:mm:ss");
       
         int tampon = 0;
+        int tampon2=0;
         int c;
         
         String selected = (String) jComboBox1.getSelectedItem();
         for (int i = 0; i < myprop.size(); i++) {
-            if (selected.equals(myprop.get(i).getdescription())) {
+            if (selected.equals(myprop.get(i).getdescription()+" idproperty : "+myprop.get(i).getid())) {
 
                 tampon = i;
             }
 
+        }
+        for(int j=0;j<pr.size();++j)
+        {
+            if(pr.get(j).getid()==myprop.get(tampon).getid())
+            {
+                tampon2=j;
+            }
         }
         //TO see which house or apartment is concerner by this new viewing
         
@@ -482,7 +484,7 @@ public class SellerAddViewing extends javax.swing.JFrame {
         
 
         if (jTextFieldYear.getText().trim().isEmpty() || jTextFieldMonth.getText().trim().isEmpty() || jTextField1.getText().trim().isEmpty() || jTextFieldHour.getText().trim().isEmpty() || jTextFieldMinutes.getText().trim().isEmpty()) {
-            System.out.println("coucou");
+            
             JOptionPane.showMessageDialog(null, "One or several fields are empty. Please, try again.");
         } else {
             if (jTextFieldYear.getText().length() != 4 || jTextFieldMonth.getText().length() != 2 || jTextField1.getText().length() != 2 || jTextFieldHour.getText().length() != 2 || jTextFieldMinutes.getText().length() != 2) {
@@ -504,7 +506,6 @@ public class SellerAddViewing extends javax.swing.JFrame {
                         {
                             Date dateparse=sdf.parse(newd);
                             Timestamp d=new Timestamp(dateparse.getTime());
-                            System.out.println(d);
                             c=d.compareTo(ts);
                        if(c<0)
                        {
@@ -512,10 +513,12 @@ public class SellerAddViewing extends javax.swing.JFrame {
                        }
                        else
                        {
-                           JOptionPane.showMessageDialog(null, "Date valid"); 
-                           v.add(new Visit(v.get(v.size()-1).getid()+1,-1,pr.get(tampon).getid(),emp.get(randomnumber).getid(),d,30));
+                           
+                           
+                           v.add(new Visit(v.get(v.size()-1).getid()+1,-1,pr.get(tampon2).getid(),emp.get(randomnumber).getid(),d,30));
                             VisitDAOImpl vdao=new VisitDAOImpl();
                             vdao.addvisit(v.get(v.size()-1));
+                            JOptionPane.showMessageDialog(null, "Viewing added"); 
                            
                        }
                         }
@@ -538,7 +541,7 @@ public class SellerAddViewing extends javax.swing.JFrame {
     public void initjcb1() {
         for (int i = 0; i < myprop.size(); i++) {
 
-            jComboBox1.addItem(myprop.get(i).getdescription());
+            jComboBox1.addItem(myprop.get(i).getdescription()+" idproperty : "+myprop.get(i).getid());
 
         }
     }

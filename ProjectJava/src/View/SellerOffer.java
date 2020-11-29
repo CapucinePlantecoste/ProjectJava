@@ -239,7 +239,7 @@ public class SellerOffer extends javax.swing.JFrame {
                 {
                     for(int j=0;j<pr.size();++j)
                     {
-                        if(selected.equals(pr.get(j).getdescription()))
+                        if(selected.equals(pr.get(j).getdescription()+" idoffer : "+myoffers.get(i).getid()))
                         {
                            
                             tampon=i;
@@ -304,7 +304,7 @@ public class SellerOffer extends javax.swing.JFrame {
             {
                 if(myoffers.get(i).getidprop()==pr.get(j).getid())
                 {
-                    jComboBox1.addItem(pr.get(j).getdescription());
+                    jComboBox1.addItem(pr.get(j).getdescription()+ " idoffer : "+myoffers.get(i).getid());
                 }
             }
         }

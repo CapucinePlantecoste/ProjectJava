@@ -47,9 +47,9 @@ public class Visit {
         return idemp;
     }
     
-    public void displaydate()
+    public String displaydate()
     {
-        System.out.println(ts.toString());
+        return ts.toString();
     }
     public Timestamp gettime()
     {

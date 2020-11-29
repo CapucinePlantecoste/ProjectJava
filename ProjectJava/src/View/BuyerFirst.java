@@ -366,13 +366,13 @@ public class BuyerFirst extends javax.swing.JFrame {
         if (tampon == 1) {
             if (jTextField3.getText().isEmpty()) {
                 for (int i = 0; i < pr.size(); i++) {
-                    if (pr.get(i).getprice() > minpr && pr.get(i).getprice() < maxpr && pr.get(i).getsurface() > minsurf && pr.get(i).getsurface() < maxsurf && pr.get(i).getnumberrooms() > minnbrooms && pr.get(i).getnumberbedrooms() > minnbbedrooms) {
+                    if (pr.get(i).getprice() > minpr && pr.get(i).getprice() < maxpr && pr.get(i).getsurface() > minsurf && pr.get(i).getsurface() < maxsurf && pr.get(i).getnumberrooms() > minnbrooms && pr.get(i).getnumberbedrooms() > minnbbedrooms && pr.get(i).getsold()==false) {
                         results.add(pr.get(i));
                     }
                 }
             } else {
                 for (int i = 0; i < pr.size(); i++) {
-                    if (pr.get(i).getlocation().equals(jTextField3.getText()) && pr.get(i).getprice() > minpr && pr.get(i).getprice() < maxpr && pr.get(i).getsurface() > minsurf && pr.get(i).getsurface() < maxsurf && pr.get(i).getnumberrooms() > minnbrooms && pr.get(i).getnumberbedrooms() > minnbbedrooms) {
+                    if (pr.get(i).getlocation().equals(jTextField3.getText()) && pr.get(i).getprice() > minpr && pr.get(i).getprice() < maxpr && pr.get(i).getsurface() > minsurf && pr.get(i).getsurface() < maxsurf && pr.get(i).getnumberrooms() > minnbrooms && pr.get(i).getnumberbedrooms() > minnbbedrooms && pr.get(i).getsold()==false) {
                         results.add(pr.get(i));
                     }
                 }
@@ -380,13 +380,13 @@ public class BuyerFirst extends javax.swing.JFrame {
         } else if (tampon == 2) {
             if (jTextField3.getText().isEmpty()) {
                 for (int i = 0; i < pr.size(); i++) {
-                    if (pr.get(i).gettype().equals("House") && pr.get(i).getprice() > minpr && pr.get(i).getprice() < maxpr && pr.get(i).getsurface() > minsurf && pr.get(i).getsurface() < maxsurf && pr.get(i).getnumberrooms() > minnbrooms && pr.get(i).getnumberbedrooms() > minnbbedrooms) {
+                    if (pr.get(i).gettype().equals("House") && pr.get(i).getprice() > minpr && pr.get(i).getprice() < maxpr && pr.get(i).getsurface() > minsurf && pr.get(i).getsurface() < maxsurf && pr.get(i).getnumberrooms() > minnbrooms && pr.get(i).getnumberbedrooms() > minnbbedrooms && pr.get(i).getsold()==false) {
                         results.add(pr.get(i));
                     }
                 }
             } else {
                 for (int i = 0; i < pr.size(); i++) {
-                    if (pr.get(i).gettype().equals("House") && pr.get(i).getlocation().equals(jTextField3.getText()) && pr.get(i).getprice() > minpr && pr.get(i).getprice() < maxpr && pr.get(i).getsurface() > minsurf && pr.get(i).getsurface() < maxsurf && pr.get(i).getnumberrooms() > minnbrooms && pr.get(i).getnumberbedrooms() > minnbbedrooms) {
+                    if (pr.get(i).gettype().equals("House") && pr.get(i).getlocation().equals(jTextField3.getText()) && pr.get(i).getprice() > minpr && pr.get(i).getprice() < maxpr && pr.get(i).getsurface() > minsurf && pr.get(i).getsurface() < maxsurf && pr.get(i).getnumberrooms() > minnbrooms && pr.get(i).getnumberbedrooms() > minnbbedrooms && pr.get(i).getsold()==false) {
                         results.add(pr.get(i));
                     }
                 }
@@ -394,13 +394,13 @@ public class BuyerFirst extends javax.swing.JFrame {
         } else if (tampon == 3) {
             if (jTextField3.getText().isEmpty()) {
                 for (int i = 0; i < pr.size(); i++) {
-                    if (pr.get(i).gettype().equals("Apartment") && pr.get(i).getprice() > minpr && pr.get(i).getprice() < maxpr && pr.get(i).getsurface() > minsurf && pr.get(i).getsurface() < maxsurf && pr.get(i).getnumberrooms() > minnbrooms && pr.get(i).getnumberbedrooms() > minnbbedrooms) {
+                    if (pr.get(i).gettype().equals("Apartment") && pr.get(i).getprice() > minpr && pr.get(i).getprice() < maxpr && pr.get(i).getsurface() > minsurf && pr.get(i).getsurface() < maxsurf && pr.get(i).getnumberrooms() > minnbrooms && pr.get(i).getnumberbedrooms() > minnbbedrooms && pr.get(i).getsold()==false) {
                         results.add(pr.get(i));
                     }
                 }
             } else {
                 for (int i = 0; i < pr.size(); i++) {
-                    if (pr.get(i).gettype().equals("Apartment") && pr.get(i).getlocation().equals(jTextField3.getText()) && pr.get(i).getprice() > minpr && pr.get(i).getprice() < maxpr && pr.get(i).getsurface() > minsurf && pr.get(i).getsurface() < maxsurf && pr.get(i).getnumberrooms() > minnbrooms && pr.get(i).getnumberbedrooms() > minnbbedrooms) {
+                    if (pr.get(i).gettype().equals("Apartment") && pr.get(i).getlocation().equals(jTextField3.getText()) && pr.get(i).getprice() > minpr && pr.get(i).getprice() < maxpr && pr.get(i).getsurface() > minsurf && pr.get(i).getsurface() < maxsurf && pr.get(i).getnumberrooms() > minnbrooms && pr.get(i).getnumberbedrooms() > minnbbedrooms && pr.get(i).getsold()==false) {
                         results.add(pr.get(i));
                     }
                 }

@@ -95,8 +95,8 @@
                               <EmptySpace min="-2" pref="159" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="1" attributes="0">
-                              <Component id="jComboBox1" min="-2" pref="244" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="243" max="-2" attributes="0"/>
+                              <Component id="jComboBox1" min="-2" pref="335" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="152" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>

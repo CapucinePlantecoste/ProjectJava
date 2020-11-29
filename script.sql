@@ -8,7 +8,7 @@ insert into buyer values ( 03,'Emmanuel', 'Macron', 'manu', 'president') ;
 insert into buyer values ( 04,'Franck', 'Poulain', 'franckpln', 'microsoft123') ; 
 insert into buyer values ( 05,'Laurence', 'Godnair', 'laurencegdr', 'melann!') ; 
 insert into buyer values ( 06,'Killian', 'Poulain', 'killianpln', '123456') ; 
-
+delete from buyer where idbuyer='7';
 select * from buyer ;
 
 drop table employee;
@@ -38,6 +38,7 @@ insert into property values (10, 'Apartment','Small appartment near the sea',250
 insert into property values (11, 'Apartment', 'Very large apartment in Bordeaux',6000000, 'Bordeaux', 6, 4, 5, 2, 120, null,null, true, 5, true,10005) ; 
 insert into property values (12, 'Apartment','Nice apartment in Lille',900000, 'Lille', 4, 2, 17, 1, 102,null,null, true, 4, false,10004) ; 
 
+
 select * from property;
 
 drop table seller;
@@ -59,4 +60,5 @@ drop table visit;
 create table visit(idvisit int, schedule datetime , idemployee int, idbuyer int, idproperty int, duration int,  foreign key (idproperty) references Property(id), foreign key (idemployee) references Employee(idemployee), foreign key (idbuyer) references Buyer(idbuyer), primary key (idvisit));
 insert into visit values(01, '2000-01-01 18:00:00', 1001, 01, 01, 30);
 insert into visit values (02, '2000-01-02 19:00:00', 1001, null, 01,30);
+delete from visit where idvisit='6';
 select * from visit;
