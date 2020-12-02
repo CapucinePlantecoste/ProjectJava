@@ -3,8 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package projectjava;
+package Model;
 
+import Model.EmployeeDAO;
+import Model.DataSource;
 import Model.Employee;
 import java.sql.Connection;
 import java.sql.ResultSet;

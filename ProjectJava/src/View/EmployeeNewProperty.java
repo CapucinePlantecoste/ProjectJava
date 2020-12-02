@@ -5,6 +5,7 @@
  */
 package View;
 
+import Model.Appartment;
 import Model.Offer;
 import Model.Buyer;
 import Model.Employee;
@@ -12,11 +13,11 @@ import Model.House;
 import Model.Property;
 import Model.Seller;
 import Model.Visit;
-import projectjava.First ;
+import projectjava.First;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
-import projectjava.PropertyDAOImpl;
-import projectjava.SellerDAOImpl;
+import Model.PropertyDAOImpl;
+import Model.SellerDAOImpl;
 
 /**
  *
@@ -27,23 +28,27 @@ public class EmployeeNewProperty extends javax.swing.JFrame {
     /**
      * Creates new form EmployeeNewProperty
      */
-    public EmployeeNewProperty(Employee coucou, Seller a, ArrayList<Buyer> b, ArrayList<Seller> s, ArrayList<Employee> e, ArrayList<Property>prop, ArrayList<Visit>vis, ArrayList<Offer>off) {
+    public EmployeeNewProperty(Employee coucou, ArrayList<Buyer> b, ArrayList<Seller> s, ArrayList<Employee> e, ArrayList<Property> prop, ArrayList<Visit> vis, ArrayList<Offer> off) {
         buyers = b;//Array List of buyers
         sellers = s;//Array List of sellers
         emp = e;//Array List of employees
-        pr=prop;
-        v=vis;
-        o=off;
-        newseller = a ;
-        employee = coucou; 
-        
-        tampon = 1 ; 
+        pr = prop;
+        v = vis;
+        o = off;
+
+        employee = coucou;
+
+        tampon = 0;
+        tampon2 = -1;
+        tampon4 = 1;
+        tampon5 = 1;
+        tampon6 = 1;
         initComponents();
-        jPanel1.hide() ; 
+        jPanel1.hide();
         jPanel3.hide();
         jPanelHouse.hide();
         jPanelApartment.hide();
-        jPanelUsername.hide(); 
+        jPanelUsername.hide();
     }
 
     /**
@@ -63,9 +68,6 @@ public class EmployeeNewProperty extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jComboBox1 = new javax.swing.JComboBox();
         jButton1 = new javax.swing.JButton();
-        jPanelUsername = new javax.swing.JPanel();
-        jTextField1 = new javax.swing.JTextField();
-        jLabel31 = new javax.swing.JLabel();
         jButton5 = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
@@ -84,26 +86,6 @@ public class EmployeeNewProperty extends javax.swing.JFrame {
         jPanel3 = new javax.swing.JPanel();
         jLabel12 = new javax.swing.JLabel();
         jComboBox2 = new javax.swing.JComboBox();
-        jPanelHouse = new javax.swing.JPanel();
-        jTextFieldPrice = new javax.swing.JTextField();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel13 = new javax.swing.JLabel();
-        jTextFieldLocation = new javax.swing.JTextField();
-        jLabel14 = new javax.swing.JLabel();
-        jTextFieldNumberRoom = new javax.swing.JTextField();
-        jTextFieldNumberBedroom = new javax.swing.JTextField();
-        jLabel15 = new javax.swing.JLabel();
-        jTextFieldSurface = new javax.swing.JTextField();
-        jLabel16 = new javax.swing.JLabel();
-        jLabel17 = new javax.swing.JLabel();
-        jTextFieldNumberFloor = new javax.swing.JTextField();
-        jLabel18 = new javax.swing.JLabel();
-        jComboBox3 = new javax.swing.JComboBox();
-        jLabel19 = new javax.swing.JLabel();
-        jTextFieldGardenSurface = new javax.swing.JTextField();
-        jLabel20 = new javax.swing.JLabel();
-        jTextFieldDescription = new javax.swing.JTextField();
-        jButton4 = new javax.swing.JButton();
         jPanelApartment = new javax.swing.JPanel();
         jTextFieldPrice1 = new javax.swing.JTextField();
         jLabel21 = new javax.swing.JLabel();
@@ -126,6 +108,29 @@ public class EmployeeNewProperty extends javax.swing.JFrame {
         jLabel30 = new javax.swing.JLabel();
         jComboBox5 = new javax.swing.JComboBox();
         jButton3 = new javax.swing.JButton();
+        jPanelHouse = new javax.swing.JPanel();
+        jTextFieldPrice = new javax.swing.JTextField();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
+        jTextFieldLocation = new javax.swing.JTextField();
+        jLabel14 = new javax.swing.JLabel();
+        jTextFieldNumberRoom = new javax.swing.JTextField();
+        jTextFieldNumberBedroom = new javax.swing.JTextField();
+        jLabel15 = new javax.swing.JLabel();
+        jTextFieldSurface = new javax.swing.JTextField();
+        jLabel16 = new javax.swing.JLabel();
+        jLabel17 = new javax.swing.JLabel();
+        jTextFieldNumberFloor = new javax.swing.JTextField();
+        jLabel18 = new javax.swing.JLabel();
+        jComboBox3 = new javax.swing.JComboBox();
+        jLabel19 = new javax.swing.JLabel();
+        jTextFieldGardenSurface = new javax.swing.JTextField();
+        jLabel20 = new javax.swing.JLabel();
+        jTextFieldDescription = new javax.swing.JTextField();
+        jButton4 = new javax.swing.JButton();
+        jPanelUsername = new javax.swing.JPanel();
+        jTextField1 = new javax.swing.JTextField();
+        jLabel31 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -161,33 +166,6 @@ public class EmployeeNewProperty extends javax.swing.JFrame {
             }
         });
 
-        jPanelUsername.setForeground(new java.awt.Color(255, 255, 255));
-
-        jLabel31.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel31.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
-        jLabel31.setText("Enter your username");
-
-        javax.swing.GroupLayout jPanelUsernameLayout = new javax.swing.GroupLayout(jPanelUsername);
-        jPanelUsername.setLayout(jPanelUsernameLayout);
-        jPanelUsernameLayout.setHorizontalGroup(
-            jPanelUsernameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelUsernameLayout.createSequentialGroup()
-                .addGap(26, 26, 26)
-                .addGroup(jPanelUsernameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jTextField1)
-                    .addComponent(jLabel31, javax.swing.GroupLayout.DEFAULT_SIZE, 201, Short.MAX_VALUE))
-                .addContainerGap(32, Short.MAX_VALUE))
-        );
-        jPanelUsernameLayout.setVerticalGroup(
-            jPanelUsernameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelUsernameLayout.createSequentialGroup()
-                .addContainerGap(20, Short.MAX_VALUE)
-                .addComponent(jLabel31)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(23, 23, 23))
-        );
-
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
@@ -195,9 +173,6 @@ public class EmployeeNewProperty extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 409, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(160, 160, 160))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
                         .addComponent(jLabel3)
                         .addGap(77, 77, 77))
@@ -214,8 +189,8 @@ public class EmployeeNewProperty extends javax.swing.JFrame {
                         .addComponent(jButton1)))
                 .addContainerGap(113, Short.MAX_VALUE))
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGap(219, 219, 219)
-                .addComponent(jPanelUsername, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(121, 121, 121)
+                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 409, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
@@ -229,11 +204,9 @@ public class EmployeeNewProperty extends javax.swing.JFrame {
                 .addComponent(jLabel3)
                 .addGap(31, 31, 31)
                 .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 83, Short.MAX_VALUE)
-                .addComponent(jPanelUsername, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(73, 73, 73)
                 .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(20, 20, 20))
+                .addContainerGap(133, Short.MAX_VALUE))
         );
 
         jPanel2.add(jPanel4);
@@ -389,11 +362,11 @@ public class EmployeeNewProperty extends javax.swing.JFrame {
                 .addComponent(jPasswordField2, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton2)
-                .addContainerGap(37, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jPanel2.add(jPanel1);
-        jPanel1.setBounds(800, 80, 380, 480);
+        jPanel1.setBounds(720, 30, 380, 480);
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -428,212 +401,11 @@ public class EmployeeNewProperty extends javax.swing.JFrame {
                 .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(22, Short.MAX_VALUE))
+                .addContainerGap(17, Short.MAX_VALUE))
         );
 
         jPanel2.add(jPanel3);
         jPanel3.setBounds(1180, 180, 370, 100);
-
-        jPanelHouse.setBackground(new java.awt.Color(255, 255, 255));
-
-        jTextFieldPrice.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                jTextFieldPriceKeyTyped(evt);
-            }
-        });
-
-        jLabel6.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel6.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(0, 153, 153));
-        jLabel6.setText("Price (in €)");
-
-        jLabel13.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel13.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
-        jLabel13.setForeground(new java.awt.Color(0, 153, 153));
-        jLabel13.setText("Location");
-
-        jLabel14.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel14.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
-        jLabel14.setForeground(new java.awt.Color(0, 153, 153));
-        jLabel14.setText("Number of rooms");
-
-        jTextFieldNumberRoom.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                jTextFieldNumberRoomKeyTyped(evt);
-            }
-        });
-
-        jTextFieldNumberBedroom.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                jTextFieldNumberBedroomKeyTyped(evt);
-            }
-        });
-
-        jLabel15.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel15.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
-        jLabel15.setForeground(new java.awt.Color(0, 153, 153));
-        jLabel15.setText("Number of Bedrooms");
-
-        jTextFieldSurface.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                jTextFieldSurfaceKeyTyped(evt);
-            }
-        });
-
-        jLabel16.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel16.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
-        jLabel16.setForeground(new java.awt.Color(0, 153, 153));
-        jLabel16.setText("Surface");
-
-        jLabel17.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel17.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
-        jLabel17.setForeground(new java.awt.Color(0, 153, 153));
-        jLabel17.setText("Number of floors");
-
-        jTextFieldNumberFloor.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                jTextFieldNumberFloorKeyTyped(evt);
-            }
-        });
-
-        jLabel18.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel18.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
-        jLabel18.setForeground(new java.awt.Color(0, 153, 153));
-        jLabel18.setText("Swimming Pool");
-
-        jComboBox3.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
-        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Yes", "No" }));
-        jComboBox3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox3ActionPerformed(evt);
-            }
-        });
-
-        jLabel19.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel19.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
-        jLabel19.setForeground(new java.awt.Color(0, 153, 153));
-        jLabel19.setText("Garden Surface");
-
-        jTextFieldGardenSurface.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                jTextFieldGardenSurfaceKeyTyped(evt);
-            }
-        });
-
-        jLabel20.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
-        jLabel20.setForeground(new java.awt.Color(0, 153, 153));
-        jLabel20.setText("Description");
-
-        jTextFieldDescription.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldDescriptionActionPerformed(evt);
-            }
-        });
-
-        jButton4.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
-        jButton4.setText("Confirm the introduction of the property");
-
-        javax.swing.GroupLayout jPanelHouseLayout = new javax.swing.GroupLayout(jPanelHouse);
-        jPanelHouse.setLayout(jPanelHouseLayout);
-        jPanelHouseLayout.setHorizontalGroup(
-            jPanelHouseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelHouseLayout.createSequentialGroup()
-                .addGroup(jPanelHouseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanelHouseLayout.createSequentialGroup()
-                        .addGroup(jPanelHouseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanelHouseLayout.createSequentialGroup()
-                                .addGap(27, 27, 27)
-                                .addGroup(jPanelHouseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jTextFieldPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jTextFieldNumberFloor, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(jPanelHouseLayout.createSequentialGroup()
-                                .addGap(20, 20, 20)
-                                .addGroup(jPanelHouseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jTextFieldSurface, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanelHouseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton4)
-                            .addGroup(jPanelHouseLayout.createSequentialGroup()
-                                .addGroup(jPanelHouseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(44, 44, 44)
-                                .addGroup(jPanelHouseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel19, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jTextFieldGardenSurface, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jTextFieldNumberBedroom, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel15, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(jPanelHouseLayout.createSequentialGroup()
-                                .addGroup(jPanelHouseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jTextFieldLocation, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(44, 44, 44)
-                                .addGroup(jPanelHouseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jTextFieldNumberRoom, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGap(0, 83, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelHouseLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jTextFieldDescription)))
-                .addContainerGap())
-        );
-        jPanelHouseLayout.setVerticalGroup(
-            jPanelHouseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelHouseLayout.createSequentialGroup()
-                .addGap(25, 25, 25)
-                .addGroup(jPanelHouseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanelHouseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(jPanelHouseLayout.createSequentialGroup()
-                            .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(0, 0, 0)
-                            .addComponent(jTextFieldPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(jPanelHouseLayout.createSequentialGroup()
-                            .addGroup(jPanelHouseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGap(0, 0, 0)
-                            .addComponent(jTextFieldNumberRoom, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(jTextFieldLocation, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGroup(jPanelHouseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanelHouseLayout.createSequentialGroup()
-                        .addGap(2, 2, 2)
-                        .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, 0)
-                        .addComponent(jTextFieldGardenSurface, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanelHouseLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanelHouseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanelHouseLayout.createSequentialGroup()
-                                .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, 0)
-                                .addComponent(jTextFieldNumberFloor, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(jPanelHouseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(jPanelHouseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jTextFieldSurface, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jTextFieldNumberBedroom, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(jPanelHouseLayout.createSequentialGroup()
-                                .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, 0)
-                                .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addGap(18, 18, 18)
-                .addGroup(jPanelHouseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextFieldDescription, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel20))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton4)
-                .addGap(33, 33, 33))
-        );
-
-        jPanel2.add(jPanelHouse);
-        jPanelHouse.setBounds(770, 500, 770, 330);
 
         jPanelApartment.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -653,11 +425,22 @@ public class EmployeeNewProperty extends javax.swing.JFrame {
         jLabel22.setForeground(new java.awt.Color(0, 153, 153));
         jLabel22.setText("Location");
 
+        jTextFieldLocation1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextFieldLocation1KeyTyped(evt);
+            }
+        });
+
         jLabel23.setBackground(new java.awt.Color(255, 255, 255));
         jLabel23.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
         jLabel23.setForeground(new java.awt.Color(0, 153, 153));
         jLabel23.setText("Number of rooms");
 
+        jTextFieldNumberRoom1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldNumberRoom1ActionPerformed(evt);
+            }
+        });
         jTextFieldNumberRoom1.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 jTextFieldNumberRoom1KeyTyped(evt);
@@ -746,6 +529,11 @@ public class EmployeeNewProperty extends javax.swing.JFrame {
 
         jButton3.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
         jButton3.setText("Confirm the introduction of the property");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanelApartmentLayout = new javax.swing.GroupLayout(jPanelApartment);
         jPanelApartment.setLayout(jPanelApartmentLayout);
@@ -855,11 +643,265 @@ public class EmployeeNewProperty extends javax.swing.JFrame {
                     .addComponent(jTextFieldDescription1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton3)
-                .addContainerGap(24, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jPanel2.add(jPanelApartment);
-        jPanelApartment.setBounds(760, 500, 801, 330);
+        jPanelApartment.setBounds(760, 500, 806, 330);
+
+        jPanelHouse.setBackground(new java.awt.Color(255, 255, 255));
+
+        jTextFieldPrice.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextFieldPriceKeyTyped(evt);
+            }
+        });
+
+        jLabel6.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel6.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(0, 153, 153));
+        jLabel6.setText("Price (in €)");
+
+        jLabel13.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel13.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
+        jLabel13.setForeground(new java.awt.Color(0, 153, 153));
+        jLabel13.setText("Location");
+
+        jTextFieldLocation.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextFieldLocationKeyTyped(evt);
+            }
+        });
+
+        jLabel14.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel14.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
+        jLabel14.setForeground(new java.awt.Color(0, 153, 153));
+        jLabel14.setText("Number of rooms");
+
+        jTextFieldNumberRoom.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextFieldNumberRoomKeyTyped(evt);
+            }
+        });
+
+        jTextFieldNumberBedroom.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldNumberBedroomActionPerformed(evt);
+            }
+        });
+        jTextFieldNumberBedroom.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextFieldNumberBedroomKeyTyped(evt);
+            }
+        });
+
+        jLabel15.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel15.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
+        jLabel15.setForeground(new java.awt.Color(0, 153, 153));
+        jLabel15.setText("Number of Bedrooms");
+
+        jTextFieldSurface.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextFieldSurfaceKeyTyped(evt);
+            }
+        });
+
+        jLabel16.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel16.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
+        jLabel16.setForeground(new java.awt.Color(0, 153, 153));
+        jLabel16.setText("Surface");
+
+        jLabel17.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel17.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
+        jLabel17.setForeground(new java.awt.Color(0, 153, 153));
+        jLabel17.setText("Number of floors");
+
+        jTextFieldNumberFloor.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextFieldNumberFloorKeyTyped(evt);
+            }
+        });
+
+        jLabel18.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel18.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
+        jLabel18.setForeground(new java.awt.Color(0, 153, 153));
+        jLabel18.setText("Swimming Pool");
+
+        jComboBox3.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
+        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Yes", "No" }));
+        jComboBox3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox3ActionPerformed(evt);
+            }
+        });
+
+        jLabel19.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel19.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
+        jLabel19.setForeground(new java.awt.Color(0, 153, 153));
+        jLabel19.setText("Garden Surface");
+
+        jTextFieldGardenSurface.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextFieldGardenSurfaceKeyTyped(evt);
+            }
+        });
+
+        jLabel20.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
+        jLabel20.setForeground(new java.awt.Color(0, 153, 153));
+        jLabel20.setText("Description");
+
+        jTextFieldDescription.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldDescriptionActionPerformed(evt);
+            }
+        });
+
+        jButton4.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
+        jButton4.setText("Confirm the introduction of the property");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanelHouseLayout = new javax.swing.GroupLayout(jPanelHouse);
+        jPanelHouse.setLayout(jPanelHouseLayout);
+        jPanelHouseLayout.setHorizontalGroup(
+            jPanelHouseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelHouseLayout.createSequentialGroup()
+                .addGroup(jPanelHouseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanelHouseLayout.createSequentialGroup()
+                        .addGroup(jPanelHouseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanelHouseLayout.createSequentialGroup()
+                                .addGap(27, 27, 27)
+                                .addGroup(jPanelHouseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jTextFieldPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jTextFieldNumberFloor, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(jPanelHouseLayout.createSequentialGroup()
+                                .addGap(20, 20, 20)
+                                .addGroup(jPanelHouseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jTextFieldSurface, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanelHouseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jButton4)
+                            .addGroup(jPanelHouseLayout.createSequentialGroup()
+                                .addGroup(jPanelHouseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(44, 44, 44)
+                                .addGroup(jPanelHouseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel19, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jTextFieldGardenSurface, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jTextFieldNumberBedroom, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel15, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(jPanelHouseLayout.createSequentialGroup()
+                                .addGroup(jPanelHouseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jTextFieldLocation, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(44, 44, 44)
+                                .addGroup(jPanelHouseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jTextFieldNumberRoom, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(0, 83, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelHouseLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jTextFieldDescription)))
+                .addContainerGap())
+        );
+        jPanelHouseLayout.setVerticalGroup(
+            jPanelHouseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelHouseLayout.createSequentialGroup()
+                .addGap(25, 25, 25)
+                .addGroup(jPanelHouseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanelHouseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanelHouseLayout.createSequentialGroup()
+                            .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(0, 0, 0)
+                            .addComponent(jTextFieldPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(jPanelHouseLayout.createSequentialGroup()
+                            .addGroup(jPanelHouseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGap(0, 0, 0)
+                            .addComponent(jTextFieldNumberRoom, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jTextFieldLocation, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanelHouseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanelHouseLayout.createSequentialGroup()
+                        .addGap(2, 2, 2)
+                        .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, 0)
+                        .addComponent(jTextFieldGardenSurface, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanelHouseLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanelHouseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanelHouseLayout.createSequentialGroup()
+                                .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, 0)
+                                .addComponent(jTextFieldNumberFloor, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanelHouseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(jPanelHouseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jTextFieldSurface, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jTextFieldNumberBedroom, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(jPanelHouseLayout.createSequentialGroup()
+                                .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, 0)
+                                .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addGap(18, 18, 18)
+                .addGroup(jPanelHouseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextFieldDescription, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel20))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton4)
+                .addGap(33, 33, 33))
+        );
+
+        jPanel2.add(jPanelHouse);
+        jPanelHouse.setBounds(770, 500, 770, 330);
+
+        jPanelUsername.setBackground(new java.awt.Color(255, 255, 255));
+        jPanelUsername.setForeground(new java.awt.Color(255, 255, 255));
+
+        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField1ActionPerformed(evt);
+            }
+        });
+
+        jLabel31.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel31.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
+        jLabel31.setText("Enter your username");
+
+        javax.swing.GroupLayout jPanelUsernameLayout = new javax.swing.GroupLayout(jPanelUsername);
+        jPanelUsername.setLayout(jPanelUsernameLayout);
+        jPanelUsernameLayout.setHorizontalGroup(
+            jPanelUsernameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelUsernameLayout.createSequentialGroup()
+                .addGap(26, 26, 26)
+                .addGroup(jPanelUsernameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jTextField1)
+                    .addComponent(jLabel31, javax.swing.GroupLayout.DEFAULT_SIZE, 201, Short.MAX_VALUE))
+                .addContainerGap(32, Short.MAX_VALUE))
+        );
+        jPanelUsernameLayout.setVerticalGroup(
+            jPanelUsernameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelUsernameLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel31)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 20, Short.MAX_VALUE)
+                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(23, 23, 23))
+        );
+
+        jPanel2.add(jPanelUsername);
+        jPanelUsername.setBounds(890, 0, 259, 108);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -880,23 +922,29 @@ public class EmployeeNewProperty extends javax.swing.JFrame {
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
         // TODO add your handling code here:
         String selected = (String) jComboBox1.getSelectedItem();
-        if (selected.equals("Select"))
-        {
+        if (selected.equals("Select")) {
+            jPanelUsername.hide();
+            jPanel3.hide();
+            jPanel1.hide();
+            jPanelApartment.hide();
+            jPanelHouse.hide();
+
         }
-        if (selected.equals("Yes"))
-        {
-           tampon = 1 ; 
-           jPanelUsername.show();
-           jPanel3.show();
-           jPanel1.hide(); 
-           
-        }
-        else if(selected.equals("No"))
-        {
-            tampon = 2 ; 
+        if (selected.equals("Yes")) {
+            tampon = 1;
+            jPanelUsername.show();
+            jPanel3.show();
+            jPanel1.hide();
+            jPanelApartment.hide();
+            jPanelHouse.hide();
+
+        } else if (selected.equals("No")) {
+            tampon = 2;
             jPanel3.hide();
             jPanel1.show();
-            jPanelUsername.hide(); 
+            jPanelUsername.hide();
+            jPanelApartment.hide();
+            jPanelHouse.hide();
         }
     }//GEN-LAST:event_jComboBox1ActionPerformed
 
@@ -904,8 +952,8 @@ public class EmployeeNewProperty extends javax.swing.JFrame {
         // TODO add your handling code here:
         this.toBack();//if we click on the back button
         setVisible(false);//this page disappears
-        new EmployeeFirst(employee, buyers, sellers, emp,pr,v,o).toFront();//we go back on the first page
-        new EmployeeFirst(employee, buyers, sellers, emp,pr,v,o).setState(java.awt.Frame.NORMAL);
+        new EmployeeFirst(employee, buyers, sellers, emp, pr, v, o).toFront();//we go back on the first page
+        new EmployeeFirst(employee, buyers, sellers, emp, pr, v, o).setState(java.awt.Frame.NORMAL);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
@@ -913,18 +961,15 @@ public class EmployeeNewProperty extends javax.swing.JFrame {
         //faire code pour log out
         this.toBack();
         setVisible(false);//this page disappears
-        new First(buyers, sellers, emp, pr,v,o).toFront();//we go back on the first page
-        new First(buyers, sellers, emp,pr,v,o).setState(java.awt.Frame.NORMAL);
-        new First(buyers, sellers, emp,pr,v,o).setVisible(true);
+        new First(buyers, sellers, emp, pr, v, o).toFront();//we go back on the first page
+        new First(buyers, sellers, emp, pr, v, o).setState(java.awt.Frame.NORMAL);
+        new First(buyers, sellers, emp, pr, v, o).setVisible(true);
 
     }//GEN-LAST:event_jButton5ActionPerformed
 
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton6ActionPerformed
-
     private void jTextFieldFirstNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldFirstNameActionPerformed
         // TODO add your handling code here:
+
     }//GEN-LAST:event_jTextFieldFirstNameActionPerformed
 
     private void jTextFieldFirstNameKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldFirstNameKeyPressed
@@ -958,31 +1003,29 @@ public class EmployeeNewProperty extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-        int t= 0 ;
+        int t = 0;
         if (jPasswordField2.getText().trim().isEmpty() || jTextFieldSurname.getText().trim().isEmpty() || jTextFieldFirstName.getText().trim().isEmpty() || jTextFieldUsername.getText().trim().isEmpty() || jPasswordField2.getText().trim().isEmpty()) {
 
             JOptionPane.showMessageDialog(null, "One or several fields are empty. Please, try again.");
 
         } else if (!jPasswordField2.getText().equals(jPasswordField1.getText())) {
             JOptionPane.showMessageDialog(null, "The two passwords are not the same. Please, try again.");
-        }
-        else 
-        {
+        } else {
             t = this.test();
-                if (t != 0) {
-                    JOptionPane.showMessageDialog(null, "Username already used. Please, chose another one.");
-                } else {
-                    this.addseller();
-                    JOptionPane.showMessageDialog(null, "The account has been successfully created");
-                    jPanel3.show();
-                }
+            if (t != 0) {
+                JOptionPane.showMessageDialog(null, "Username already used. Please, chose another one.");
+            } else {
+                this.addseller();
+                JOptionPane.showMessageDialog(null, "The account has been successfully created");
+                jPanel3.show();
+            }
         }
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jTextFieldPriceKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldPriceKeyTyped
         // TODO add your handling code here:
         char c = evt.getKeyChar();
-        if (Character.isLetter(c) && !evt.isAltDown()) {
+        if (!Character.isDigit(c)) {
             evt.consume();
         }
     }//GEN-LAST:event_jTextFieldPriceKeyTyped
@@ -990,7 +1033,7 @@ public class EmployeeNewProperty extends javax.swing.JFrame {
     private void jTextFieldNumberRoomKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldNumberRoomKeyTyped
         // TODO add your handling code here:
         char c = evt.getKeyChar();
-        if (Character.isLetter(c) && !evt.isAltDown()) {
+        if (!Character.isDigit(c)) {
             evt.consume();
         }
     }//GEN-LAST:event_jTextFieldNumberRoomKeyTyped
@@ -998,15 +1041,16 @@ public class EmployeeNewProperty extends javax.swing.JFrame {
     private void jTextFieldNumberBedroomKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldNumberBedroomKeyTyped
         // TODO add your handling code here:
         char c = evt.getKeyChar();
-        if (Character.isLetter(c) && !evt.isAltDown()) {
+        if (!Character.isDigit(c)) {
             evt.consume();
         }
     }//GEN-LAST:event_jTextFieldNumberBedroomKeyTyped
 
     private void jTextFieldSurfaceKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldSurfaceKeyTyped
         // TODO add your handling code here:
+
         char c = evt.getKeyChar();
-        if (Character.isLetter(c) && !evt.isAltDown()) {
+        if (!Character.isDigit(c)) {
             evt.consume();
         }
     }//GEN-LAST:event_jTextFieldSurfaceKeyTyped
@@ -1014,7 +1058,7 @@ public class EmployeeNewProperty extends javax.swing.JFrame {
     private void jTextFieldNumberFloorKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldNumberFloorKeyTyped
         // TODO add your handling code here:
         char c = evt.getKeyChar();
-        if (Character.isLetter(c) && !evt.isAltDown()) {
+        if (!Character.isDigit(c)) {
             evt.consume();
         }
     }//GEN-LAST:event_jTextFieldNumberFloorKeyTyped
@@ -1023,16 +1067,17 @@ public class EmployeeNewProperty extends javax.swing.JFrame {
         // TODO add your handling code here://C'est la piscine
         String selected = (String) jComboBox3.getSelectedItem();
         if (selected.equals("Yes")) {
-            tampon = 1;
+            tampon4 = 1;
         } else if (selected.equals("No")) {
-            tampon = 2;
+
+            tampon4 = -1;
         }
     }//GEN-LAST:event_jComboBox3ActionPerformed
 
     private void jTextFieldGardenSurfaceKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldGardenSurfaceKeyTyped
         // TODO add your handling code here:
         char c = evt.getKeyChar();
-        if (Character.isLetter(c) && !evt.isAltDown()) {
+        if (!Character.isDigit(c)) {
             evt.consume();
         }
     }//GEN-LAST:event_jTextFieldGardenSurfaceKeyTyped
@@ -1044,40 +1089,70 @@ public class EmployeeNewProperty extends javax.swing.JFrame {
     private void jComboBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox2ActionPerformed
         // TODO add your handling code here:
         String selected = (String) jComboBox2.getSelectedItem();
-        if (selected.equals("Apartment")) {
-            tampon = 1;
+        if (selected.equals("Select")) {
+            jPanelApartment.hide();
+            jPanelHouse.hide();
+
+        } else if (selected.equals("Apartment")) {
+
             jPanelApartment.show();
             jPanelHouse.hide();
+
         } else if (selected.equals("House")) {
-            tampon = 2;
+
             jPanelHouse.show();
-            jPanelApartment.hide(); 
+            jPanelApartment.hide();
+
         }
-        
+
     }//GEN-LAST:event_jComboBox2ActionPerformed
 
     private void jTextFieldPrice1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldPrice1KeyTyped
         // TODO add your handling code here:
+        char c = evt.getKeyChar();
+        if (!Character.isDigit(c)) {
+            evt.consume();
+        }
     }//GEN-LAST:event_jTextFieldPrice1KeyTyped
 
     private void jTextFieldNumberRoom1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldNumberRoom1KeyTyped
         // TODO add your handling code here:
+        char c = evt.getKeyChar();
+        if (!Character.isDigit(c)) {
+            evt.consume();
+        }
     }//GEN-LAST:event_jTextFieldNumberRoom1KeyTyped
 
     private void jTextFieldNumberBedroom1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldNumberBedroom1KeyTyped
         // TODO add your handling code here:
+        char c = evt.getKeyChar();
+        if (!Character.isDigit(c)) {
+            evt.consume();
+        }
     }//GEN-LAST:event_jTextFieldNumberBedroom1KeyTyped
 
     private void jTextFieldSurface1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldSurface1KeyTyped
         // TODO add your handling code here:
+        char c = evt.getKeyChar();
+        if (!Character.isDigit(c)) {
+            evt.consume();
+        }
     }//GEN-LAST:event_jTextFieldSurface1KeyTyped
 
     private void jTextFieldNumberFloor1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldNumberFloor1KeyTyped
         // TODO add your handling code here:
+        char c = evt.getKeyChar();
+        if (!Character.isDigit(c)) {
+            evt.consume();
+        }
     }//GEN-LAST:event_jTextFieldNumberFloor1KeyTyped
 
     private void jTextFieldFloorNumberKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldFloorNumberKeyTyped
         // TODO add your handling code here:
+        char c = evt.getKeyChar();
+        if (!Character.isDigit(c)) {
+            evt.consume();
+        }
     }//GEN-LAST:event_jTextFieldFloorNumberKeyTyped
 
     private void jTextFieldDescription1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldDescription1ActionPerformed
@@ -1086,34 +1161,218 @@ public class EmployeeNewProperty extends javax.swing.JFrame {
 
     private void jComboBox4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox4ActionPerformed
         // TODO add your handling code here:
+        //ELEVATOR
+        String selected = (String) jComboBox4.getSelectedItem();
+        if (selected.equals("Yes")) {
+            tampon5 = 1;
+        } else if (selected.equals("No")) {
+
+            tampon5 = -1;
+        }
     }//GEN-LAST:event_jComboBox4ActionPerformed
 
     private void jComboBox5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox5ActionPerformed
         // TODO add your handling code here:
+        String selected = (String) jComboBox5.getSelectedItem();
+        if (selected.equals("Yes")) {
+            tampon6=1;
+        } else if (selected.equals("No")) {
+
+            tampon6=-1;
+        }
     }//GEN-LAST:event_jComboBox5ActionPerformed
 
-    public int test ()
-    {
-        int t = 0 ; 
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton6ActionPerformed
+
+    private void jTextFieldLocation1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldLocation1KeyTyped
+        // TODO add your handling code here:
+        char c = evt.getKeyChar();
+        if (Character.isDigit(c)) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_jTextFieldLocation1KeyTyped
+
+    private void jTextFieldLocationKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldLocationKeyTyped
+        // TODO add your handling code here:
+        char c = evt.getKeyChar();
+        if (Character.isDigit(c)) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_jTextFieldLocationKeyTyped
+
+    private void jTextFieldNumberRoom1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldNumberRoom1ActionPerformed
+        // TODO add your handling code here:
+
+    }//GEN-LAST:event_jTextFieldNumberRoom1ActionPerformed
+
+    private void jTextFieldNumberBedroomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldNumberBedroomActionPerformed
+        // TODO add your handling code here:
+
+    }//GEN-LAST:event_jTextFieldNumberBedroomActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        // TODO add your handling code here:
+
+        if (tampon == 1) {
+            for (int i = 0; i < sellers.size(); ++i) {
+                if (jTextField1.getText().equals(sellers.get(i).getusername())) {
+                    tampon2 = i;
+                }
+            }
+            if (tampon2 == -1) {
+
+                JOptionPane.showMessageDialog(null, "No match for this username");
+            } else {
+
+                if (jTextFieldPrice.getText().trim().isEmpty() || jTextFieldLocation.getText().trim().isEmpty() || jTextFieldNumberRoom.getText().trim().isEmpty() || jTextFieldNumberBedroom.getText().trim().isEmpty() || jTextFieldSurface.getText().trim().isEmpty() || jTextFieldNumberFloor.getText().trim().isEmpty() || jTextFieldGardenSurface.getText().trim().isEmpty() || jTextFieldDescription.getText().trim().isEmpty()) {
+                    JOptionPane.showMessageDialog(null, "One or several fields are empty. Please, try again.");
+                } else {
+                    this.addhouse(sellers.get(tampon2).getid());
+                    JOptionPane.showMessageDialog(null, "This house has been registered");
+                     this.setVisible(false);
+                EmployeeFirst a =new EmployeeFirst(employee, buyers, sellers, emp, pr, v, o);
+                a.setVisible(true);
+                a.toFront();
+              
+
+                }
+
+            }
+        } else {
+
+            if (jTextFieldPrice.getText().trim().isEmpty() || jTextFieldLocation.getText().trim().isEmpty() || jTextFieldNumberRoom.getText().trim().isEmpty() || jTextFieldNumberBedroom.getText().trim().isEmpty() || jTextFieldSurface.getText().trim().isEmpty() || jTextFieldNumberFloor.getText().trim().isEmpty() || jTextFieldGardenSurface.getText().trim().isEmpty() || jTextFieldDescription.getText().trim().isEmpty()) {
+                JOptionPane.showMessageDialog(null, "One or several fields are empty. Please, try again.");
+            } else {
+                this.addhouse(sellers.get(sellers.size() - 1).getid());
+                JOptionPane.showMessageDialog(null, "This house has been registered");
+                 this.setVisible(false);
+                EmployeeFirst a =new EmployeeFirst(employee, buyers, sellers, emp, pr, v, o);
+                a.setVisible(true);
+                a.toFront();
+               
+                
+
+            }
+        }
+
+
+    }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField1ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+
+               if (tampon == 1) {
+            for (int i = 0; i < sellers.size(); ++i) {
+                if (jTextField1.getText().equals(sellers.get(i).getusername())) {
+                    tampon2 = i;
+                }
+            }
+            if (tampon2 == -1) {
+
+                JOptionPane.showMessageDialog(null, "No match for this username");
+            } else {
+
+                if (jTextFieldPrice1.getText().trim().isEmpty() || jTextFieldLocation1.getText().trim().isEmpty() || jTextFieldNumberRoom1.getText().trim().isEmpty() || jTextFieldNumberBedroom1.getText().trim().isEmpty() || jTextFieldSurface1.getText().trim().isEmpty() || jTextFieldNumberFloor1.getText().trim().isEmpty() || jTextFieldFloorNumber.getText().trim().isEmpty() || jTextFieldDescription1.getText().trim().isEmpty()) {
+                    JOptionPane.showMessageDialog(null, "One or several fields are empty. Please, try again.");
+                } else {
+                    this.addapartment(sellers.get(tampon2).getid());
+                    JOptionPane.showMessageDialog(null, "This apartment has been registered");
+                     this.setVisible(false);
+                EmployeeFirst a =new EmployeeFirst(employee, buyers, sellers, emp, pr, v, o);
+                a.setVisible(true);
+                a.toFront();
+               
+                
+
+                }
+
+            }
+        } else {
+
+            if (jTextFieldPrice1.getText().trim().isEmpty() || jTextFieldLocation1.getText().trim().isEmpty() || jTextFieldNumberRoom1.getText().trim().isEmpty() || jTextFieldNumberBedroom1.getText().trim().isEmpty() || jTextFieldSurface1.getText().trim().isEmpty() || jTextFieldNumberFloor1.getText().trim().isEmpty() || jTextFieldFloorNumber.getText().trim().isEmpty() || jTextFieldDescription1.getText().trim().isEmpty()) {
+                JOptionPane.showMessageDialog(null, "One or several fields are empty. Please, try again.");
+            } else {
+                this.addapartment(sellers.get(sellers.size() - 1).getid());
+                JOptionPane.showMessageDialog(null, "This apartment has been registered");
+                this.setVisible(false);
+                EmployeeFirst a =new EmployeeFirst(employee, buyers, sellers, emp, pr, v, o);
+                a.setVisible(true);
+                a.toFront();
+          
+                
+
+            }
+        }
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    public int test() {
+        int t = 0;
         for (int j = 0; j < sellers.size(); ++j) {
             if (sellers.get(j).getusername().equals(jTextFieldUsername.getText())) {
                 t++;
             }
         }
-        return t ; 
+        return t;
     }
-        
+
     public void addseller() {
         SellerDAOImpl sdao = new SellerDAOImpl();
         int idlast = sellers.get(sellers.size() - 1).getid();
         int newid = idlast + 1;
         sellers.add(new Seller(newid, jTextFieldFirstName.getText(), jTextFieldSurname.getText(), jTextFieldUsername.getText(), jPasswordField1.getText()));
         sdao.addseller(sellers.get(sellers.size() - 1));
-        
+
+    }
+
+    public void addapartment(int idseller) {
+        int idlast = pr.get(pr.size() - 1).getid();
+        int newid = idlast + 1;
+        PropertyDAOImpl pdao = new PropertyDAOImpl();
+        System.out.println(tampon5);
+        System.out.println(tampon6);
+        if (tampon5 == 1) {
+            if (tampon6 == 1) {
+                pr.add(new Appartment(newid, jTextFieldDescription1.getText(), Double.parseDouble(jTextFieldPrice1.getText()), jTextFieldLocation1.getText(), Integer.parseInt(jTextFieldNumberRoom1.getText()), Integer.parseInt(jTextFieldNumberBedroom1.getText()), Integer.parseInt(jTextFieldNumberFloor1.getText()), 0, Double.parseDouble(jTextFieldSurface1.getText()), idseller, false, "Apartment", true, Integer.parseInt(jTextFieldFloorNumber.getText()), true));
+
+            } else {
+                System.out.println("cacaca");
+                 pr.add(new Appartment(newid, jTextFieldDescription1.getText(), Double.parseDouble(jTextFieldPrice1.getText()), jTextFieldLocation1.getText(), Integer.parseInt(jTextFieldNumberRoom1.getText()), Integer.parseInt(jTextFieldNumberBedroom1.getText()), Integer.parseInt(jTextFieldNumberFloor1.getText()), 0, Double.parseDouble(jTextFieldSurface1.getText()), idseller, false, "Apartment", true, Integer.parseInt(jTextFieldFloorNumber.getText()), false));
+              
+            }
+        } else {
+            if (tampon6 == 1) {
+                 pr.add(new Appartment(newid, jTextFieldDescription1.getText(), Double.parseDouble(jTextFieldPrice1.getText()), jTextFieldLocation1.getText(), Integer.parseInt(jTextFieldNumberRoom1.getText()), Integer.parseInt(jTextFieldNumberBedroom1.getText()), Integer.parseInt(jTextFieldNumberFloor1.getText()), 0, Double.parseDouble(jTextFieldSurface1.getText()), idseller, false, "Apartment", false, Integer.parseInt(jTextFieldFloorNumber.getText()), true));
+
+            } else {
+                 pr.add(new Appartment(newid, jTextFieldDescription1.getText(), Double.parseDouble(jTextFieldPrice1.getText()), jTextFieldLocation1.getText(), Integer.parseInt(jTextFieldNumberRoom1.getText()), Integer.parseInt(jTextFieldNumberBedroom1.getText()), Integer.parseInt(jTextFieldNumberFloor1.getText()), 0, Double.parseDouble(jTextFieldSurface1.getText()), idseller, false, "Apartment", false, Integer.parseInt(jTextFieldFloorNumber.getText()), false));
+            }
+        }
+        pdao.addproperty(pr.get(pr.size() - 1), 1);
 
     }
     
-   
+      public void addhouse(int idseller) {
+
+        int idlast = pr.get(pr.size() - 1).getid();
+        int newid = idlast + 1;
+        PropertyDAOImpl pdao = new PropertyDAOImpl();
+
+        if (tampon4 == 1) {
+            pr.add(new House(newid, jTextFieldDescription.getText(), Double.parseDouble(jTextFieldPrice.getText()), jTextFieldLocation.getText(), Integer.parseInt(jTextFieldNumberRoom.getText()), Integer.parseInt(jTextFieldNumberBedroom.getText()), Integer.parseInt(jTextFieldNumberFloor.getText()), 0, Double.parseDouble(jTextFieldSurface.getText()), idseller,false, "House", Double.parseDouble(jTextFieldGardenSurface.getText()), true));
+
+        } else {
+             pr.add(new House(newid, jTextFieldDescription.getText(), Double.parseDouble(jTextFieldPrice.getText()), jTextFieldLocation.getText(), Integer.parseInt(jTextFieldNumberRoom.getText()), Integer.parseInt(jTextFieldNumberBedroom.getText()), Integer.parseInt(jTextFieldNumberFloor.getText()), 0, Double.parseDouble(jTextFieldSurface.getText()), idseller,false,"House", Double.parseDouble(jTextFieldGardenSurface.getText()), false));
+        }
+        pdao.addproperty(pr.get(pr.size() - 1), 2);
+
+    }
+
     /**
      * @param args the command line arguments
      */
@@ -1144,20 +1403,23 @@ public class EmployeeNewProperty extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new EmployeeNewProperty(employee, newseller, buyers, sellers, emp,pr,v,o).setVisible(true);
+                new EmployeeNewProperty(employee, buyers, sellers, emp, pr, v, o).setVisible(true);
             }
         });
     }
-    
-    private int tampon ; 
+
+    private int tampon; // buffer to know if we are dealing with a new seller or a seller that already has an account
+    private int tampon2;// buffer for recognizing a seller from his username
+    private int tampon4;// buffer for swimmingpool
+    private int tampon5;//buffer for elevator
+    private int tampon6;// buffer for parking spot or no
     private static ArrayList<Buyer> buyers = new ArrayList<>();//array list of all the application buyers 
     private static ArrayList<Seller> sellers = new ArrayList<>();//array list of all the application sellers 
     private static ArrayList<Employee> emp = new ArrayList<>();//array list of all the application sellers 
-    private static ArrayList<Property> pr=new ArrayList<>();
-    private static ArrayList<Visit>v=new ArrayList<>();
-    private static ArrayList<Offer>o=new ArrayList<>();
-    private static Seller newseller ; 
-    private static Employee employee ; 
+    private static ArrayList<Property> pr = new ArrayList<>();
+    private static ArrayList<Visit> v = new ArrayList<>();
+    private static ArrayList<Offer> o = new ArrayList<>();
+    private static Employee employee;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;

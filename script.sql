@@ -39,6 +39,7 @@ insert into property values (11, 'Apartment', 'Very large apartment in Bordeaux'
 insert into property values (12, 'Apartment','Nice apartment in Lille',900000, 'Lille', 4, 2, 17, 1, 102,null,null, true, 4, false,10004, false) ; 
 
 
+delete from property where id>'12';
 select * from property;
 
 drop table seller;

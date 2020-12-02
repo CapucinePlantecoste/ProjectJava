@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package projectjava;
+package Model;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -23,9 +23,9 @@ public class DataSource {
     {
         try
         {
-            String url="jdbc:mysql://localhost:3307/ptest?autoReconnect=true&useSSL=false";
+            String url="jdbc:mysql://localhost:3306/ptest?autoReconnect=true&useSSL=false";
             String user="root";
-            String password="Thomas1012!";
+            String password="Manager26069700";
             conn=DriverManager.getConnection(url, user,password);
         }
         catch(Exception e)

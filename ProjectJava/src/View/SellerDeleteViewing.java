@@ -14,7 +14,7 @@ import Model.Visit;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import projectjava.First;
-import projectjava.VisitDAOImpl;
+import Model.VisitDAOImpl;
 
 /**
  *

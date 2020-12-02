@@ -14,17 +14,17 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.sql.*;
 import java.util.Scanner;
-import projectjava.BuyerDAOImpl;
+import Model.BuyerDAOImpl;
 import Model.Employee;
-import projectjava.EmployeeDAOImpl;
+import Model.EmployeeDAOImpl;
 import projectjava.First;
-import projectjava.OfferDAOImpl;
+import Model.OfferDAOImpl;
 import Model.Property;
-import projectjava.PropertyDAOImpl;
+import Model.PropertyDAOImpl;
 import Model.Seller;
-import projectjava.SellerDAOImpl;
+import Model.SellerDAOImpl;
 import Model.Visit;
-import projectjava.VisitDAOImpl;
+import Model.VisitDAOImpl;
 
 
 /**
@@ -96,10 +96,6 @@ public class App {
     public void application() { 
 
         this.register();//We call the first function, to regoster 
-        for(int i=0; i<v.size();++i)
-        {
-            System.out.println(v.get(i).getid());
-        }
         f = new First(buyers, sellers, emp, pr,v,o);//we create an object of the frame with its 3 arguments 
 
         f.setVisible(true);//we open the frame and let it visible 

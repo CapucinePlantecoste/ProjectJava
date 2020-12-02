@@ -11,7 +11,13 @@ import Model.Offer;
 import Model.Property;
 import Model.Seller;
 import Model.Visit;
+import Model.VisitDAOImpl;
+import java.sql.Timestamp;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
+import javax.swing.JOptionPane;
 import projectjava.First ; 
 
 /**
@@ -23,14 +29,14 @@ public class EmployeeAddViewing extends javax.swing.JFrame {
     /**
      * Creates new form EmployeeAddViewing
      */
-    public EmployeeAddViewing(Employee coucou, Seller a, ArrayList<Buyer> b, ArrayList<Seller> s, ArrayList<Employee> e, ArrayList<Property>prop, ArrayList<Visit>vis, ArrayList<Offer>off) {
+    public EmployeeAddViewing(Employee coucou, ArrayList<Buyer> b, ArrayList<Seller> s, ArrayList<Employee> e, ArrayList<Property>prop, ArrayList<Visit>vis, ArrayList<Offer>off) {
         buyers = b;//Array List of buyers
         sellers = s;//Array List of sellers
         emp = e;//Array List of employees
         pr=prop;
         v=vis;
         o=off;
-        newseller = a ;
+       
         employee = coucou;
         
         initComponents();
@@ -60,13 +66,13 @@ public class EmployeeAddViewing extends javax.swing.JFrame {
         jPanelViewing = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jLabel7 = new javax.swing.JLabel();
-        jTextFieldMonth = new javax.swing.JTextField();
-        jLabel8 = new javax.swing.JLabel();
-        jTextFieldYear = new javax.swing.JTextField();
-        jLabel9 = new javax.swing.JLabel();
         jTextFieldHour = new javax.swing.JTextField();
+        jLabel7 = new javax.swing.JLabel();
+        jTextFieldYear = new javax.swing.JTextField();
+        jLabel8 = new javax.swing.JLabel();
+        jTextFieldMonth = new javax.swing.JTextField();
+        jLabel9 = new javax.swing.JLabel();
+        jTextField1 = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
         jTextFieldMinutes = new javax.swing.JTextField();
         jButton2 = new javax.swing.JButton();
@@ -117,17 +123,17 @@ public class EmployeeAddViewing extends javax.swing.JFrame {
                 .addContainerGap(139, Short.MAX_VALUE)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 409, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(160, 160, 160))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 417, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(157, 157, 157))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
                         .addComponent(jLabel3)
                         .addGap(115, 115, 115))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(226, 226, 226))))
+                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 409, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(156, 156, 156))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 386, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(89, 89, 89))))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -140,9 +146,9 @@ public class EmployeeAddViewing extends javax.swing.JFrame {
                 .addComponent(jLabel3)
                 .addGap(48, 48, 48)
                 .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 154, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 122, Short.MAX_VALUE)
                 .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(20, 20, 20))
+                .addGap(46, 46, 46))
         );
 
         jPanel2.add(jPanel4);
@@ -180,31 +186,15 @@ public class EmployeeAddViewing extends javax.swing.JFrame {
         jLabel6.setForeground(new java.awt.Color(0, 153, 153));
         jLabel6.setText("Day");
 
-        jTextField1.addKeyListener(new java.awt.event.KeyAdapter() {
+        jTextFieldHour.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                jTextField1KeyTyped(evt);
+                jTextFieldHourKeyTyped(evt);
             }
         });
 
         jLabel7.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(0, 153, 153));
         jLabel7.setText("Month");
-
-        jTextFieldMonth.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
-        jTextFieldMonth.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldMonthActionPerformed(evt);
-            }
-        });
-        jTextFieldMonth.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                jTextFieldMonthKeyTyped(evt);
-            }
-        });
-
-        jLabel8.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(0, 153, 153));
-        jLabel8.setText("Year");
 
         jTextFieldYear.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
         jTextFieldYear.addActionListener(new java.awt.event.ActionListener() {
@@ -218,19 +208,35 @@ public class EmployeeAddViewing extends javax.swing.JFrame {
             }
         });
 
+        jLabel8.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(0, 153, 153));
+        jLabel8.setText("Year");
+
+        jTextFieldMonth.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
+        jTextFieldMonth.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldMonthActionPerformed(evt);
+            }
+        });
+        jTextFieldMonth.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextFieldMonthKeyTyped(evt);
+            }
+        });
+
         jLabel9.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(0, 153, 153));
         jLabel9.setText("Hour");
 
-        jTextFieldHour.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
-        jTextFieldHour.addActionListener(new java.awt.event.ActionListener() {
+        jTextField1.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
+        jTextField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldHourActionPerformed(evt);
+                jTextField1ActionPerformed(evt);
             }
         });
-        jTextFieldHour.addKeyListener(new java.awt.event.KeyAdapter() {
+        jTextField1.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                jTextFieldHourKeyTyped(evt);
+                jTextField1KeyTyped(evt);
             }
         });
 
@@ -281,18 +287,17 @@ public class EmployeeAddViewing extends javax.swing.JFrame {
                             .addGroup(jPanelViewingLayout.createSequentialGroup()
                                 .addComponent(jLabel10)
                                 .addGap(16, 16, 16)))
-                        .addGap(18, 18, 18)
                         .addGroup(jPanelViewingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextFieldHour, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextFieldMonth, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextFieldYear, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTextFieldYear, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTextFieldMonth, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTextFieldHour, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jTextFieldMinutes, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jButton2)))
                     .addGroup(jPanelViewingLayout.createSequentialGroup()
                         .addGap(124, 124, 124)
                         .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(34, Short.MAX_VALUE))
+                .addContainerGap(52, Short.MAX_VALUE))
         );
         jPanelViewingLayout.setVerticalGroup(
             jPanelViewingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -301,20 +306,20 @@ public class EmployeeAddViewing extends javax.swing.JFrame {
                 .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanelViewingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextFieldHour, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanelViewingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextFieldYear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTextFieldMonth, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanelViewingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextFieldMonth, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTextFieldYear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanelViewingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTextFieldHour, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanelViewingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -377,25 +382,13 @@ public class EmployeeAddViewing extends javax.swing.JFrame {
         
     }//GEN-LAST:event_jComboBox1ActionPerformed
 
-    private void jTextField1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField1KeyTyped
+    private void jTextFieldHourKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldHourKeyTyped
         // TODO add your handling code here:
         char c = evt.getKeyChar();
         if (!Character.isDigit(c)) {
             evt.consume();
         }
-    }//GEN-LAST:event_jTextField1KeyTyped
-
-    private void jTextFieldMonthActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldMonthActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldMonthActionPerformed
-
-    private void jTextFieldMonthKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldMonthKeyTyped
-        // TODO add your handling code here:
-        char c = evt.getKeyChar();
-        if (!Character.isDigit(c)) {
-            evt.consume();
-        }
-    }//GEN-LAST:event_jTextFieldMonthKeyTyped
+    }//GEN-LAST:event_jTextFieldHourKeyTyped
 
     private void jTextFieldYearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldYearActionPerformed
         // TODO add your handling code here:
@@ -409,17 +402,29 @@ public class EmployeeAddViewing extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jTextFieldYearKeyTyped
 
-    private void jTextFieldHourActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldHourActionPerformed
+    private void jTextFieldMonthActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldMonthActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldHourActionPerformed
+    }//GEN-LAST:event_jTextFieldMonthActionPerformed
 
-    private void jTextFieldHourKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldHourKeyTyped
+    private void jTextFieldMonthKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldMonthKeyTyped
         // TODO add your handling code here:
         char c = evt.getKeyChar();
         if (!Character.isDigit(c)) {
             evt.consume();
         }
-    }//GEN-LAST:event_jTextFieldHourKeyTyped
+    }//GEN-LAST:event_jTextFieldMonthKeyTyped
+
+    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField1ActionPerformed
+
+    private void jTextField1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField1KeyTyped
+        // TODO add your handling code here:
+        char c = evt.getKeyChar();
+        if (!Character.isDigit(c)) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_jTextField1KeyTyped
 
     private void jTextFieldMinutesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldMinutesActionPerformed
         // TODO add your handling code here:
@@ -439,12 +444,90 @@ public class EmployeeAddViewing extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
+              Date date=new Date();
+        Timestamp ts= new Timestamp(date.getTime());
+        SimpleDateFormat sdf= new SimpleDateFormat ("yyyy-MM-dd hh:mm:ss");
+      
+        int tampon = -1;
+        int tampon2=0;
+        int c;
+        
+        String selected = (String) jComboBox1.getSelectedItem();
+        for (int i = 0; i < pr.size(); i++) {
+            if (selected.equals(pr.get(i).getdescription()+" idproperty : "+pr.get(i).getid())) {
+
+                tampon = i;
+            }
+
+        }
+      
+        //TO see which house or apartment is concerner by this new viewing
+        
+       
+        
+        
+
+        if (jTextFieldMonth.getText().trim().isEmpty() || jTextFieldYear.getText().trim().isEmpty() || jTextFieldHour.getText().trim().isEmpty() || jTextField1.getText().trim().isEmpty() || jTextFieldMinutes.getText().trim().isEmpty()) {
+            
+            JOptionPane.showMessageDialog(null, "One or several fields are empty. Please, try again.");
+        } else {
+            if (jTextFieldYear.getText().length() != 4 || jTextFieldMonth.getText().length() != 2 || jTextFieldHour.getText().length() != 2 || jTextField1.getText().length() != 2 || jTextFieldMinutes.getText().length() != 2) {
+                JOptionPane.showMessageDialog(null, "Wrong date format");
+            } else {
+                if (Integer.parseInt(jTextFieldMonth.getText()) > 12 || Integer.parseInt(jTextFieldMonth.getText())<1 || Integer.parseInt(jTextField1.getText()) > 31 || Integer.parseInt(jTextField1.getText())<1 || Integer.parseInt(jTextFieldHour.getText()) > 23 || Integer.parseInt(jTextFieldMinutes.getText()) > 59) {
+                    JOptionPane.showMessageDialog(null, " Impossible date");
+                }
+                else
+                {
+                    if((jTextFieldMonth.getText().equals("02")|| jTextFieldMonth.getText().equals("04") ||jTextFieldMonth.getText().equals("06")|| jTextFieldMonth.getText().equals("09") || jTextFieldMonth.getText().equals("11")) && (jTextField1.getText().equals("31")))
+                    {
+                        JOptionPane.showMessageDialog(null, " This date doesn't exist");
+                    }
+                    else
+                    {
+                        String newd=(jTextFieldYear.getText()+"-"+jTextFieldMonth.getText()+"-"+jTextField1.getText()+" "+jTextFieldHour.getText()+":"+jTextFieldMinutes.getText()+":00");
+                        try
+                        {
+                            Date dateparse=sdf.parse(newd);
+                            Timestamp d=new Timestamp(dateparse.getTime());
+                            c=d.compareTo(ts);
+                       if(c<0)
+                       {
+                          JOptionPane.showMessageDialog(null, "Date already passed"); 
+                       }
+                       else
+                       {
+                           
+                           
+                           v.add(new Visit(v.get(v.size()-1).getid()+1,-1,pr.get(tampon).getid(),employee.getid(),d,30));
+                            VisitDAOImpl vdao=new VisitDAOImpl();
+                            vdao.addvisit(v.get(v.size()-1));
+                            JOptionPane.showMessageDialog(null, "Viewing added"); 
+                            this.setVisible(false);
+                            EmployeeAddViewing a =new EmployeeAddViewing(employee, buyers, sellers, emp, pr,v,o);
+                            a.setVisible(true);
+                           
+                       }
+                        }
+                        catch(ParseException e)
+                        {
+                            e.printStackTrace();
+                        }
+                       /* System.out.println(jTextFieldYear.getText());
+                        int y=Integer.parseInt(jTextFieldYear.getText());
+                        System.out.println(y);*/
+                        
+                      
+                    }
+                }
+            }
+        }
     }//GEN-LAST:event_jButton2ActionPerformed
 
     public void initjcb1() {
         for (int i = 0; i < pr.size(); i++) {
 
-            jComboBox1.addItem(pr.get(i).getdescription()+" id : "+pr.get(i).getid());
+            jComboBox1.addItem(pr.get(i).getdescription()+" idproperty : "+pr.get(i).getid());
 
         }
     }
@@ -479,7 +562,7 @@ public class EmployeeAddViewing extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new EmployeeAddViewing(employee, newseller, buyers, sellers, emp,pr,v,o).setVisible(true);
+                new EmployeeAddViewing(employee, buyers, sellers, emp,pr,v,o).setVisible(true);
             }
         });
     }

@@ -15,8 +15,8 @@ import Model.Buyer;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import projectjava.First;
-import projectjava.OfferDAOImpl;
-import projectjava.PropertyDAOImpl;
+import Model.OfferDAOImpl;
+import Model.PropertyDAOImpl;
 
 /**
  *

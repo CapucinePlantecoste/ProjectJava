@@ -3,17 +3,18 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package projectjava;
+package Model;
 
-import Model.Seller;
+import Model.Employee;
 import java.util.ArrayList;
 
 /**
  *
  * @author thoma
  */
-public interface SellerDAO {
+public interface EmployeeDAO {
     
-    ArrayList<Seller> registerseller();
-    void addseller(Seller a);
+    ArrayList<Employee> registeremployee();
+    
+    
 }

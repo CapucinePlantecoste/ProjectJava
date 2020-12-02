@@ -16,9 +16,9 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.*;
 import javax.swing.JOptionPane;
-import projectjava.BuyerDAOImpl;
+import Model.BuyerDAOImpl;
 import projectjava.First;
-import projectjava.SellerDAOImpl;
+import Model.SellerDAOImpl;
 
 /**
  *

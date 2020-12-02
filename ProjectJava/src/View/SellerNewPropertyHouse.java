@@ -16,7 +16,7 @@ import Model.Buyer;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import projectjava.First;
-import projectjava.PropertyDAOImpl;
+import Model.PropertyDAOImpl;
 
 /**
  *

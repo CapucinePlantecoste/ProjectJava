@@ -3,21 +3,17 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package projectjava;
+package Model;
 
-import Model.Property;
+import Model.Seller;
 import java.util.ArrayList;
 
 /**
  *
  * @author thoma
  */
-public interface PropertyDAO {
+public interface SellerDAO {
     
-    ArrayList<Property> registerproperty();
-    void addproperty(Property a, int b);
-    void updatetv(Property a);
-    void offeraccepted(Property a);
-    
-    
+    ArrayList<Seller> registerseller();
+    void addseller(Seller a);
 }
