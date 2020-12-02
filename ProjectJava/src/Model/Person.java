@@ -28,7 +28,7 @@ public abstract class Person {
         
     }
     
-    public abstract void display();//Overwritten function in the subclasses
+    //public abstract void display();//Overwritten function in the subclasses
     
     
     

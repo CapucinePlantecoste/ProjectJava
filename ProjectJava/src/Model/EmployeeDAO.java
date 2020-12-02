@@ -1,8 +1,5 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+//this class consolidates access to persistent data concerning the employees  
+
 package Model;
 
 import Model.Employee;
@@ -10,11 +7,11 @@ import java.util.ArrayList;
 
 /**
  *
- * @author thoma
+ * @author CAP
  */
-public interface EmployeeDAO {
+public interface EmployeeDAO {//this class is an iterface, all the methods will be implemented in the EmployeeDAOImpl class
     
-    ArrayList<Employee> registeremployee();
+    ArrayList<Employee> registeremployee();//We create an arraylist of employees get from the database
     
     
 }

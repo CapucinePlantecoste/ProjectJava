@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+//this class establishes the connection with our database, thanks to the user, password and username
 package Model;
 
 import java.sql.Connection;
@@ -19,16 +15,16 @@ public class DataSource {
     
     Connection conn=null;
     
-    public Connection createConnection()
+    public Connection createConnection()//we create the connection, this method is reused everytime we link with the database
     {
         try
         {
-            String url="jdbc:mysql://localhost:3306/ptest?autoReconnect=true&useSSL=false";
-            String user="root";
-            String password="Manager26069700";
-            conn=DriverManager.getConnection(url, user,password);
+            String url="jdbc:mysql://localhost:3307/ptest?autoReconnect=true&useSSL=false";//URL corresponding with the name of our database, here, ptest, on port 3306
+            String user="root";//username
+            String password="Thomas1012!";//password to connect to MYSql 
+            conn=DriverManager.getConnection(url, user,password);//we establish the connection
         }
-        catch(Exception e)
+        catch(Exception e)//possible MYSql exception
         {
             System.out.println("Error occured"+e.toString());
         }

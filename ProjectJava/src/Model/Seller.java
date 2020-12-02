@@ -16,9 +16,9 @@ public class Seller extends Person {
         super(i,n,fn,u,p);//Constructor of the Person class
     }
     
-    @Override
+    /*@Override
     public void display()
     {
         //affichage à voir apres
-    }
+    }*/
 }

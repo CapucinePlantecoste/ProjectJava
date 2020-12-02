@@ -524,6 +524,11 @@ public class EmployeeUpdateProperty extends javax.swing.JFrame {
         });
 
         jButton2.setText("Update");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanelHouseLayout = new javax.swing.GroupLayout(jPanelHouse);
         jPanelHouse.setLayout(jPanelHouseLayout);
@@ -674,6 +679,7 @@ public class EmployeeUpdateProperty extends javax.swing.JFrame {
         if (selected.equals("Select a property to update")) {
            
         } 
+        
         //else : si le choix séléctionné est une maison ; jPanelHouse.show() ; 
         //else : si le choix séléctionné est un apartement : jPanelApartment.show() ; 
         
@@ -771,6 +777,10 @@ public class EmployeeUpdateProperty extends javax.swing.JFrame {
     private void jTextFieldDescriptionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldDescriptionActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldDescriptionActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     
     public void initjcb1() {
