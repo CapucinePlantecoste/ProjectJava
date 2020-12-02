@@ -373,7 +373,8 @@ public class EmployeeAddViewing extends javax.swing.JFrame {
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
         // TODO add your handling code here:
         String selected = (String) jComboBox1.getSelectedItem();
-        if (selected.equals("Select one of the properties for sale")) {            
+        if (selected.equals("Select one of the properties for sale")) {  
+            jPanelViewing.hide();
         }
         else
         {
@@ -449,7 +450,6 @@ public class EmployeeAddViewing extends javax.swing.JFrame {
         SimpleDateFormat sdf= new SimpleDateFormat ("yyyy-MM-dd hh:mm:ss");
       
         int tampon = -1;
-        int tampon2=0;
         int c;
         
         String selected = (String) jComboBox1.getSelectedItem();

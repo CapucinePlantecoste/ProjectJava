@@ -1214,6 +1214,7 @@ public class EmployeeNewProperty extends javax.swing.JFrame {
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
+        // button for house
 
         if (tampon == 1) {
             for (int i = 0; i < sellers.size(); ++i) {
