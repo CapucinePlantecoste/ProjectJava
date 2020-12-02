@@ -3,30 +3,39 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/CAP/ProjectJava/ProjectJava/src/View/SellerProperty.java</file>
+            <file>file:/C:/Users/CAP/ProjectJava/ProjectJava/src/Model/Property.java</file>
             <file>file:/C:/Users/CAP/ProjectJava/ProjectJava/src/View/BuyerViewings.java</file>
-            <file>file:/C:/Users/CAP/ProjectJava/ProjectJava/src/View/BuyerOffer.java</file>
-            <file>file:/C:/Users/CAP/ProjectJava/ProjectJava/src/projectjava/First.java</file>
-            <file>file:/C:/Users/CAP/ProjectJava/ProjectJava/src/View/EmployeeFirst.java</file>
-            <file>file:/C:/Users/CAP/ProjectJava/ProjectJava/src/projectjava/BuyerDAO.java</file>
-            <file>file:/C:/Users/CAP/ProjectJava/ProjectJava/src/Controller/App.java</file>
-            <file>file:/C:/Users/CAP/ProjectJava/ProjectJava/src/View/SellerOffer.java</file>
+            <file>file:/C:/Users/CAP/ProjectJava/ProjectJava/src/View/SellerProperty.java</file>
+            <file>file:/C:/Users/CAP/ProjectJava/ProjectJava/src/View/SellerNewPropertyApartment.java</file>
             <file>file:/C:/Users/CAP/ProjectJava/ProjectJava/src/Model/Visit.java</file>
-            <file>file:/C:/Users/CAP/ProjectJava/ProjectJava/src/View/BuyerResults.java</file>
-            <file>file:/C:/Users/CAP/ProjectJava/ProjectJava/src/projectjava/BuyerDAOImpl.java</file>
-            <file>file:/C:/Users/CAP/ProjectJava/ProjectJava/src/View/EmployeeNewProperty.java</file>
-            <file>file:/C:/Users/CAP/ProjectJava/ProjectJava/src/projectjava/SellerDAOImpl.java</file>
-            <file>file:/C:/Users/CAP/ProjectJava/ProjectJava/src/projectjava/PropertyDAOImpl.java</file>
+            <file>file:/C:/Users/CAP/ProjectJava/ProjectJava/src/View/SellerOffer.java</file>
             <file>file:/C:/Users/CAP/ProjectJava/ProjectJava/src/projectjava/SellerDAO.java</file>
             <file>file:/C:/Users/CAP/ProjectJava/ProjectJava/src/View/SellerNewProperty.java</file>
             <file>file:/C:/Users/CAP/ProjectJava/ProjectJava/src/View/SellerAddViewing.java</file>
-            <file>file:/C:/Users/CAP/ProjectJava/ProjectJava/src/projectjava/PropertyDAO.java</file>
+            <file>file:/C:/Users/CAP/ProjectJava/ProjectJava/src/View/EmployeeAddViewing.java</file>
+            <file>file:/C:/Users/CAP/ProjectJava/ProjectJava/src/View/BuyerFirst.java</file>
             <file>file:/C:/Users/CAP/ProjectJava/ProjectJava/src/projectjava/DataSource.java</file>
-            <file>file:/C:/Users/CAP/ProjectJava/ProjectJava/src/View/SellerFirst.java</file>
-            <file>file:/C:/Users/CAP/ProjectJava/ProjectJava/src/projectjava/EmployeeDAOImpl.java</file>
+            <file>file:/C:/Users/CAP/ProjectJava/ProjectJava/src/View/SellerNewPropertyHouse.java</file>
             <file>file:/C:/Users/CAP/ProjectJava/ProjectJava/src/projectjava/VisitDAOImpl.java</file>
-            <file>file:/C:/Users/CAP/ProjectJava/ProjectJava/src/projectjava/EmployeeDAO.java</file>
             <file>file:/C:/Users/CAP/ProjectJava/ProjectJava/src/projectjava/VisitDAO.java</file>
+            <file>file:/C:/Users/CAP/ProjectJava/ProjectJava/src/View/BuyerOffer.java</file>
+            <file>file:/C:/Users/CAP/ProjectJava/ProjectJava/src/View/EmployeeRemoveSoldProperty.java</file>
+            <file>file:/C:/Users/CAP/ProjectJava/ProjectJava/src/View/EmployeeUpdateProperty.java</file>
+            <file>file:/C:/Users/CAP/ProjectJava/ProjectJava/src/projectjava/First.java</file>
+            <file>file:/C:/Users/CAP/ProjectJava/ProjectJava/src/projectjava/BuyerDAO.java</file>
+            <file>file:/C:/Users/CAP/ProjectJava/ProjectJava/src/View/EmployeeFirst.java</file>
+            <file>file:/C:/Users/CAP/ProjectJava/ProjectJava/src/Controller/App.java</file>
+            <file>file:/C:/Users/CAP/ProjectJava/ProjectJava/src/View/BuyerResults.java</file>
+            <file>file:/C:/Users/CAP/ProjectJava/ProjectJava/src/projectjava/BuyerDAOImpl.java</file>
+            <file>file:/C:/Users/CAP/ProjectJava/ProjectJava/src/projectjava/PropertyDAOImpl.java</file>
+            <file>file:/C:/Users/CAP/ProjectJava/ProjectJava/src/projectjava/SellerDAOImpl.java</file>
+            <file>file:/C:/Users/CAP/ProjectJava/ProjectJava/src/View/EmployeeNewProperty.java</file>
+            <file>file:/C:/Users/CAP/ProjectJava/ProjectJava/src/Model/House.java</file>
+            <file>file:/C:/Users/CAP/ProjectJava/ProjectJava/src/projectjava/PropertyDAO.java</file>
+            <file>file:/C:/Users/CAP/ProjectJava/ProjectJava/src/projectjava/EmployeeDAOImpl.java</file>
+            <file>file:/C:/Users/CAP/ProjectJava/ProjectJava/src/View/SellerFirst.java</file>
+            <file>file:/C:/Users/CAP/ProjectJava/ProjectJava/src/projectjava/EmployeeDAO.java</file>
+            <file>file:/C:/Users/CAP/ProjectJava/ProjectJava/src/View/SignInJFrame.java</file>
         </group>
     </open-files>
 </project-private>

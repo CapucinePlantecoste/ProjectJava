@@ -169,54 +169,63 @@ public class SellerNewPropertyApartment extends javax.swing.JFrame {
 
         jLabel4.setBackground(new java.awt.Color(255, 255, 255));
         jLabel4.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(0, 153, 153));
         jLabel4.setText("Surface");
         jPanel2.add(jLabel4);
         jLabel4.setBounds(1210, 360, 200, 30);
 
         jLabel6.setBackground(new java.awt.Color(255, 255, 255));
         jLabel6.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(0, 153, 153));
         jLabel6.setText("Price (in €)");
         jPanel2.add(jLabel6);
         jLabel6.setBounds(950, 180, 150, 30);
 
         jLabel7.setBackground(new java.awt.Color(255, 255, 255));
         jLabel7.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(0, 153, 153));
         jLabel7.setText("Location");
         jPanel2.add(jLabel7);
         jLabel7.setBounds(1210, 180, 200, 30);
 
         jLabel8.setBackground(new java.awt.Color(255, 255, 255));
         jLabel8.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(0, 153, 153));
         jLabel8.setText("Number of rooms");
         jPanel2.add(jLabel8);
         jLabel8.setBounds(950, 270, 200, 30);
 
         jLabel9.setBackground(new java.awt.Color(255, 255, 255));
         jLabel9.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(0, 153, 153));
         jLabel9.setText("Number of Bedrooms");
         jPanel2.add(jLabel9);
         jLabel9.setBounds(1210, 270, 200, 30);
 
         jLabel10.setBackground(new java.awt.Color(255, 255, 255));
         jLabel10.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(0, 153, 153));
         jLabel10.setText("Elevator");
         jPanel2.add(jLabel10);
         jLabel10.setBounds(950, 450, 200, 30);
 
         jLabel11.setBackground(new java.awt.Color(255, 255, 255));
         jLabel11.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(0, 153, 153));
         jLabel11.setText("Parking");
         jPanel2.add(jLabel11);
         jLabel11.setBounds(950, 540, 200, 30);
 
         jLabel12.setBackground(new java.awt.Color(255, 255, 255));
         jLabel12.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
+        jLabel12.setForeground(new java.awt.Color(0, 153, 153));
         jLabel12.setText("Number of floors");
         jPanel2.add(jLabel12);
         jLabel12.setBounds(950, 360, 200, 30);
 
         jLabel13.setBackground(new java.awt.Color(255, 255, 255));
         jLabel13.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
+        jLabel13.setForeground(new java.awt.Color(0, 153, 153));
         jLabel13.setText("Floor Number ");
         jPanel2.add(jLabel13);
         jLabel13.setBounds(1210, 450, 200, 30);
@@ -314,11 +323,13 @@ public class SellerNewPropertyApartment extends javax.swing.JFrame {
         jPanel2.add(jLabel14);
         jLabel14.setBounds(880, 730, 600, 30);
         jPanel2.add(jTextField8);
-        jTextField8.setBounds(1110, 570, 400, 26);
+        jTextField8.setBounds(1110, 570, 400, 30);
 
+        jLabel15.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
+        jLabel15.setForeground(new java.awt.Color(0, 153, 153));
         jLabel15.setText("Description");
         jPanel2.add(jLabel15);
-        jLabel15.setBounds(1120, 540, 160, 20);
+        jLabel15.setBounds(1120, 540, 160, 23);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

@@ -188,18 +188,16 @@ public class EmployeeFirst extends javax.swing.JFrame {
         if (soldprop.size() == 0) {
             JOptionPane.showMessageDialog(null, "None property has been sold"); //message shown to say so
         } else {
-        
-            //Afficher une nouvelle page en envoyant en parametre le classique+soldprop
-         
-           // a.setVisible(true); 
-            //Affichr la page avec une combo box de tous les viewings
+            EmployeeRemoveSoldProperty a = new EmployeeRemoveSoldProperty(newemployee, newseller, buyers, sellers, emp,pr,v,o, soldprop);
+            a.setVisible(true) ; 
         }
         
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-        
+        EmployeeAddViewing a = new EmployeeAddViewing (newemployee, newseller, buyers, sellers, emp,pr,v,o); 
+        a.setVisible(true);        
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
@@ -210,6 +208,8 @@ public class EmployeeFirst extends javax.swing.JFrame {
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
+        EmployeeUpdateProperty a = new EmployeeUpdateProperty (newemployee, newseller, buyers, sellers, emp,pr,v,o) ; 
+        a.setVisible(true) ; 
     }//GEN-LAST:event_jButton4ActionPerformed
 
     public void nom()
