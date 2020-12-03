@@ -8,9 +8,11 @@ import Model.Buyer;
 import Model.Employee;
 import Model.Offer;
 import Model.Property;
+import Model.PropertyDAOImpl;
 import Model.Seller;
 import Model.Visit;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 import projectjava.First ; 
 
 /**
@@ -22,20 +24,20 @@ public class EmployeeRemoveSoldProperty extends javax.swing.JFrame {
     /**
      * Creates new form EmployeeRemoveSoldProperty
      */
-    public EmployeeRemoveSoldProperty(Employee coucou, Seller a, ArrayList<Buyer> b, ArrayList<Seller> s, ArrayList<Employee> e, ArrayList<Property>prop, ArrayList<Visit>vis, ArrayList<Offer>off, ArrayList<Property> sp) {
+    public EmployeeRemoveSoldProperty(Employee coucou, ArrayList<Buyer> b, ArrayList<Seller> s, ArrayList<Employee> e, ArrayList<Property>prop, ArrayList<Visit>vis, ArrayList<Offer>off, ArrayList<Property> sp) {
         buyers = b;//Array List of buyers
         sellers = s;//Array List of sellers
         emp = e;//Array List of employees
         pr=prop;
         v=vis;
         o=off;
-        newseller = a ;
+ 
         employee = coucou; 
         soldProperties = sp ; 
         
         initComponents();
         initjcb1(); 
-        jPanelApartment.hide();
+       
         jPanel10.hide();
     }
 
@@ -67,7 +69,7 @@ public class EmployeeRemoveSoldProperty extends javax.swing.JFrame {
         jLabelidSeller = new javax.swing.JLabel();
         jLabelPrice = new javax.swing.JLabel();
         jLabelDescription1 = new javax.swing.JLabel();
-        jLabelPrice1 = new javax.swing.JLabel();
+        jLabelLocation = new javax.swing.JLabel();
         jButton6 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -191,8 +193,8 @@ public class EmployeeRemoveSoldProperty extends javax.swing.JFrame {
         jLabelDescription1.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
         jLabelDescription1.setForeground(new java.awt.Color(0, 153, 153));
 
-        jLabelPrice1.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
-        jLabelPrice1.setForeground(new java.awt.Color(0, 153, 153));
+        jLabelLocation.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
+        jLabelLocation.setForeground(new java.awt.Color(0, 153, 153));
 
         javax.swing.GroupLayout jPanel10Layout = new javax.swing.GroupLayout(jPanel10);
         jPanel10.setLayout(jPanel10Layout);
@@ -224,7 +226,7 @@ public class EmployeeRemoveSoldProperty extends javax.swing.JFrame {
                             .addComponent(jLabelPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabelPrice1, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabelLocation, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(35, Short.MAX_VALUE))
         );
@@ -251,8 +253,8 @@ public class EmployeeRemoveSoldProperty extends javax.swing.JFrame {
                             .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(1, 1, 1)
                         .addComponent(jLabelPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jLabelPrice1, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 13, Short.MAX_VALUE)
+                    .addComponent(jLabelLocation, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButton2)
                 .addContainerGap())
         );
@@ -311,9 +313,23 @@ public class EmployeeRemoveSoldProperty extends javax.swing.JFrame {
 
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
         // TODO add your handling code here:
+        int tampon=-1;
         String selected = (String) jComboBox1.getSelectedItem();
         if (selected.equals("Select a property to remove")) {
+            jPanel10.hide();
            
+        }
+        else
+        {
+            for(int i=0;i<pr.size();++i)
+            {
+                if((pr.get(i).getdescription()+" id : "+pr.get(i).getid()).equals(selected))
+                {
+                    tampon=i;
+                }
+            }
+            this.display(pr.get(tampon));
+            
         }
         //else si la propriete est une maison : jPanelHouse.show() ; 
         //else si la propriete selectionnee est un apartement : jPanelApartment.show() ; 
@@ -323,6 +339,47 @@ public class EmployeeRemoveSoldProperty extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
+        int tampon=-1;
+        int tampon2=-1;
+        PropertyDAOImpl pdao= new PropertyDAOImpl();
+        String selected = (String) jComboBox1.getSelectedItem();
+         for(int i=0;i<pr.size();++i)
+            {
+                if((pr.get(i).getdescription()+" id : "+pr.get(i).getid()).equals(selected))
+                {
+                    tampon=i;
+                }
+            }
+         for(int l=0;l<soldProperties.size();++l)
+         {
+             if(soldProperties.get(l).getid()==pr.get(tampon).getid())
+             {
+                 tampon2=l;
+             }
+         }
+         pdao.deleteproperty(pr.get(tampon));
+         for(int j=0;j<v.size();++j)
+         {
+             if(v.get(j).getidprop()==pr.get(tampon).getid())
+             {
+                 v.remove(v.get(j));
+             }
+         }
+         for(int k=0;k<o.size();++k)
+         {
+             if(o.get(k).getidprop()==pr.get(tampon).getid())
+             {
+                 o.remove(o.get(k));
+             }
+         }
+         pr.remove(pr.get(tampon));
+         soldProperties.remove(soldProperties.get(tampon2));
+         JOptionPane.showMessageDialog(null," This property has been removed from the app");
+         this.setVisible(false);
+         EmployeeRemoveSoldProperty a =new EmployeeRemoveSoldProperty(employee, buyers, sellers, emp,pr,v,o, soldProperties);
+         a.setVisible(true);
+         
+        
     }//GEN-LAST:event_jButton2ActionPerformed
 
     public void initjcb1() {
@@ -331,6 +388,16 @@ public class EmployeeRemoveSoldProperty extends javax.swing.JFrame {
             jComboBox1.addItem(soldProperties.get(i).getdescription()+" id : "+soldProperties.get(i).getid());
 
         }
+    }
+    
+    public void display(Property a)
+    {
+        jLabelDescription1.setText(a.getdescription());
+        jLabelidSeller.setText(Integer.toString(a.getidseller()));
+        jLabelidProperty.setText(Integer.toString(a.getid()));
+        jLabelPrice.setText(Double.toString(a.getprice()));
+        jLabelLocation.setText(a.getlocation());
+        jPanel10.show();
     }
     /**
      * @param args the command line arguments
@@ -362,7 +429,7 @@ public class EmployeeRemoveSoldProperty extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new EmployeeRemoveSoldProperty(employee, newseller, buyers, sellers, emp,pr,v,o, soldProperties).setVisible(true);
+                new EmployeeRemoveSoldProperty(employee, buyers, sellers, emp,pr,v,o, soldProperties).setVisible(true);
             }
         });
     }
@@ -392,8 +459,8 @@ public class EmployeeRemoveSoldProperty extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabelDescription1;
+    private javax.swing.JLabel jLabelLocation;
     private javax.swing.JLabel jLabelPrice;
-    private javax.swing.JLabel jLabelPrice1;
     private javax.swing.JLabel jLabelidProperty;
     private javax.swing.JLabel jLabelidSeller;
     private javax.swing.JPanel jPanel10;

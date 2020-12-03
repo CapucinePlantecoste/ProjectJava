@@ -190,7 +190,7 @@ public class EmployeeFirst extends javax.swing.JFrame {
         if (soldprop.size() == 0) {
             JOptionPane.showMessageDialog(null, "None property has been sold"); //message shown to say so
         } else {
-            EmployeeRemoveSoldProperty a = new EmployeeRemoveSoldProperty(newemployee, newseller, buyers, sellers, emp,pr,v,o, soldprop);
+            EmployeeRemoveSoldProperty a = new EmployeeRemoveSoldProperty(newemployee, buyers, sellers, emp,pr,v,o, soldprop);
             a.setVisible(true) ; 
         }
         
@@ -210,7 +210,7 @@ public class EmployeeFirst extends javax.swing.JFrame {
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
-        EmployeeUpdateProperty a = new EmployeeUpdateProperty (newemployee, newseller, buyers, sellers, emp,pr,v,o) ; 
+        EmployeeUpdateProperty a = new EmployeeUpdateProperty (newemployee,buyers, sellers, emp,pr,v,o) ; 
         a.setVisible(true) ; 
     }//GEN-LAST:event_jButton4ActionPerformed
 
@@ -262,7 +262,7 @@ public class EmployeeFirst extends javax.swing.JFrame {
     private static ArrayList<Offer>o=new ArrayList<>();
     
     private static Employee newemployee ;
-    private static Seller newseller ;
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;

@@ -12,6 +12,8 @@ import Model.Property;
 import Model.Offer;
 import Model.Employee;
 import Model.Buyer;
+import Model.OfferDAOImpl;
+import Model.VisitDAOImpl;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import projectjava.First;
@@ -138,6 +140,11 @@ public class BuyerResults extends javax.swing.JFrame {
 
         jButton8.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
         jButton8.setText("Validate");
+        jButton8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton8ActionPerformed(evt);
+            }
+        });
 
         jLabel1.setBackground(new java.awt.Color(255, 255, 255));
         jLabel1.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
@@ -158,6 +165,11 @@ public class BuyerResults extends javax.swing.JFrame {
 
         jComboBoxViewingHouse.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
         jComboBoxViewingHouse.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Book a Viewing" }));
+        jComboBoxViewingHouse.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBoxViewingHouseActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanelHouseLayout = new javax.swing.GroupLayout(jPanelHouse);
         jPanelHouse.setLayout(jPanelHouseLayout);
@@ -300,6 +312,11 @@ public class BuyerResults extends javax.swing.JFrame {
 
         jComboBoxViewingApartment.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
         jComboBoxViewingApartment.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Book a Viewing" }));
+        jComboBoxViewingApartment.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBoxViewingApartmentActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanelApartmentLayout = new javax.swing.GroupLayout(jPanelApartment);
         jPanelApartment.setLayout(jPanelApartmentLayout);
@@ -331,9 +348,9 @@ public class BuyerResults extends javax.swing.JFrame {
                         .addGap(197, 197, 197)
                         .addComponent(jLabelDescription1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanelApartmentLayout.createSequentialGroup()
-                        .addGap(66, 66, 66)
-                        .addComponent(jComboBoxViewingApartment, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
+                        .addContainerGap()
+                        .addComponent(jComboBoxViewingApartment, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jLabel3)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jTextField2)
@@ -368,19 +385,15 @@ public class BuyerResults extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(jLabelFloorNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(1, 1, 1)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabelDescription1, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanelApartmentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanelApartmentLayout.createSequentialGroup()
-                        .addGroup(jPanelApartmentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jButton9)
-                            .addComponent(jLabel3)
-                            .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap())
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelApartmentLayout.createSequentialGroup()
-                        .addComponent(jComboBoxViewingApartment, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(24, 24, 24))))
+                .addGroup(jPanelApartmentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton9)
+                    .addComponent(jLabel3)
+                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jComboBoxViewingApartment, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(22, 22, 22))
         );
 
         jPanel2.add(jPanelApartment);
@@ -541,7 +554,7 @@ public class BuyerResults extends javax.swing.JFrame {
     private void jTextField1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField1KeyTyped
         // TODO add your handling code here:
         char c = evt.getKeyChar();
-        if (Character.isLetter(c) && !evt.isAltDown()) {
+        if (!Character.isDigit(c)) {
             evt.consume();
         }
     }//GEN-LAST:event_jTextField1KeyTyped
@@ -549,19 +562,145 @@ public class BuyerResults extends javax.swing.JFrame {
     private void jTextField2KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField2KeyTyped
         // TODO add your handling code here:
         
-        char c = evt.getKeyChar();
-        if (Character.isLetter(c) && !evt.isAltDown()) {
+         char c = evt.getKeyChar();
+        if (!Character.isDigit(c)) {
             evt.consume();
         }
     }//GEN-LAST:event_jTextField2KeyTyped
 
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
-        // TODO add your handling code here:
+        // TODO add your handling code here
+        int tampon=-1;
+        int tampon2=0;
+       String selected = (String) jComboBox1.getSelectedItem();
+        for(int i=0;i<result.size();++i)
+           {
+               if((result.get(i).getdescription()+" id : "+result.get(i).getid()).equals(selected))
+               {
+                   tampon=i;
+               }
+           }
+        if(jTextField2.getText().trim().isEmpty())
+        {
+            JOptionPane.showMessageDialog(null, "Please enter an amount if you want to make an order");
+        }
+        else
+        {
+            for(int i=0;i<o.size();++i)
+            {
+                if((o.get(i).getidprop()==result.get(tampon).getid())&&(o.get(i).getidbuyer()==newbuyer.getid())&& (o.get(i).getdeclined()==false))
+                {
+                    tampon2++;
+                }
+            }
+            if(tampon2!=0)
+            {
+                JOptionPane.showMessageDialog(null, "You have already made an offer for this property that  has either been accepted or not treated");
+            }
+            else
+            {
+                this.addoffer(result.get(tampon).getid(), Double.parseDouble(jTextField2.getText()));
+                
+            }
+            
+        }
     }//GEN-LAST:event_jButton9ActionPerformed
+
+    private void jComboBoxViewingHouseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxViewingHouseActionPerformed
+        // TODO add your handling code here:
+        int tampon=-1;
+       String selected = (String) jComboBoxViewingHouse.getSelectedItem();
+       if(selected.equals("Book a Viewing"))
+       {
+           
+       }
+       else
+       {
+           for(int i=0;i<v.size();++i)
+           {
+               if((v.get(i).gettime()+" idvisit : "+v.get(i).getid()).equals(selected))
+               {
+                   tampon=i;
+               }
+           }
+           this.bookviewinghouse(v.get(tampon));
+           
+       }
+    }//GEN-LAST:event_jComboBoxViewingHouseActionPerformed
+
+    private void jComboBoxViewingApartmentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxViewingApartmentActionPerformed
+        // TODO add your handling code here:
+            int tampon=-1;
+       String selected = (String) jComboBoxViewingApartment.getSelectedItem();
+       if(selected.equals("Book a Viewing"))
+       {
+           
+       }
+       else
+       {
+           for(int i=0;i<v.size();++i)
+           {
+               if((v.get(i).gettime()+" idvisit : "+v.get(i).getid()).equals(selected))
+               {
+                   tampon=i;
+               }
+           }
+           this.bookviewingapartment(v.get(tampon));
+           
+       }
+    }//GEN-LAST:event_jComboBoxViewingApartmentActionPerformed
+
+    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+        // TODO add your handling code here:
+                int tampon=-1;
+        int tampon2=0;
+       String selected = (String) jComboBox1.getSelectedItem();
+        for(int i=0;i<result.size();++i)
+           {
+               if((result.get(i).getdescription()+" id : "+result.get(i).getid()).equals(selected))
+               {
+                   tampon=i;
+               }
+           }
+        if(jTextField1.getText().trim().isEmpty())
+        {
+            JOptionPane.showMessageDialog(null, "Please enter an amount if you want to make an order");
+        }
+        else
+        {
+            for(int i=0;i<o.size();++i)
+            {
+                if((o.get(i).getidprop()==result.get(tampon).getid())&&(o.get(i).getidbuyer()==newbuyer.getid())&& (o.get(i).getdeclined()==false))
+                {
+                    tampon2++;
+                }
+            }
+            if(tampon2!=0)
+            {
+                JOptionPane.showMessageDialog(null, "You have already made an offer for this property that  has either been accepted or not treated");
+            }
+            else
+            {
+                this.addoffer(result.get(tampon).getid(), Double.parseDouble(jTextField1.getText()));
+                
+            }
+            
+        }
+    }//GEN-LAST:event_jButton8ActionPerformed
 
     public void display(Property nprop) {
         if (nprop.gettype().equals("Apartment")) {
-            
+            jTextField2.setText("");
+         if(jComboBoxViewingApartment.getItemCount()>1)
+              {
+                 while(jComboBoxViewingApartment.getItemAt(1)!=null)
+                 {
+                     
+                     jComboBoxViewingApartment.removeItem(jComboBoxViewingApartment.getItemAt(1));
+                 }
+     
+              }
+           
             jLabelDescription1.setText(" Description : " + nprop.getdescription());
             jLabelPrice2.setText(" Price : " + Double.toString(nprop.getprice()));
             jLabelNumberFloors1.setText(" Number of floors : " + Integer.toString(nprop.getnumberfloors()));
@@ -581,10 +720,30 @@ public class BuyerResults extends javax.swing.JFrame {
                 jLabelElevator.setText("Elevator : No");
             }
             
+            for(int i=0;i<v.size();++i)
+            {
+                if(v.get(i).getidprop()==nprop.getid() && v.get(i).getidbuyer()==0)
+                {
+                    jComboBoxViewingApartment.addItem(v.get(i).gettime()+" idvisit : "+v.get(i).getid());
+                }
+            }
            jPanelApartment.show();
             jPanelHouse.hide();
 
         } else {
+            
+  
+          jTextField1.setText("");
+            
+              if(jComboBoxViewingHouse.getItemCount()>1)
+              {
+                 while(jComboBoxViewingHouse.getItemAt(1)!=null)
+                 {
+                     jComboBoxViewingHouse.removeItem(jComboBoxViewingHouse.getItemAt(1));
+                 }
+     
+              }
+          
             jLabelDescription.setText(" Description : " + nprop.getdescription());
             jLabelPrice.setText(" Price : " + Double.toString(nprop.getprice()));
             jLabelNumberFloors.setText(" Number of floors : " + Integer.toString(nprop.getnumberfloors()));
@@ -598,11 +757,33 @@ public class BuyerResults extends javax.swing.JFrame {
             } else {
                 jLabelSwimmingPool.setText("Swimmingpool : No");
             }
+           
+             for(int i=0;i<v.size();++i)
+            {
+              
+                
+                if(v.get(i).getidprop()==nprop.getid()&&v.get(i).getidbuyer()==0)
+                {
+                 
+                    jComboBoxViewingHouse.addItem(v.get(i).gettime()+" idvisit : "+v.get(i).getid());
+                }
+            }
             jPanelHouse.show();
             
             jPanelApartment.hide();
 
         }
+    }
+    
+    public void bookviewinghouse(Visit a)
+    {
+        VisitDAOImpl vdao=new VisitDAOImpl();
+        a.setidbuyer(newbuyer.getid());
+        vdao.updatebuyer(a);
+        JOptionPane.showMessageDialog(null," Your viewing has been registered");
+        this.setVisible(false);
+        BuyerResults b=new BuyerResults(newbuyer, buyers, sellers, emp, pr, v, o, result);
+        b.setVisible(true);
     }
 
     public void initjcb1() {
@@ -612,6 +793,30 @@ public class BuyerResults extends javax.swing.JFrame {
 
         }
     }
+    
+      public void bookviewingapartment(Visit a)
+    {
+        VisitDAOImpl vdao=new VisitDAOImpl();
+        a.setidbuyer(newbuyer.getid());
+        vdao.updatebuyer(a);
+        JOptionPane.showMessageDialog(null," Your viewing has been registered");
+        this.setVisible(false);
+        BuyerResults b=new BuyerResults(newbuyer, buyers, sellers, emp, pr, v, o, result);
+        b.setVisible(true);
+    }
+      
+      public void addoffer(int idprop, double p)
+      {
+          OfferDAOImpl odao=new OfferDAOImpl();
+          o.add(new Offer(o.get(o.size()-1).getid()+1,newbuyer.getid(),idprop,p,false,false));
+          odao.addoffer(o.get(o.size()-1));
+          JOptionPane.showMessageDialog(null, "Your offer has been registered");
+           this.setVisible(false);
+        BuyerResults b=new BuyerResults(newbuyer, buyers, sellers, emp, pr, v, o, result);
+        b.setVisible(true);
+          
+          
+      }
 
     /**
      * @param args the command line arguments

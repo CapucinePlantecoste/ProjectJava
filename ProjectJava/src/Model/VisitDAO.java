@@ -16,6 +16,7 @@ public interface VisitDAO {
     ArrayList<Visit> registervisit();
     void addvisit(Visit a);
     void deleteviewing(Visit a);
+    void updatebuyer(Visit a);
     
     
 }

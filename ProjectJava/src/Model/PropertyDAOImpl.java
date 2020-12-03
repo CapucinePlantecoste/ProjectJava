@@ -46,8 +46,8 @@ public class PropertyDAOImpl implements PropertyDAO {
                     double gs = result4.getDouble("gardensurface");
                     boolean sp = result4.getBoolean("swimmingpool");
                     int ids = result4.getInt("idseller");
-                    boolean sold=result4.getBoolean("sold");
-                    pr.add(new House(a, d, p, l, nr, nbr, nf, tv, s, ids,sold, "House", gs, sp));
+                    boolean sold = result4.getBoolean("sold");
+                    pr.add(new House(a, d, p, l, nr, nbr, nf, tv, s, ids, sold, "House", gs, sp));
                 } else {
                     int a = result4.getInt("id");//First column of the table 
                     String d = result4.getString("description");
@@ -62,8 +62,8 @@ public class PropertyDAOImpl implements PropertyDAO {
                     int fn = result4.getInt("floornumber");
                     boolean prkg = result4.getBoolean("parking");
                     int ids = result4.getInt("idseller");
-                    boolean sold=result4.getBoolean("sold");
-                    pr.add(new Appartment(a, d, p, l, nr, nbr, nf, tv, s, ids,sold, "Apartment", elv, fn, prkg));
+                    boolean sold = result4.getBoolean("sold");
+                    pr.add(new Appartment(a, d, p, l, nr, nbr, nf, tv, s, ids, sold, "Apartment", elv, fn, prkg));
 
                 }
 
@@ -86,16 +86,11 @@ public class PropertyDAOImpl implements PropertyDAO {
             conn.setAutoCommit(false);
             try {//we also put the new customer into our database 
 
-                if(b==1)
-                {
-                    
+                if (b == 1) {
 
                     stmt.executeUpdate("INSERT INTO property " + " (id, type,description, price, location, numberrooms, numberbedrooms, timevisited, numberfloors, surface, gardensurface, swimmingpool, elevator, floornumber, parking, idseller,sold) " + "VALUES" + "('" + a.getid() + "','Apartment','" + a.getdescription() + "','" + a.getprice() + "','" + a.getlocation() + "','" + a.getnumberrooms() + "','" + a.getnumberbedrooms() + "','0','" + a.getnumberfloors() + "','" + a.getsurface() + "',null,null,'" + a.getelevatorsql() + "','" + a.getfloornumber() + "','" + a.getparkingsql() + "','" + a.getidseller() + "',0 )");
-                    System.out.println("coucou");
-                }
-                else
-                {
-                     stmt.executeUpdate("INSERT INTO property " + " (id, type,description, price, location, numberrooms, numberbedrooms, timevisited, numberfloors, surface, gardensurface, swimmingpool, elevator, floornumber, parking, idseller,sold) " + "VALUES" + "('" + a.getid() + "','House','" + a.getdescription() + "','" + a.getprice() + "','" + a.getlocation() + "','" + a.getnumberrooms() + "','" + a.getnumberbedrooms() + "','0','" + a.getnumberfloors() + "','" + a.getsurface() + "','" + a.getgardensurface() + "','"+a.getswimmingpoolsql()+"',null,null,null,'" + a.getidseller() + "',0 )");
+                } else {
+                    stmt.executeUpdate("INSERT INTO property " + " (id, type,description, price, location, numberrooms, numberbedrooms, timevisited, numberfloors, surface, gardensurface, swimmingpool, elevator, floornumber, parking, idseller,sold) " + "VALUES" + "('" + a.getid() + "','House','" + a.getdescription() + "','" + a.getprice() + "','" + a.getlocation() + "','" + a.getnumberrooms() + "','" + a.getnumberbedrooms() + "','0','" + a.getnumberfloors() + "','" + a.getsurface() + "','" + a.getgardensurface() + "','" + a.getswimmingpoolsql() + "',null,null,null,'" + a.getidseller() + "',0 )");
                 }
                 conn.commit();
                 conn.close();
@@ -107,11 +102,10 @@ public class PropertyDAOImpl implements PropertyDAO {
             System.err.println(e);
         }
     }
-    
+
     @Override
-    public void updatetv(Property a)
-    {
-         Connection conn = null;
+    public void updatetv(Property a) {
+        Connection conn = null;
         try {
 
             DataSource db = new DataSource();
@@ -121,9 +115,8 @@ public class PropertyDAOImpl implements PropertyDAO {
             conn.setAutoCommit(false);
             try {//we also put the new customer into our database 
 
-                
-                    stmt.executeUpdate("UPDATE property SET timevisited='"+a.gettimevisited()+"' where id='"+a.getid()+"';");
-                
+                stmt.executeUpdate("UPDATE property SET timevisited='" + a.gettimevisited() + "' where id='" + a.getid() + "';");
+
                 conn.commit();
                 conn.close();
 
@@ -134,11 +127,10 @@ public class PropertyDAOImpl implements PropertyDAO {
             System.err.println(e);
         }
     }
-    
-    @Override 
-    public void offeraccepted(Property a)
-    {
-         Connection conn = null;
+
+    @Override
+    public void offeraccepted(Property a) {
+        Connection conn = null;
         try {
 
             DataSource db = new DataSource();
@@ -148,9 +140,37 @@ public class PropertyDAOImpl implements PropertyDAO {
             conn.setAutoCommit(false);
             try {//we also put the new customer into our database 
 
+                stmt.executeUpdate("UPDATE property SET sold=true where id='" + a.getid() + "';");
+
+                conn.commit();
+                conn.close();
+
+            } catch (SQLException f) {//possible MySql exception
+                System.err.println(f);
+            }
+        } catch (SQLException e) {//Possible MySql connection exception
+            System.err.println(e);
+        }
+
+    }
+
+    @Override
+    public void deleteproperty(Property a) {
+        Connection conn = null;
+        try {
+
+            DataSource db = new DataSource();
+            conn = db.createConnection();
+            Statement stmt = conn.createStatement();
+
+            conn.setAutoCommit(false);
+            try {//we also put the new customer into our database 
+                stmt.executeUpdate("delete from visit where idproperty='"+a.getid()+"';");
+                stmt.executeUpdate("delete from offer where idproperty='"+a.getid()+"';");
                 
-                    stmt.executeUpdate("UPDATE property SET sold=true where id='"+a.getid()+"';");
-                
+
+                stmt.executeUpdate("delete from property where id='" + a.getid() + "';");
+
                 conn.commit();
                 conn.close();
 
@@ -161,6 +181,43 @@ public class PropertyDAOImpl implements PropertyDAO {
             System.err.println(e);
         }
         
+
     }
-            
+    
+    @Override
+    public void update(Property a, int b)
+    {
+          Connection conn = null;
+        try {
+
+            DataSource db = new DataSource();
+            conn = db.createConnection();
+            Statement stmt = conn.createStatement();
+
+            conn.setAutoCommit(false);
+            try {//we also put the new customer into our database 
+
+                if(b==1)
+                {
+                    String updateQuary="update property"
+                            +"set description="+a.getdescription()""
+                    +"where id"
+                stmt.executeUpdate("UPDATE property "+" SET description='"+a.getdescription()"' "+" where id='"+ a.getid() +"';");
+                }
+                else
+                {
+                    
+                }
+
+                conn.commit();
+                conn.close();
+
+            } catch (SQLException f) {//possible MySql exception
+                System.err.println(f);
+            }
+        } catch (SQLException e) {//Possible MySql connection exception
+            System.err.println(e);
+        }
+
+    }
 }

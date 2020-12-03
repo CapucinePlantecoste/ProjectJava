@@ -106,6 +106,39 @@ public abstract class Property {
         timevisited=a;
     }
     
+    public void setprice(double p)
+    {
+        price=p;
+    }
+    public void setlocation(String l)
+    {
+        location=l;
+    }
+    
+    public void setnumberroom(int n)
+    {
+        numberrooms=n;
+    }
+    
+    public void setnumberfloor(int n)
+    {
+        numberfloors=n;
+    }
+    
+    public void setsurface(double s)
+    {
+        surface=s;
+    }
+    
+    public void setnumberbedroom(int nb)
+    {
+        numberbedrooms=nb;
+    }
+    public void setdescription(String d)
+    {
+        description=d;
+    }
+    
     public abstract boolean getelevator();
     public abstract int getfloornumber();
     public abstract boolean getparking();
@@ -114,4 +147,9 @@ public abstract class Property {
     public abstract double getgardensurface();
     public abstract boolean getswimmingpool();
     public abstract int getswimmingpoolsql();
+    public abstract void setfloornumber(int fn);
+    public abstract void setparking(boolean a);
+    public abstract void setelevator(boolean a);
+    public abstract void setgardensurface(double gs);
+    public abstract void setswimmingpool(boolean a);
 }

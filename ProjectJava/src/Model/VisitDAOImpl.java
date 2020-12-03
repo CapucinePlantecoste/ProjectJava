@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package Model;
+
 import Model.VisitDAO;
 import Model.DataSource;
 import Model.Visit;
@@ -19,10 +20,9 @@ import java.sql.Timestamp;
  * @author thoma
  */
 public class VisitDAOImpl implements VisitDAO {
-    
+
     @Override
-    public ArrayList<Visit> registervisit()
-    {
+    public ArrayList<Visit> registervisit() {
         Connection conn = null;
         ArrayList<Visit> visits = new ArrayList<Visit>();
         try {
@@ -35,16 +35,14 @@ public class VisitDAOImpl implements VisitDAO {
             while (result.next()) {
 
                 int a = result.getInt("idvisit");//First column of the table 
-                int b  = result.getInt("idbuyer");
-                int c= result.getInt("idemployee");
+                int b = result.getInt("idbuyer");
+                int c = result.getInt("idemployee");
                 int d = result.getInt("idproperty");
                 int e = result.getInt("idbuyer");
-                Timestamp ts=result.getObject("schedule", Timestamp.class);
-                int f=result.getInt("duration");
-               
-                
+                Timestamp ts = result.getObject("schedule", Timestamp.class);
+                int f = result.getInt("duration");
 
-                visits.add(new Visit(a, b, d, c,ts,f));//we create an employee object with the values get ahead
+                visits.add(new Visit(a, b, d, c, ts, f));//we create an employee object with the values get ahead
 
             }
             conn.close();
@@ -54,9 +52,9 @@ public class VisitDAOImpl implements VisitDAO {
         }
         return visits;
     }
+
     @Override
-    public void addvisit(Visit a)
-    {
+    public void addvisit(Visit a) {
         Connection conn = null;
         try {
 
@@ -67,10 +65,7 @@ public class VisitDAOImpl implements VisitDAO {
             conn.setAutoCommit(false);
             try {//we also put the new customer into our database 
 
-                
-                
-               
-                stmt.executeUpdate("INSERT INTO visit " + " (idvisit,schedule, idemployee, idbuyer, idproperty,duration) " + "VALUES" + "('" + a.getid() + "','" + a.gettime() + "','"+a.getidemp()+"',null,'" + a.getidprop() + "','" + a.getduration() + "' )");
+                stmt.executeUpdate("INSERT INTO visit " + " (idvisit,schedule, idemployee, idbuyer, idproperty,duration) " + "VALUES" + "('" + a.getid() + "','" + a.gettime() + "','" + a.getidemp() + "',null,'" + a.getidprop() + "','" + a.getduration() + "' )");
                 conn.commit();
                 conn.close();
             } catch (SQLException f) {//possible MySql exception
@@ -79,11 +74,11 @@ public class VisitDAOImpl implements VisitDAO {
         } catch (SQLException e) {//Possible MySql connection exception
             System.err.println(e);
         }
-        
+
     }
+
     @Override
-    public void deleteviewing(Visit a)
-    {
+    public void deleteviewing(Visit a) {
         Connection conn = null;
         try {
 
@@ -94,10 +89,7 @@ public class VisitDAOImpl implements VisitDAO {
             conn.setAutoCommit(false);
             try {//we also put the new customer into our database 
 
-                
-                
-               
-                stmt.executeUpdate("Delete from visit where idvisit='"+a.getid()+"';");
+                stmt.executeUpdate("Delete from visit where idvisit='" + a.getid() + "';");
                 conn.commit();
                 conn.close();
             } catch (SQLException f) {//possible MySql exception
@@ -108,6 +100,30 @@ public class VisitDAOImpl implements VisitDAO {
         }
     }
     
-        
-        
+    @Override
+    public void updatebuyer(Visit a)
+    {
+           Connection conn = null;
+        try {
+
+            DataSource db = new DataSource();
+            conn = db.createConnection();
+            Statement stmt = conn.createStatement();
+
+            conn.setAutoCommit(false);
+            try {//we also put the new customer into our database 
+
+                stmt.executeUpdate("UPDATE visit SET idbuyer='"+a.getidbuyer()+"' where idvisit='" + a.getid() + "';");
+
+                conn.commit();
+                conn.close();
+
+            } catch (SQLException f) {//possible MySql exception
+                System.err.println(f);
+            }
+        } catch (SQLException e) {//Possible MySql connection exception
+            System.err.println(e);
+        }
+    }
+
 }

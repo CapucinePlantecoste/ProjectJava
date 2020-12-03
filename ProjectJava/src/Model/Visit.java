@@ -65,6 +65,11 @@ public class Visit {
     {
         return id;
     }
+    
+    public void setidbuyer(int idb)
+    {
+        idbuyer=idb;
+    }
     /*public java.sql.Date getdate()
     {
         return d;
