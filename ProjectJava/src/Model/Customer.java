@@ -5,11 +5,13 @@ package Model;
  *
  * @author CAP
  */
-public abstract class Customer extends Person{//Customer class represents both byuers and sellers 
-    
-    public Customer(int i,String n, String fn, String u, String p)//constructor 
+public abstract class Customer extends Person {
+//Customer class represents both byuers and sellers 
+
+    public Customer(int i, String n, String fn, String u, String p) //constructor 
     {
-        super(i,n,fn,u,p);//constructor of the Person class 
+        super(i, n, fn, u, p);
+        //constructor of the Person class 
     }
-    
+
 }

@@ -8,26 +8,32 @@ import Model.Property;
  *
  * @author thoma
  */
-public class House extends Property {//House extends the superclass property
+public class House extends Property {
+//House extends the superclass property
     
     //these two following attributes are not present in the property class    
-    private double gardensurface;//Attributes that do not exist in the Property class
-    private boolean swimmingpool;//boolean that corresponds to if there is a swmming pool or not 
+    private double gardensurface;
+    //Attributes that do not exist in the Property class
+    private boolean swimmingpool;
+    //boolean that corresponds to if there is a swmming pool or not 
     
     public House(int i,String d, double p, String l, int nr, int nbr, int nbf, int tv, double s,int ids, boolean soldprop,String t, double gs, boolean sp)//Constructor
     {//constructor of the house class
-        super(i,d,p,l,nr,nbr,nbf,tv,s,ids,soldprop,t);//constructor of the property class
+        super(i,d,p,l,nr,nbr,nbf,tv,s,ids,soldprop,t);
+        //constructor of the property class
         gardensurface=gs;
         swimmingpool=sp;
     }
     @Override
-    public double getgardensurface()//getter to obtain the garden surface
+    public double getgardensurface()
+    //getter to obtain the garden surface
     {
         return gardensurface;
     }
     
     @Override
-    public boolean getswimmingpool()//getter to obtain the boolean of the swimming pool
+    public boolean getswimmingpool()
+    //getter to obtain the boolean of the swimming pool
     {
         return swimmingpool;
     }
@@ -36,45 +42,54 @@ public class House extends Property {//House extends the superclass property
     // But sometimes we know that we won't use them
     // For example, a house doesn't have the attribute elevator but we have to override the mehtod getelevator so we just return true but this fonction will never be used so we could have put anything
     @Override
-    public boolean getelevator()//this function will never be used for the class House so we return true but never used 
+    public boolean getelevator()
+    //this function will never be used for the class House so we return true but never used 
     {
         return true;
     }
     
     @Override
-    public boolean getparking()//this function will never be used for the class House so we return true but never used 
+    public boolean getparking()
+    //this function will never be used for the class House so we return true but never used 
     {
         return true;
     }
     @Override
-    public int getfloornumber()//this function will never be used for the class House so we return 1 but never used 
+    public int getfloornumber()
+    //this function will never be used for the class House so we return 1 but never used 
     {
         return 1;
     }
     @Override
-    public int getelevatorsql()//this function will never be used for the class House so we return1  but never used 
+    public int getelevatorsql()
+    //this function will never be used for the class House so we return1  but never used 
      {
         
          return 1;
      }
     @Override
-    public int getparkingsql()//this function will never be used for the class House so we return 1 but never used 
+    public int getparkingsql()
+    //this function will never be used for the class House so we return 1 but never used 
     {
         
          return 1;
     }
     
     @Override
-    public int getswimmingpoolsql()//in my sql, we cannot set the value of a boolean to true or false, we need to set 0 or 1
+    public int getswimmingpoolsql()
+    //in my sql, we cannot set the value of a boolean to true or false, we need to set 0 or 1
     {
         int a;
         if(this.getswimmingpool()==true)
         {
-            a=1;//we set the value to 1
+            a=1;
+            //we set the value to 1
         }
-        else//otherwise
+        else
+        //otherwise
         {
-            a=0;//we set the value to 0
+            a=0;
+            //we set the value to 0
         }
         return a;
     }

@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+//this class consolidates access to persistent data concerning the viewings 
 package Model;
 import Model.Visit;
 import java.util.ArrayList;
@@ -12,11 +8,16 @@ import java.util.ArrayList;
  * @author thoma
  */
 public interface VisitDAO {
+    //this class is an interface so all the methods will be implemented in the VisitDAOImpl class
     
     ArrayList<Visit> registervisit();
+    //We create an arraylist of viewings get from the database
     void addvisit(Visit a);
+    //we add a viewing to the database
     void deleteviewing(Visit a);
+    //method that deletes the viewiing from the database 
     void updatebuyer(Visit a);
+    //method that enables us to update the buyer of the viewing 
     
     
 }

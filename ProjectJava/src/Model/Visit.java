@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+//This class is the visit class, which represents all the visits the buyers make and the sellers introduce
 package Model;
 import java.sql.Timestamp;
 
@@ -12,8 +8,8 @@ import java.sql.Timestamp;
  */
 public class Visit {
     
+    //all the attributes of the visit class
     private int id;
-   // private java.sql.Date d;
     private int idbuyer;
     private int idprop;
     private int idemp;
@@ -21,6 +17,7 @@ public class Visit {
     private int duration;
     
     public Visit(int i, int idb, int idp, int ide, Timestamp t, int d )
+    //constructor of the visit class
     {
         id=i;
         idbuyer=idb;
@@ -31,42 +28,48 @@ public class Visit {
     }
     
     public int getidbuyer()
+    //method that enables to get the id of the buyer that booked the viewing
     {
         return idbuyer;
     }
     
-    
-    
     public int getidprop()
+    //method that enables to get the id of the property where the wiewing will be done
     {
         return idprop;
     }
     
     public int getidemp()
+    //method that enables to get the id of the emplee that will ensure the viewing
     {
         return idemp;
     }
     
     public String displaydate()
+    //method that enables to display the date of the viewing     
     {
         return ts.toString();
     }
     public Timestamp gettime()
+    //method that enables to get the date of the viewing
     {
         return ts ; 
     }
     
     public int getduration()
+    //method that enables to get the duration of the viewing
     {
         return duration;
     }
     
     public int getid()
+    //method that enables us to get the id of the viewing
     {
         return id;
     }
     
     public void setidbuyer(int idb)
+    //method that enables us to set the id of the buyer that is going to do the viewing 
     {
         idbuyer=idb;
     }
