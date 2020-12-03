@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+//this class is the frame which the buyer seees when he wants to consult his offers
 package View;
 
 import View.BuyerFirst;
@@ -25,20 +21,32 @@ public class BuyerOffer extends javax.swing.JFrame {
      * Creates new form BuyerOffer
      */
     public BuyerOffer(Buyer a, ArrayList<Buyer> b, ArrayList<Seller> s, ArrayList<Employee> e, ArrayList<Property> prop, ArrayList<Visit> vis, ArrayList<Offer> off, ArrayList<Offer> myo) {
-        buyers = b;//Array List of buyers
-        sellers = s;//Array List of sellers
-        emp = e;//Array List of employees
+        //constructor of the class
+        buyers = b;
+        //Array List of buyers
+        sellers = s;
+        //Array List of sellers
+        emp = e;
+        //Array List of employees
         pr = prop;
+        //Array List of properties
         v = vis;
+        //Array List of viewings
         o = off;
+        //Array List of offers
 
         newbuyer = a;
+        //the buyer who is connected 
        
         myoffers = myo;
+        //the arraylist of the offers corresponding to this particular buyer
        
         initComponents();
+        //automatically generated constructor
         this.initjcb1();
+        //function that enables to fill the combobox with the offers of the buyer
         jPanelOffers.hide();
+        //we hide the panel showing the details of the offers 
     }
 
     /**
@@ -237,103 +245,123 @@ public class BuyerOffer extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
-        // TODO add your handling code here:
+        //the combo box that displays all the offers belonging to the connected buyer
 
-        int tampon = 0;
-        
+        int tampon = 0;  
+        //temporary buffer 
 
         String selected = (String) jComboBox1.getSelectedItem();
+        //we get what has been selected in the combobox
         if (selected.equals("Select one of your following offers")) {
+            //if nothing has been selected
             
             jPanelOffers.hide();
+            //we do not show anything but the actual combo box
         } else {
-            System.out.println(selected);
+            //otherwise
             for (int i = 0; i < myoffers.size(); i++) {
+                //we go through all the offers belonging to the connected buyer
                 {
                     for(int j=0;j<pr.size();++j)
+                        //we go through all the properties of the database 
                     {
                         if(selected.equals(pr.get(j).getdescription()+" idoffer : "+myoffers.get(i).getid()))
+                            //if the selected offer corresponds to a property of the database 
                         {
                             tampon=i;
+                            //we set the value of the buffer to i 
                         }
                     }
                 }
-                
-                
-            }
-               
+            }               
             this.display(myoffers.get(tampon));
-
+            //we show the details of the offer, through the display method, see behind
             }
     }//GEN-LAST:event_jComboBox1ActionPerformed
 
     
     public void display (Offer a )
+            //method that enables to show the details of an offer once selected 
     {
-        
-        
-        
         int stamp=0;
+        //temporary buffer 
     
         for(int i=0;i<pr.size();++i)
+            //we go through all the properties of the database 
         {
             if(pr.get(i).getid()==a.getidprop())
+                //if the offer that has been selected corresponds to a property of the database 
             {
                 stamp=i;
+                //we set the buffer to i
             }
         }
         
         jLabelDescription.setText(" Description : "+pr.get(stamp).getdescription());
+        //we set Text to the description field, to show more details about the selected offer
         jLabelLocation.setText( " Location : "+pr.get(stamp).getlocation());
+        //we set Text to the location field, to show more details about the selected offer
         jLabelPrice.setText ("Amount : "+a.getprice()+"€");
+        //we set Text to the amount of the offer field, to show more details about the selected offer
         jLabelRealPrice.setText("Price of the property : " +pr.get(stamp).getprice()+"€");
+        //we set Text to the price field, to show more details about the selected offer
         if(a.getaccepted()==true && a.getdeclined()==false)
+            //we want to show if the offer has been accepted or declined
         {
             jLabel3.setText(" Status of the offer : Accepted ");
+            //if it has been accepted, we show it
         }
         else if( a.getaccepted()==false && a.getdeclined()==true)
         {
             jLabel3.setText(" Status of the offer : Declined");
+            //if it has been declined, we show it 
         }
         else if( a.getaccepted()==false && a.getdeclined()==false)
         {
             jLabel3.setText(" Status of the offer : Not treated");
-        }
-       
-        jPanelOffers.show();
-        
+            //if it has not been accepted nor declined, it is not treated
+        }       
+        jPanelOffers.show();        
+        //after all the fields have been filled, we show the panel offer 
         
     }
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-        this.toBack();//if we click on the back button
-        setVisible(false);//this page disappears
-        new BuyerFirst(newbuyer, buyers, sellers, emp, pr, v, o).toFront();//we go back on the first page
+        //back Button 
+        this.toBack();
+        //if we click on the back button
+        setVisible(false);  
+        //this page disappears
+        new BuyerFirst(newbuyer, buyers, sellers, emp, pr, v, o).toFront();
+        //we go back on the previous page
         new BuyerFirst(newbuyer, buyers, sellers, emp, pr, v, o).setState(java.awt.Frame.NORMAL);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        // TODO add your handling code here:
-        //this.toBack();//if we click on the back button
-        setVisible(false);//this page disappears
-        new First(buyers, sellers, emp, pr, v, o).toFront();//we go back on the first page
+        //Log out button
+        setVisible(false);
+        // if we click on this button, this page disappears
+        new First(buyers, sellers, emp, pr, v, o).toFront();
+        //we go back on the first page
         new First(buyers, sellers, emp, pr, v, o).setState(java.awt.Frame.NORMAL);
         new First(buyers, sellers, emp, pr, v, o).setVisible(true);
+        //we set it to visible 
     }//GEN-LAST:event_jButton5ActionPerformed
 
     public void initjcb1() {
-        
+    //function that enables to add the offers of the connected buyer to the jcombobox
         for (int i = 0; i < myoffers.size(); ++i) {
+            //we go through all the offers belonging to the connected customer 
             for (int j = 0; j < pr.size(); ++j) {
+                //we go through all the properties contained in the database 
                 
                 if (myoffers.get(i).getidprop() == pr.get(j).getid()) {
-                    jComboBox1.addItem(pr.get(j).getdescription()+" idoffer : "+myoffers.get(i).getid());
-                   
+                    //if an offer corresponds to the selected property 
+                    jComboBox1.addItem(pr.get(j).getdescription()+" idoffer : "+myoffers.get(i).getid()); 
+                    //we add this property to the jcombobox
                 }
             }
-
-        }
-        
+        }        
+        //here, all the offers of the connected buyer will be displayed in the combox
     }
 
     /**
@@ -371,15 +399,24 @@ public class BuyerOffer extends javax.swing.JFrame {
         });
     }
 
-    private static ArrayList<Buyer> buyers = new ArrayList<>();//array list of all the application buyers 
-    private static ArrayList<Seller> sellers = new ArrayList<>();//array list of all the application sellers 
-    private static ArrayList<Employee> emp = new ArrayList<>();//array list of all the application sellers 
+    private static ArrayList<Buyer> buyers = new ArrayList<>();
+    //array list of all the application buyers 
+    private static ArrayList<Seller> sellers = new ArrayList<>();
+    //array list of all the application sellers 
+    private static ArrayList<Employee> emp = new ArrayList<>();
+    //array list of all the application employees 
     private static ArrayList<Property> pr = new ArrayList<>();
+    //array list of all the application properties 
     private static ArrayList<Visit> v = new ArrayList<>();
+    //array list of all the application viewings 
     private static ArrayList<Offer> o = new ArrayList<>();
+    //array list of all the application offers 
     private static ArrayList<Offer> myoffers = new ArrayList<>();
+    //array list of all the offers belonging to the connected buyer 
 
     private static Buyer newbuyer;
+    //buyer connected 
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton5;

@@ -261,12 +261,17 @@ public class PropertyDAOImpl implements PropertyDAO {
                 //if the property considered is an apartment, we update the corresponding values to the new ones
                 {
                     PreparedStatement stmt = conn.prepareStatement("update property set description=?,price=?, location=?, numberrooms=?, numberbedrooms=?, numberfloors=?, surface=?, elevator=?,floornumber=?, parking=? where id=?");
-               
+                    //query we execute to update the fields of an apartment
                     stmt.setString(1,a.getdescription());
+                    //the first interrogation mark is replaced with the new description
                     stmt.setDouble(2,a.getprice());
+                    //the second interrogation mark is replaced with the new price
                     stmt.setString(3,a.getlocation());
-                    stmt.setInt(4, a.getnumberrooms());
+                    //the third interrogation mark is replaced with the new location
+                    stmt.setInt(4, a.getnumberrooms()); 
+                    //the fourth interrogation mark is replaced with the new number of rooms
                     stmt.setInt(5,a.getnumberbedrooms());
+                    //the fifth interrogation mark is replaced with the new number of bedrooms
                     stmt.setInt(6, a.getnumberfloors());
                     stmt.setDouble(7,a.getsurface());
                     stmt.setInt(8,a.getelevatorsql());
@@ -275,9 +280,6 @@ public class PropertyDAOImpl implements PropertyDAO {
                     stmt.setInt(11,a.getid());
                     stmt.executeUpdate();
                     conn.commit();
-                    
-                    
-             //TU COMMENTERAS SI TU AS COMPRIS
                 }
                 else
                 //otherwise, the property considered is a house, we update the corresponding values to the new ones
@@ -285,8 +287,11 @@ public class PropertyDAOImpl implements PropertyDAO {
                     PreparedStatement stmt=conn.prepareStatement("update property set description=?,price=?, location=?, numberrooms=?, numberbedrooms=?, numberfloors=?, surface=?, gardensurface=?, swimmingpool=? where id=?");
                     //sql query that sets the corresponding fields with updated values 
                     stmt.setString(1,a.getdescription());
+                    //the first interrogation mark is replaced with the new description
                     stmt.setDouble(2,a.getprice());
+                    //the second interrogation mark is replaced with the new price
                     stmt.setString(3,a.getlocation());
+                    //the third interrogation mark is replaced with the new location
                     stmt.setInt(4, a.getnumberrooms());
                     stmt.setInt(5,a.getnumberbedrooms());
                     stmt.setInt(6, a.getnumberfloors());
@@ -299,7 +304,6 @@ public class PropertyDAOImpl implements PropertyDAO {
                 }
 
               
-                //COMMIT statement to the MySQL server
                 conn.close();
                 //Always close the connection
 

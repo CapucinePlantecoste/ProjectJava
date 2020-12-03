@@ -184,7 +184,7 @@ public class EmployeeAddViewing extends javax.swing.JFrame {
 
         jLabel6.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(0, 153, 153));
-        jLabel6.setText("Day");
+        jLabel6.setText("Day (dd)");
 
         jTextFieldHour.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
@@ -194,7 +194,7 @@ public class EmployeeAddViewing extends javax.swing.JFrame {
 
         jLabel7.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(0, 153, 153));
-        jLabel7.setText("Month");
+        jLabel7.setText("Month (MM)");
 
         jTextFieldYear.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
         jTextFieldYear.addActionListener(new java.awt.event.ActionListener() {
@@ -210,7 +210,7 @@ public class EmployeeAddViewing extends javax.swing.JFrame {
 
         jLabel8.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(0, 153, 153));
-        jLabel8.setText("Year");
+        jLabel8.setText("Year (yyyy)");
 
         jTextFieldMonth.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
         jTextFieldMonth.addActionListener(new java.awt.event.ActionListener() {
@@ -226,7 +226,7 @@ public class EmployeeAddViewing extends javax.swing.JFrame {
 
         jLabel9.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(0, 153, 153));
-        jLabel9.setText("Hour");
+        jLabel9.setText("Hour (hh)");
 
         jTextField1.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
         jTextField1.addActionListener(new java.awt.event.ActionListener() {
@@ -242,7 +242,7 @@ public class EmployeeAddViewing extends javax.swing.JFrame {
 
         jLabel10.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(0, 153, 153));
-        jLabel10.setText("Minutes");
+        jLabel10.setText("Minutes (mm)");
 
         jTextFieldMinutes.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
         jTextFieldMinutes.addActionListener(new java.awt.event.ActionListener() {
@@ -273,31 +273,30 @@ public class EmployeeAddViewing extends javax.swing.JFrame {
             .addGroup(jPanelViewingLayout.createSequentialGroup()
                 .addGroup(jPanelViewingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanelViewingLayout.createSequentialGroup()
-                        .addGap(134, 134, 134)
-                        .addGroup(jPanelViewingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(jPanelViewingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(jPanelViewingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(jPanelViewingLayout.createSequentialGroup()
-                                    .addGap(10, 10, 10)
-                                    .addGroup(jPanelViewingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jLabel9)
-                                        .addComponent(jLabel8))))
+                        .addGap(124, 124, 124)
+                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanelViewingLayout.createSequentialGroup()
+                        .addGroup(jPanelViewingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelViewingLayout.createSequentialGroup()
+                                .addGroup(jPanelViewingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(18, 18, 18))
                             .addGroup(jPanelViewingLayout.createSequentialGroup()
-                                .addComponent(jLabel10)
-                                .addGap(16, 16, 16)))
+                                .addGap(144, 144, 144)
+                                .addGroup(jPanelViewingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel10)
+                                    .addComponent(jLabel9))
+                                .addGap(22, 22, 22)))
                         .addGroup(jPanelViewingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jTextFieldYear, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jTextFieldMonth, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jTextFieldHour, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jTextFieldMinutes, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton2)))
-                    .addGroup(jPanelViewingLayout.createSequentialGroup()
-                        .addGap(124, 124, 124)
-                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(52, Short.MAX_VALUE))
+                            .addComponent(jButton2))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanelViewingLayout.setVerticalGroup(
             jPanelViewingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
