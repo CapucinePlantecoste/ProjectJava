@@ -14,9 +14,5 @@ public class Employee extends Person {
         //constructor of the Person class
     }
 
-    /*@Override
-     public void display()
-     {
-        
-     }*/
+   
 }

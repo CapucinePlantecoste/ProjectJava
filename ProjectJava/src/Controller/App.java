@@ -108,9 +108,6 @@ public class App {
 
         f.setVisible(true);
         //we open the frame and let it visible 
-        for (int i = 0; i < v.size(); ++i) {
-            System.out.println(v.get(i).getidbuyer());
-        }
-
+       
     }
 }

@@ -7,6 +7,7 @@ import Model.Property;
 import Model.House;
 import Model.Appartment;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -249,7 +250,7 @@ public class PropertyDAOImpl implements PropertyDAO {
             //we create an object of dataSource, in order to connect to the database
             conn = db.createConnection();
             //we create and establish the connection
-            Statement stmt = conn.createStatement();
+           
             //we create a statement to dialog with the database
 
             conn.setAutoCommit(false);
@@ -259,19 +260,45 @@ public class PropertyDAOImpl implements PropertyDAO {
                 if(b==1)
                 //if the property considered is an apartment, we update the corresponding values to the new ones
                 {
-                    /*String updateQuary="update property"
-                            +"set description="+a.getdescription()""
-                    +"where id"
-                stmt.executeUpdate("UPDATE property "+" SET description='"+a.getdescription()"' "+" where id='"+ a.getid() +"';");*/
-                //sql query that sets the corresponding fields with updated values 
+                    PreparedStatement stmt = conn.prepareStatement("update property set description=?,price=?, location=?, numberrooms=?, numberbedrooms=?, numberfloors=?, surface=?, elevator=?,floornumber=?, parking=? where id=?");
+               
+                    stmt.setString(1,a.getdescription());
+                    stmt.setDouble(2,a.getprice());
+                    stmt.setString(3,a.getlocation());
+                    stmt.setInt(4, a.getnumberrooms());
+                    stmt.setInt(5,a.getnumberbedrooms());
+                    stmt.setInt(6, a.getnumberfloors());
+                    stmt.setDouble(7,a.getsurface());
+                    stmt.setInt(8,a.getelevatorsql());
+                    stmt.setInt(9,a.getfloornumber());
+                    stmt.setInt(10,a.getparkingsql());
+                    stmt.setInt(11,a.getid());
+                    stmt.executeUpdate();
+                    conn.commit();
+                    
+                    
+             //TU COMMENTERAS SI TU AS COMPRIS
                 }
                 else
                 //otherwise, the property considered is a house, we update the corresponding values to the new ones
                 {
+                    PreparedStatement stmt=conn.prepareStatement("update property set description=?,price=?, location=?, numberrooms=?, numberbedrooms=?, numberfloors=?, surface=?, gardensurface=?, swimmingpool=? where id=?");
                     //sql query that sets the corresponding fields with updated values 
+                    stmt.setString(1,a.getdescription());
+                    stmt.setDouble(2,a.getprice());
+                    stmt.setString(3,a.getlocation());
+                    stmt.setInt(4, a.getnumberrooms());
+                    stmt.setInt(5,a.getnumberbedrooms());
+                    stmt.setInt(6, a.getnumberfloors());
+                    stmt.setDouble(7,a.getsurface());
+                    stmt.setDouble(8,a.getgardensurface());
+                    stmt.setInt(9,a.getswimmingpoolsql());
+                    stmt.setInt(10,a.getid());
+                    stmt.executeUpdate();
+                     conn.commit();
                 }
 
-                conn.commit();
+              
                 //COMMIT statement to the MySQL server
                 conn.close();
                 //Always close the connection

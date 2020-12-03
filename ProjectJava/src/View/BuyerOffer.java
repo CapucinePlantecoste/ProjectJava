@@ -243,15 +243,16 @@ public class BuyerOffer extends javax.swing.JFrame {
         
 
         String selected = (String) jComboBox1.getSelectedItem();
-        if (selected.equals("Select one of the following properties")) {
+        if (selected.equals("Select one of your following offers")) {
             
-            //jPanelOffer.hide();
+            jPanelOffers.hide();
         } else {
+            System.out.println(selected);
             for (int i = 0; i < myoffers.size(); i++) {
                 {
                     for(int j=0;j<pr.size();++j)
                     {
-                        if(selected.equals(pr.get(j).getdescription()+" idoffer :"+myoffers.get(i).getid()))
+                        if(selected.equals(pr.get(j).getdescription()+" idoffer : "+myoffers.get(i).getid()))
                         {
                             tampon=i;
                         }
@@ -326,7 +327,7 @@ public class BuyerOffer extends javax.swing.JFrame {
             for (int j = 0; j < pr.size(); ++j) {
                 
                 if (myoffers.get(i).getidprop() == pr.get(j).getid()) {
-                    jComboBox1.addItem(pr.get(j).getdescription()+" idoffer: "+myoffers.get(i).getid());
+                    jComboBox1.addItem(pr.get(j).getdescription()+" idoffer : "+myoffers.get(i).getid());
                    
                 }
             }

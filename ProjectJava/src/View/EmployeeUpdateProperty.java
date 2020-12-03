@@ -625,10 +625,10 @@ public class EmployeeUpdateProperty extends javax.swing.JFrame {
                     .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanelHouseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextFieldGardenSurface, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextFieldSP, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextFieldNumberFloor, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanelHouseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jTextFieldSP, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextFieldNumberFloor, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextFieldGardenSurface, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanelHouseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addGroup(jPanelHouseLayout.createSequentialGroup()
@@ -829,7 +829,7 @@ public class EmployeeUpdateProperty extends javax.swing.JFrame {
 
             }
         }
-        
+       
          if (jTextFieldPrice.getText().trim().isEmpty() || jTextFieldLocation.getText().trim().isEmpty() || jTextFieldNumberRoom.getText().trim().isEmpty() || jTextFieldNumberFloor.getText().trim().isEmpty() ||jTextFieldGardenSurface.getText().trim().isEmpty()|| jTextFieldSurface.getText().trim().isEmpty() || jTextFieldNumberBedroom.getText().trim().isEmpty() || jTextFieldDescription.getText().trim().isEmpty() || jTextFieldSP.getText().trim().isEmpty()) {
             JOptionPane.showMessageDialog(null, "One of several fields are empty");
         }
@@ -857,6 +857,12 @@ public class EmployeeUpdateProperty extends javax.swing.JFrame {
                 {
                     pr.get(tampon).setswimmingpool(false);
                 }
+                  pdao.update(pr.get(tampon),2);
+                JOptionPane.showMessageDialog(null,"The changes have been updated");
+                this.setVisible(false);
+                EmployeeUpdateProperty a =new EmployeeUpdateProperty(employee, buyers, sellers, emp, pr, v, o);
+                a.setVisible(true);
+                
              }
          }
     }//GEN-LAST:event_jButton2ActionPerformed
@@ -912,6 +918,11 @@ public class EmployeeUpdateProperty extends javax.swing.JFrame {
                 {
                     pr.get(tampon).setelevator(false);
                 }
+                pdao.update(pr.get(tampon),1);
+                JOptionPane.showMessageDialog(null,"The changes have been updated");
+                this.setVisible(false);
+                EmployeeUpdateProperty a =new EmployeeUpdateProperty(employee, buyers, sellers, emp, pr, v, o);
+                a.setVisible(true); 
                 
             }
         }

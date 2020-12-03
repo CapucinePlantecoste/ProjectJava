@@ -18,6 +18,7 @@ import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import Model.PropertyDAOImpl;
 import Model.SellerDAOImpl;
+import java.util.regex.Pattern;
 
 /**
  *
@@ -1000,7 +1001,21 @@ public class EmployeeNewProperty extends javax.swing.JFrame {
 
         } else if (!jPasswordField2.getText().equals(jPasswordField1.getText())) {
             JOptionPane.showMessageDialog(null, "The two passwords are not the same. Please, try again.");
-        } else {
+        } 
+                 //This next else if checks if the username field has an email format
+        // We use a regex in order to deal with that
+        //We use the Pattern.matches function that checks if the patternf of the text field is valid for an email adress
+        //^:indicate that the field must start with a character that can only be a letter(lower or upper case) or a number 
+        //Then it is followed by a string that contains only letters, numbers or  points(length max =100000 and length min=0 in case if the email adress has only one character before the arobase) 
+        //Then this string must have an @ and only 1 that is why we have [@]{1}
+        //Then it is followed by a string that contains only letters or numbers
+        // Then we have 1 and only 1 point that is why we have [.]{1}
+        // It is followed by a string which contains only letters
+        //The $ sign indicates that the string must end here
+        else if(!(Pattern.matches("^[a-zA-Z0-9]{1}+[a-zA-Z0-9-.]{0,10000}+[@]{1}+[a-zA-Z0-9]+[.]{1}+[a-zA-Z]+$",jTextFieldUsername.getText())))
+        {
+            JOptionPane.showMessageDialog(null," Please enter a valid email adress");
+        }else {
             t = this.test();
             if (t != 0) {
                 JOptionPane.showMessageDialog(null, "Username already used. Please, chose another one.");
@@ -1328,7 +1343,7 @@ public class EmployeeNewProperty extends javax.swing.JFrame {
                 pr.add(new Appartment(newid, jTextFieldDescription1.getText(), Double.parseDouble(jTextFieldPrice1.getText()), jTextFieldLocation1.getText(), Integer.parseInt(jTextFieldNumberRoom1.getText()), Integer.parseInt(jTextFieldNumberBedroom1.getText()), Integer.parseInt(jTextFieldNumberFloor1.getText()), 0, Double.parseDouble(jTextFieldSurface1.getText()), idseller, false, "Apartment", true, Integer.parseInt(jTextFieldFloorNumber.getText()), true));
 
             } else {
-                System.out.println("cacaca");
+                
                  pr.add(new Appartment(newid, jTextFieldDescription1.getText(), Double.parseDouble(jTextFieldPrice1.getText()), jTextFieldLocation1.getText(), Integer.parseInt(jTextFieldNumberRoom1.getText()), Integer.parseInt(jTextFieldNumberBedroom1.getText()), Integer.parseInt(jTextFieldNumberFloor1.getText()), 0, Double.parseDouble(jTextFieldSurface1.getText()), idseller, false, "Apartment", true, Integer.parseInt(jTextFieldFloorNumber.getText()), false));
               
             }

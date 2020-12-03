@@ -72,5 +72,5 @@ public abstract class Person {
       {
           return id;
       }
-      //public abstract void display();//Overwritten function in the subclasses
+      
 }
