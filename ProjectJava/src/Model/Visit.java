@@ -9,6 +9,7 @@ import java.sql.Timestamp;
 public class Visit {
     
     //all the attributes of the visit class
+    //id, id of the buyer, id of the property, id of the employee who makes the viewing, date of the viewing ts, duration of the viewin
     private int id;
     private int idbuyer;
     private int idprop;
@@ -73,9 +74,6 @@ public class Visit {
     {
         idbuyer=idb;
     }
-    /*public java.sql.Date getdate()
-    {
-        return d;
-    }*/
+    
     
 }

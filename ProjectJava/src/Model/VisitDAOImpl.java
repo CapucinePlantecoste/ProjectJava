@@ -1,9 +1,7 @@
 //this class implements all the function of the ViewingsDAO class
 package Model;
 
-import Model.VisitDAO;
-import Model.DataSource;
-import Model.Visit;
+
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -23,7 +21,7 @@ public class VisitDAOImpl implements VisitDAO {
     public ArrayList<Visit> registervisit() {
     //this method enables to get all the viewings contained in the database    
         Connection conn = null;
-        ArrayList<Visit> visits = new ArrayList<Visit>();
+        ArrayList<Visit> visits = new ArrayList<>();
         //we create an arraylist of viewings to store them later
         try {
             DataSource db = new DataSource();
@@ -83,6 +81,7 @@ public class VisitDAOImpl implements VisitDAO {
 
                 stmt.executeUpdate("INSERT INTO visit " + " (idvisit,schedule, idemployee, idbuyer, idproperty,duration) " + "VALUES" + "('" + a.getid() + "','" + a.gettime() + "','" + a.getidemp() + "',null,'" + a.getidprop() + "','" + a.getduration() + "' )");
                 //we add new values for a new visit into the database through this sql query 
+                //When it is added a viewing doesn't have a buyer that wants to visit it yet so we put null for the idbuyer attribute
                 conn.commit();
                 //COMMIT statement to the MySQL server
                 conn.close();
@@ -150,7 +149,7 @@ public class VisitDAOImpl implements VisitDAO {
             try {
 
                 stmt.executeUpdate("UPDATE visit SET idbuyer='"+a.getidbuyer()+"' where idvisit='" + a.getid() + "';");
-                //we update the corresponding values of table visit through this sql request 
+                //as we said before a viewing doesn't have a buyer that wants to visit the property at the begining but when a buyer books this viewing we have to update the idbuyer field of the viewing
                 conn.commit();
                 //COMMIT statement to the MySQL server
                 conn.close();

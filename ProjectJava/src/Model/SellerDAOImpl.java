@@ -1,9 +1,7 @@
 //this class implements all the function of the SellerDAO class
 package Model;
 
-import Model.SellerDAO;
-import Model.DataSource;
-import Model.Seller;
+
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -22,7 +20,7 @@ public class SellerDAOImpl implements SellerDAO {
     //this method enables to get all the sellers contained in the database
     {
         Connection conn = null;
-        ArrayList<Seller> sellers = new ArrayList<Seller>();
+        ArrayList<Seller> sellers = new ArrayList<>();
         //we create an arraylist of sellers to store them later
         try {
             DataSource db = new DataSource();
@@ -79,7 +77,7 @@ public class SellerDAOImpl implements SellerDAO {
             try {
 
                 stmt.executeUpdate("INSERT INTO seller " + " (idseller,name, familyname, username, password) " + "VALUES" + "('" + a.getid() + "','" + a.getname() + "','" + a.getfamilyname() + "','" + a.getusername() + "','" + a.getpassword() + "' )");
-                //we insert the sellers property inside the databse through this sql query
+                //we insert the sellers attributes inside the databse through this sql query
                 conn.commit();
                 //COMMIT statement to the MySQL server
                 conn.close();

@@ -16,11 +16,12 @@ public class Appartment extends Property {
     private boolean parking;
     //Parking available or not
 
+    //constuctor of the apartment class
     public Appartment(int i, String d, double p, String l, int nr, int nbr, int nbf, int tv, double s, int ids, boolean soldprop, String t, boolean e, int fnb, boolean prkg)//Constructor
     {
-        //constuctor of the apartment class
-        super(i, d, p, l, nr, nbr, nbf, tv, s, ids, soldprop, t);
         //constructor of property
+        super(i, d, p, l, nr, nbr, nbf, tv, s, ids, soldprop, t);
+       
         elevator = e;
         floornumber = fnb;
         parking = prkg;
@@ -33,19 +34,19 @@ public class Appartment extends Property {
     }
 
     @Override
-    public boolean getparking() //getter to obtain if there is a parking
+    public boolean getparking() //getter to obtain if there is a parking or not
     {
         return parking;
     }
 
     @Override
-    public boolean getelevator() //getter to obtain if there is an elevator
+    public boolean getelevator() //getter to obtain if there is an elevator or not
     {
         return elevator;
     }
 
     @Override
-    public int getelevatorsql() //in MySQL, we cannot asign a boolean to true or false, so we give it the 0 or 1 value
+    public int getelevatorsql() //in MySQL, we cannot assign a boolean to true or false, so we give it the 0 or 1 value
     {
         int a;
         if (this.getelevator() == true) //if there is an elevator, the boolean is true, 

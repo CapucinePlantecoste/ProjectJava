@@ -1,9 +1,7 @@
 //this class implements all the function of the employeeDAO class
 package Model;
 
-import Model.EmployeeDAO;
-import Model.DataSource;
-import Model.Employee;
+
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -17,10 +15,11 @@ import java.util.ArrayList;
 public class EmployeeDAOImpl implements EmployeeDAO {
 //we implement the superclass employeeDAO
 
-    public ArrayList<Employee> registeremployee() //this method is used to get the employees registered in the database
+    @Override
+    public ArrayList<Employee> registeremployee() //this method is used to get the employees registered from the database
     {
         Connection conn = null;
-        ArrayList<Employee> emp = new ArrayList<Employee>();
+        ArrayList<Employee> emp = new ArrayList<>();
         //we create an arraylist of employees to store them later
         try {
             DataSource db = new DataSource();

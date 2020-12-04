@@ -42,7 +42,10 @@ public class BuyerFirst extends javax.swing.JFrame {
         //temporary buffer
 
         initComponents();
+        
         //automatic constructor of the components 
+        this.nom();
+        //We display a welcoming message for the buyer when he connects to his account
     }
 
     /**
@@ -320,7 +323,7 @@ public class BuyerFirst extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        //this button is the lof out button
+        //this button is the log out button
         setVisible(false);
         //this page disappears when we log out
         new First(buyers, sellers, emp, pr, v, o).toFront();
@@ -331,7 +334,7 @@ public class BuyerFirst extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        //button "see my viewings", enabling the buyer to see his viewings to come 
+        //button "see my viewings", enabling the buyer to see his viewings to come or passed
         ArrayList<Visit> myviewings = new ArrayList<>();
         //we create an array list of the viewings of the buyer 
 
@@ -343,13 +346,14 @@ public class BuyerFirst extends javax.swing.JFrame {
                 //we add this particular viewing in our personal list of viewings 
             }
         }
-        if (myviewings.size() == 0) {
+        if (myviewings.isEmpty()) {
             //if there is no viewings booked 
             JOptionPane.showMessageDialog(null, "You do not have any viewing"); 
             //message shown to say so
         } else {
             //if the buyer has booked viewings 
         
+            this.setVisible(false);
             BuyerViewings a= new BuyerViewings (newbuyer, buyers, sellers, emp, pr, v, o, myviewings); 
             //we open a new frame that will show him his viewings 
             a.setVisible(true); 
@@ -363,22 +367,26 @@ public class BuyerFirst extends javax.swing.JFrame {
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         //button search after the user entered the fields to search for a property
         double minpr = this.getvalue7();
-        //we have created fuctions to get all the fields entered by the user ; 
+        //we have created fuctions to get all the fields entered by the user ;
+        //We get the minimumprice
         double maxpr = this.getvalue2();
         //we get the maximum price 
         double minsurf = this.getvalue1();
-        //we get tje minimum surface
+        //we get the minimum surface
         double maxsurf = this.getvalue5();
+        //Maximum surface
         double minnbrooms = this.getvalue6();
+        //Minimum rooms
         double minnbbedrooms = this.getvalue4();
+        //Minimum bedrooms
         ArrayList<Property> results = new ArrayList<>();
         //we create an arraylist of the properties corresponding to the criteria the user entered 
         if (tampon == 1) {
         //if the user did not select anything beteen 'apartment' or 'house in the criteria 
             if (jTextField3.getText().isEmpty()) {
             //if the loation field is empty
-                for (int i = 0; i < pr.size(); i++) {
-                //we go through all our properties in the database 
+                for (int i = 0; i < pr.size(); ++i) {
+                //we go through all our properties that we got in the database 
                     if (pr.get(i).getprice() > minpr && pr.get(i).getprice() < maxpr && pr.get(i).getsurface() > minsurf && pr.get(i).getsurface() < maxsurf && pr.get(i).getnumberrooms() > minnbrooms && pr.get(i).getnumberbedrooms() > minnbbedrooms && pr.get(i).getsold()==false) {
                     //if the property selected coresponds to all the criteria    
                         results.add(pr.get(i));
@@ -388,7 +396,7 @@ public class BuyerFirst extends javax.swing.JFrame {
             } else
             //otherwise, if a location is entered
             {
-                for (int i = 0; i < pr.size(); i++) {
+                for (int i = 0; i < pr.size(); ++i) {
                 //we go through all our property list
                     if (pr.get(i).getlocation().equals(jTextField3.getText()) && pr.get(i).getprice() > minpr && pr.get(i).getprice() < maxpr && pr.get(i).getsurface() > minsurf && pr.get(i).getsurface() < maxsurf && pr.get(i).getnumberrooms() > minnbrooms && pr.get(i).getnumberbedrooms() > minnbbedrooms && pr.get(i).getsold()==false) {
                     //if the selected property corresponds to all the criteria      
@@ -401,8 +409,8 @@ public class BuyerFirst extends javax.swing.JFrame {
         //otherwise, if the user selected a house
             if (jTextField3.getText().isEmpty()) {
             //if the location field is empty
-                for (int i = 0; i < pr.size(); i++) {
-                //we go through all our property list
+                for (int i = 0; i < pr.size(); ++i) {
+                //we go through all our property list and look for the houses that have all these criteria
                     if (pr.get(i).gettype().equals("House") && pr.get(i).getprice() > minpr && pr.get(i).getprice() < maxpr && pr.get(i).getsurface() > minsurf && pr.get(i).getsurface() < maxsurf && pr.get(i).getnumberrooms() > minnbrooms && pr.get(i).getnumberbedrooms() > minnbbedrooms && pr.get(i).getsold()==false) {
                     //if the selected property coresponds to all the criteria     
                         results.add(pr.get(i));
@@ -412,7 +420,7 @@ public class BuyerFirst extends javax.swing.JFrame {
             } else {
             //if the location field is not empty
                 for (int i = 0; i < pr.size(); i++) {
-                //we go through all our property list
+                //we go through all our property list and look for the houses that have all these criteria
                     if (pr.get(i).gettype().equals("House") && pr.get(i).getlocation().equals(jTextField3.getText()) && pr.get(i).getprice() > minpr && pr.get(i).getprice() < maxpr && pr.get(i).getsurface() > minsurf && pr.get(i).getsurface() < maxsurf && pr.get(i).getnumberrooms() > minnbrooms && pr.get(i).getnumberbedrooms() > minnbbedrooms && pr.get(i).getsold()==false) {
                     //if the selected property coresponds to all the criteria     
                         results.add(pr.get(i));
@@ -424,8 +432,8 @@ public class BuyerFirst extends javax.swing.JFrame {
         //otherwise, if the user selected an apartment
             if (jTextField3.getText().isEmpty()) {
             //if the location field is empty
-                for (int i = 0; i < pr.size(); i++) {
-                //we go through all our property list
+                for (int i = 0; i < pr.size(); ++i) {
+                //we go through all our property list and look for all the apartments that have all these criteria
                     if (pr.get(i).gettype().equals("Apartment") && pr.get(i).getprice() > minpr && pr.get(i).getprice() < maxpr && pr.get(i).getsurface() > minsurf && pr.get(i).getsurface() < maxsurf && pr.get(i).getnumberrooms() > minnbrooms && pr.get(i).getnumberbedrooms() > minnbbedrooms && pr.get(i).getsold()==false) {
                     //if the selected property coresponds to all the criteria     
                         results.add(pr.get(i));
@@ -434,8 +442,8 @@ public class BuyerFirst extends javax.swing.JFrame {
                 }
             } else {
             //if the location field is not empty
-                for (int i = 0; i < pr.size(); i++) {
-                //we go through all our property list
+                for (int i = 0; i < pr.size(); ++i) {
+                //we go through all our property list and look for all the apartments that have all these criteria
                     if (pr.get(i).gettype().equals("Apartment") && pr.get(i).getlocation().equals(jTextField3.getText()) && pr.get(i).getprice() > minpr && pr.get(i).getprice() < maxpr && pr.get(i).getsurface() > minsurf && pr.get(i).getsurface() < maxsurf && pr.get(i).getnumberrooms() > minnbrooms && pr.get(i).getnumberbedrooms() > minnbbedrooms && pr.get(i).getsold()==false) {
                     //if the selected property coresponds to all the criteria    
                         results.add(pr.get(i));
@@ -444,16 +452,18 @@ public class BuyerFirst extends javax.swing.JFrame {
                 }
             }
         }
-        if (results.size() == 0) {
-        //if there is no results found     
+        if (results.isEmpty()) {
+        //if there is no result found     
             JOptionPane.showMessageDialog(null, "No results found"); 
             //message shown to say so
             
         } else {
         //otherwise, if there are results    
             
+            this.setVisible(false);
             BuyerResults a= new BuyerResults (newbuyer, buyers, sellers, emp, pr, v, o, results); 
             //we open a new frame which will display all the results
+            
             a.setVisible(true); 
             //we set visible the next frame            
         }
@@ -468,23 +478,23 @@ public class BuyerFirst extends javax.swing.JFrame {
     private void jTextField7KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField7KeyTyped
         //function that unables the user to enter something else than digit (because we want a minimum price)
         char c = evt.getKeyChar();
-        if (Character.isLetter(c) && !evt.isAltDown()) {
+        if (!Character.isDigit(c)) {
             evt.consume();
         }
     }//GEN-LAST:event_jTextField7KeyTyped
 
     private void jTextField5KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField5KeyTyped
         //function that unables the user to enter something else than digit (because we want a maximum surface)
-        char c = evt.getKeyChar();
-        if (Character.isLetter(c) && !evt.isAltDown()) {
+      char c = evt.getKeyChar();
+        if (!Character.isDigit(c)) {
             evt.consume();
         }
     }//GEN-LAST:event_jTextField5KeyTyped
 
     private void jTextField4KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField4KeyTyped
         //function that unables the user to enter something else than digit (because we want a minimum number of bedrooms)
-        char c = evt.getKeyChar();
-        if (Character.isLetter(c) && !evt.isAltDown()) {
+       char c = evt.getKeyChar();
+        if (!Character.isDigit(c)) {
             evt.consume();
         }
     }//GEN-LAST:event_jTextField4KeyTyped
@@ -492,15 +502,15 @@ public class BuyerFirst extends javax.swing.JFrame {
     private void jTextField2KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField2KeyTyped
         //function that unables the user to enter something else than digit (because we want a maximum price)
         char c = evt.getKeyChar();
-        if (Character.isLetter(c) && !evt.isAltDown()) {
+        if (!Character.isDigit(c)) {
             evt.consume();
         }
     }//GEN-LAST:event_jTextField2KeyTyped
 
     private void jTextField1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField1KeyTyped
         //function that unables the user to enter something else than digit (because we want a minimum surface)
-        char c = evt.getKeyChar();
-        if (Character.isLetter(c) && !evt.isAltDown()) {
+       char c = evt.getKeyChar();
+        if (!Character.isDigit(c)) {
             evt.consume();
         }
     }//GEN-LAST:event_jTextField1KeyTyped
@@ -511,8 +521,8 @@ public class BuyerFirst extends javax.swing.JFrame {
 
     private void jTextField6KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField6KeyTyped
         //function that unables the user to enter something else than digit (because we want a minimum number of bedrooms)
-        char c = evt.getKeyChar();
-        if (Character.isLetter(c) && !evt.isAltDown()) {
+      char c = evt.getKeyChar();
+        if (!Character.isDigit(c)) {
             evt.consume();
         }
     }//GEN-LAST:event_jTextField6KeyTyped
@@ -529,8 +539,9 @@ public class BuyerFirst extends javax.swing.JFrame {
         // jComboBox coresponding to the type of property : there can be no type, or apartment type or house type
         String selected = (String) jComboBox1.getSelectedItem();
         //we get the choice that has been selected in the combobox
+        //By default the buffer is 1 because "No preferneces is the choice that the buyer sees without clicking on the jComboBox
         if (selected.equals("No preferences")) {
-        //if no choice has been made 
+        //if no choice has been made  or if the user clicks on No preferences
             tampon = 1;
             //we fix the buffer to 1, and will use this later 
         } else if (selected.equals("House")) {
@@ -551,16 +562,16 @@ public class BuyerFirst extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         //See my offers button
         ArrayList<Offer> myoffers = new ArrayList<>();
-        //we create a new arraylist of the offers coresponding to the connected buyer 
+        //we create a new arraylist of the offers coresponding to the connected buyer 's one
         for (int i = 0; i < o.size(); ++i) {
         //we go through all our offers get from the database
             if (o.get(i).getidbuyer() == newbuyer.getid()) {
-            //if the offer selected coresponds to the offer of the connected buyer
+            //if the offer has the idbuyer that is equals to the id of the buyer connected 
                 myoffers.add(o.get(i));
                 //we add the offer to the personal list of offer
             }
         }
-        if (myoffers.size() == 0) {
+        if (myoffers.isEmpty()) {
         //if there is no offer    
             JOptionPane.showMessageDialog(null, "You do not have any offer"); 
             //message shown to say so
@@ -568,9 +579,11 @@ public class BuyerFirst extends javax.swing.JFrame {
         } else {
         //otherwise, if we have offers 
             
+          
             BuyerOffer a= new BuyerOffer (newbuyer, buyers, sellers, emp, pr, v, o, myoffers); 
             //we open a new frame where the buyer will be able to see his offers
             a.setVisible(true);
+            this.setVisible(false);
             //we set the new frame visible 
         }
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -598,11 +611,11 @@ public class BuyerFirst extends javax.swing.JFrame {
         if (jTextField2.getText().trim().isEmpty()) {
             //if the field is empty
             maxpr = 300000000;
-            //we set the value to a very big number 
+            //we set the value to a very big number never reached 
         } else {
             //otherwise
             maxpr = Double.parseDouble(jTextField2.getText());
-            //we get the value and we convert it to a double
+            //we get the String from this fieldand we convert it to a double
         }
         return maxpr;
         //we get the double value of the maximum price
@@ -618,7 +631,7 @@ public class BuyerFirst extends javax.swing.JFrame {
         } else {
             //otherwise
             minsurf = Double.parseDouble(jTextField1.getText());
-            //we get the value and we convert it to a double
+            //we get the String  and we convert it to a double
         }
         return minsurf;
         //we get the double value of the minimum surface
@@ -635,7 +648,7 @@ public class BuyerFirst extends javax.swing.JFrame {
         } else {
             //otherwise
             maxsurf = Double.parseDouble(jTextField5.getText());
-            //we get the value and we convert it to a double 
+            //we get the String and we convert it to a double 
         }
         return maxsurf;
         //we get the value of the maximum surface
@@ -651,7 +664,7 @@ public class BuyerFirst extends javax.swing.JFrame {
         } else {
             //otherwise
             minnbrooms = Double.parseDouble(jTextField6.getText());
-            //we get the value and we convert it to a double
+            //we get the String and we convert it to a double
         }
         return minnbrooms;
         //we get the value of the minimum number of rooms 
@@ -668,7 +681,7 @@ public class BuyerFirst extends javax.swing.JFrame {
         } else {
             //otherwise
             minnbbedrooms = Double.parseDouble(jTextField4.getText());
-            //we get the value and we convert it to a double
+            //we get the String and we convert it to a double
         }
         return minnbbedrooms;
         //we get the value of the minimum number of bedrooms
@@ -708,6 +721,7 @@ public class BuyerFirst extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
+            @Override
             public void run() {
                 new BuyerFirst(newbuyer, buyers, sellers, emp, pr, v, o).setVisible(true);
             }

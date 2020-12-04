@@ -77,7 +77,6 @@ public class SellerNewPropertyApartment extends javax.swing.JFrame {
         jTextField7 = new javax.swing.JTextField();
         jComboBox2 = new javax.swing.JComboBox();
         jButton2 = new javax.swing.JButton();
-        jLabel14 = new javax.swing.JLabel();
         jTextField8 = new javax.swing.JTextField();
         jLabel15 = new javax.swing.JLabel();
 
@@ -316,12 +315,6 @@ public class SellerNewPropertyApartment extends javax.swing.JFrame {
         });
         jPanel2.add(jButton2);
         jButton2.setBounds(1010, 660, 350, 40);
-
-        jLabel14.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
-        jLabel14.setForeground(new java.awt.Color(0, 153, 153));
-        jLabel14.setText("This property will be verified by our services before being publically displayed");
-        jPanel2.add(jLabel14);
-        jLabel14.setBounds(880, 730, 600, 30);
         jPanel2.add(jTextField8);
         jTextField8.setBounds(1110, 570, 400, 30);
 
@@ -351,8 +344,9 @@ public class SellerNewPropertyApartment extends javax.swing.JFrame {
         // TODO add your handling code here:
         this.toBack();//if we click on the back button
         setVisible(false);//this page disappears
-        new SellerFirst(newseller, buyers, sellers, emp,pr,v,o).toFront();//we go back on the first page
-        new SellerFirst(newseller,buyers, sellers, emp,pr,v,o).setState(java.awt.Frame.NORMAL);
+        SellerNewProperty a=new SellerNewProperty(newseller, buyers, sellers, emp,pr,v,o);//we go back on the first page
+        a.setVisible(true);
+        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
@@ -455,6 +449,9 @@ public class SellerNewPropertyApartment extends javax.swing.JFrame {
         {
            this.addapartment();
            JOptionPane.showMessageDialog(null, "Your apartment has been successfully registered for sale");
+           this.setVisible(false);
+           SellerFirst a=new SellerFirst(newseller, buyers, sellers, emp,pr,v,o);
+           a.setVisible(true);
         }
     }//GEN-LAST:event_jButton2ActionPerformed
 
@@ -557,7 +554,6 @@ public class SellerNewPropertyApartment extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

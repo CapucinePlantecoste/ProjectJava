@@ -33,6 +33,7 @@ public class SellerFirst extends javax.swing.JFrame {
         o = off;
         newseller = a;
         initComponents();
+        this.nom();
         
        
     }
@@ -189,6 +190,7 @@ public class SellerFirst extends javax.swing.JFrame {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here: 
+        this.setVisible(false);
         new SellerNewProperty(newseller, buyers, sellers, emp, pr, v, o).setVisible(true);
 
         new SellerNewProperty(newseller, buyers, sellers, emp, pr, v, o).toFront();
@@ -213,6 +215,7 @@ public class SellerFirst extends javax.swing.JFrame {
         }
         else
         {
+            this.setVisible(false);
             SellerDeleteViewing a =new SellerDeleteViewing(newseller, buyers, sellers, emp, pr, v, o, myviewings, propviewing);
             a.setVisible(true);
         }
@@ -230,6 +233,7 @@ public class SellerFirst extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "No offers made for one of your properties or you don't have any property"); //message shown to say so
             
         } else {
+            this.setVisible(false);
             SellerOffer a= new SellerOffer (newseller, buyers, sellers, emp, pr, v, o, myoffers); 
             a.setVisible(true);
         }
@@ -249,6 +253,7 @@ public class SellerFirst extends javax.swing.JFrame {
         } else {
             //afficher le JcomboBox avec toutes les maisons a voir pour affichage
             
+            this.setVisible(false);
             SellerProperty a= new SellerProperty (newseller, buyers, sellers, emp, pr, v, o, myprop); 
             a.setVisible(true);
         }
@@ -264,7 +269,7 @@ public class SellerFirst extends javax.swing.JFrame {
             
         }
         else {
-        
+        this.setVisible(false);
         
         
             SellerAddViewing a = new SellerAddViewing (newseller, buyers, sellers, emp, pr, v, o, myprop); 

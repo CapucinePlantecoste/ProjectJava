@@ -3,13 +3,7 @@ package Controller;
 
 import Model.Offer;//All the librairies included
 import Model.Buyer;
-import javax.swing.*;
-import java.awt.*;
-import java.sql.DriverManager;
-import java.sql.SQLException;
 import java.util.ArrayList;
-import java.sql.*;
-import java.util.Scanner;
 import Model.BuyerDAOImpl;
 import Model.Employee;
 import Model.EmployeeDAOImpl;
@@ -53,58 +47,37 @@ public class App {
         //function enabling the user to register 
 
         BuyerDAOImpl bdao = new BuyerDAOImpl();
-        //creation of an object that enables the connection with buyers table 
+        //creation of an object BuyerDAOIMPl that will enable to get all the buyers from our buyer table
         SellerDAOImpl sdao = new SellerDAOImpl();
-        //creation of an object that enables the connection with sellers table
+        //creation of an object SellerDAOIMPl that will enable to get all the sellers from our seller table
         PropertyDAOImpl pdao = new PropertyDAOImpl();
-        //creation of an object that enables the connection with property table
+       //creation of an object PropertyDAOIMPl that will enable to get all the properties from our property table
         EmployeeDAOImpl edao = new EmployeeDAOImpl();
-        //creation of an object that enables the connection with employee table
+        //creation of an object EmployeeDAOIMPl that will enable to get all the employees from our employee table
         VisitDAOImpl vdao = new VisitDAOImpl();
-        //creation of an object that enables the connection with viewings table
+        //creation of an object VisitDAOIMPl that will enable to get all the visits from our visit table
         OfferDAOImpl odao = new OfferDAOImpl();
-        //creation of an object that enables the connection with offers table
+        //creation of an object OfferDAOIMPl that will enable to get all the offers from our offer table
 
         pr = pdao.registerproperty();
-        //we get the values of the property table and we store them in an arraylist
+        //we set our arraylist of Property according to those contained in the property table
         buyers = bdao.registerbuyer();
-        //we get the values of the buyers table and we store them in an arraylist
+        //we set our arraylist of Buyer according to those contained in the buyer table
         sellers = sdao.registerseller();
-        //we get the values of the sellers table and we store them in an arraylist
+        //we set our arraylist of Seller according to those contained in the seller table
         emp = edao.registeremployee();
-        //we get the values of the employee table and we store them in an arraylist
+        //we set our arraylist of Employee according to those contained in the employee table
         v = vdao.registervisit();
-        //we get the values of the visit table and we store them in an arraylist
+        //we set our arraylist of Visit according to those contained in the visit table
         o = odao.registeroffer();
-        //we get the values of the offers table and we store them in an arraylist
+        //we set our arraylist of Offer according to those contained in the offer table
     }
-
-    public ArrayList<Buyer> getbuyers() {
-        //buyers getter which returns the arraylist of buyers of the application
-        return buyers;
-    }
-
-    public ArrayList<Seller> getsellers() {
-        //sellers getter which returns the arraylist of buyers of the application
-        return sellers;
-    }
-
-    public ArrayList<Employee> getemp() {
-        //employees getter which returns the arraylist of buyers of the application
-        return emp;
-    }
-
-    public void afficher() {
-        //display the first frame called first 
-        f.setVisible(true);
-    }
-
     public void application() {
 
         this.register();
-        // we call the first function, to register 
+        // we call the first function, to register all the datas from the database
         f = new First(buyers, sellers, emp, pr, v, o);
-        //creation of an object of the frame with its 6 arguments corresponding to arraylists of buyers, sellers, employees, properties, viewings, offers...
+        //creation of an object of the first  frame of our app with its 6 arguments corresponding to arraylists of buyers, sellers, employees, properties, viewings, offers...
 
         f.setVisible(true);
         //we open the frame and let it visible 

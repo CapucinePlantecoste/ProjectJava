@@ -2,7 +2,7 @@
 
 package Model;
 
-import Model.Property;
+
 
 /**
  *
@@ -13,14 +13,16 @@ public class House extends Property {
     
     //these two following attributes are not present in the property class    
     private double gardensurface;
-    //Attributes that do not exist in the Property class
+    //Double for the garden surface of the house
     private boolean swimmingpool;
     //boolean that corresponds to if there is a swmming pool or not 
     
+    //constructor of the house class
     public House(int i,String d, double p, String l, int nr, int nbr, int nbf, int tv, double s,int ids, boolean soldprop,String t, double gs, boolean sp)//Constructor
-    {//constructor of the house class
-        super(i,d,p,l,nr,nbr,nbf,tv,s,ids,soldprop,t);
+    {
         //constructor of the property class
+        super(i,d,p,l,nr,nbr,nbf,tv,s,ids,soldprop,t);
+       
         gardensurface=gs;
         swimmingpool=sp;
     }

@@ -160,6 +160,7 @@ public abstract class Property {
     }
     
     //all these following methods are abstract and will be implmented in the subclasses apartment and house
+    //It concerns all the specific attributes of house(gardensurface, swimmingpool) or apartment(elevator,floornumber,parking)
     public abstract boolean getelevator();
     public abstract int getfloornumber();
     public abstract boolean getparking();

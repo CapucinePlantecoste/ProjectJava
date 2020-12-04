@@ -1,6 +1,5 @@
 //this class consolidates access to persistent data concerning the viewings 
 package Model;
-import Model.Visit;
 import java.util.ArrayList;
 
 /**

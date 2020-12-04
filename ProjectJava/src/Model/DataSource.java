@@ -3,8 +3,7 @@ package Model;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.SQLException;
-import java.sql.Statement;
+
 
 /**
  *
@@ -14,14 +13,14 @@ public class DataSource {
 
     Connection conn = null;
 
-    public Connection createConnection() //we create the connection, this method is reused everytime we link with the database
+    public Connection createConnection() //we create the connection, this method is reused everytime we link with the database, so in every DAO methods
     {
         try {
-            String url = "jdbc:mysql://localhost:3307/ptest?autoReconnect=true&useSSL=false";
+            String url = "jdbc:mysql://localhost:3306/ptest?autoReconnect=true&useSSL=false";
             //URL corresponding with the name of our database, here, ptest, on port 3306
             String user = "root";
             //username
-            String password = "Thomas1012!";
+            String password = "Manager26069700";
             //password to connect to MYSql 
             conn = DriverManager.getConnection(url, user, password);
             //we establish the connection

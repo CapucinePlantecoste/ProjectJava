@@ -196,6 +196,7 @@ public class ConnectingJFrame extends javax.swing.JFrame {//this frame correspon
          
                     newframe.setVisible (true); //we open the new frame
                     newframe.toFront();
+                    this.setVisible(false);
                 }
                 
 
@@ -217,6 +218,7 @@ public class ConnectingJFrame extends javax.swing.JFrame {//this frame correspon
          
                     newframe.setVisible (true); //we open the new frame
                     newframe.toFront();
+                    this.setVisible(false);
 
                 }
             }
@@ -238,6 +240,7 @@ public class ConnectingJFrame extends javax.swing.JFrame {//this frame correspon
          
                     newframe.setVisible (true); //we open the new frame
                     newframe.toFront();
+                    this.setVisible(false);
                 }
             }
             if(j==0)//connection didn't succeed because password and/or username are wrong

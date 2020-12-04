@@ -303,14 +303,16 @@ public class BuyerViewings extends javax.swing.JFrame {
         // TODO add your handling code here:
         this.toBack();//if we click on the back button
         setVisible(false);//this page disappears
-        new BuyerFirst(newbuyer, buyers, sellers, emp, pr, v, o).toFront();//we go back on the first page
+        BuyerFirst a=new BuyerFirst(newbuyer, buyers, sellers, emp, pr, v, o);//we go back on the first page
+        a.setVisible(true);
         new BuyerFirst(newbuyer, buyers, sellers, emp, pr, v, o).setState(java.awt.Frame.NORMAL);
 
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         // TODO add your handling code here:
-        //this.toBack();//if we click on the back button
+        //this.toBack();
+//if we click on the back button
         setVisible(false);//this page disappears
         new First(buyers, sellers, emp, pr, v, o).toFront();//we go back on the first page
         new First(buyers, sellers, emp, pr, v, o).setState(java.awt.Frame.NORMAL);
@@ -350,6 +352,9 @@ public class BuyerViewings extends javax.swing.JFrame {
         myviewings.remove(myviewings.get(tampon));
         v.remove(v.get(tampon3));
         JOptionPane.showMessageDialog(null," Thank you for this update");
+        this.setVisible(false);
+        BuyerViewings a=new BuyerViewings( newbuyer, buyers, sellers, emp, pr, v, o, myviewings);
+        a.setVisible(true);
         
         
         

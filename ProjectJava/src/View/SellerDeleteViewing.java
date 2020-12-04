@@ -291,7 +291,8 @@ public class SellerDeleteViewing extends javax.swing.JFrame {
         // TODO add your handling code here:
         this.toBack();//if we click on the back button
         setVisible(false);//this page disappears
-        new SellerFirst(newseller, buyers, sellers, emp, pr, v, o).toFront();//we go back on the first page
+        SellerFirst a=new SellerFirst(newseller, buyers, sellers, emp, pr, v, o);//we go back on the first page
+        a.setVisible(true);
         new SellerFirst(newseller, buyers, sellers, emp, pr, v, o).setState(java.awt.Frame.NORMAL);
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -367,9 +368,21 @@ public class SellerDeleteViewing extends javax.swing.JFrame {
               vdao.deleteviewing(myviewings.get(tampon2));
             myviewings.remove(myviewings.get(tampon2));
             v.remove(v.get(tampon3));
+            int buffer=0;
+            for(int i=0;i<myviewings.size();++i)
+            {
+                if(myviewings.get(i).getidprop()==propviewing.get(tampon).getid())
+                {
+                    buffer++;
+                }
+            }
+            if(buffer==0)
+            {
+                propviewing.remove(propviewing.get(tampon));
+            }
             JOptionPane.showMessageDialog(null, "Viewing deleted"); 
             this.setVisible(false);
-            SellerFirst a=new SellerFirst(newseller, buyers, sellers, emp, pr, v, o);
+            SellerDeleteViewing a=new SellerDeleteViewing(newseller, buyers, sellers, emp, pr, v, o,myviewings,propviewing);
             a.setVisible(true);
             
             

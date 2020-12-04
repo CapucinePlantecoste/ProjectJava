@@ -525,7 +525,7 @@ public class BuyerResults extends javax.swing.JFrame {
         String selected = (String) jComboBox1.getSelectedItem();
         //we get what has been selected from the combo box
         if (selected.equals("Select one of the following properties")) {
-            //if nothing has been selected 
+            //if Select one of the following properties has been selected 
            jPanelApartment.hide();
            jPanelHouse.hide();
            //nothing happens, everything remains hidden
@@ -541,7 +541,7 @@ public class BuyerResults extends javax.swing.JFrame {
                 }
             }            
             this.display(result.get(tampon));
-            //then we call the display function (see behind) to display all the details about the selected property  
+            //then we call the display function (see behind) to display all the details about the selected property  with the help of the buffer
         }
     }//GEN-LAST:event_jComboBox1ActionPerformed
 
@@ -551,7 +551,8 @@ public class BuyerResults extends javax.swing.JFrame {
         //if we click on the back button
         setVisible(false);
         //this page disappears
-        new BuyerFirst(newbuyer, buyers, sellers, emp, pr, v, o).toFront();
+        BuyerFirst a =new BuyerFirst(newbuyer, buyers, sellers, emp, pr, v, o);
+        a.setVisible(true);
         //we go back on the previous page
         new BuyerFirst(newbuyer, buyers, sellers, emp, pr, v, o).setState(java.awt.Frame.NORMAL);
 
@@ -585,7 +586,7 @@ public class BuyerResults extends javax.swing.JFrame {
         //Button to validate the offer for an apartment
         int tampon=-1;
         int tampon2=0;
-        //temporary variables 
+        //temporary buffers 
        String selected = (String) jComboBox1.getSelectedItem();
        //we get what has been selected from the first jcombobox
         for(int i=0;i<result.size();++i)
@@ -599,7 +600,7 @@ public class BuyerResults extends javax.swing.JFrame {
             }
         }
         if(jTextField2.getText().trim().isEmpty())
-            //if the buyer wants to make an offer but the field is empty
+            //if the buyer wants to make an offer but the field for the offer is empty
         {
             JOptionPane.showMessageDialog(null, "Please enter an amount if you want to make an order");
             //we let him know 
@@ -612,22 +613,22 @@ public class BuyerResults extends javax.swing.JFrame {
             {
                 if((o.get(i).getidprop()==result.get(tampon).getid())&&(o.get(i).getidbuyer()==newbuyer.getid())&& (o.get(i).getdeclined()==false))
                 {
-                    //we check the offer has not been declined and that the connected buyer is the one that corresponds to the offer, and that the id of the property of the offer corresponds to if of the selected property 
+                               //We check if in the offer array list, there is one offer made by this buyer on this house that has not been declined yet
                     tampon2++;
                     //we increment the buffer
                 }
             }
             if(tampon2!=0)
-            //if the buffer has been incremented, it means the buyer has already made an offer
+            //if the buffer has been incremented, it means the buyer has already made an offer that has not been declined
             {
                 JOptionPane.showMessageDialog(null, "You have already made an offer for this property that  has either been accepted or not treated");
                 //we let him know 
             }
             else
-            //otherwise, he has never made an offer for this apartment
+            //otherwise, he has no current offer that has not been declined
             {
                 this.addoffer(result.get(tampon).getid(), Double.parseDouble(jTextField2.getText()));
-                //so we add in the personal offer arraylist the new id of the property for which the buyer made an offer (and we convert the amount into double) 
+               // So we call the function add offer that gets into parameter the id of the property and the amount of the offer
             }            
         }
     }//GEN-LAST:event_jButton9ActionPerformed
@@ -639,7 +640,7 @@ public class BuyerResults extends javax.swing.JFrame {
        String selected = (String) jComboBoxViewingHouse.getSelectedItem();
        //we get what has been selected in the combo box of the viewings 
        if(selected.equals("Book a Viewing"))
-        //if nothing has been selected 
+        //if "Book a viewing"
        {
            //nothing happens
        }
@@ -668,7 +669,7 @@ public class BuyerResults extends javax.swing.JFrame {
         String selected = (String) jComboBoxViewingApartment.getSelectedItem();
         //we get what has been selected in the combo box of the viewings
         if(selected.equals("Book a Viewing"))
-        //if nothing has been selected
+        //if Book a viewing
         {
            //nothing happens
         }
@@ -686,7 +687,7 @@ public class BuyerResults extends javax.swing.JFrame {
                 }
             }
             this.bookviewingapartment(v.get(tampon));  
-            //we book this viewing by sending the selected viewing in parameters of the function
+            //we book this viewing by sending the selected viewing in parameters of the function bookviewingapartment
         }
     }//GEN-LAST:event_jComboBoxViewingApartmentActionPerformed
 
@@ -694,7 +695,7 @@ public class BuyerResults extends javax.swing.JFrame {
         //Button to validate the offer for a house
         int tampon=-1;
         int tampon2=0;
-        //temporary variables 
+        //temporary buffers
         String selected = (String) jComboBox1.getSelectedItem();
         //we get what has been selected from the combobox
         for(int i=0;i<result.size();++i)
@@ -720,23 +721,23 @@ public class BuyerResults extends javax.swing.JFrame {
             //we go through the arraylist of all the offer in the database 
             {
                 if((o.get(i).getidprop()==result.get(tampon).getid())&&(o.get(i).getidbuyer()==newbuyer.getid())&& (o.get(i).getdeclined()==false))
-                //we check the offer has not been declined and that the connected buyer is the one that corresponds to the offer, and that the id of the property of the offer corresponds to if of the selected property 
+                //We check if in the offer array list, there is one offer made by this buyer on this house that has not been declined yet
                 {
                     tampon2++;
-                    //we increment the buffer 
+                    //we increment the buffer if there is one or more 
                 }
             }
             if(tampon2!=0)
-            //if the buffer has been incremented, it means the buyer has already made an offer
+            //if the buffer has been incremented, it means the buyer has already made an offer that has not been declined for the moment
             {
                 JOptionPane.showMessageDialog(null, "You have already made an offer for this property that  has either been accepted or not treated");
                 //we let him know
             }
             else
-            //otherwise, he has never made any offer for this house
+            //otherwise, there is no offer corresponding to these criterias
             {
                 this.addoffer(result.get(tampon).getid(), Double.parseDouble(jTextField1.getText())); 
-                //so we add in the personal offer arraylist the new id of the property for which the buyer made an offer (and we convert the amount into double) 
+                //so we call the add offer function that takes into parameters the id of the property and the amount of the offer
             }            
         }
     }//GEN-LAST:event_jButton8ActionPerformed
@@ -866,11 +867,11 @@ public class BuyerResults extends javax.swing.JFrame {
     //method that enables to book a viewing for a house
     {
         VisitDAOImpl vdao=new VisitDAOImpl();
-        //we create an object of the viewing class, to connect the new viewing to the database  
+        //we create an object of the VisitDAOImpl class, to update the properties of the viewing in the database   
         a.setidbuyer(newbuyer.getid());
         //we set the id of the buyer of the viewing to the id of the connected buyer
         vdao.updatebuyer(a);
-        //we update the buyer of the viewing 
+        //we update the buyer of the viewing in the database
         JOptionPane.showMessageDialog(null," Your viewing has been registered");
         //the viewing is registered 
         this.setVisible(false);
@@ -883,7 +884,7 @@ public class BuyerResults extends javax.swing.JFrame {
 
     public void initjcb1() {
     //this function adds the properties corresponding to the criteria researched before by the user to the jcombobox
-        for (int i = 0; i < result.size(); i++) {
+        for (int i = 0; i < result.size(); ++i) {
         //we go through the result array list (array list where all the properties that result from the selection are)
 
             jComboBox1.addItem(result.get(i).getdescription()+" id : "+result.get(i).getid());
@@ -895,7 +896,7 @@ public class BuyerResults extends javax.swing.JFrame {
     //method that enables to book a viewing for a house
     {
         VisitDAOImpl vdao=new VisitDAOImpl();
-        //we create an object of the viewing class, to connect the new viewing to the database
+        //we create an object of the VisitDAOImpl class, to update the properties of a viewing in the database 
         a.setidbuyer(newbuyer.getid());
         //we set the id of the buyer of the viewing to the id of the connected buyer
         vdao.updatebuyer(a);
@@ -914,11 +915,11 @@ public class BuyerResults extends javax.swing.JFrame {
     //method that enables to add an offer
     {        
         OfferDAOImpl odao=new OfferDAOImpl();
-        //we create an object of the offer class, to connect the offer to the database
+        //we create an object of the OfferDAOImpl class, to add the offer to the database
         o.add(new Offer(o.get(o.size()-1).getid()+1,newbuyer.getid(),idprop,p,false,false));
         //we add in the offer arraylist the new offer : the offer has the id buyer of the connected buyer, it is not accepted nor declined 
         odao.addoffer(o.get(o.size()-1));
-        //we add the offer in the database 
+        //we add the offer in the database by calling the method addoffer from the OfferDAOImpl class 
         JOptionPane.showMessageDialog(null, "Your offer has been registered");
         //the offer has been registered
         this.setVisible(false);
@@ -958,6 +959,7 @@ public class BuyerResults extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
+            @Override
             public void run() {
                 new BuyerResults(newbuyer, buyers, sellers, emp, pr, v, o, result).setVisible(true);
             }

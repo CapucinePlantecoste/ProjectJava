@@ -253,7 +253,7 @@ public class BuyerOffer extends javax.swing.JFrame {
         String selected = (String) jComboBox1.getSelectedItem();
         //we get what has been selected in the combobox
         if (selected.equals("Select one of your following offers")) {
-            //if nothing has been selected
+            //if Select One of your following offers has been selected
             
             jPanelOffers.hide();
             //we do not show anything but the actual combo box
@@ -275,7 +275,7 @@ public class BuyerOffer extends javax.swing.JFrame {
                 }
             }               
             this.display(myoffers.get(tampon));
-            //we show the details of the offer, through the display method, see behind
+            //we show the details of the offer, through the display method, see behind with the help of the buffer
             }
     }//GEN-LAST:event_jComboBox1ActionPerformed
 
@@ -331,7 +331,8 @@ public class BuyerOffer extends javax.swing.JFrame {
         //if we click on the back button
         setVisible(false);  
         //this page disappears
-        new BuyerFirst(newbuyer, buyers, sellers, emp, pr, v, o).toFront();
+        BuyerFirst a=new BuyerFirst(newbuyer, buyers, sellers, emp, pr, v, o);
+        a.setVisible(true);
         //we go back on the previous page
         new BuyerFirst(newbuyer, buyers, sellers, emp, pr, v, o).setState(java.awt.Frame.NORMAL);
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -357,7 +358,7 @@ public class BuyerOffer extends javax.swing.JFrame {
                 if (myoffers.get(i).getidprop() == pr.get(j).getid()) {
                     //if an offer corresponds to the selected property 
                     jComboBox1.addItem(pr.get(j).getdescription()+" idoffer : "+myoffers.get(i).getid()); 
-                    //we add this property to the jcombobox
+                    //we add this offer to the jcombobox
                 }
             }
         }        
@@ -393,6 +394,7 @@ public class BuyerOffer extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
+            @Override
             public void run() {
                 new BuyerOffer(newbuyer, buyers, sellers, emp, pr, v, o, myoffers).setVisible(true);
             }

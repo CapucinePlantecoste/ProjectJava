@@ -7,7 +7,7 @@ package Model;
  */
 public class Buyer extends Person{
 
-    //there is no other attribute in buyer than in Person
+    //there is no other attribute in Buyer than in Person
     public Buyer(int i, String n, String fn, String u, String p) //constructor of the class
     {
         super(i, n, fn, u, p);

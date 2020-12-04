@@ -1,11 +1,7 @@
 //this class implements all the function of the PropertyDAO class
 package Model;
 
-import Model.PropertyDAO;
-import Model.DataSource;
-import Model.Property;
-import Model.House;
-import Model.Appartment;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -20,10 +16,11 @@ import java.util.ArrayList;
 public class PropertyDAOImpl implements PropertyDAO {
 //PropertyDAO was an interface so we have to develop all its methods here
     
+    @Override
     public ArrayList<Property> registerproperty() {
     //method used to get the properties registered in the database
         Connection conn = null;
-        ArrayList<Property> pr = new ArrayList<Property>();
+        ArrayList<Property> pr = new ArrayList<>();
         //we create an arraylist of properties to store them later
         try {
             DataSource db = new DataSource();
@@ -40,7 +37,7 @@ public class PropertyDAOImpl implements PropertyDAO {
             while (result4.next()) {
                 //we get ALL the values of the table
                 if (result4.getString("type").equals("House")) {
-                    //if we have a house
+                    //if the property has as type"House" 
                     int a = result4.getInt("id");
                     //First column of the table 
                     String d = result4.getString("description");
@@ -106,12 +103,13 @@ public class PropertyDAOImpl implements PropertyDAO {
             try {
             //we put the new property into our database 
 
+                //When we add an apartment we set the parameter 1 to recognize an apartment and to set the specific attributes of it and not the one of a house
                 if (b == 1) {
                 //if the property is an apartment, we add into the table property the corresponding values
 
                     stmt.executeUpdate("INSERT INTO property " + " (id, type,description, price, location, numberrooms, numberbedrooms, timevisited, numberfloors, surface, gardensurface, swimmingpool, elevator, floornumber, parking, idseller,sold) " + "VALUES" + "('" + a.getid() + "','Apartment','" + a.getdescription() + "','" + a.getprice() + "','" + a.getlocation() + "','" + a.getnumberrooms() + "','" + a.getnumberbedrooms() + "','0','" + a.getnumberfloors() + "','" + a.getsurface() + "',null,null,'" + a.getelevatorsql() + "','" + a.getfloornumber() + "','" + a.getparkingsql() + "','" + a.getidseller() + "',0 )");
                 } else {
-                    //otherwise, if is a house, we add into the table property the corresponding values
+                    //otherwise, if is a house, we add into the table property the corresponding values and attributes
                     stmt.executeUpdate("INSERT INTO property " + " (id, type,description, price, location, numberrooms, numberbedrooms, timevisited, numberfloors, surface, gardensurface, swimmingpool, elevator, floornumber, parking, idseller,sold) " + "VALUES" + "('" + a.getid() + "','House','" + a.getdescription() + "','" + a.getprice() + "','" + a.getlocation() + "','" + a.getnumberrooms() + "','" + a.getnumberbedrooms() + "','0','" + a.getnumberfloors() + "','" + a.getsurface() + "','" + a.getgardensurface() + "','" + a.getswimmingpoolsql() + "',null,null,null,'" + a.getidseller() + "',0 )");
                 }
                 conn.commit();
@@ -165,7 +163,7 @@ public class PropertyDAOImpl implements PropertyDAO {
 
     @Override
     public void offeraccepted(Property a) {
-    //method that enables us to set the boolean sold to true in the database if the offer of the corresponding property has been accepted 
+    //method that enables us to set the boolean sold to true in the database if an offer of the corresponding property has been accepted 
         Connection conn = null;
         try {
 
@@ -217,12 +215,12 @@ public class PropertyDAOImpl implements PropertyDAO {
             try {
                 
                 stmt.executeUpdate("delete from visit where idproperty='"+a.getid()+"';");
-                //we delete from the visit table of the database the visits relied to the property that has just been sold 
+                //we delete from the visit table of the database the visits relied to the property that has just been sold. We have to do it as idproperty is a foreign key in visit table
                 stmt.executeUpdate("delete from offer where idproperty='"+a.getid()+"';");
-                //we delete from the offer table of the database the offers relied to the property that has just been sold 
+                //we delete from the offer table of the database the offers relied to the property that has just been sold. We have to do it as idproperty is a foreign key in offer table
 
                 stmt.executeUpdate("delete from property where id='" + a.getid() + "';");
-                //finally, we delete the property that has just been sold from the database through this sql query 
+                //finally, we delete the property that has just been sold from the database through this sql query. We have to do it in this order because otherwise the visits and offers of this house will have an idproperty that doesn't exist
 
                 conn.commit();
                 //COMMIT statement to the MySQL server

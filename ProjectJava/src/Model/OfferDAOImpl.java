@@ -1,9 +1,7 @@
 //this class implements all the function of the OfferDAO class
 package Model;
 
-import Model.OfferDAO;
-import Model.DataSource;
-import Model.Offer;
+
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -22,7 +20,7 @@ public class OfferDAOImpl implements OfferDAO {
     //method used to get the offers registered in the database
     {
         Connection conn = null;
-        ArrayList<Offer> offers = new ArrayList<Offer>();
+        ArrayList<Offer> offers = new ArrayList<>();
         //we create an arraylist of offers to store them later
         try {
             DataSource db = new DataSource();
@@ -75,6 +73,7 @@ public class OfferDAOImpl implements OfferDAO {
             // we group multiple Statements under the same transaction. This transaction will be committed when "commit()" invoked
             try {
                 //we also put the new offer into our database 
+                //When an offer is added at the beginnng it is nor accepted or declined so we put0 for both fiekds
 
                 stmt.executeUpdate("INSERT INTO offer " + " (idoffer,idbuyer, idproperty, price, accepted,declined) " + "VALUES" + "('" + a.getid() + "','" + a.getidbuyer() + "','" + a.getidprop() + "','" + a.getprice() + "',0,0 )");
                 //Sql request
@@ -92,7 +91,7 @@ public class OfferDAOImpl implements OfferDAO {
 
     @Override
     public void acceptoffer(Offer a, ArrayList<Offer> o) {
-        //this method is used to add accept an offer in the database, by modifying the accepted boolean value
+        //this method is used to modify the database when an offer is accepted
         Connection conn = null;
         try {
 
@@ -106,11 +105,15 @@ public class OfferDAOImpl implements OfferDAO {
             conn.setAutoCommit(false);
             // we group multiple Statements under the same transaction. This transaction will be committed when "commit()" invoked
             try {
-
+                
+                
+                // we set the attribute accepted of the offer that has been accepted at true
                 stmt.executeUpdate("UPDATE offer SET accepted=true where idoffer='" + a.getid() + "';");
                 //sql request
                 for (int i = 0; i < o.size(); ++i) {
-                    //we go through our offer array
+                    //we go through our offer array to update the offer that has the same idproperty
+                    // if an offer has the same idproperty as the one thas has been accepted but a different id we set declined=true
+                    //Because we judge that if an offer is accepted for a property all the other one are declined
                     if (o.get(i).getidprop() == a.getidprop() && o.get(i).getid() != a.getid()) {
                         stmt.executeUpdate("UPDATE offer SET declined=true where idoffer='" + o.get(i).getid() + "';");
                         //sql request to update the value
@@ -132,7 +135,7 @@ public class OfferDAOImpl implements OfferDAO {
 
     @Override
     public void declineoffer(Offer a) {
-        //this method is used to decline an offer in the database, by modifying the declined boolean value
+        //this method is used to modify the database when an offer is declined
         Connection conn = null;
         try {
 
@@ -147,6 +150,7 @@ public class OfferDAOImpl implements OfferDAO {
             // we group multiple Statements under the same transaction. This transaction will be committed when "commit()" invoked
             try {
 
+                //We look for the offer and set declined=true
                 stmt.executeUpdate("UPDATE offer SET declined=true where idoffer='" + a.getid() + "';");
                 //sql request
 

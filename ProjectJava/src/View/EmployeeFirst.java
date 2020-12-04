@@ -190,6 +190,7 @@ public class EmployeeFirst extends javax.swing.JFrame {
         if (soldprop.size() == 0) {
             JOptionPane.showMessageDialog(null, "None property has been sold"); //message shown to say so
         } else {
+            this.setVisible(false);
             EmployeeRemoveSoldProperty a = new EmployeeRemoveSoldProperty(newemployee, buyers, sellers, emp,pr,v,o, soldprop);
             a.setVisible(true) ; 
         }
@@ -198,18 +199,21 @@ public class EmployeeFirst extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
+        this.setVisible(false);
         EmployeeAddViewing a = new EmployeeAddViewing (newemployee, buyers, sellers, emp,pr,v,o); 
         a.setVisible(true);        
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
+        this.setVisible(false);
         EmployeeNewProperty a = new EmployeeNewProperty (newemployee, buyers, sellers, emp,pr,v,o); 
         a.setVisible(true);
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
+        this.setVisible(false);
         EmployeeUpdateProperty a = new EmployeeUpdateProperty (newemployee,buyers, sellers, emp,pr,v,o) ; 
         a.setVisible(true) ; 
     }//GEN-LAST:event_jButton4ActionPerformed

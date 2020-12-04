@@ -317,7 +317,8 @@ public class SellerOffer extends javax.swing.JFrame {
         // TODO add your handling code here:
         this.toBack();//if we click on the back button
         setVisible(false);//this page disappears
-        new SellerFirst(newseller, buyers, sellers, emp, pr, v, o).toFront();//we go back on the first page
+        SellerFirst a=new SellerFirst(newseller, buyers, sellers, emp, pr, v, o);//we go back on the first page
+        a.setVisible(true);
         new SellerFirst(newseller, buyers, sellers, emp, pr, v, o).setState(java.awt.Frame.NORMAL);
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -365,16 +366,18 @@ public class SellerOffer extends javax.swing.JFrame {
         pdao.offeraccepted(pr.get(tampon2));
         pr.get(tampon2).setsold(true);
         myoffers.get(tampon).setaccepted(true);
-        for(int l=0;l<o.size();++l)
+        myoffers.remove(myoffers.get(tampon));
+        for(int l=0;l<myoffers.size();++l)
         {
-            if((o.get(l).getidprop()==myoffers.get(tampon).getidprop()) && (o.get(l).getid()!=myoffers.get(tampon).getid()))
+            if((myoffers.get(l).getidprop()==myoffers.get(tampon).getidprop()) && (o.get(l).getid()!=myoffers.get(tampon).getid()))
             {
-                o.get(l).setdeclined(true);
+                myoffers.get(l).setdeclined(true);
+                myoffers.remove(myoffers.get(l));
             }
         }
         JOptionPane.showMessageDialog(null, "This offer has been accepted");
         this.setVisible(false);
-            SellerFirst a=new SellerFirst(newseller, buyers, sellers, emp, pr, v, o);
+            SellerOffer a=new SellerOffer(newseller, buyers, sellers, emp, pr, v, o, myoffers);
             a.setVisible(true);
         
         
@@ -404,9 +407,10 @@ public class SellerOffer extends javax.swing.JFrame {
         }
         odao.declineoffer(myoffers.get(tampon));
         myoffers.get(tampon).setdeclined(true);
+        myoffers.remove(myoffers.get(tampon));
         JOptionPane.showMessageDialog(null, "This offer has been declined");
         this.setVisible(false);
-            SellerFirst a=new SellerFirst(newseller, buyers, sellers, emp, pr, v, o);
+            SellerOffer a=new SellerOffer(newseller, buyers, sellers, emp, pr, v, o,myoffers);
             a.setVisible(true);
         
         

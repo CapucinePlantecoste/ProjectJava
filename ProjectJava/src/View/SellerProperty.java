@@ -486,7 +486,8 @@ public class SellerProperty extends javax.swing.JFrame {
         // TODO add your handling code here:
         this.toBack();//if we click on the back button
         setVisible(false);//this page disappears
-        new SellerFirst(newseller, buyers, sellers, emp, pr, v, o).toFront();//we go back on the first page
+       SellerFirst a= new SellerFirst(newseller, buyers, sellers, emp, pr, v, o); //we go back on the first page
+       a.setVisible(true);
         new SellerFirst(newseller, buyers, sellers, emp, pr, v, o).setState(java.awt.Frame.NORMAL);
     }//GEN-LAST:event_jButton1ActionPerformed
 

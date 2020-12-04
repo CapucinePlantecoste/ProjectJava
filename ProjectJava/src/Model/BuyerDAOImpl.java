@@ -1,12 +1,10 @@
 //this class implements all the function of the buyer DAO class
 package Model;
 
-import Model.BuyerDAO;
-import Model.Buyer;
+
 import java.util.ArrayList;
 import java.sql.Statement;
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
@@ -18,7 +16,7 @@ public class BuyerDAOImpl implements BuyerDAO {
         //this method is used to get the buyers registered in the database
 
         Connection conn = null;
-        ArrayList<Buyer> buyers = new ArrayList<Buyer>();
+        ArrayList<Buyer> buyers = new ArrayList<>();
         //we create an arraylist of buyers to store them later
         try {
             DataSource db = new DataSource();
@@ -33,10 +31,9 @@ public class BuyerDAOImpl implements BuyerDAO {
             ResultSet result = stmt.executeQuery(sqtStat1);
             //we execute the query 
             while (result.next()) {
-                //we get ALL the values of the table
-
+                //we get ALL the values of all the columns of the table buyer
+                //name, familyname, username, password, id
                 String a = result.getString("name");
-                //First column of the table 
                 String b = result.getString("familyname");
                 String c = result.getString("username");
                 String d = result.getString("password");
@@ -47,7 +44,7 @@ public class BuyerDAOImpl implements BuyerDAO {
 
             }
             conn.close();
-            //always wlose the connection
+            //always close the connection
 
         } catch (SQLException e) {
             //Possible MY SQL exception 
@@ -60,7 +57,7 @@ public class BuyerDAOImpl implements BuyerDAO {
 
     @Override
     public void addbuyer(Buyer a) {
-        //function that enables to add a buyer into the database 
+        //function that enables to add a buyer into the database from a given buyer
         Connection conn = null;
         try {
 
@@ -74,7 +71,7 @@ public class BuyerDAOImpl implements BuyerDAO {
             conn.setAutoCommit(false);
             // we group multiple Statements under the same transaction. This transaction will be committed when "commit()" invoked
             try {
-            //we put the new customer into our database 
+                //we put the new customer into our database 
 
                 stmt.executeUpdate("INSERT INTO buyer " + " (idbuyer,name, familyname, username, password) " + "VALUES" + "('" + a.getid() + "','" + a.getname() + "','" + a.getfamilyname() + "','" + a.getusername() + "','" + a.getpassword() + "' )");
                 conn.commit();
