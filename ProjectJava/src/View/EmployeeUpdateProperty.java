@@ -672,7 +672,7 @@ public class EmployeeUpdateProperty extends javax.swing.JFrame {
         // TODO add your handling code here:
         this.toBack();//if we click on the back button
         setVisible(false);//this page disappears
-        EmployeeFirst a=new EmployeeFirst(employee, buyers, sellers, emp, pr, v, o);//we go back on the first page
+        EmployeeFirst a = new EmployeeFirst(employee, buyers, sellers, emp, pr, v, o);//we go back on the first page
         a.setVisible(true);
         new EmployeeFirst(employee, buyers, sellers, emp, pr, v, o).setState(java.awt.Frame.NORMAL);
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -703,18 +703,11 @@ public class EmployeeUpdateProperty extends javax.swing.JFrame {
         } else {
             for (int i = 0; i < pr.size(); i++) {
                 if (selected.equals(pr.get(i).getdescription() + " id : " + pr.get(i).getid())) {
-
                     tampon = i;
-
                 }
-
             }
-
             this.display(pr.get(tampon));
         }
-
-        //else : si le choix séléctionné est une maison ; jPanelHouse.show() ; 
-        //else : si le choix séléctionné est un apartement : jPanelApartment.show() ; 
 
     }//GEN-LAST:event_jComboBox1ActionPerformed
 
@@ -820,7 +813,7 @@ public class EmployeeUpdateProperty extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-           PropertyDAOImpl pdao=new PropertyDAOImpl();
+        PropertyDAOImpl pdao = new PropertyDAOImpl();
         int tampon = -1;
         String selected = (String) jComboBox1.getSelectedItem();
         for (int i = 0; i < pr.size(); i++) {
@@ -830,19 +823,14 @@ public class EmployeeUpdateProperty extends javax.swing.JFrame {
 
             }
         }
-       
-         if (jTextFieldPrice.getText().trim().isEmpty() || jTextFieldLocation.getText().trim().isEmpty() || jTextFieldNumberRoom.getText().trim().isEmpty() || jTextFieldNumberFloor.getText().trim().isEmpty() ||jTextFieldGardenSurface.getText().trim().isEmpty()|| jTextFieldSurface.getText().trim().isEmpty() || jTextFieldNumberBedroom.getText().trim().isEmpty() || jTextFieldDescription.getText().trim().isEmpty() || jTextFieldSP.getText().trim().isEmpty()) {
+
+        if (jTextFieldPrice.getText().trim().isEmpty() || jTextFieldLocation.getText().trim().isEmpty() || jTextFieldNumberRoom.getText().trim().isEmpty() || jTextFieldNumberFloor.getText().trim().isEmpty() || jTextFieldGardenSurface.getText().trim().isEmpty() || jTextFieldSurface.getText().trim().isEmpty() || jTextFieldNumberBedroom.getText().trim().isEmpty() || jTextFieldDescription.getText().trim().isEmpty() || jTextFieldSP.getText().trim().isEmpty()) {
             JOptionPane.showMessageDialog(null, "One of several fields are empty");
-        }
-         else
-         {
-             if(!jTextFieldSP.getText().equals("Yes")&& !jTextFieldSP.getText().equals("No"))
-             {
-                                 JOptionPane.showMessageDialog(null, " Wrong format of a field. For the field Swimming Pool you must enter 'Yes' or 'No' ");
-             }
-             else
-             {
-                 pr.get(tampon).setprice(Double.parseDouble(jTextFieldPrice.getText()));
+        } else {
+            if (!jTextFieldSP.getText().equals("Yes") && !jTextFieldSP.getText().equals("No")) {
+                JOptionPane.showMessageDialog(null, " Wrong format of a field. For the field Swimming Pool you must enter 'Yes' or 'No' ");
+            } else {
+                pr.get(tampon).setprice(Double.parseDouble(jTextFieldPrice.getText()));
                 pr.get(tampon).setlocation(jTextFieldLocation.getText());
                 pr.get(tampon).setnumberroom(Integer.parseInt(jTextFieldNumberRoom.getText()));
                 pr.get(tampon).setnumberfloor(Integer.parseInt(jTextFieldNumberFloor.getText()));
@@ -850,22 +838,19 @@ public class EmployeeUpdateProperty extends javax.swing.JFrame {
                 pr.get(tampon).setnumberbedroom(Integer.parseInt(jTextFieldNumberBedroom.getText()));
                 pr.get(tampon).setdescription(jTextFieldDescription.getText());
                 pr.get(tampon).setgardensurface(Double.parseDouble(jTextFieldGardenSurface.getText()));
-                if(jTextFieldSP.getText().equals("Yes"))
-                {
+                if (jTextFieldSP.getText().equals("Yes")) {
                     pr.get(tampon).setswimmingpool(true);
-                }
-                else
-                {
+                } else {
                     pr.get(tampon).setswimmingpool(false);
                 }
-                  pdao.update(pr.get(tampon),2);
-                JOptionPane.showMessageDialog(null,"The changes have been updated");
+                pdao.update(pr.get(tampon), 2);
+                JOptionPane.showMessageDialog(null, "The changes have been updated");
                 this.setVisible(false);
-                EmployeeUpdateProperty a =new EmployeeUpdateProperty(employee, buyers, sellers, emp, pr, v, o);
+                EmployeeUpdateProperty a = new EmployeeUpdateProperty(employee, buyers, sellers, emp, pr, v, o);
                 a.setVisible(true);
-                
-             }
-         }
+
+            }
+        }
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jTextFieldParkingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldParkingActionPerformed
@@ -878,7 +863,7 @@ public class EmployeeUpdateProperty extends javax.swing.JFrame {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
-        PropertyDAOImpl pdao=new PropertyDAOImpl();
+        PropertyDAOImpl pdao = new PropertyDAOImpl();
         int tampon = -1;
         String selected = (String) jComboBox1.getSelectedItem();
         for (int i = 0; i < pr.size(); i++) {
@@ -910,21 +895,18 @@ public class EmployeeUpdateProperty extends javax.swing.JFrame {
                 } else {
                     pr.get(tampon).setparking(false);
                 }
-                if(jTextFieldElevator.getText().equals("Yes"))
-                {
-                   pr.get(tampon).setelevator(true);
-                   
-                }
-                else
-                {
+                if (jTextFieldElevator.getText().equals("Yes")) {
+                    pr.get(tampon).setelevator(true);
+
+                } else {
                     pr.get(tampon).setelevator(false);
                 }
-                pdao.update(pr.get(tampon),1);
-                JOptionPane.showMessageDialog(null,"The changes have been updated");
+                pdao.update(pr.get(tampon), 1);
+                JOptionPane.showMessageDialog(null, "The changes have been updated");
                 this.setVisible(false);
-                EmployeeUpdateProperty a =new EmployeeUpdateProperty(employee, buyers, sellers, emp, pr, v, o);
-                a.setVisible(true); 
-                
+                EmployeeUpdateProperty a = new EmployeeUpdateProperty(employee, buyers, sellers, emp, pr, v, o);
+                a.setVisible(true);
+
             }
         }
 

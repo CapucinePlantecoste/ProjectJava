@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+//tis class is the first jframe that an employee sees when he connects, where he can chose between his 4 options
 package View;
 
 import Model.Visit;
@@ -13,7 +9,6 @@ import Model.Employee;
 import Model.Buyer;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
-import projectjava.First;
 import projectjava.First;
 
 /**
@@ -26,16 +21,26 @@ public class EmployeeFirst extends javax.swing.JFrame {
      * Creates new form EmployeeFirst
      */
     public EmployeeFirst(Employee a, ArrayList<Buyer> b, ArrayList<Seller> s, ArrayList<Employee> e, ArrayList<Property> prop, ArrayList<Visit> vis, ArrayList<Offer>off) {
-        buyers = b;//Array List of buyers
-        sellers = s;//Array List of sellers
-        emp = e;//Array List of employees
+        //constructor of the class
+        buyers = b;
+        //Array List of all the application buyers
+        sellers = s;
+        //Array List of all the application sellers
+        emp = e;
+        //Array List of all the application employees
         pr=prop;
+        //Array List of all the application properties
         v=vis;
+        //Array List of all the application viewings
         o=off;
+        //Array List of all the application offers
         newemployee = a ; 
+        //connected employee
        
         initComponents();
+        //automatically generated constructor
         this.nom();
+        //function that displays the name of the employee on the frame as soon as he connects 
     }
 
     /**
@@ -168,59 +173,82 @@ public class EmployeeFirst extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        // TODO add your handling code here:
-        this.toBack(); 
-        setVisible(false);//this page disappears 
-        new First(buyers, sellers, emp,pr,v,o).toFront();//we go back on the first page 
+        //log out button
+        this.toBack();
+        //if we click on the button
+        setVisible(false);
+        //this page disappears 
+        new First(buyers, sellers, emp,pr,v,o).toFront();
+        //we go back on the first page 
         new First(buyers, sellers, emp,pr,v,o).setState(java.awt.Frame.NORMAL);
         new First(buyers, sellers, emp,pr,v,o).setVisible(true);
+        //we set the first page visible 
     }//GEN-LAST:event_jButton5ActionPerformed
 
-    
-    //Remove sold properties
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+        //Remove sold properties button 
         ArrayList<Property> soldprop = new ArrayList<>();
+        //we create an array list of all the sold properties 
 
         for (int i = 0; i < pr.size(); ++i) {
+            //we go through all the properties of the application 
             if (pr.get(i).getsold()==true) {
+                //if one of these properties has the attribute "sold" to true, it means it is sold 
                 soldprop.add(pr.get(i));
+                //so we add it to the sold properties array list
             }
         }
         if (soldprop.size() == 0) {
-            JOptionPane.showMessageDialog(null, "None property has been sold"); //message shown to say so
+            //if there is no sold properties 
+            JOptionPane.showMessageDialog(null, "None property has been sold"); 
+            //message shown to say so
         } else {
+            //otherwise, there are sold properties, 
             this.setVisible(false);
+            //so we close this frame 
             EmployeeRemoveSoldProperty a = new EmployeeRemoveSoldProperty(newemployee, buyers, sellers, emp,pr,v,o, soldprop);
+            //we open a new frame to remove the sold properties 
             a.setVisible(true) ; 
+            //we set the new frame visible 
         }
         
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
+        //add a viewig button
         this.setVisible(false);
+        //we close this frame 
         EmployeeAddViewing a = new EmployeeAddViewing (newemployee, buyers, sellers, emp,pr,v,o); 
+        //we open a new frame to add a viewing 
         a.setVisible(true);        
+        //we set the new frame visible
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
+        // button introduce a new property
         this.setVisible(false);
+        //we close this frame 
         EmployeeNewProperty a = new EmployeeNewProperty (newemployee, buyers, sellers, emp,pr,v,o); 
+        //we open a new frame to introduce a new property 
         a.setVisible(true);
+        //we set the new frame visible
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        // TODO add your handling code here:
+        // button to update the details of a property
         this.setVisible(false);
+        //we close this frame 
         EmployeeUpdateProperty a = new EmployeeUpdateProperty (newemployee,buyers, sellers, emp,pr,v,o) ; 
+        //we open a new frame to update the details of a property 
         a.setVisible(true) ; 
+        //we set the new frame visible
     }//GEN-LAST:event_jButton4ActionPerformed
 
     public void nom()
+    //function that enables to display the name of the employee on the frame as soon as he connects
     {
         jLabel1.setText("We are very pleased to see you again " + newemployee.getname()+ "!");
+        //we fill the empty label with the name of the employee
     }
     
     /**
@@ -258,14 +286,21 @@ public class EmployeeFirst extends javax.swing.JFrame {
         });
     }
 
-    private static ArrayList<Buyer> buyers = new ArrayList<>();//array list of all the application buyers 
-    private static ArrayList<Seller> sellers = new ArrayList<>();//array list of all the application sellers 
-    private static ArrayList<Employee> emp = new ArrayList<>();//array list of all the application sellers 
+    private static ArrayList<Buyer> buyers = new ArrayList<>();
+    //array list of all the application buyers 
+    private static ArrayList<Seller> sellers = new ArrayList<>();
+    //array list of all the application sellers 
+    private static ArrayList<Employee> emp = new ArrayList<>();
+    //array list of all the application employees 
     private static ArrayList<Property> pr=new ArrayList<>();
+    //array list of all the application properties 
     private static ArrayList<Visit>v=new ArrayList<>();
+    //array list of all the application viewings 
     private static ArrayList<Offer>o=new ArrayList<>();
+    //array list of all the application offers 
     
     private static Employee newemployee ;
+    //connected employee
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;

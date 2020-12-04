@@ -1,4 +1,4 @@
-//this class is the class person, the superclass of the classes customer and employee
+//this class is the class person, the superclass of the classes buyer seller and employee
 package Model;
 
 /**

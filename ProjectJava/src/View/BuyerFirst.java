@@ -164,10 +164,10 @@ public class BuyerFirst extends javax.swing.JFrame {
         jPanel2.add(jButton5);
         jButton5.setBounds(1350, 80, 100, 23);
 
-        jLabel1.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
         jLabel1.setText("Minimum nb bedrooms");
         jPanel2.add(jLabel1);
-        jLabel1.setBounds(1200, 460, 130, 40);
+        jLabel1.setBounds(1200, 460, 190, 40);
 
         jButton3.setBackground(new java.awt.Color(255, 255, 255));
         jButton3.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
@@ -187,12 +187,12 @@ public class BuyerFirst extends javax.swing.JFrame {
             }
         });
         jPanel2.add(jComboBox1);
-        jComboBox1.setBounds(930, 360, 137, 26);
+        jComboBox1.setBounds(930, 360, 99, 20);
 
-        jLabel4.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
         jLabel4.setText("Type of property");
         jPanel2.add(jLabel4);
-        jLabel4.setBounds(930, 320, 110, 40);
+        jLabel4.setBounds(930, 320, 170, 40);
 
         jLabel6.setFont(new java.awt.Font("Calibri", 0, 24)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(0, 153, 153));
@@ -213,10 +213,10 @@ public class BuyerFirst extends javax.swing.JFrame {
         jPanel2.add(jTextField1);
         jTextField1.setBounds(930, 550, 130, 30);
 
-        jLabel7.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
+        jLabel7.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
         jLabel7.setText("Maximum Price");
         jPanel2.add(jLabel7);
-        jLabel7.setBounds(1200, 390, 110, 40);
+        jLabel7.setBounds(1200, 390, 170, 40);
 
         jTextField2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -231,17 +231,17 @@ public class BuyerFirst extends javax.swing.JFrame {
         jPanel2.add(jTextField2);
         jTextField2.setBounds(1200, 420, 130, 30);
 
-        jLabel8.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
+        jLabel8.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
         jLabel8.setText("Minimum Surface ");
         jPanel2.add(jLabel8);
-        jLabel8.setBounds(930, 520, 150, 40);
+        jLabel8.setBounds(930, 520, 210, 40);
         jPanel2.add(jTextField3);
         jTextField3.setBounds(1200, 360, 130, 30);
 
-        jLabel9.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
+        jLabel9.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
         jLabel9.setText("Location");
         jPanel2.add(jLabel9);
-        jLabel9.setBounds(1200, 330, 110, 40);
+        jLabel9.setBounds(1200, 330, 170, 40);
 
         jTextField4.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
@@ -251,10 +251,10 @@ public class BuyerFirst extends javax.swing.JFrame {
         jPanel2.add(jTextField4);
         jTextField4.setBounds(1200, 490, 130, 30);
 
-        jLabel10.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
+        jLabel10.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
         jLabel10.setText("Maximum surface");
         jPanel2.add(jLabel10);
-        jLabel10.setBounds(1200, 520, 150, 40);
+        jLabel10.setBounds(1200, 520, 210, 40);
 
         jTextField5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -269,10 +269,10 @@ public class BuyerFirst extends javax.swing.JFrame {
         jPanel2.add(jTextField5);
         jTextField5.setBounds(1200, 550, 130, 30);
 
-        jLabel11.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
+        jLabel11.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
         jLabel11.setText("Minimum nb Rooms");
         jPanel2.add(jLabel11);
-        jLabel11.setBounds(930, 460, 150, 40);
+        jLabel11.setBounds(930, 460, 210, 40);
         jLabel11.getAccessibleContext().setAccessibleName("Minimun nb Rooms");
 
         jTextField6.addActionListener(new java.awt.event.ActionListener() {
@@ -288,10 +288,10 @@ public class BuyerFirst extends javax.swing.JFrame {
         jPanel2.add(jTextField6);
         jTextField6.setBounds(930, 490, 130, 30);
 
-        jLabel12.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
+        jLabel12.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
         jLabel12.setText("Minimum Price");
         jPanel2.add(jLabel12);
-        jLabel12.setBounds(930, 390, 110, 40);
+        jLabel12.setBounds(930, 390, 170, 40);
 
         jTextField7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

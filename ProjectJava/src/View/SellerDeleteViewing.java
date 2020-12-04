@@ -170,7 +170,7 @@ public class SellerDeleteViewing extends javax.swing.JFrame {
             .addGroup(jPanelViewingsLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(20, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanelViewingsLayout.setVerticalGroup(
             jPanelViewingsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -184,6 +184,18 @@ public class SellerDeleteViewing extends javax.swing.JFrame {
         jPanelViewings.setBounds(760, 180, 250, 230);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+
+        jLabelDescription.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
+        jLabelDescription.setForeground(new java.awt.Color(0, 153, 153));
+
+        jLabelId.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
+        jLabelId.setForeground(new java.awt.Color(0, 153, 153));
+
+        jLabelDate.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
+        jLabelDate.setForeground(new java.awt.Color(0, 153, 153));
+
+        jLabelLocation.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
+        jLabelLocation.setForeground(new java.awt.Color(0, 153, 153));
 
         jButton2.setText("Delete");
         jButton2.addActionListener(new java.awt.event.ActionListener() {

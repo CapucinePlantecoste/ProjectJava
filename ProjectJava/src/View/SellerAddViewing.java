@@ -43,8 +43,6 @@ public class SellerAddViewing extends javax.swing.JFrame {
         initComponents();
         this.initjcb1();
         jPanel1.hide();
-        
-
     }
 
     /**
@@ -364,18 +362,12 @@ public class SellerAddViewing extends javax.swing.JFrame {
 
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
         // TODO add your handling code here:
-
-        
-       
-
-        String selected = (String) jComboBox1.getSelectedItem();
+         String selected = (String) jComboBox1.getSelectedItem();
         if (selected.equals("Select one of your properties for sale")) {
             jPanel1.hide();
 
-        } else {
-            
+        } else {            
             jPanel1.show();
-
         }
 
     }//GEN-LAST:event_jComboBox1ActionPerformed
@@ -460,7 +452,6 @@ public class SellerAddViewing extends javax.swing.JFrame {
 
                 tampon = i;
             }
-
         }
         for(int j=0;j<pr.size();++j)
         {

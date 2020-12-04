@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+//this class is the frame employees see when they remove a sold property
 package View;
 import Model.Buyer;
 import Model.Employee;
@@ -25,20 +21,32 @@ public class EmployeeRemoveSoldProperty extends javax.swing.JFrame {
      * Creates new form EmployeeRemoveSoldProperty
      */
     public EmployeeRemoveSoldProperty(Employee coucou, ArrayList<Buyer> b, ArrayList<Seller> s, ArrayList<Employee> e, ArrayList<Property>prop, ArrayList<Visit>vis, ArrayList<Offer>off, ArrayList<Property> sp) {
-        buyers = b;//Array List of buyers
-        sellers = s;//Array List of sellers
-        emp = e;//Array List of employees
+        //constructor of the application 
+        buyers = b;
+        //Array List of all the buyers of the application 
+        sellers = s;
+        //Array List of all the sellers of the application 
+        emp = e;
+        //Array List of all the employees of the application 
         pr=prop;
+        //Array List of all the properties of the application 
         v=vis;
+        //Array List of all the viewings of the application 
         o=off;
+        //Array List of all the offers of the application 
  
         employee = coucou; 
+        //current connected employee
         soldProperties = sp ; 
+        //arraylist of the sold properties of the application 
         
         initComponents();
+        //automatically generated cnstructor
         initjcb1(); 
+        //function that enables to fill the combobox with the sold properties of the application
        
         jPanel10.hide();
+        //in the beginning, all the other panels are hidden 
     }
 
     /**

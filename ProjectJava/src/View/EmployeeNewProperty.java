@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+//this jframe enables the employees to introduce a new property, when a seller comes into the agency for example
 package View;
 
 import Model.Appartment;
@@ -30,26 +26,37 @@ public class EmployeeNewProperty extends javax.swing.JFrame {
      * Creates new form EmployeeNewProperty
      */
     public EmployeeNewProperty(Employee coucou, ArrayList<Buyer> b, ArrayList<Seller> s, ArrayList<Employee> e, ArrayList<Property> prop, ArrayList<Visit> vis, ArrayList<Offer> off) {
-        buyers = b;//Array List of buyers
-        sellers = s;//Array List of sellers
-        emp = e;//Array List of employees
+        //constructor of the class
+        buyers = b;
+        //Array List of all the application buyers
+        sellers = s;
+        //Array List of all the application sellers
+        emp = e;
+        //Array List of all the application employees
         pr = prop;
+        //Array List of all the application properties
         v = vis;
+        //Array List of all the application viewings
         o = off;
+        //Array List of all the application offers
 
         employee = coucou;
+        //connnected employee
 
         tampon = 0;
         tampon2 = -1;
         tampon4 = 1;
         tampon5 = 1;
         tampon6 = 1;
+        //5 temporary buffers 
         initComponents();
+        //automatically generated constructor 
         jPanel1.hide();
         jPanel3.hide();
         jPanelHouse.hide();
         jPanelApartment.hide();
         jPanelUsername.hide();
+        //in the beginning, all the other panels are hidden 
     }
 
     /**
@@ -390,7 +397,7 @@ public class EmployeeNewProperty extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jComboBox2, javax.swing.GroupLayout.DEFAULT_SIZE, 34, Short.MAX_VALUE)
+                .addComponent(jComboBox2)
                 .addContainerGap())
         );
 
@@ -911,57 +918,75 @@ public class EmployeeNewProperty extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
-        // TODO add your handling code here:
+        //combo box where the seller has to say if he has an account or not 
         String selected = (String) jComboBox1.getSelectedItem();
+        //we get what has been selected in the combo box 
         if (selected.equals("Select")) {
+            //if the employee doesn't select any option but remains on the first option of the combo box
             jPanelUsername.hide();
             jPanel3.hide();
             jPanel1.hide();
             jPanelApartment.hide();
             jPanelHouse.hide();
+            //nothing happens so all the panels remain hidden 
 
         }
         if (selected.equals("Yes")) {
+            //if the seller already has an account 
             tampon = 1;
+            //we set the buffer to 1
             jPanelUsername.show();
+            //we let him introduce his application username in the panelusername 
             jPanel3.show();
+            //we let him chose in the panel 3 if he wants to introduce a house or an apartment 
             jPanel1.hide();
             jPanelApartment.hide();
             jPanelHouse.hide();
+            //the 3 other panels remain hidden 
 
         } else if (selected.equals("No")) {
+            //if the seller does not have any account yet
             tampon = 2;
+            //we set the buffer to 2
             jPanel3.hide();
             jPanel1.show();
+            //we show the panel 1 to let the new seller create his account 
             jPanelUsername.hide();
             jPanelApartment.hide();
             jPanelHouse.hide();
+            //all the other panels remain hidden 
         }
     }//GEN-LAST:event_jComboBox1ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-        this.toBack();//if we click on the back button
-        setVisible(false);//this page disappears
-        EmployeeFirst a=new EmployeeFirst(employee, buyers, sellers, emp, pr, v, o);//we go back on the first page
+        //back button
+        this.toBack();
+        //if we click on the back button
+        setVisible(false);
+        //this page disappears
+        EmployeeFirst a = new EmployeeFirst(employee, buyers, sellers, emp, pr, v, o);
+        //we go back on the first page
         a.setVisible(true);
+        //we set it visible
         new EmployeeFirst(employee, buyers, sellers, emp, pr, v, o).setState(java.awt.Frame.NORMAL);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        // TODO add your handling code here:
-        //faire code pour log out
+        //log out button
         this.toBack();
-        setVisible(false);//this page disappears
-        new First(buyers, sellers, emp, pr, v, o).toFront();//we go back on the first page
+        //if we click on the log ot button
+        setVisible(false);
+        //this page disappears
+        new First(buyers, sellers, emp, pr, v, o).toFront();
+        //we go back on the first page
         new First(buyers, sellers, emp, pr, v, o).setState(java.awt.Frame.NORMAL);
         new First(buyers, sellers, emp, pr, v, o).setVisible(true);
+        //we set the new frame visible 
 
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jTextFieldFirstNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldFirstNameActionPerformed
-        // TODO add your handling code here:
-
+        // text field for the new seller first name 
     }//GEN-LAST:event_jTextFieldFirstNameActionPerformed
 
     private void jTextFieldFirstNameKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldFirstNameKeyPressed
@@ -969,20 +994,19 @@ public class EmployeeNewProperty extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextFieldFirstNameKeyPressed
 
     private void jTextFieldFirstNameKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldFirstNameKeyTyped
-
+        //function that unables the user to enter digit (because we want a First Name)
         char c = evt.getKeyChar();
         if (Character.isDigit(c)) {
             evt.consume();
         }
-        // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldFirstNameKeyTyped
 
     private void jTextFieldSurnameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldSurnameActionPerformed
-        // TODO add your handling code here:
+        // text field for the new seller surname 
     }//GEN-LAST:event_jTextFieldSurnameActionPerformed
 
     private void jTextFieldSurnameKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldSurnameKeyTyped
-        // TODO add your handling code here:
+        //function that unables the user to enter digit (because we want a surName)
         char c = evt.getKeyChar();
         if (Character.isDigit(c)) {
             evt.consume();
@@ -990,20 +1014,23 @@ public class EmployeeNewProperty extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextFieldSurnameKeyTyped
 
     private void jTextFieldUsernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldUsernameActionPerformed
-        // TODO add your handling code here:
+        // text field for the new seller username 
     }//GEN-LAST:event_jTextFieldUsernameActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
+        //sign in button once the new seller filled all the fields
         int t = 0;
+        //temporary buffer 
         if (jPasswordField2.getText().trim().isEmpty() || jTextFieldSurname.getText().trim().isEmpty() || jTextFieldFirstName.getText().trim().isEmpty() || jTextFieldUsername.getText().trim().isEmpty() || jPasswordField2.getText().trim().isEmpty()) {
-
+        //if one or several fields are empty
             JOptionPane.showMessageDialog(null, "One or several fields are empty. Please, try again.");
+            //we let it know 
 
         } else if (!jPasswordField2.getText().equals(jPasswordField1.getText())) {
+            //if the two passwords fields do not correspond 
             JOptionPane.showMessageDialog(null, "The two passwords are not the same. Please, try again.");
-        } 
-                 //This next else if checks if the username field has an email format
+            //we let it know 
+        } //This next else if checks if the username field has an email format
         // We use a regex in order to deal with that
         //We use the Pattern.matches function that checks if the patternf of the text field is valid for an email adress
         //^:indicate that the field must start with a character that can only be a letter(lower or upper case) or a number 
@@ -1013,23 +1040,30 @@ public class EmployeeNewProperty extends javax.swing.JFrame {
         // Then we have 1 and only 1 point that is why we have [.]{1}
         // It is followed by a string which contains only letters
         //The $ sign indicates that the string must end here
-        else if(!(Pattern.matches("^[a-zA-Z0-9]{1}+[a-zA-Z0-9-.]{0,10000}+[@]{1}+[a-zA-Z0-9]+[.]{1}+[a-zA-Z]+$",jTextFieldUsername.getText())))
-        {
-            JOptionPane.showMessageDialog(null," Please enter a valid email adress");
-        }else {
+        else if (!(Pattern.matches("^[a-zA-Z0-9]{1}+[a-zA-Z0-9-.]{0,10000}+[@]{1}+[a-zA-Z0-9]+[.]{1}+[a-zA-Z]+$", jTextFieldUsername.getText()))) {
+            JOptionPane.showMessageDialog(null, " Please enter a valid email adress");
+            //if the format of the email adress is not correct, we let it kow
+        } else {
             t = this.test();
+            //by calling the test fuction, we check if the entered username is not already taken by one of our sellers 
             if (t != 0) {
+                //if t !=0, it means the entered username is amready used by someone else 
                 JOptionPane.showMessageDialog(null, "Username already used. Please, chose another one.");
+                //so we let it know 
             } else {
+                //otherwise, the username is good 
                 this.addseller();
+                //we call the addseller function to add the new seller to the application 
                 JOptionPane.showMessageDialog(null, "The account has been successfully created");
+                //successful sign in
                 jPanel3.show();
+                //we can then display the third panel where the seller choses the type of property he wants to introduce (house, apartment)
             }
         }
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jTextFieldPriceKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldPriceKeyTyped
-        // TODO add your handling code here:
+        //function that unables the user to enter something else than digit (because we want a price)
         char c = evt.getKeyChar();
         if (!Character.isDigit(c)) {
             evt.consume();
@@ -1037,7 +1071,7 @@ public class EmployeeNewProperty extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextFieldPriceKeyTyped
 
     private void jTextFieldNumberRoomKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldNumberRoomKeyTyped
-        // TODO add your handling code here:
+        //function that unables the user to enter something else than digit (because we want a number of rooms)
         char c = evt.getKeyChar();
         if (!Character.isDigit(c)) {
             evt.consume();
@@ -1045,7 +1079,7 @@ public class EmployeeNewProperty extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextFieldNumberRoomKeyTyped
 
     private void jTextFieldNumberBedroomKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldNumberBedroomKeyTyped
-        // TODO add your handling code here:
+        //function that unables the user to enter something else than digit (because we want a number of bedrooms)
         char c = evt.getKeyChar();
         if (!Character.isDigit(c)) {
             evt.consume();
@@ -1053,7 +1087,7 @@ public class EmployeeNewProperty extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextFieldNumberBedroomKeyTyped
 
     private void jTextFieldSurfaceKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldSurfaceKeyTyped
-        // TODO add your handling code here:
+        //function that unables the user to enter something else than digit (because we want a surface)
 
         char c = evt.getKeyChar();
         if (!Character.isDigit(c)) {
@@ -1062,7 +1096,7 @@ public class EmployeeNewProperty extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextFieldSurfaceKeyTyped
 
     private void jTextFieldNumberFloorKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldNumberFloorKeyTyped
-        // TODO add your handling code here:
+        //function that unables the user to enter something else than digit (because we want a number of floors)
         char c = evt.getKeyChar();
         if (!Character.isDigit(c)) {
             evt.consume();
@@ -1070,18 +1104,22 @@ public class EmployeeNewProperty extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextFieldNumberFloorKeyTyped
 
     private void jComboBox3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox3ActionPerformed
-        // TODO add your handling code here://C'est la piscine
+        //jCombo bow for the swimming pool if the seller wants to introduce a house
         String selected = (String) jComboBox3.getSelectedItem();
+        //we get what has been selected from the combo box 
         if (selected.equals("Yes")) {
+        //if yes has been selected 
             tampon4 = 1;
+            //we set the value of the fourth buffer to 1 
         } else if (selected.equals("No")) {
-
+        //otherwise, there is no swimming pool 
             tampon4 = -1;
+            //we set the value of the fourth buffer to -1 
         }
     }//GEN-LAST:event_jComboBox3ActionPerformed
 
     private void jTextFieldGardenSurfaceKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldGardenSurfaceKeyTyped
-        // TODO add your handling code here:
+        //function that unables the user to enter something else than digit (because we want a gardensurface)
         char c = evt.getKeyChar();
         if (!Character.isDigit(c)) {
             evt.consume();
@@ -1089,32 +1127,39 @@ public class EmployeeNewProperty extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextFieldGardenSurfaceKeyTyped
 
     private void jTextFieldDescriptionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldDescriptionActionPerformed
-        // TODO add your handling code here:
+        //text field for the description of the proeperty 
     }//GEN-LAST:event_jTextFieldDescriptionActionPerformed
 
     private void jComboBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox2ActionPerformed
-        // TODO add your handling code here:
+        //combo box to select the type of property you want to introduce ; house or apartment 
         String selected = (String) jComboBox2.getSelectedItem();
+        //we get what has been selected in the combo box
         if (selected.equals("Select")) {
+             //if the seller doesn't select a type but remains on the first option of the combo box
             jPanelApartment.hide();
             jPanelHouse.hide();
+            //nothing happens so we add all the panels 
 
         } else if (selected.equals("Apartment")) {
+            //otherwise, if the seller choses an apartment  
 
             jPanelApartment.show();
+            //we show the panel to introduce an apartment 
             jPanelHouse.hide();
+            //we hide the pane to introduce a house 
 
         } else if (selected.equals("House")) {
+             //otherwise, if the seller choses a house
 
             jPanelHouse.show();
+            //we show the panel to introduce a house 
             jPanelApartment.hide();
-
+            //we hide the panel to introduce an apartment 
         }
-
     }//GEN-LAST:event_jComboBox2ActionPerformed
 
     private void jTextFieldPrice1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldPrice1KeyTyped
-        // TODO add your handling code here:
+        //function that unables the user to enter something else than digit (because we want a price)
         char c = evt.getKeyChar();
         if (!Character.isDigit(c)) {
             evt.consume();
@@ -1122,7 +1167,7 @@ public class EmployeeNewProperty extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextFieldPrice1KeyTyped
 
     private void jTextFieldNumberRoom1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldNumberRoom1KeyTyped
-        // TODO add your handling code here:
+        //function that unables the user to enter something else than digit (because we want a number of rooms)
         char c = evt.getKeyChar();
         if (!Character.isDigit(c)) {
             evt.consume();
@@ -1130,7 +1175,7 @@ public class EmployeeNewProperty extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextFieldNumberRoom1KeyTyped
 
     private void jTextFieldNumberBedroom1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldNumberBedroom1KeyTyped
-        // TODO add your handling code here:
+        //function that unables the user to enter something else than digit (because we want a number of bedrooms)
         char c = evt.getKeyChar();
         if (!Character.isDigit(c)) {
             evt.consume();
@@ -1138,7 +1183,7 @@ public class EmployeeNewProperty extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextFieldNumberBedroom1KeyTyped
 
     private void jTextFieldSurface1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldSurface1KeyTyped
-        // TODO add your handling code here:
+        //function that unables the user to enter something else than digit (because we want a surface)
         char c = evt.getKeyChar();
         if (!Character.isDigit(c)) {
             evt.consume();
@@ -1146,7 +1191,7 @@ public class EmployeeNewProperty extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextFieldSurface1KeyTyped
 
     private void jTextFieldNumberFloor1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldNumberFloor1KeyTyped
-        // TODO add your handling code here:
+        //function that unables the user to enter something else than digit (because we want a number of floors)
         char c = evt.getKeyChar();
         if (!Character.isDigit(c)) {
             evt.consume();
@@ -1154,7 +1199,7 @@ public class EmployeeNewProperty extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextFieldNumberFloor1KeyTyped
 
     private void jTextFieldFloorNumberKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldFloorNumberKeyTyped
-        // TODO add your handling code here:
+         //function that unables the user to enter something else than digit (because we want a floor number)
         char c = evt.getKeyChar();
         if (!Character.isDigit(c)) {
             evt.consume();
@@ -1162,34 +1207,41 @@ public class EmployeeNewProperty extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextFieldFloorNumberKeyTyped
 
     private void jTextFieldDescription1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldDescription1ActionPerformed
-        // TODO add your handling code here:
+        //text field for the description 
     }//GEN-LAST:event_jTextFieldDescription1ActionPerformed
 
     private void jComboBox4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox4ActionPerformed
-        // TODO add your handling code here:
-        //ELEVATOR
+        //combo box for the elevator if the seller wants to introduce an apartment 
         String selected = (String) jComboBox4.getSelectedItem();
+        //we get what has been selected in the combo box 
         if (selected.equals("Yes")) {
+        //if there is an elevator 
             tampon5 = 1;
+            //we set the value of the fifth buffer to 1
         } else if (selected.equals("No")) {
-
+        //otherwise,there is no elevator 
             tampon5 = -1;
+            //we set the value of the fifth buffer to -1
         }
     }//GEN-LAST:event_jComboBox4ActionPerformed
 
     private void jComboBox5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox5ActionPerformed
-        // TODO add your handling code here:
+        //combo box for the parking if the seller wants to introduce an apartment:
         String selected = (String) jComboBox5.getSelectedItem();
+        //we get what has been selected in the combo box 
         if (selected.equals("Yes")) {
-            tampon6=1;
+            //if there is a parking 
+            tampon6 = 1;
+            //we set the value of the sixth buffer to 1
         } else if (selected.equals("No")) {
-
-            tampon6=-1;
+            //otherwise,there is no parking 
+            tampon6 = -1;
+            //we set the value of the sixth buffer to -1            
         }
     }//GEN-LAST:event_jComboBox5ActionPerformed
 
     private void jTextFieldLocation1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldLocation1KeyTyped
-        // TODO add your handling code here:
+        //function that unables the user to enter digit (because we want a location)
         char c = evt.getKeyChar();
         if (Character.isDigit(c)) {
             evt.consume();
@@ -1197,7 +1249,7 @@ public class EmployeeNewProperty extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextFieldLocation1KeyTyped
 
     private void jTextFieldLocationKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldLocationKeyTyped
-        // TODO add your handling code here:
+        //function that unables the user to enter digit (because we want a location)
         char c = evt.getKeyChar();
         if (Character.isDigit(c)) {
             evt.consume();
@@ -1205,175 +1257,230 @@ public class EmployeeNewProperty extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextFieldLocationKeyTyped
 
     private void jTextFieldNumberRoom1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldNumberRoom1ActionPerformed
-        // TODO add your handling code here:
+        //text field for the number of rooms
 
     }//GEN-LAST:event_jTextFieldNumberRoom1ActionPerformed
 
     private void jTextFieldNumberBedroomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldNumberBedroomActionPerformed
-        // TODO add your handling code here:
+        //text field for the number of bedrooms 
 
     }//GEN-LAST:event_jTextFieldNumberBedroomActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        // TODO add your handling code here:
-        // button for house
+        // button confirm the introduction of the property for house
 
         if (tampon == 1) {
+            //if the seller is not a new seller 
             for (int i = 0; i < sellers.size(); ++i) {
+                //we go through all the sellers of the application 
                 if (jTextField1.getText().equals(sellers.get(i).getusername())) {
+                    //if the username entered by this seller is the same than one of the seller already registered in the database 
                     tampon2 = i;
+                    //we set the value of the second buffer to i
                 }
             }
             if (tampon2 == -1) {
+                //if the second buffer is still equal to -1, 
 
                 JOptionPane.showMessageDialog(null, "No match for this username");
+                //it means there has been no match 
             } else {
+                //otherwise, the seller is already registered in the database 
 
                 if (jTextFieldPrice.getText().trim().isEmpty() || jTextFieldLocation.getText().trim().isEmpty() || jTextFieldNumberRoom.getText().trim().isEmpty() || jTextFieldNumberBedroom.getText().trim().isEmpty() || jTextFieldSurface.getText().trim().isEmpty() || jTextFieldNumberFloor.getText().trim().isEmpty() || jTextFieldGardenSurface.getText().trim().isEmpty() || jTextFieldDescription.getText().trim().isEmpty()) {
+                    //we check there is no empty fields 
                     JOptionPane.showMessageDialog(null, "One or several fields are empty. Please, try again.");
+                    //if there is, we let it know 
                 } else {
+                    //if not, 
                     this.addhouse(sellers.get(tampon2).getid());
+                    //we call the addhouse function to add the house to the application 
                     JOptionPane.showMessageDialog(null, "This house has been registered");
-                     this.setVisible(false);
-                EmployeeFirst a =new EmployeeFirst(employee, buyers, sellers, emp, pr, v, o);
-                a.setVisible(true);
-                a.toFront();
-              
-
+                    //we let know it was successful
+                    this.setVisible(false);
+                    //we close this frame once it is done  
+                    EmployeeFirst a = new EmployeeFirst(employee, buyers, sellers, emp, pr, v, o);
+                    //we go back on the previous frame
+                    a.setVisible(true);
+                    //we set it visible 
+                    a.toFront();
                 }
-
             }
         } else {
+            //otherwise, if the seller is a new seller 
 
             if (jTextFieldPrice.getText().trim().isEmpty() || jTextFieldLocation.getText().trim().isEmpty() || jTextFieldNumberRoom.getText().trim().isEmpty() || jTextFieldNumberBedroom.getText().trim().isEmpty() || jTextFieldSurface.getText().trim().isEmpty() || jTextFieldNumberFloor.getText().trim().isEmpty() || jTextFieldGardenSurface.getText().trim().isEmpty() || jTextFieldDescription.getText().trim().isEmpty()) {
+                //we check no fields are empty 
                 JOptionPane.showMessageDialog(null, "One or several fields are empty. Please, try again.");
+                //if one or several fields are empty, we let it know 
             } else {
+                //otherwise, 
                 this.addhouse(sellers.get(sellers.size() - 1).getid());
+                //we call the addhouse function to add the house to the application 
                 JOptionPane.showMessageDialog(null, "This house has been registered");
-                 this.setVisible(false);
-                EmployeeFirst a =new EmployeeFirst(employee, buyers, sellers, emp, pr, v, o);
+                //we let know it was successful
+                this.setVisible(false);
+                //we close this frame once it is done 
+                EmployeeFirst a = new EmployeeFirst(employee, buyers, sellers, emp, pr, v, o);
+                //we go back on the previous frame
                 a.setVisible(true);
+                //we set it visible 
                 a.toFront();
-               
-                
-
             }
         }
-
-
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
-        // TODO add your handling code here:
+        // text field to enter the username if the seller is already registered
     }//GEN-LAST:event_jTextField1ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
+        // button confirm the introduction of the property for apartment
 
-               if (tampon == 1) {
+        if (tampon == 1) {
+            //if the seller is not a new seller 
             for (int i = 0; i < sellers.size(); ++i) {
+                //we go through all the sellers of the application 
                 if (jTextField1.getText().equals(sellers.get(i).getusername())) {
+                    //if the username entered by this seller is the same than one of the seller already registered in the database 
                     tampon2 = i;
+                    //we set the value of the second buffer to i
                 }
             }
             if (tampon2 == -1) {
+                //if the second buffer is still equal to -1, 
 
                 JOptionPane.showMessageDialog(null, "No match for this username");
+                //it means there has been no match 
             } else {
+                //otherwise, the seller is already registered in the database
 
                 if (jTextFieldPrice1.getText().trim().isEmpty() || jTextFieldLocation1.getText().trim().isEmpty() || jTextFieldNumberRoom1.getText().trim().isEmpty() || jTextFieldNumberBedroom1.getText().trim().isEmpty() || jTextFieldSurface1.getText().trim().isEmpty() || jTextFieldNumberFloor1.getText().trim().isEmpty() || jTextFieldFloorNumber.getText().trim().isEmpty() || jTextFieldDescription1.getText().trim().isEmpty()) {
+                    //we check there is no empty fields
                     JOptionPane.showMessageDialog(null, "One or several fields are empty. Please, try again.");
+                    //if there is, we let it know 
                 } else {
+                    //if not, 
                     this.addapartment(sellers.get(tampon2).getid());
+                    //we call the addapartment function to add the apartment to the application 
                     JOptionPane.showMessageDialog(null, "This apartment has been registered");
-                     this.setVisible(false);
-                EmployeeFirst a =new EmployeeFirst(employee, buyers, sellers, emp, pr, v, o);
-                a.setVisible(true);
-                a.toFront();
-               
-                
-
+                    //we let know it was successful
+                    this.setVisible(false);
+                    //we close this frame once it is done 
+                    EmployeeFirst a = new EmployeeFirst(employee, buyers, sellers, emp, pr, v, o);
+                    //we go back on the previous frame
+                    a.setVisible(true);
+                    //we set it visible 
+                    a.toFront();
                 }
-
             }
         } else {
+            //otherwise, if the seller is a new seller
 
             if (jTextFieldPrice1.getText().trim().isEmpty() || jTextFieldLocation1.getText().trim().isEmpty() || jTextFieldNumberRoom1.getText().trim().isEmpty() || jTextFieldNumberBedroom1.getText().trim().isEmpty() || jTextFieldSurface1.getText().trim().isEmpty() || jTextFieldNumberFloor1.getText().trim().isEmpty() || jTextFieldFloorNumber.getText().trim().isEmpty() || jTextFieldDescription1.getText().trim().isEmpty()) {
+                //we check no fields are empty 
                 JOptionPane.showMessageDialog(null, "One or several fields are empty. Please, try again.");
+                //if one or several fields are empty, we let it know 
             } else {
+                //otherwise, 
                 this.addapartment(sellers.get(sellers.size() - 1).getid());
+                 //we call the addapartment function to add the apartment to the application
                 JOptionPane.showMessageDialog(null, "This apartment has been registered");
+                //we let know it was successful
                 this.setVisible(false);
-                EmployeeFirst a =new EmployeeFirst(employee, buyers, sellers, emp, pr, v, o);
+                //we close this frame once it is done 
+                EmployeeFirst a = new EmployeeFirst(employee, buyers, sellers, emp, pr, v, o);
+                //we go back on the previous frame
                 a.setVisible(true);
+                //we set it visible 
                 a.toFront();
-          
-                
-
             }
         }
     }//GEN-LAST:event_jButton3ActionPerformed
 
     public int test() {
+        //fuction that checks if the entered username is not already in the application 
         int t = 0;
+        //temporary variable 
         for (int j = 0; j < sellers.size(); ++j) {
+            //we go through all the sellers of the application 
             if (sellers.get(j).getusername().equals(jTextFieldUsername.getText())) {
+                //if the username entered is already is the database
                 t++;
+                //we increment t ; 
             }
         }
         return t;
+        //we return the t 
     }
 
     public void addseller() {
+        //this function is used to add a seller both to the application and to the database
         SellerDAOImpl sdao = new SellerDAOImpl();
+        //we create an object of the VisitDAOImpl class, to create the seller in the database 
         int idlast = sellers.get(sellers.size() - 1).getid();
         int newid = idlast + 1;
+        //we say the id of the new seller will be the id of the last seller registered + 1
         sellers.add(new Seller(newid, jTextFieldFirstName.getText(), jTextFieldSurname.getText(), jTextFieldUsername.getText(), jPasswordField1.getText()));
+        //we add the seller in the array list of sellers 
         sdao.addseller(sellers.get(sellers.size() - 1));
-
+        //we add the new seller in the database
     }
 
     public void addapartment(int idseller) {
+        //this function is used to add an apartment both to the application and to the database
         int idlast = pr.get(pr.size() - 1).getid();
         int newid = idlast + 1;
+        //we say the id of the new apartment will be the id of the last property registered + 1
         PropertyDAOImpl pdao = new PropertyDAOImpl();
-        System.out.println(tampon5);
-        System.out.println(tampon6);
+        //we create an object of the PropertyDAOImpl class, to create the property in the database
         if (tampon5 == 1) {
+            //if the apartment has an elevator 
             if (tampon6 == 1) {
+                //if the apartment has a parking
                 pr.add(new Appartment(newid, jTextFieldDescription1.getText(), Double.parseDouble(jTextFieldPrice1.getText()), jTextFieldLocation1.getText(), Integer.parseInt(jTextFieldNumberRoom1.getText()), Integer.parseInt(jTextFieldNumberBedroom1.getText()), Integer.parseInt(jTextFieldNumberFloor1.getText()), 0, Double.parseDouble(jTextFieldSurface1.getText()), idseller, false, "Apartment", true, Integer.parseInt(jTextFieldFloorNumber.getText()), true));
-
+                //we add the new apartment with correspnding value 
             } else {
-                
-                 pr.add(new Appartment(newid, jTextFieldDescription1.getText(), Double.parseDouble(jTextFieldPrice1.getText()), jTextFieldLocation1.getText(), Integer.parseInt(jTextFieldNumberRoom1.getText()), Integer.parseInt(jTextFieldNumberBedroom1.getText()), Integer.parseInt(jTextFieldNumberFloor1.getText()), 0, Double.parseDouble(jTextFieldSurface1.getText()), idseller, false, "Apartment", true, Integer.parseInt(jTextFieldFloorNumber.getText()), false));
-              
+                //if there is an elevator but no parking 
+                pr.add(new Appartment(newid, jTextFieldDescription1.getText(), Double.parseDouble(jTextFieldPrice1.getText()), jTextFieldLocation1.getText(), Integer.parseInt(jTextFieldNumberRoom1.getText()), Integer.parseInt(jTextFieldNumberBedroom1.getText()), Integer.parseInt(jTextFieldNumberFloor1.getText()), 0, Double.parseDouble(jTextFieldSurface1.getText()), idseller, false, "Apartment", true, Integer.parseInt(jTextFieldFloorNumber.getText()), false));
+                //we add the new apartment with correspnding value
             }
         } else {
+            //if there is no elevator 
             if (tampon6 == 1) {
-                 pr.add(new Appartment(newid, jTextFieldDescription1.getText(), Double.parseDouble(jTextFieldPrice1.getText()), jTextFieldLocation1.getText(), Integer.parseInt(jTextFieldNumberRoom1.getText()), Integer.parseInt(jTextFieldNumberBedroom1.getText()), Integer.parseInt(jTextFieldNumberFloor1.getText()), 0, Double.parseDouble(jTextFieldSurface1.getText()), idseller, false, "Apartment", false, Integer.parseInt(jTextFieldFloorNumber.getText()), true));
-
+                //if there is a parking
+                pr.add(new Appartment(newid, jTextFieldDescription1.getText(), Double.parseDouble(jTextFieldPrice1.getText()), jTextFieldLocation1.getText(), Integer.parseInt(jTextFieldNumberRoom1.getText()), Integer.parseInt(jTextFieldNumberBedroom1.getText()), Integer.parseInt(jTextFieldNumberFloor1.getText()), 0, Double.parseDouble(jTextFieldSurface1.getText()), idseller, false, "Apartment", false, Integer.parseInt(jTextFieldFloorNumber.getText()), true));
+                //we add the new apartment with correspnding value
             } else {
-                 pr.add(new Appartment(newid, jTextFieldDescription1.getText(), Double.parseDouble(jTextFieldPrice1.getText()), jTextFieldLocation1.getText(), Integer.parseInt(jTextFieldNumberRoom1.getText()), Integer.parseInt(jTextFieldNumberBedroom1.getText()), Integer.parseInt(jTextFieldNumberFloor1.getText()), 0, Double.parseDouble(jTextFieldSurface1.getText()), idseller, false, "Apartment", false, Integer.parseInt(jTextFieldFloorNumber.getText()), false));
+                //if there is no elevator and no parking
+                pr.add(new Appartment(newid, jTextFieldDescription1.getText(), Double.parseDouble(jTextFieldPrice1.getText()), jTextFieldLocation1.getText(), Integer.parseInt(jTextFieldNumberRoom1.getText()), Integer.parseInt(jTextFieldNumberBedroom1.getText()), Integer.parseInt(jTextFieldNumberFloor1.getText()), 0, Double.parseDouble(jTextFieldSurface1.getText()), idseller, false, "Apartment", false, Integer.parseInt(jTextFieldFloorNumber.getText()), false));
+                //we add the new apartment with correspnding value
             }
         }
         pdao.addproperty(pr.get(pr.size() - 1), 1);
+        //we add the property in the database 
 
     }
-    
-      public void addhouse(int idseller) {
 
+    public void addhouse(int idseller) {
+        //this function is used to add an apartment both to the application and to the database
         int idlast = pr.get(pr.size() - 1).getid();
         int newid = idlast + 1;
+        //we say the id of the new apartment will be the id of the last property registered + 1
         PropertyDAOImpl pdao = new PropertyDAOImpl();
+        //we create an object of the PropertyDAOImpl class, to create the property in the database
 
         if (tampon4 == 1) {
-            pr.add(new House(newid, jTextFieldDescription.getText(), Double.parseDouble(jTextFieldPrice.getText()), jTextFieldLocation.getText(), Integer.parseInt(jTextFieldNumberRoom.getText()), Integer.parseInt(jTextFieldNumberBedroom.getText()), Integer.parseInt(jTextFieldNumberFloor.getText()), 0, Double.parseDouble(jTextFieldSurface.getText()), idseller,false, "House", Double.parseDouble(jTextFieldGardenSurface.getText()), true));
-
+            //if there is a swimming pool
+            pr.add(new House(newid, jTextFieldDescription.getText(), Double.parseDouble(jTextFieldPrice.getText()), jTextFieldLocation.getText(), Integer.parseInt(jTextFieldNumberRoom.getText()), Integer.parseInt(jTextFieldNumberBedroom.getText()), Integer.parseInt(jTextFieldNumberFloor.getText()), 0, Double.parseDouble(jTextFieldSurface.getText()), idseller, false, "House", Double.parseDouble(jTextFieldGardenSurface.getText()), true));
+            //we add the new house with correspnding value
         } else {
-             pr.add(new House(newid, jTextFieldDescription.getText(), Double.parseDouble(jTextFieldPrice.getText()), jTextFieldLocation.getText(), Integer.parseInt(jTextFieldNumberRoom.getText()), Integer.parseInt(jTextFieldNumberBedroom.getText()), Integer.parseInt(jTextFieldNumberFloor.getText()), 0, Double.parseDouble(jTextFieldSurface.getText()), idseller,false,"House", Double.parseDouble(jTextFieldGardenSurface.getText()), false));
+            //if there is no swimming pool
+            pr.add(new House(newid, jTextFieldDescription.getText(), Double.parseDouble(jTextFieldPrice.getText()), jTextFieldLocation.getText(), Integer.parseInt(jTextFieldNumberRoom.getText()), Integer.parseInt(jTextFieldNumberBedroom.getText()), Integer.parseInt(jTextFieldNumberFloor.getText()), 0, Double.parseDouble(jTextFieldSurface.getText()), idseller, false, "House", Double.parseDouble(jTextFieldGardenSurface.getText()), false));
+            //we add the new apartment with correspnding value
         }
         pdao.addproperty(pr.get(pr.size() - 1), 2);
-
+        //we add the property in the database 
     }
 
     /**
@@ -1392,15 +1499,12 @@ public class EmployeeNewProperty extends javax.swing.JFrame {
                     break;
                 }
             }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(EmployeeNewProperty.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(EmployeeNewProperty.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(EmployeeNewProperty.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            //all the possible exceptions
+        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(EmployeeNewProperty.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        
         //</editor-fold>
 
         /* Create and display the form */
@@ -1411,18 +1515,30 @@ public class EmployeeNewProperty extends javax.swing.JFrame {
         });
     }
 
-    private int tampon; // buffer to know if we are dealing with a new seller or a seller that already has an account
-    private int tampon2;// buffer for recognizing a seller from his username
-    private int tampon4;// buffer for swimmingpool
-    private int tampon5;//buffer for elevator
-    private int tampon6;// buffer for parking spot or no
-    private static ArrayList<Buyer> buyers = new ArrayList<>();//array list of all the application buyers 
-    private static ArrayList<Seller> sellers = new ArrayList<>();//array list of all the application sellers 
-    private static ArrayList<Employee> emp = new ArrayList<>();//array list of all the application sellers 
+    private int tampon; 
+    // buffer to know if we are dealing with a new seller or a seller that already has an account
+    private int tampon2;
+    // buffer for recognizing a seller from his username
+    private int tampon4;
+    // buffer for swimmingpool
+    private int tampon5;
+    //buffer for elevator
+    private int tampon6;
+    // buffer for parking spot or no
+    private static ArrayList<Buyer> buyers = new ArrayList<>();
+    //array list of all the application buyers 
+    private static ArrayList<Seller> sellers = new ArrayList<>();
+    //array list of all the application sellers 
+    private static ArrayList<Employee> emp = new ArrayList<>();
+    //array list of all the application sellers 
     private static ArrayList<Property> pr = new ArrayList<>();
+    //array list of all the application poperties
     private static ArrayList<Visit> v = new ArrayList<>();
+    //array list of all the application viewings
     private static ArrayList<Offer> o = new ArrayList<>();
+    //array list of all the application offers
     private static Employee employee;
+    //current connected employee
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
