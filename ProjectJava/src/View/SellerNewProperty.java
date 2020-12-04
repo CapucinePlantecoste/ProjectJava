@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+//this frame is the frame that is shown when a seller wants to introduce a new property 
 package View;
 
 import View.SellerFirst;
@@ -24,16 +20,26 @@ public class SellerNewProperty extends javax.swing.JFrame {
     /**
      * Creates new form SellerNewProperty
      */
-    public SellerNewProperty(Seller a, ArrayList<Buyer> b, ArrayList<Seller> s, ArrayList<Employee> e, ArrayList<Property>prop, ArrayList<Visit>vis, ArrayList<Offer>off) {
-        buyers = b;//Array List of buyers
-        sellers = s;//Array List of sellers
-        emp = e;//Array List of employees
-        pr=prop;
-        v=vis;
-        o=off;
-        newseller = a ;
-        tampon=1;
+    public SellerNewProperty(Seller a, ArrayList<Buyer> b, ArrayList<Seller> s, ArrayList<Employee> e, ArrayList<Property> prop, ArrayList<Visit> vis, ArrayList<Offer> off) {
+
+        buyers = b;
+        //Array List of all the buyers of the application 
+        sellers = s;
+        //Array List of all the sellers of the application 
+        emp = e;
+        //Array List of all the employees of the application 
+        pr = prop;
+        //Array List of all the properties of the application 
+        v = vis;
+        //Array List of all the viewings of the application 
+        o = off;
+        //Array List of all the offers of the application 
+        newseller = a;
+        //current connected seller 
+        tampon = 1;
+        //buffer 
         initComponents();
+        //automatically generated constructor 
     }
 
     /**
@@ -55,7 +61,6 @@ public class SellerNewProperty extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -161,17 +166,6 @@ public class SellerNewProperty extends javax.swing.JFrame {
         jPanel2.add(jButton5);
         jButton5.setBounds(1360, 100, 100, 23);
 
-        jButton6.setBackground(new java.awt.Color(255, 255, 255));
-        jButton6.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
-        jButton6.setText("Log Out");
-        jButton6.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton6ActionPerformed(evt);
-            }
-        });
-        jPanel2.add(jButton6);
-        jButton6.setBounds(1360, 100, 100, 23);
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -189,58 +183,66 @@ public class SellerNewProperty extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        // TODO add your handling code here:
-        //faire code pour log out
-        this.toBack(); 
-        setVisible(false);//this page disappears 
-        new First(buyers, sellers, emp, pr,v,o).toFront();//we go back on the first page 
-        new First(buyers, sellers, emp,pr,v,o).setState(java.awt.Frame.NORMAL);
-        new First(buyers, sellers, emp,pr,v,o).setVisible(true);
-        
+        //log out button
+        this.toBack();
+        //if we click on the button
+        setVisible(false);
+        //this page disappears 
+        new First(buyers, sellers, emp, pr, v, o).toFront();
+        //we go back on the first page 
+        new First(buyers, sellers, emp, pr, v, o).setState(java.awt.Frame.NORMAL);
+        new First(buyers, sellers, emp, pr, v, o).setVisible(true);
+        //we set the new frame visible 
+
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
-        // TODO add your handling code here:
+        //combo box that asks the seller if the wants to sell an apartment or a house
         String selected = (String) jComboBox1.getSelectedItem();
-        if (selected.equals("Apartment"))
-        {
-            tampon=1;
-        }
-        else if(selected.equals("House"))
-        {
-            tampon=2;
+        //we get what has been selected in the combo box
+        if (selected.equals("Apartment")) {
+        //if the seller selected apartment 
+            tampon = 1;
+            //the buffer equals 1
+        } else if (selected.equals("House")) {
+            //otherwise,the seller selected house 
+            tampon = 2;
+            //the buffer equals 2
         }
     }//GEN-LAST:event_jComboBox1ActionPerformed
 
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton6ActionPerformed
-
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-        this.toBack();//if we click on the back button
-        setVisible(false);//this page disappears
-        SellerFirst a=new SellerFirst(newseller, buyers, sellers, emp,pr,v,o);//we go back on the first page
+        //back button
+        this.toBack();
+        //if we click on the back button
+        setVisible(false);
+        //this page disappears
+        SellerFirst a = new SellerFirst(newseller, buyers, sellers, emp, pr, v, o);
+        //we go back on the previous page
         a.setVisible(true);
-        new SellerFirst(newseller,buyers, sellers, emp,pr,v,o).setState(java.awt.Frame.NORMAL);
+        //we set the previous page to visible
+        new SellerFirst(newseller, buyers, sellers, emp, pr, v, o).setState(java.awt.Frame.NORMAL);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
-        
-       
-         
-        if (tampon==1) {
-            
+        // the go button, to start the introduction of the new property 
+
+        if (tampon == 1) {
+        //if the seller chose to introduce an apartment 
+
             this.setVisible(false);
-            new SellerNewPropertyApartment (newseller, buyers, sellers, emp,pr,v,o).setVisible(true);         
-            new SellerNewPropertyApartment (newseller, buyers, sellers, emp,pr,v,o).toFront(); 
+            //we close this frame 
+            new SellerNewPropertyApartment(newseller, buyers, sellers, emp, pr, v, o).setVisible(true);
+            //we open a new frame that will enable the seller to initroduce his new apartment 
+            new SellerNewPropertyApartment(newseller, buyers, sellers, emp, pr, v, o).toFront();
         } else {
             this.setVisible(false);
-            new SellerNewPropertyHouse (newseller, buyers, sellers, emp,pr,v,o).setVisible(true);         
-            new SellerNewPropertyHouse (newseller, buyers, sellers, emp,pr,v,o).toFront(); 
+            //we close this frame
+            new SellerNewPropertyHouse(newseller, buyers, sellers, emp, pr, v, o).setVisible(true);
+            //we open a new frame that will enable the seller to initroduce his new house 
+            new SellerNewPropertyHouse(newseller, buyers, sellers, emp, pr, v, o).toFront();
         }
-        
+
     }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
@@ -273,24 +275,31 @@ public class SellerNewProperty extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new SellerNewProperty(newseller, buyers, sellers, emp,pr,v,o).setVisible(true);
+                new SellerNewProperty(newseller, buyers, sellers, emp, pr, v, o).setVisible(true);
             }
         });
     }
 
-    private static ArrayList<Buyer> buyers = new ArrayList<>();//array list of all the application buyers 
-    private static ArrayList<Seller> sellers = new ArrayList<>();//array list of all the application sellers 
-    private static ArrayList<Employee> emp = new ArrayList<>();//array list of all the application sellers 
-    private static ArrayList<Property> pr=new ArrayList<>();
-    private static ArrayList<Visit>v=new ArrayList<>();
-    private static ArrayList<Offer>o=new ArrayList<>();
-    private static Seller newseller ; 
+    private static ArrayList<Buyer> buyers = new ArrayList<>();
+    //array list of all the application buyers 
+    private static ArrayList<Seller> sellers = new ArrayList<>();
+    //array list of all the application sellers 
+    private static ArrayList<Employee> emp = new ArrayList<>();
+    //array list of all the application employees 
+    private static ArrayList<Property> pr = new ArrayList<>();
+    //array list of all the application properties
+    private static ArrayList<Visit> v = new ArrayList<>();
+    //array list of all the application viewings 
+    private static ArrayList<Offer> o = new ArrayList<>();
+    //array list of all the application offers 
+    private static Seller newseller;
+    //current connected seller 
     private int tampon;
+    //buffer 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
     private javax.swing.JComboBox jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+//this class is used to enable the seller to delete a viewing of one of his properties 
 package View;
 
 import Model.Offer;
@@ -26,19 +22,33 @@ public class SellerDeleteViewing extends javax.swing.JFrame {
      * Creates new form SellerDeleteViewing
      */
     public SellerDeleteViewing(Seller a, ArrayList<Buyer> b, ArrayList<Seller> s, ArrayList<Employee> e, ArrayList<Property> prop, ArrayList<Visit> vis, ArrayList<Offer> off, ArrayList<Visit> mv, ArrayList<Property> pbis) {
-        buyers = b;//Array List of buyers
-        sellers = s;//Array List of sellers
-        emp = e;//Array List of employees
+        //constructor of the class
+        buyers = b;
+        //Array List of all the buyers of the application
+        sellers = s;
+        //Array List of all the sellers of the application
+        emp = e;
+        //Array List of all the employees of the application
         pr = prop;
+        //Array List of all the properties of the application
         v = vis;
+        //Array List of all the viewings of the application
         o = off;
+        //Array List of all the offers of the application
         newseller = a;
+        //current connected seller 
         myviewings = mv;
+        //arraylist of the personal viewings of the connected seller 
         propviewing = pbis;
+        //array list of the properties of the sellers that have at least 1 viewing
+        
         initComponents();
+        //automatically generated constructor
         this.initjcb1();
+        //function that enables to fill the combobox with the properties of the connected seller that have at least one viewing 
         jPanelViewings.hide();
         jPanel1.hide();
+        //in the beginning, all the other panels are hidden 
     }
 
     /**
@@ -258,154 +268,215 @@ public class SellerDeleteViewing extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        // TODO add your handling code here:
+        //log out button
         this.toBack();
-        setVisible(false);//this page disappears
-        new First(buyers, sellers, emp, pr, v, o).toFront();//we go back on the first page
+        //when we click on the button
+        setVisible(false);
+        //this page disappears
+        new First(buyers, sellers, emp, pr, v, o).toFront();
+        //we go back on the first page
         new First(buyers, sellers, emp, pr, v, o).setState(java.awt.Frame.NORMAL);
         new First(buyers, sellers, emp, pr, v, o).setVisible(true);
+        // we set the first page visible
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
-        // TODO add your handling code here:
+        //combo box that displays all the properties of the seller that have at least 1 viewing
         int tampon = 0;
+        //temporary buffer
 
         String selected = (String) jComboBox1.getSelectedItem();
+        //we get what has been selected 
         if (selected.equals("Select one of your properties for sale")) {
+        //if the seller doesn't select any option but remains on the first option of the combo box
 
             jPanelViewings.hide();
             jPanel1.hide();
+            //we do not do anything so all the panels remain hiden 
 
         } else {
+        //otherwise, the seller choses one of the properties
             
             for (int i = 0; i < propviewing.size(); i++) {
+            //we go through the list of his properties that have at least 1 viewing
                 if (selected.equals(propviewing.get(i).getdescription()+" idproperty : "+propviewing.get(i).getid())) {
+                // if what is selected is the same as the description + the id the coresponding property 
 
                     tampon = i;
+                    //we set the value of the buffer to i
                 }
 
             }
             jComboBox2.removeAllItems();
+            //we need to clear the second combo box, otherwise, eveytime we click on it, new items are added
             jComboBox2.addItem("Viewings");
+            //we give the first item of the combo box 2
             for (int i = 0; i < myviewings.size(); ++i) {
+                //we go through all the viewings of the connected seller 
                 if (myviewings.get(i).getidprop() == propviewing.get(tampon).getid()) {
+                    // if the id of the viewing is equal to the id of the viewing of the coresponding house 
                     jComboBox2.addItem(myviewings.get(i).displaydate()+" idviewing : "+myviewings.get(i).getid());
+                    //we add the vewing to the combo box and we display its time 
                 }
 
                 jPanelViewings.show();
+                //finally, we can display the viewing panel
                 jPanel1.hide();
-
+                //all the other panels are hiden 
             }
         }
     }//GEN-LAST:event_jComboBox1ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-        this.toBack();//if we click on the back button
-        setVisible(false);//this page disappears
-        SellerFirst a=new SellerFirst(newseller, buyers, sellers, emp, pr, v, o);//we go back on the first page
+        // back button
+        this.toBack();
+        //if we click on the back button
+        setVisible(false);
+        //this page disappears
+        SellerFirst a=new SellerFirst(newseller, buyers, sellers, emp, pr, v, o);
+        //we go back on the first page
         a.setVisible(true);
+        //we set the first page visible 
         new SellerFirst(newseller, buyers, sellers, emp, pr, v, o).setState(java.awt.Frame.NORMAL);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jComboBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox2ActionPerformed
-        // TODO add your handling code here:
+        //second combo box : combo box where are displayed the viewings of the selected house 
 
         int tampon = -1;
         int tampon2 = -1;
+        //two temporary buffer 
 
         String selected1 = (String) jComboBox1.getSelectedItem();
+        //we get what has been selected in the first combo box
         for (int i = 0; i < propviewing.size(); i++) {
+            // we go through all the properties of the connected seller that have at least 1 viewing
             if (selected1.equals(propviewing.get(i).getdescription()+" idproperty : "+propviewing.get(i).getid())) {
+                //if what has been selected equals the description + the id of one of the seller property
 
                 tampon = i;
-                
+                //we set the value of the buffer to i                 
             }
         }
 
             if (jComboBox2.getSelectedIndex() < 0) {
             } else {
                 String selected2 = (String) jComboBox2.getSelectedItem();
+                //we get what has been selected in the second combo box
                 if (selected2.equals("Viewings")) {
+                    //if the seller doesn't select any option but remains on the first option of the combo box
                     jPanel1.hide();
+                    //nothing happens so we hide the panel
                 } else {
+                    //otherwise, the seller clicked on one of the options
                     for (int j = 0; j < myviewings.size(); ++j) {
+                        //we go through the personal viewings of the connected seller 
                         if ((myviewings.get(j).getidprop() == propviewing.get(tampon).getid()) && ((myviewings.get(j).displaydate()+" idviewing : "+myviewings.get(j).getid()).equals(selected2))) {
+                            //if the id of the property is the same id as the property of the viewing and if what has been selected corresponds to the date + the id of the viewing  
                             tampon2 = j;
+                            //we set the value of the buffer to j 
                         }
                     }
                     
                     jLabelDescription.setText(" Description : " + propviewing.get(tampon).getdescription());
+                    //we set the description in the panel to the get value 
                     jLabelLocation.setText(" Location : " + propviewing.get(tampon).getlocation());
+                    //we set the location in the panel to the get value 
                     jLabelId.setText(" Viewing ID : " + myviewings.get(tampon2).getid());
+                    //we set the id in the panel to the get value 
                     jLabelDate.setText(" Date of the viewing : " + myviewings.get(tampon2).displaydate());
+                    //we set the date in the panel to the get value 
                     jPanel1.show();
+                    //we finally show the panel where the details of the viewing are displayed 
                 }
-
-            }
-        
-
-
+            }      
     }//GEN-LAST:event_jComboBox2ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
+        // delete button once the details of the viewings have been displayed 
         int tampon = -1;
         int tampon2 = -1;
         int tampon3=-1;
+        //temporary buffers 
         VisitDAOImpl vdao=new VisitDAOImpl();
+        //we create an object of the VisitDAOImpl class, to delete the viewing later in the database
         String selected1 = (String) jComboBox1.getSelectedItem();
+        //we get what has been selected in the combo box 
         for (int i = 0; i < propviewing.size(); i++) {
+            //we go through the properties of the connected seller that have at least one viewing 
             if (selected1.equals(propviewing.get(i).getdescription()+" idproperty : "+propviewing.get(i).getid())) {
+            //if what has been selected equals the description + the id of the property coresponding 
 
                 tampon = i;
+                //we set the value of the buffer to i 
             }
         }
             String selected2 = (String) jComboBox2.getSelectedItem();
+            //we get what has been selected in the second combo box
 
             for (int j = 0; j < myviewings.size(); ++j) {
+                //we go through the list of the viewings of the seller 
                 if ((myviewings.get(j).getidprop() == propviewing.get(tampon).getid()) && ((myviewings.get(j).displaydate()+" idviewing : "+myviewings.get(j).getid()).equals(selected2))) {
+                   //if the id of the property is the same id as the property of the viewing and if what has been selected corresponds to the date + the id of the viewing  
                     tampon2 = j;
+                    //we set the value of the second buffer to j
                 }
             }
             
             for(int k=0;k<v.size();++k)
+                //we go through all the viewings of the app 
             {
                 if(v.get(k).getid()==myviewings.get(tampon2).getid())
+                    //if the id of one of the viewing is equal to the id of the viewing of the seller
                 {
                     tampon3=k;
+                    //we set the value of the buffer to k 
                 }
             }
           
-              vdao.deleteviewing(myviewings.get(tampon2));
+            vdao.deleteviewing(myviewings.get(tampon2));
+            //we delete the viewing in the database 
             myviewings.remove(myviewings.get(tampon2));
+            //we delete the considered viewing in the personal array list of viewings 
             v.remove(v.get(tampon3));
+            //we delete the considered viewing in the array list of viewings 
             int buffer=0;
+            //temporary buffer
             for(int i=0;i<myviewings.size();++i)
+                //we go through the list of the personal viewings 
             {
                 if(myviewings.get(i).getidprop()==propviewing.get(tampon).getid())
+                    //if the id of the property of one of the personal viewings equals the id of the corresponding property 
                 {
                     buffer++;
+                    //we increment the buffer 
                 }
             }
             if(buffer==0)
+            //if the buffer has not been incremented 
             {
                 propviewing.remove(propviewing.get(tampon));
+                //we remove the corresponding property of the personal list of properties of the seller  
             }
             JOptionPane.showMessageDialog(null, "Viewing deleted"); 
+            //successful delete 
             this.setVisible(false);
+            //we need to regenerate this frame
             SellerDeleteViewing a=new SellerDeleteViewing(newseller, buyers, sellers, emp, pr, v, o,myviewings,propviewing);
+            //we create the same new frame
             a.setVisible(true);
+            //we set it visible 
             
             
-        
-
     }//GEN-LAST:event_jButton2ActionPerformed
 
     public void initjcb1() {
+        //function that enables to fill the combobox with the properties of the connected seller that have at least one viewing 
         for (int i = 0; i < propviewing.size(); ++i) {
+            //we go through the properties of the seller that have at least one viewing 
 
             jComboBox1.addItem(propviewing.get(i).getdescription()+" idproperty : "+propviewing.get(i).getid());
+            //we add the items to the combo box one by one
 
         }
     }
@@ -445,16 +516,25 @@ public class SellerDeleteViewing extends javax.swing.JFrame {
         });
     }
 
-    private static ArrayList<Buyer> buyers = new ArrayList<>();//array list of all the application buyers 
-    private static ArrayList<Seller> sellers = new ArrayList<>();//array list of all the application sellers 
-    private static ArrayList<Employee> emp = new ArrayList<>();//array list of all the application sellers 
+    private static ArrayList<Buyer> buyers = new ArrayList<>();
+    //array list of all the application buyers 
+    private static ArrayList<Seller> sellers = new ArrayList<>();
+    //array list of all the application sellers 
+    private static ArrayList<Employee> emp = new ArrayList<>();
+    //array list of all the application employees 
     private static ArrayList<Property> pr = new ArrayList<>();
+    //array list of all the application properties
     private static ArrayList<Visit> v = new ArrayList<>();
+    //array list of all the application viewings
     private static ArrayList<Offer> o = new ArrayList<>();
+    //array list of all the application offers
     private static ArrayList<Property> propviewing = new ArrayList<>();
+    //array list of all the properties of the connected seller that have at least one viewing 
     private static ArrayList<Visit> myviewings = new ArrayList<>();
+    //list of the viewings of the connected seller 
 
     private static Seller newseller;
+    //connected seller 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;

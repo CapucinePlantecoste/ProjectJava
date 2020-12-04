@@ -504,10 +504,13 @@ public class EmployeeAddViewing extends javax.swing.JFrame {
                         try
                         {
                             Date dateparse=sdf.parse(newd);
+                            //we convert the date that was written in the viewing panel to the good format : yyyy-MM-dd hh:mm:ss
                             Timestamp d=new Timestamp(dateparse.getTime());
+                            //we transform the date in a timetsamp object and we send in parameter the time in ms that passed since 1970
                             c=d.compareTo(ts);
+                            //c compares the date d of the viewing to the current date 
                             if(c<0)
-                            //if, compared to today, the date is negative, 
+                            //if, c is negative, it means the date of the viewing is before the current date  
                             {
                                JOptionPane.showMessageDialog(null, "Date already passed"); 
                                //it means the entered date is passed

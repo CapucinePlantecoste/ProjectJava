@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+//this frame displays when the seller wants to see the offers made to his property for sale 
 package View;
 
 import View.SellerFirst;
@@ -28,18 +24,30 @@ public class SellerOffer extends javax.swing.JFrame {
      * Creates new form SellerOffer
      */
     public SellerOffer(Seller a, ArrayList<Buyer> b, ArrayList<Seller> s, ArrayList<Employee> e, ArrayList<Property> prop, ArrayList<Visit> vis, ArrayList<Offer> off, ArrayList<Offer> myo) {
-        buyers = b;//Array List of buyers
-        sellers = s;//Array List of sellers
-        emp = e;//Array List of employees
+        //constructor 
+        buyers = b;
+        //Array List of all the buyers of the application
+        sellers = s;
+        //Array List of all the sellers of the application
+        emp = e;
+        //Array List of all the employees of the application
         pr = prop;
+        //Array List of all the properties of the application
         v = vis;
+        //Array List of all the viewings of the application
         o = off;
+        //Array List of all the offers of the application
         newseller = a;
+        //current connected seller 
         myoffers= myo ;
+        //offers of the connected seller 
         
         initComponents();
+        //automatically generated onstructor 
         this.initjcb1();
+        //function that enables to add the properties of the seller that have received offers to the combo box 
         jPanelOffers.hide();
+        //in the beginning, all the other panels are hidden 
     }
 
     /**
@@ -259,37 +267,37 @@ public class SellerOffer extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
-        // TODO add your handling code here:
+        //combo box where all the offers made for the properties of the seller are displayed
         
         int tampon = 0;
-        
+        //temporary buffer        
 
         String selected = (String) jComboBox1.getSelectedItem();
+        //we get what has been selected in the combo box 
         if (selected.equals("Select one of your offers")) {
-            
-            //jPanelOffer.hide();
+            //if the seller doesn't select any option but remains on the first option of the combo box
+            jPanelOffers.hide();
+            //nothing happens so we hide all the other panels  
         } else {
+            //otherwise, the seller selected one of the option of the combo box 
             for (int i = 0; i < myoffers.size(); ++i) {
+                //we go through the offers of the seller  
                 {
                     for(int j=0;j<pr.size();++j)
+                        //we go through the properties of the application 
                     {
                         if(selected.equals(pr.get(j).getdescription()+" idoffer : "+myoffers.get(i).getid()))
-                        {
-                           
-                            tampon=i;
-                            
+                        //if what has been selected equals the description + the id of the corresponding property 
+                        {                           
+                            tampon=i;                
+                            //we set the value of the buffer to i
                         }
                     }
-                }
-                
-                
-            }
-               
+                }               
+            }               
             this.display(myoffers.get(tampon));
-
-            }
-        
-        
+            //we display the differents fields of the panel offer via the display function 
+            }               
     }//GEN-LAST:event_jComboBox1ActionPerformed
 
     

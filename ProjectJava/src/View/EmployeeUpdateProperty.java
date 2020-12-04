@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+//this class is he jframe used for an employee when he wants to update the properties of a property 
 package View;
 
 import Model.Buyer;
@@ -26,18 +22,29 @@ public class EmployeeUpdateProperty extends javax.swing.JFrame {
      * Creates new form EmployeeUpdateProperty
      */
     public EmployeeUpdateProperty(Employee coucou, ArrayList<Buyer> b, ArrayList<Seller> s, ArrayList<Employee> e, ArrayList<Property> prop, ArrayList<Visit> vis, ArrayList<Offer> off) {
-        buyers = b;//Array List of buyers
-        sellers = s;//Array List of sellers
-        emp = e;//Array List of employees
+        //constructor of the class
+        buyers = b;
+        //Array List of all the buyers of the application
+        sellers = s;
+        //Array List of all the sellers of the application
+        emp = e;
+        //Array List of all the employees of the application
         pr = prop;
+        //Array List of all the properties of the application
         v = vis;
+        //Array List of all the viewings of the application
         o = off;
+        //Array List of all the offers of the application
         employee = coucou;
+        //current connected employee
 
         initComponents();
+        //automatically generated constructor 
         initjcb1();
+        //function that enables to fill the combobox with the properties of the application
         jPanelApartment.hide();
         jPanelHouse.hide();
+        //in the beginning, all the other panels are hidden 
     }
 
     /**
@@ -80,7 +87,6 @@ public class EmployeeUpdateProperty extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jComboBox1 = new javax.swing.JComboBox();
         jButton5 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
         jPanelHouse = new javax.swing.JPanel();
         jTextFieldPrice = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
@@ -427,17 +433,6 @@ public class EmployeeUpdateProperty extends javax.swing.JFrame {
         jPanel2.add(jButton5);
         jButton5.setBounds(1360, 100, 100, 23);
 
-        jButton6.setBackground(new java.awt.Color(255, 255, 255));
-        jButton6.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
-        jButton6.setText("Log Out");
-        jButton6.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton6ActionPerformed(evt);
-            }
-        });
-        jPanel2.add(jButton6);
-        jButton6.setBounds(1360, 100, 100, 23);
-
         jPanelHouse.setBackground(new java.awt.Color(255, 255, 255));
 
         jTextFieldPrice.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -669,50 +664,62 @@ public class EmployeeUpdateProperty extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-        this.toBack();//if we click on the back button
-        setVisible(false);//this page disappears
-        EmployeeFirst a = new EmployeeFirst(employee, buyers, sellers, emp, pr, v, o);//we go back on the first page
+        //back button
+        this.toBack();
+        //if we click on the back button
+        setVisible(false);
+        //this page disappears
+        EmployeeFirst a = new EmployeeFirst(employee, buyers, sellers, emp, pr, v, o);
+        //we go back on the first page
         a.setVisible(true);
+        //and we set the new frame visible 
         new EmployeeFirst(employee, buyers, sellers, emp, pr, v, o).setState(java.awt.Frame.NORMAL);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        // TODO add your handling code here:
-        //faire code pour log out
+        //log out button
         this.toBack();
-        setVisible(false);//this page disappears
-        new First(buyers, sellers, emp, pr, v, o).toFront();//we go back on the first page
+        //when we click on the button
+        setVisible(false);
+        //this page disappears
+        new First(buyers, sellers, emp, pr, v, o).toFront();
+        //we go back on the first page
         new First(buyers, sellers, emp, pr, v, o).setState(java.awt.Frame.NORMAL);
         new First(buyers, sellers, emp, pr, v, o).setVisible(true);
+        //we set the new frame visible 
     }//GEN-LAST:event_jButton5ActionPerformed
 
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton6ActionPerformed
-
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
-        // TODO add your handling code here:
+        //combo box containing all the properties for sale so that the employee can chose one to update 
         int tampon = -1;
+        //temporary buffer 
 
         String selected = (String) jComboBox1.getSelectedItem();
+        //we get what has been selected in the combo box 
         if (selected.equals("Select a property to update")) {
+        //if the employee doesn't select any option but remains on the first option of the combo box
             jPanelHouse.hide();
             jPanelApartment.hide();
+            //nothing happens so we hide all the other panels
 
         } else {
+        //otherwise, the employee selected one of the property for sale to update its properties 
             for (int i = 0; i < pr.size(); i++) {
+            //we go through the array list of all the properties of the application
                 if (selected.equals(pr.get(i).getdescription() + " id : " + pr.get(i).getid())) {
+                //if what has been selected corresponds to the description + id of one of the properties 
                     tampon = i;
+                    //we set the value of the buffer to i 
                 }
             }
             this.display(pr.get(tampon));
+            //we display the information of the property once it is selected via the display function 
         }
 
     }//GEN-LAST:event_jComboBox1ActionPerformed
 
     private void jTextFieldPrice1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldPrice1KeyTyped
-        // TODO add your handling code here:
+        //function that unables the user to enter something else than digit (because we want a price)
         char c = evt.getKeyChar();
         if (!Character.isDigit(c)) {
             evt.consume();
@@ -720,11 +727,11 @@ public class EmployeeUpdateProperty extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextFieldPrice1KeyTyped
 
     private void jTextFieldNumberRoom1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldNumberRoom1KeyTyped
-        // TODO add your handling code here:
+        //field corresponding to the number of rooms of the property
     }//GEN-LAST:event_jTextFieldNumberRoom1KeyTyped
 
     private void jTextFieldNumberBedroom1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldNumberBedroom1KeyTyped
-        // TODO add your handling code here:
+        //function that unables the user to enter something else than digit (because we want a number of bedrooms)
         char c = evt.getKeyChar();
         if (!Character.isDigit(c)) {
             evt.consume();
@@ -732,7 +739,7 @@ public class EmployeeUpdateProperty extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextFieldNumberBedroom1KeyTyped
 
     private void jTextFieldSurface1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldSurface1KeyTyped
-        // TODO add your handling code here:
+        //function that unables the user to enter something else than digit (because we want a surface)
         char c = evt.getKeyChar();
         if (!Character.isDigit(c)) {
             evt.consume();
@@ -740,7 +747,7 @@ public class EmployeeUpdateProperty extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextFieldSurface1KeyTyped
 
     private void jTextFieldNumberFloor1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldNumberFloor1KeyTyped
-        // TODO add your handling code here:
+        //function that unables the user to enter something else than digit (because we want a number of floors)
         char c = evt.getKeyChar();
         if (!Character.isDigit(c)) {
             evt.consume();
@@ -748,7 +755,7 @@ public class EmployeeUpdateProperty extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextFieldNumberFloor1KeyTyped
 
     private void jTextFieldFloorNumberKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldFloorNumberKeyTyped
-        // TODO add your handling code here:
+        //function that unables the user to enter something else than digit (because we want a floor number)
         char c = evt.getKeyChar();
         if (!Character.isDigit(c)) {
             evt.consume();
@@ -756,11 +763,11 @@ public class EmployeeUpdateProperty extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextFieldFloorNumberKeyTyped
 
     private void jTextFieldDescription1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldDescription1ActionPerformed
-        // TODO add your handling code here:
+        //text field corresponding to the decription of the property
     }//GEN-LAST:event_jTextFieldDescription1ActionPerformed
 
     private void jTextFieldPriceKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldPriceKeyTyped
-        // TODO add your handling code here:
+        //function that unables the user to enter something else than digit (because we want a price)
         char c = evt.getKeyChar();
         if (!Character.isDigit(c)) {
             evt.consume();
@@ -768,7 +775,7 @@ public class EmployeeUpdateProperty extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextFieldPriceKeyTyped
 
     private void jTextFieldNumberRoomKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldNumberRoomKeyTyped
-        // TODO add your handling code here:
+        //function that unables the user to enter something else than digit (because we want a number of rooms)
         char c = evt.getKeyChar();
         if (!Character.isDigit(c)) {
             evt.consume();
@@ -776,7 +783,7 @@ public class EmployeeUpdateProperty extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextFieldNumberRoomKeyTyped
 
     private void jTextFieldNumberBedroomKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldNumberBedroomKeyTyped
-        // TODO add your handling code here:
+        //function that unables the user to enter something else than digit (because we want a number of bedrooms)
         char c = evt.getKeyChar();
         if (!Character.isDigit(c)) {
             evt.consume();
@@ -784,7 +791,7 @@ public class EmployeeUpdateProperty extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextFieldNumberBedroomKeyTyped
 
     private void jTextFieldSurfaceKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldSurfaceKeyTyped
-        // TODO add your handling code here:
+        //function that unables the user to enter something else than digit (because we want a surface)
         char c = evt.getKeyChar();
         if (!Character.isDigit(c)) {
             evt.consume();
@@ -792,7 +799,7 @@ public class EmployeeUpdateProperty extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextFieldSurfaceKeyTyped
 
     private void jTextFieldNumberFloorKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldNumberFloorKeyTyped
-        // TODO add your handling code here:
+        //function that unables the user to enter something else than digit (because we want a number of floors)
         char c = evt.getKeyChar();
         if (!Character.isDigit(c)) {
             evt.consume();
@@ -800,7 +807,7 @@ public class EmployeeUpdateProperty extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextFieldNumberFloorKeyTyped
 
     private void jTextFieldGardenSurfaceKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldGardenSurfaceKeyTyped
-        // TODO add your handling code here:
+        //function that unables the user to enter something else than digit (because we want a garden surface)
         char c = evt.getKeyChar();
         if (!Character.isDigit(c)) {
             evt.consume();
@@ -808,113 +815,164 @@ public class EmployeeUpdateProperty extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextFieldGardenSurfaceKeyTyped
 
     private void jTextFieldDescriptionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldDescriptionActionPerformed
-        // TODO add your handling code here:
+        //text field corresponding to the description of the property
     }//GEN-LAST:event_jTextFieldDescriptionActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
+        //update button for the house 
         PropertyDAOImpl pdao = new PropertyDAOImpl();
+        //we create an object of the PropertyDAOImpl class, to update the property later in the database
         int tampon = -1;
+        //temporary buffer
         String selected = (String) jComboBox1.getSelectedItem();
+        //we get what has been selected in the combo box of the properties for sale 
         for (int i = 0; i < pr.size(); i++) {
+        //we go through the properties contained in the database 
             if (selected.equals(pr.get(i).getdescription() + " id : " + pr.get(i).getid())) {
-
+            //if what is selected is the same as the decription + id of the corresponding property 
                 tampon = i;
-
+                //we set the value of the buffer to i 
             }
         }
 
         if (jTextFieldPrice.getText().trim().isEmpty() || jTextFieldLocation.getText().trim().isEmpty() || jTextFieldNumberRoom.getText().trim().isEmpty() || jTextFieldNumberFloor.getText().trim().isEmpty() || jTextFieldGardenSurface.getText().trim().isEmpty() || jTextFieldSurface.getText().trim().isEmpty() || jTextFieldNumberBedroom.getText().trim().isEmpty() || jTextFieldDescription.getText().trim().isEmpty() || jTextFieldSP.getText().trim().isEmpty()) {
+            //if one or several fields are empty
             JOptionPane.showMessageDialog(null, "One of several fields are empty");
-        } else {
+            //we let it know
+        } else {            
             if (!jTextFieldSP.getText().equals("Yes") && !jTextFieldSP.getText().equals("No")) {
+                //otherwise, we want to make sure the swimming pool field will be filled by only "yes" or "no"
                 JOptionPane.showMessageDialog(null, " Wrong format of a field. For the field Swimming Pool you must enter 'Yes' or 'No' ");
+                //if it is not the case, we let it know
             } else {
+                //otherwise, all the consitions are ok, we update the property
                 pr.get(tampon).setprice(Double.parseDouble(jTextFieldPrice.getText()));
+                //we get the new value of the price and we set it
                 pr.get(tampon).setlocation(jTextFieldLocation.getText());
+                //we get the new value of the location and we set it
                 pr.get(tampon).setnumberroom(Integer.parseInt(jTextFieldNumberRoom.getText()));
+                //we get the new value of the number of rooms and we set it
                 pr.get(tampon).setnumberfloor(Integer.parseInt(jTextFieldNumberFloor.getText()));
+                //we get the new value of the number of floors and we set it
                 pr.get(tampon).setsurface(Double.parseDouble(jTextFieldSurface.getText()));
+                //we get the new value of the surface and we set it
                 pr.get(tampon).setnumberbedroom(Integer.parseInt(jTextFieldNumberBedroom.getText()));
+                //we get the new value of the number of bedrooms and we set it
                 pr.get(tampon).setdescription(jTextFieldDescription.getText());
+                //we get the new value of the description and we set it
                 pr.get(tampon).setgardensurface(Double.parseDouble(jTextFieldGardenSurface.getText()));
+                //we get the new value of the garden surface and we set it
                 if (jTextFieldSP.getText().equals("Yes")) {
+                    //if there is a swimming pool  
                     pr.get(tampon).setswimmingpool(true);
+                    //we set the value to true 
                 } else {
+                    //if there is no swimming pool
                     pr.get(tampon).setswimmingpool(false);
+                    //we set the value to false 
                 }
                 pdao.update(pr.get(tampon), 2);
+                //with all those new information, we can update the property
                 JOptionPane.showMessageDialog(null, "The changes have been updated");
+                //update successful
                 this.setVisible(false);
+                //we need to regenerate this frame so we close this one
                 EmployeeUpdateProperty a = new EmployeeUpdateProperty(employee, buyers, sellers, emp, pr, v, o);
+                //we create a new frame of the same type
                 a.setVisible(true);
-
+                //we set the new frame visible 
             }
         }
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jTextFieldParkingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldParkingActionPerformed
-        // TODO add your handling code here:
+        //text field corresponding to the parking 
     }//GEN-LAST:event_jTextFieldParkingActionPerformed
 
     private void jTextFieldNumberBedroomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldNumberBedroomActionPerformed
-        // TODO add your handling code here:
+        //text field corresponding to the number of bedrooms
     }//GEN-LAST:event_jTextFieldNumberBedroomActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
+        //update button for the apartment
         PropertyDAOImpl pdao = new PropertyDAOImpl();
+        //we create an object of the PropertyDAOImpl class, to update the property later in the database
         int tampon = -1;
+        //temporary buffer 
         String selected = (String) jComboBox1.getSelectedItem();
+        //we get what has been selected 
         for (int i = 0; i < pr.size(); i++) {
+        //we go through the properties contained in the database 
             if (selected.equals(pr.get(i).getdescription() + " id : " + pr.get(i).getid())) {
-
+            //if what is selected is the same as the decription + id of the corresponding property 
                 tampon = i;
-
+                //we set the value of the buffer to i 
             }
         }
         if (jTextFieldPrice1.getText().trim().isEmpty() || jTextFieldLocation1.getText().trim().isEmpty() || jTextFieldNumberRoom1.getText().trim().isEmpty() || jTextFieldNumberFloor1.getText().trim().isEmpty() || jTextFieldFloorNumber.getText().trim().isEmpty() || jTextFieldSurface1.getText().trim().isEmpty() || jTextFieldNumberBedroom1.getText().trim().isEmpty() || jTextFieldDescription1.getText().trim().isEmpty() || jTextFieldParking.getText().trim().isEmpty() || jTextFieldElevator.getText().trim().isEmpty()) {
+            //if one or several fields are empty
             JOptionPane.showMessageDialog(null, "One of several fields are empty");
+            //we let it know
         } else {
-
+            //otherwise, we want to make sure the parking and elevator fields will be filled by only "yes" or "no"
             if ((!jTextFieldParking.getText().equals("Yes") && !jTextFieldParking.getText().equals("No")) || (!jTextFieldElevator.getText().equals("Yes") && !jTextFieldElevator.getText().equals("No"))) {
+                 //if it is not the case, we let it know
                 JOptionPane.showMessageDialog(null, " Wrong format of a field. For the fields Elevator and Parking you must enter 'Yes' or 'No' ");
+                //if it is not, we let it know
             } else {
+                //otherwise, all the consitions are ok, we update the property
                 pr.get(tampon).setprice(Double.parseDouble(jTextFieldPrice1.getText()));
+                //we get the new value of the price and we set it
                 pr.get(tampon).setlocation(jTextFieldLocation1.getText());
+                //we get the new value of the location and we set it
                 pr.get(tampon).setnumberroom(Integer.parseInt(jTextFieldNumberRoom1.getText()));
+                //we get the new value of the number of rooms and we set it
                 pr.get(tampon).setnumberfloor(Integer.parseInt(jTextFieldNumberFloor1.getText()));
+                //we get the new value of the number of floors and we set it
                 pr.get(tampon).setfloornumber(Integer.parseInt(jTextFieldFloorNumber.getText()));
+                //we get the new value of the floor number and we set it
                 pr.get(tampon).setsurface(Double.parseDouble(jTextFieldSurface1.getText()));
+                //we get the new value of the surface and we set it
                 pr.get(tampon).setnumberbedroom(Integer.parseInt(jTextFieldNumberBedroom1.getText()));
+                //we get the new value of the number of bedrooms and we set it
                 pr.get(tampon).setdescription(jTextFieldDescription1.getText());
+                //we get the new value of the description and we set it
 
                 if (jTextFieldParking.getText().equals("Yes")) {
-
+                    //if there is a parking  
                     pr.get(tampon).setparking(true);
+                    //we set the value to true 
                 } else {
+                    //if there is no parking 
                     pr.get(tampon).setparking(false);
+                    //we set the value to false 
                 }
                 if (jTextFieldElevator.getText().equals("Yes")) {
+                    //if there is an elevator  
                     pr.get(tampon).setelevator(true);
+                    //we set the value to true 
 
                 } else {
+                    //if there is no elevator  
                     pr.get(tampon).setelevator(false);
+                    //we set the value to false
                 }
                 pdao.update(pr.get(tampon), 1);
+                //with all those new information, we can update the property
                 JOptionPane.showMessageDialog(null, "The changes have been updated");
+                //update successful
                 this.setVisible(false);
+                //we need to regenerate this frame so we close this one
                 EmployeeUpdateProperty a = new EmployeeUpdateProperty(employee, buyers, sellers, emp, pr, v, o);
+                //we create a new frame of the same type
                 a.setVisible(true);
-
+                //we set it visible 
             }
         }
-
-
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jTextFieldLocation1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldLocation1KeyTyped
-        // TODO add your handling code here:
+        //function that unables the user to enter digit (because we want a location)
         char c = evt.getKeyChar();
         if (Character.isDigit(c)) {
             evt.consume();
@@ -922,7 +980,7 @@ public class EmployeeUpdateProperty extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextFieldLocation1KeyTyped
 
     private void jTextFieldLocationKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldLocationKeyTyped
-        // TODO add your handling code here:
+        //function that unables the user to enter digit (because we want a location)
         char c = evt.getKeyChar();
         if (Character.isDigit(c)) {
             evt.consume();
@@ -930,7 +988,7 @@ public class EmployeeUpdateProperty extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextFieldLocationKeyTyped
 
     private void jTextFieldElevatorKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldElevatorKeyTyped
-        // TODO add your handling code here:
+        //function that unables the user to enter something else than letter (because we want a yes or a no)
         char c = evt.getKeyChar();
         if (!Character.isLetter(c)) {
             evt.consume();
@@ -938,7 +996,7 @@ public class EmployeeUpdateProperty extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextFieldElevatorKeyTyped
 
     private void jTextFieldParkingKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldParkingKeyTyped
-        // TODO add your handling code here:
+        //function that unables the user to enter something else than letter (because we want a yes or a no)
         char c = evt.getKeyChar();
         if (!Character.isLetter(c)) {
             evt.consume();
@@ -946,7 +1004,7 @@ public class EmployeeUpdateProperty extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextFieldParkingKeyTyped
 
     private void jTextFieldSPKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldSPKeyTyped
-        // TODO add your handling code here:
+        //function that unables the user to enter something else than letter (because we want a yes or a no)
         char c = evt.getKeyChar();
         if (!Character.isLetter(c)) {
             evt.consume();
@@ -954,56 +1012,84 @@ public class EmployeeUpdateProperty extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextFieldSPKeyTyped
 
     public void display(Property a) {
+        //function to display all the information of the property once selected 
         if (a.gettype().equals("Apartment")) {
+            //if the property selected is an apartment 
 
             jTextFieldPrice1.setText(Double.toString(a.getprice()));
+            //we fill the price text field with the information
             jTextFieldLocation1.setText(a.getlocation());
+            //we fill the location text field with the information
             jTextFieldNumberRoom1.setText(Integer.toString(a.getnumberrooms()));
+            //we fill the number of rooms text field with the information
             jTextFieldNumberFloor1.setText(Integer.toString(a.getnumberfloors()));
+            //we fill the number of floors field with the information
             jTextFieldFloorNumber.setText(Integer.toString(a.getfloornumber()));
+            //we fill the floor number text field with the information
             jTextFieldSurface1.setText(Double.toString(a.getsurface()));
+            //we fill the surface text field with the information
             jTextFieldNumberBedroom1.setText(Integer.toString(a.getnumberbedrooms()));
+            //we fill the number of bedrooms text field with the information
             jTextFieldDescription1.setText(a.getdescription());
+            //we fill the description text field with the information
 
             if (a.getparking() == true) {
+                //if there is a parking
                 jTextFieldParking.setText("Yes");
+                //we display yes 
             } else {
+                //if there is no parking
                 jTextFieldParking.setText("No");
+                //we display no
             }
             if (a.getelevator() == true) {
+                //if there is an elevator
                 jTextFieldElevator.setText("Yes");
+                //we display yes
             } else {
+                //if there is no elevator 
                 jTextFieldElevator.setText("No");
+                //we display no
             }
 
             jPanelApartment.show();
             jPanelHouse.hide();
+            //after this, we can display the apartment panel but hide the house panel (because we consider an apartment)
         } else {
+            //if the considered property is a house 
             jTextFieldPrice.setText(Double.toString(a.getprice()));
+            //we fill the price text field with the information
             jTextFieldLocation.setText(a.getlocation());
+            //we fill the location text field with the information
             jTextFieldNumberRoom.setText(Integer.toString(a.getnumberrooms()));
             jTextFieldNumberFloor.setText(Integer.toString(a.getnumberfloors()));
             jTextFieldSurface.setText(Double.toString(a.getsurface()));
+            //we fill the surface text field with the information
             jTextFieldNumberBedroom.setText(Integer.toString(a.getnumberbedrooms()));
             jTextFieldDescription.setText(a.getdescription());
+            //we fill the description text field with the information
             jTextFieldGardenSurface.setText(Double.toString(a.getgardensurface()));
             if (a.getswimmingpool() == true) {
+                //if there is a swimming pool
                 jTextFieldSP.setText("Yes");
+                //we set the value to yes 
             } else {
+                //if there is no swimming pool
                 jTextFieldSP.setText("No");
+                //we set the value to no
             }
             jPanelApartment.hide();
             jPanelHouse.show();
-
+            //after this, we can display the house panel but hide the apartment panel (because we consider a house)
         }
-
     }
 
     public void initjcb1() {
+        //function that enables to fill the combobox with the properties of the application
         for (int i = 0; i < pr.size(); i++) {
-
+            //we go through all the properties of the application
             jComboBox1.addItem(pr.get(i).getdescription() + " id : " + pr.get(i).getid());
-
+            //we add the items one by one to the combo box
         }
     }
 
@@ -1042,21 +1128,27 @@ public class EmployeeUpdateProperty extends javax.swing.JFrame {
         });
     }
 
-    private static ArrayList<Buyer> buyers = new ArrayList<>();//array list of all the application buyers 
-    private static ArrayList<Seller> sellers = new ArrayList<>();//array list of all the application sellers 
-    private static ArrayList<Employee> emp = new ArrayList<>();//array list of all the application sellers 
+    private static ArrayList<Buyer> buyers = new ArrayList<>();
+    //array list of all the application buyers 
+    private static ArrayList<Seller> sellers = new ArrayList<>();
+    //array list of all the application sellers 
+    private static ArrayList<Employee> emp = new ArrayList<>();
+    //array list of all the application employees 
     private static ArrayList<Property> pr = new ArrayList<>();
+    //array list of all the application offers 
     private static ArrayList<Visit> v = new ArrayList<>();
+    //array list of all the application viewings 
     private static ArrayList<Offer> o = new ArrayList<>();
+    //array list of all the application offers 
 
     private static Employee employee;
+    //current connected employee
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
     private javax.swing.JComboBox jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel13;

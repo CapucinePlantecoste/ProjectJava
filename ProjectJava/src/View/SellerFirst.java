@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+//seller first is the first jframe that appears after a seller connected 
 package View;
 
 import Model.Visit;
@@ -25,17 +21,26 @@ public class SellerFirst extends javax.swing.JFrame {
      * Creates new form SellerFirst
      */
     public SellerFirst(Seller a, ArrayList<Buyer> b, ArrayList<Seller> s, ArrayList<Employee> e, ArrayList<Property> prop, ArrayList<Visit> vis, ArrayList<Offer> off) {
-        buyers = b;//Array List of buyers
-        sellers = s;//Array List of sellers
-        emp = e;//Array List of employees
+        //constructor of the class
+        buyers = b;
+        //Array List of all the buyers of the application
+        sellers = s;
+        //Array List of all the sellers of the application
+        emp = e;
+        //Array List of all the employees of the application
         pr = prop;
+        //Array List of all the properties of the application
         v = vis;
+        //Array List of all the viewings of the application
         o = off;
+        //Array List of all the offers of the application
         newseller = a;
+        //current connected seller 
         initComponents();
+        //automatically generated constructor
         this.nom();
-        
-       
+        //function that enables to show the name of the seller when he connects 
+
     }
 
     /**
@@ -180,146 +185,181 @@ public class SellerFirst extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        // TODO add your handling code here:
+        // log out button
         this.toBack();
-        setVisible(false);//this page disappears 
-        new First(buyers, sellers, emp, pr, v, o).toFront();//we go back on the first page 
+        //when we click on the button
+        setVisible(false);
+        //this page disappears 
+        new First(buyers, sellers, emp, pr, v, o).toFront();
+        //we go back on the first page 
         new First(buyers, sellers, emp, pr, v, o).setState(java.awt.Frame.NORMAL);
         new First(buyers, sellers, emp, pr, v, o).setVisible(true);
+        //we set the first page to visible 
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here: 
+        //introduce a new property button
         this.setVisible(false);
+        //this frame disappeears 
         new SellerNewProperty(newseller, buyers, sellers, emp, pr, v, o).setVisible(true);
-
+        //we open the next new frame 
         new SellerNewProperty(newseller, buyers, sellers, emp, pr, v, o).toFront();
     }//GEN-LAST:event_jButton3ActionPerformed
 
-    //Delete a viewing
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
-        ArrayList<Property> propviewing=new ArrayList<>();
+        // delete a viewing of one of the seller property button
+        ArrayList<Property> propviewing = new ArrayList<>();
+        //the create an array list of properties called prop viewings that will contain all the properties of the sellers that have at least one viewing 
         myviewings.clear();
+        //we clear the array list that contained all the viewings of the seller 
         this.setmyviewings();
-        for(int i=0;i<myviewings.size();++i)
-        {
-            for(int j=0;j<myprop.size();++j)
-            
-                if((myviewings.get(i).getidprop()==myprop.get(j).getid())&& (!propviewing.contains(myprop.get(j))))
+        //we set the viewings of the seller and we add the sellers viewings in my viewings 
+        for (int i = 0; i < myviewings.size(); ++i) {
+            //we go through the viewings of the seller 
+            for (int j = 0; j < myprop.size(); ++j) {
+                // we go through the properties of the connected seller 
+                if ((myviewings.get(i).getidprop() == myprop.get(j).getid()) && (!propviewing.contains(myprop.get(j)))) {
+                    //if the id of the property of one of the viewings is the same as the id of the considered property and if the property is not already contained in the list
                     propviewing.add(myprop.get(j));
+                    //we add this property to the array list of property called propviewing 
+                }
+            }
         }
-        if(propviewing.size()==0)
-        {
+        if (propviewing.size() == 0) {
+            //if there is no property that has at least one viewing 
             JOptionPane.showMessageDialog(null, "No visit found for any of your properties");
-        }
-        else
-        {
+            //we say so
+        } else {
+            //otherwise
             this.setVisible(false);
-            SellerDeleteViewing a =new SellerDeleteViewing(newseller, buyers, sellers, emp, pr, v, o, myviewings, propviewing);
+            //we open a new frame so we have to close this one
+            SellerDeleteViewing a = new SellerDeleteViewing(newseller, buyers, sellers, emp, pr, v, o, myviewings, propviewing);
+            //we open the next frame
             a.setVisible(true);
+            //we set the next frame visible
         }
-        
-
-        
     }//GEN-LAST:event_jButton2ActionPerformed
 
-    // See my offers
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+        //See my offers button
         myoffers.clear();
+        //first, we clean the array list of the offers of the connected seller
         this.setmyoffers();
+        //we set the offers of the seller and we add the sellers offers in my offers 
         if (myoffers.size() == 0) {
+            //if the seller has no offer 
             JOptionPane.showMessageDialog(null, "No offers made for one of your properties or you don't have any property"); //message shown to say so
-            
+            //message to say so
         } else {
+            //otherwise
             this.setVisible(false);
-            SellerOffer a= new SellerOffer (newseller, buyers, sellers, emp, pr, v, o, myoffers); 
+            //we open a new frame so we have to close this one 
+            SellerOffer a = new SellerOffer(newseller, buyers, sellers, emp, pr, v, o, myoffers);
+            //we open the next frame
             a.setVisible(true);
+            //we set the next frame visible
         }
-
-
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    //See me current properties
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        // TODO add your handling code here:
+        // See my current properties button
         myprop.clear();
+        //first, we clear the array list of the properties of the connected seller
         this.setmyprop();
+        //we set the properties of the seller and we add the sellers properties in my prop
 
         if (myprop.size() == 0) {
+            //if the seller has no properties 
             JOptionPane.showMessageDialog(null, "You have no properties for sale"); //message shown to say so
-            
+            //message to say so
         } else {
-            //afficher le JcomboBox avec toutes les maisons a voir pour affichage
-            
+            //otherwise
             this.setVisible(false);
-            SellerProperty a= new SellerProperty (newseller, buyers, sellers, emp, pr, v, o, myprop); 
+            //we open a new frame so we have to close this one 
+            SellerProperty a = new SellerProperty(newseller, buyers, sellers, emp, pr, v, o, myprop);
+            //we open the next frame
             a.setVisible(true);
+            //we set the next frame visible
         }
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-        // TODO add your handling code here:
+        //add a viewing to one of my property button
         myprop.clear();
+        //first, we clear the array list of the properties of the connected seller
         this.setmyprop();
-
+        //we set the properties of the seller and we add the sellers properties in my prop
         if (myprop.size() == 0) {
+        //if the seller has no properties 
             JOptionPane.showMessageDialog(null, "You have no properties for sale so you cannot add no viewings"); //message shown to say so
-            
-        }
-        else {
-        this.setVisible(false);
-        
-        
-            SellerAddViewing a = new SellerAddViewing (newseller, buyers, sellers, emp, pr, v, o, myprop); 
-            a.setVisible(true); 
+            //message to say so 
+        } else {
+            //otherwise
+            this.setVisible(false);
+            //we open a new frame so we have to close this one 
+            SellerAddViewing a = new SellerAddViewing(newseller, buyers, sellers, emp, pr, v, o, myprop);
+            //we open the next frame
+            a.setVisible(true);
+            //we set the next frame visible
         }
     }//GEN-LAST:event_jButton6ActionPerformed
 
     public void nom() {
+        //function that is used to display the name of the seller when he first connects 
         jLabel1.setText("We are very pleased to see you again " + newseller.getname() + "!");
+        // we fill the field with the name of the seller 
     }
 
     public void setmyprop() {
+        //function that adds the seller properties in the arraylist myprop
         for (int i = 0; i < pr.size(); ++i) {
-            //As we call the setmyprop method in several places, we have to make sure that we don't have twice the same property so we use the contains method
+            //we go through the all the properties of the application            
             if (pr.get(i).getidseller() == newseller.getid() && !myprop.contains(pr.get(i))) {
+                //As we call the setmyprop method in several places, we have to make sure that we don't have twice the same property so we use the contains method
                 myprop.add(pr.get(i));
-             
+                //we add the property in the personal properties list of the connected seller 
             }
         }
     }
 
     public void setmyoffers() {
+        //function that adds the seller offers in the arraylist myoffers
         myprop.clear();
+        //we clear the personal properties of the seller  
         this.setmyprop();
+        //we set the properties of the seller and we add the sellers properties in my prop
+        
         for (int i = 0; i < o.size(); ++i) {
+            //we go through the offers of the application 
             for (int j = 0; j < myprop.size(); ++j) {
-                if (o.get(i).getidprop() == myprop.get(j).getid()&& (o.get(i).getdeclined()==false)&& (myprop.get(j).getsold()==false)) {
+                //we go through the personal properties of the connected seller 
+                if (o.get(i).getidprop() == myprop.get(j).getid() && (o.get(i).getdeclined() == false) && (myprop.get(j).getsold() == false)) {
+                    //if the id of the property of the offer is the same as the id of the considered property and the property of the offer has not been declined and is not sold 
                     myoffers.add(o.get(i));
+                    //we add the offer in the personal offers list of the connected seller 
                 }
             }
-
         }
-
     }
-    
-    public void setmyviewings()
-    {
+
+    public void setmyviewings() {
+        //function that adds the seller viewings in the arraylist myviewings
         myprop.clear();
+        //we clear the personal properties of the seller
         this.setmyprop();
+        //we set the properties of the seller and we add the sellers properties in my prop
         for (int i = 0; i < v.size(); ++i) {
+            //we go through the viewings of the application 
             for (int j = 0; j < myprop.size(); ++j) {
+                //we go through the personal properties of the connected seller 
                 if (v.get(i).getidprop() == myprop.get(j).getid()) {
+                    // if the id of the property of the viewing is the same as the id of the considered property 
                     myviewings.add(v.get(i));
+                    //we add the viewing in the personal viewings list of the connected seller 
                 }
             }
-
         }
-
     }
-    
 
     /**
      * @param args the command line arguments
@@ -357,18 +397,28 @@ public class SellerFirst extends javax.swing.JFrame {
         });
     }
 
-    private static ArrayList<Buyer> buyers = new ArrayList<>();//array list of all the application buyers 
-    private static ArrayList<Seller> sellers = new ArrayList<>();//array list of all the application sellers 
-    private static ArrayList<Employee> emp = new ArrayList<>();//array list of all the application sellers 
+    private static ArrayList<Buyer> buyers = new ArrayList<>();
+    //array list of all the application buyers 
+    private static ArrayList<Seller> sellers = new ArrayList<>();
+    //array list of all the application sellers 
+    private static ArrayList<Employee> emp = new ArrayList<>();
+    //array list of all the application employees 
     private static ArrayList<Property> pr = new ArrayList<>();
+    //array list of all the application properties
     private static ArrayList<Visit> v = new ArrayList<>();
+    //array list of all the application viewings
     private static ArrayList<Offer> o = new ArrayList<>();
+    //array list of all the application offers
 
     private static ArrayList<Property> myprop = new ArrayList<>();
+    //array list of all the personal seller properties
     private static ArrayList<Offer> myoffers = new ArrayList<>();
-    private static ArrayList<Visit> myviewings=new ArrayList<>();
+    //array list of all the personal seller offers
+    private static ArrayList<Visit> myviewings = new ArrayList<>();
+    //array list of all the personal seller viewings
 
     private static Seller newseller;
+    //current connected seller 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;

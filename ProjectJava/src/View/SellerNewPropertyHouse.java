@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+//this frame is displayed when the seller wants to introduce a new house 
 package View;
 
 import View.SellerFirst;
@@ -28,15 +24,25 @@ public class SellerNewPropertyHouse extends javax.swing.JFrame {
      * Creates new form SellerNewPropertyHouse
      */
     public SellerNewPropertyHouse(Seller a, ArrayList<Buyer> b, ArrayList<Seller> s, ArrayList<Employee> e, ArrayList<Property> prop, ArrayList<Visit> vis, ArrayList<Offer> off) {
-        buyers = b;//Array List of buyers
-        sellers = s;//Array List of sellers
-        emp = e;//Array List of employees
+        //constructor of the class
+        buyers = b;
+        //Array List of all the buyers of the application 
+        sellers = s;
+        //Array List of all the sellers of the application 
+        emp = e;
+        //Array List of all the employees of the application 
         pr = prop;
+        //Array List of all the properties of the application 
         v = vis;
+        //Array List of all the viewings of the application 
         o = off;
+        //Array List of all the offers of the application 
         newseller = a;
+        //current connected seller 
         tampon = 1;
+        //temporary buffer
         initComponents();
+        //automatically generated constructor 
     }
 
     /**
@@ -56,7 +62,6 @@ public class SellerNewPropertyHouse extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
@@ -151,17 +156,6 @@ public class SellerNewPropertyHouse extends javax.swing.JFrame {
         });
         jPanel2.add(jButton5);
         jButton5.setBounds(1360, 100, 100, 23);
-
-        jButton6.setBackground(new java.awt.Color(255, 255, 255));
-        jButton6.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
-        jButton6.setText("Log Out");
-        jButton6.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton6ActionPerformed(evt);
-            }
-        });
-        jPanel2.add(jButton6);
-        jButton6.setBounds(1360, 100, 100, 23);
 
         jLabel4.setBackground(new java.awt.Color(255, 255, 255));
         jLabel4.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
@@ -315,40 +309,48 @@ public class SellerNewPropertyHouse extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-        this.toBack();//if we click on the back button
-        setVisible(false);//this page disappears
-        SellerNewProperty a=new SellerNewProperty(newseller, buyers, sellers, emp, pr, v, o);//we go back on the first page
+        //back button
+        this.toBack();
+        //if we click on the back button
+        setVisible(false);
+        //this page disappears
+        SellerNewProperty a=new SellerNewProperty(newseller, buyers, sellers, emp, pr, v, o);
+        //we go back on the previous page
         a.setVisible(true);
+        //we set the previous frame visible 
  
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        // TODO add your handling code here:
-        //faire code pour log out
+        //log out button
         this.toBack();
-        setVisible(false);//this page disappears
-        new First(buyers, sellers, emp, pr, v, o).toFront();//we go back on the first page
+        //if we click on the button
+        setVisible(false);  
+        //this page disappears
+        new First(buyers, sellers, emp, pr, v, o).toFront();
+        //we go back on the first page
         new First(buyers, sellers, emp, pr, v, o).setState(java.awt.Frame.NORMAL);
         new First(buyers, sellers, emp, pr, v, o).setVisible(true);
+        //we set the frame visible 
     }//GEN-LAST:event_jButton5ActionPerformed
 
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton6ActionPerformed
-
     private void jComboBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox2ActionPerformed
-        // TODO add your handling code here:
+        // the combo box of the swimming pool
         String selected = (String) jComboBox2.getSelectedItem();
+        //we get what has been selected in the combobox 
         if (selected.equals("Yes")) {
+            //if there is a swimming pool
             tampon = 1;
+            //the buffer equals 1
         } else if (selected.equals("No")) {
+            //if there is no swimming pool
             tampon = 2;
+            //we set the buffer to 2
         }
     }//GEN-LAST:event_jComboBox2ActionPerformed
 
     private void jTextField3KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField3KeyTyped
-        // TODO add your handling code here:
+        //function that unables the user to enter a letter (because we want a price)
         char c = evt.getKeyChar();
         if (Character.isLetter(c) && !evt.isAltDown()) {
             evt.consume();
@@ -356,7 +358,7 @@ public class SellerNewPropertyHouse extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField3KeyTyped
 
     private void jTextField5KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField5KeyTyped
-        // TODO add your handling code here:
+        //function that unables the user to enter a letter (because we want a number of rooms)
         char c = evt.getKeyChar();
         if (Character.isLetter(c) && !evt.isAltDown()) {
             evt.consume();
@@ -364,7 +366,7 @@ public class SellerNewPropertyHouse extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField5KeyTyped
 
     private void jTextField2KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField2KeyTyped
-        // TODO add your handling code here:
+        //function that unables the user to enter a letter (because we want a number of bedrooms)
         char c = evt.getKeyChar();
         if (Character.isLetter(c) && !evt.isAltDown()) {
             evt.consume();
@@ -372,7 +374,7 @@ public class SellerNewPropertyHouse extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField2KeyTyped
 
     private void jTextField6KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField6KeyTyped
-        // TODO add your handling code here:
+        //function that unables the user to enter a letter (because we want a number of floors)
         char c = evt.getKeyChar();
         if (Character.isLetter(c) && !evt.isAltDown()) {
             evt.consume();
@@ -380,7 +382,7 @@ public class SellerNewPropertyHouse extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField6KeyTyped
 
     private void jTextField7KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField7KeyTyped
-        // TODO add your handling code here:
+        //function that unables the user to enter a letter (because we want a surface)
         char c = evt.getKeyChar();
         if (Character.isLetter(c) && !evt.isAltDown()) {
             evt.consume();
@@ -388,7 +390,7 @@ public class SellerNewPropertyHouse extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField7KeyTyped
 
     private void jTextField4KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField4KeyTyped
-        // TODO add your handling code here:
+        //function that unables the user to enter a letter (because we want a garden surface)
         char c = evt.getKeyChar();
         if (Character.isLetter(c) && !evt.isAltDown()) {
             evt.consume();
@@ -396,32 +398,46 @@ public class SellerNewPropertyHouse extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField4KeyTyped
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
+        // button to confirm the introduction of the property 
         if (jTextField1.getText().trim().isEmpty() || jTextField2.getText().trim().isEmpty() || jTextField3.getText().trim().isEmpty() || jTextField4.getText().trim().isEmpty() || jTextField5.getText().trim().isEmpty() || jTextField6.getText().trim().isEmpty() || jTextField7.getText().trim().isEmpty() || jTextField8.getText().trim().isEmpty()) {
+            //if one or more fields are empty
             JOptionPane.showMessageDialog(null, "One or several fields are empty. Please, try again.");
+            //we let it know
         } else {
+            //otherwise
             this.addhouse();
+            //we add the house thanks to the addhouseapartment function 
             JOptionPane.showMessageDialog(null, "Your house has been successfully registered for sale");
+            //successful adding
             this.setVisible(false);
+            //we need to close this frame after the house has been added
             SellerFirst a=new SellerFirst(newseller, buyers, sellers, emp, pr, v, o);
+            //we create a new frame
             a.setVisible(true);
+            //we set the frame visible 
         }
     }//GEN-LAST:event_jButton2ActionPerformed
 
     public void addhouse() {
+        //function to add a house both to the application and to the database
 
         int idlast = pr.get(pr.size() - 1).getid();
         int newid = idlast + 1;
+        //when the house will be added, its id will be id of the last property +1
         PropertyDAOImpl pdao = new PropertyDAOImpl();
+        //we create an object of the PropertyDAOImpl class, to introduce the house later in the database
 
         if (tampon == 1) {
+            //if there is a swimming pool
             pr.add(new House(newid, jTextField8.getText(), Double.parseDouble(jTextField3.getText()), jTextField1.getText(), Integer.parseInt(jTextField5.getText()), Integer.parseInt(jTextField2.getText()), Integer.parseInt(jTextField6.getText()), 0, Double.parseDouble(jTextField7.getText()), newseller.getid(),false, "House", Double.parseDouble(jTextField4.getText()), true));
-
+            //we add the house with the coresponding fields 
         } else {
-             pr.add(new House(newid, jTextField8.getText(), Double.parseDouble(jTextField3.getText()), jTextField1.getText(), Integer.parseInt(jTextField5.getText()), Integer.parseInt(jTextField2.getText()), Integer.parseInt(jTextField6.getText()), 0, Double.parseDouble(jTextField7.getText()), newseller.getid(),false,"House", Double.parseDouble(jTextField4.getText()), false));
+            //if there is no swimming pool
+            pr.add(new House(newid, jTextField8.getText(), Double.parseDouble(jTextField3.getText()), jTextField1.getText(), Integer.parseInt(jTextField5.getText()), Integer.parseInt(jTextField2.getText()), Integer.parseInt(jTextField6.getText()), 0, Double.parseDouble(jTextField7.getText()), newseller.getid(),false,"House", Double.parseDouble(jTextField4.getText()), false));
+            // we add the house with the corresponding fields 
         }
         pdao.addproperty(pr.get(pr.size() - 1), 2);
-
+        //we finally add the property to the database
     }
 
     /**
@@ -459,19 +475,26 @@ public class SellerNewPropertyHouse extends javax.swing.JFrame {
         });
     }
 
-    private static ArrayList<Buyer> buyers = new ArrayList<>();//array list of all the application buyers 
-    private static ArrayList<Seller> sellers = new ArrayList<>();//array list of all the application sellers 
-    private static ArrayList<Employee> emp = new ArrayList<>();//array list of all the application sellers 
+    private static ArrayList<Buyer> buyers = new ArrayList<>();
+    //array list of all the application buyers 
+    private static ArrayList<Seller> sellers = new ArrayList<>();
+    //array list of all the application sellers 
+    private static ArrayList<Employee> emp = new ArrayList<>();
+    //array list of all the application employees 
     private static ArrayList<Property> pr = new ArrayList<>();
+    //array list of all the application properties 
     private static ArrayList<Visit> v = new ArrayList<>();
+    //array list of all the application viewings 
     private static ArrayList<Offer> o = new ArrayList<>();
+    //array list of all the application offers  
     private static Seller newseller;
+    //current connected seller
     private int tampon;
+    //temporary buffer 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
     private javax.swing.JComboBox jComboBox2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;

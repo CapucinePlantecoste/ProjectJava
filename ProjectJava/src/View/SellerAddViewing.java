@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+//this class is the jframe a seller uses when he wants to add a vewing to one of his properties 
 package View;
 
 import javax.swing.JOptionPane;
@@ -21,7 +17,6 @@ import java.util.Date;
 import java.text.ParseException;
 import Model.VisitDAOImpl;
 
-
 /**
  *
  * @author CAP
@@ -32,17 +27,29 @@ public class SellerAddViewing extends javax.swing.JFrame {
      * Creates new form SellerAddViewing
      */
     public SellerAddViewing(Seller a, ArrayList<Buyer> b, ArrayList<Seller> s, ArrayList<Employee> e, ArrayList<Property> prop, ArrayList<Visit> vis, ArrayList<Offer> off, ArrayList<Property> myp) {
-        buyers = b;//Array List of buyers
-        sellers = s;//Array List of sellers
-        emp = e;//Array List of employees
+        //constructor 
+        buyers = b;
+        //Array List of all the buyers of the application
+        sellers = s;
+        //Array List of all the sellers of the application
+        emp = e;
+        //Array List of all the employees of the application
         pr = prop;
+        //Array List of all the properties of the application
         v = vis;
+        //Array List of all the viewings of the application
         o = off;
+        //Array List of all the offers of the application
         newseller = a;
+        //current connected seller
         myprop = myp;
+        //array list of the properties belonging to the connected seller
         initComponents();
+        //automatically generated constructor 
         this.initjcb1();
+        //function that enables to fill the combobox with the properties of the connected seller
         jPanel1.hide();
+        //in the beginning, all the other panels are hiden 
     }
 
     /**
@@ -343,57 +350,66 @@ public class SellerAddViewing extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        // TODO add your handling code here:
+        //log out button
         this.toBack();
-        setVisible(false);//this page disappears
-        new First(buyers, sellers, emp, pr, v, o).toFront();//we go back on the first page
+        //if we click on the button
+        setVisible(false);
+        //this page disappears
+        new First(buyers, sellers, emp, pr, v, o).toFront();
+        //we go back on the first page
         new First(buyers, sellers, emp, pr, v, o).setState(java.awt.Frame.NORMAL);
         new First(buyers, sellers, emp, pr, v, o).setVisible(true);
+        //we set the new frame visible 
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-        this.toBack();//if we click on the back button
-        setVisible(false);//this page disappears
-        SellerFirst a =new SellerFirst(newseller, buyers, sellers, emp, pr, v, o);//we go back on the first page
+        //back button
+        this.toBack();
+        //if we click on the back button
+        setVisible(false);
+        //this page disappears
+        SellerFirst a = new SellerFirst(newseller, buyers, sellers, emp, pr, v, o);
+        //we go back on the first page
         a.setVisible(true);
+        //we set the frame visible 
         new SellerFirst(newseller, buyers, sellers, emp, pr, v, o).setState(java.awt.Frame.NORMAL);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
-        // TODO add your handling code here:
-         String selected = (String) jComboBox1.getSelectedItem();
+        //combo box where all the properties belonging to the connected seller are displayed
+        String selected = (String) jComboBox1.getSelectedItem();
+        //we get what has been selected
         if (selected.equals("Select one of your properties for sale")) {
+        //if the seller doesn't select any option but remains on the first option of the combo box
             jPanel1.hide();
+            //nothing happens so we hide all the other panels
 
-        } else {            
+        } else {
+            //otherwise, the seller selected a property 
             jPanel1.show();
+            //the panel to add the viewing is displayed 
         }
 
     }//GEN-LAST:event_jComboBox1ActionPerformed
 
-    private void jTextFieldDayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldDayActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldDayActionPerformed
-
     private void jTextFieldMonthActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldMonthActionPerformed
-        // TODO add your handling code here:
+        //text field for the month of the viewing
     }//GEN-LAST:event_jTextFieldMonthActionPerformed
 
     private void jTextFieldHourActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldHourActionPerformed
-        // TODO add your handling code here:
+        //text field for the hour of the viewing
     }//GEN-LAST:event_jTextFieldHourActionPerformed
 
     private void jTextFieldYearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldYearActionPerformed
-        // TODO add your handling code here:
+        //text field for the year of the viewing
     }//GEN-LAST:event_jTextFieldYearActionPerformed
 
     private void jTextFieldMinutesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldMinutesActionPerformed
-        // TODO add your handling code here:
+        //text field for the minutes of the viewing
     }//GEN-LAST:event_jTextFieldMinutesActionPerformed
 
     private void jTextFieldMonthKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldMonthKeyTyped
-        // TODO add your handling code here:
+        //function that unables the user to enter something else than digit (because we want a month)
         char c = evt.getKeyChar();
         if (!Character.isDigit(c)) {
             evt.consume();
@@ -401,7 +417,7 @@ public class SellerAddViewing extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextFieldMonthKeyTyped
 
     private void jTextField1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField1KeyTyped
-        // TODO add your handling code here:
+        //function that unables the user to enter something else than digit (because we want a day)
         char c = evt.getKeyChar();
         if (!Character.isDigit(c)) {
             evt.consume();
@@ -409,7 +425,7 @@ public class SellerAddViewing extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField1KeyTyped
 
     private void jTextFieldYearKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldYearKeyTyped
-        // TODO add your handling code here:
+        //function that unables the user to enter something else than digit (because we want a year)
         char c = evt.getKeyChar();
         if (!Character.isDigit(c)) {
             evt.consume();
@@ -417,7 +433,7 @@ public class SellerAddViewing extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextFieldYearKeyTyped
 
     private void jTextFieldHourKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldHourKeyTyped
-        // TODO add your handling code here:
+        //function that unables the user to enter something else than digit (because we want an hour)
         char c = evt.getKeyChar();
         if (!Character.isDigit(c)) {
             evt.consume();
@@ -425,11 +441,11 @@ public class SellerAddViewing extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextFieldHourKeyTyped
 
     private void jTextFieldMinutesKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldMinutesKeyPressed
-        // TODO add your handling code here:
+        //text field for the minutes of the viewing
     }//GEN-LAST:event_jTextFieldMinutesKeyPressed
 
     private void jTextFieldMinutesKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldMinutesKeyTyped
-        // TODO add your handling code here:
+        //function that unables the user to enter something else than digit (because we want a minute)
         char c = evt.getKeyChar();
         if (!Character.isDigit(c)) {
             evt.consume();
@@ -437,99 +453,118 @@ public class SellerAddViewing extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextFieldMinutesKeyTyped
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
-        Date date=new Date();
-        Timestamp ts= new Timestamp(date.getTime());
-        SimpleDateFormat sdf= new SimpleDateFormat ("yyyy-MM-dd hh:mm:ss");
-      
-        int tampon = 0;
-        int tampon2=0;
-        int c;
-        
-        String selected = (String) jComboBox1.getSelectedItem();
-        for (int i = 0; i < myprop.size(); i++) {
-            if (selected.equals(myprop.get(i).getdescription()+" idproperty : "+myprop.get(i).getid())) {
+        //button add a viewing once all the fields have been selected
+        Date date = new Date();
+        //we create a date object 
+        Timestamp ts = new Timestamp(date.getTime());
+        //we create an object of time stamp, that enables to get the date
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+        //we will use this format for the time of the aded viewing : yyyy-MM-dd hh:mm:ss
 
+        int tampon = 0;
+        int tampon2 = 0;
+        int c;
+        //temporary buffers
+
+        String selected = (String) jComboBox1.getSelectedItem();
+        //we get what has been selected 
+        for (int i = 0; i < myprop.size(); i++) {
+        //we go through the properties that belong to the connected sller
+            if (selected.equals(myprop.get(i).getdescription() + " idproperty : " + myprop.get(i).getid())) {
+            //if what is selected corresponds to the description + the id of the coresponding property 
                 tampon = i;
+                //we set the value of the buffer to i 
             }
         }
-        for(int j=0;j<pr.size();++j)
-        {
-            if(pr.get(j).getid()==myprop.get(tampon).getid())
-            {
-                tampon2=j;
+        for (int j = 0; j < pr.size(); ++j) {
+            //we go through the array list of the properties of the app
+            if (pr.get(j).getid() == myprop.get(tampon).getid()) {
+                //if the id of the property is the same id as the proeprty of the seller
+                tampon2 = j;
+                //we set the value of the second buffer to j 
             }
         }
-        //TO see which house or apartment is concerner by this new viewing
-        
-        int size= emp.size()-1;
-        int randomnumber = 0 + (int)(Math.random() * ((size - 0) + 1));
-        
-        
+        int size = emp.size() - 1;
+        //we need to set an employee that will supervise the viewing
+        int randomnumber = 0 + (int) (Math.random() * ((size - 0) + 1));
+        //we define this employee randomly
 
         if (jTextFieldYear.getText().trim().isEmpty() || jTextFieldMonth.getText().trim().isEmpty() || jTextField1.getText().trim().isEmpty() || jTextFieldHour.getText().trim().isEmpty() || jTextFieldMinutes.getText().trim().isEmpty()) {
-            
+        //if one or several fields of the date are empty 
             JOptionPane.showMessageDialog(null, "One or several fields are empty. Please, try again.");
+            //we let it know
         } else {
+            //otherwise, all the fields have been filled 
             if (jTextFieldYear.getText().length() != 4 || jTextFieldMonth.getText().length() != 2 || jTextField1.getText().length() != 2 || jTextFieldHour.getText().length() != 2 || jTextFieldMinutes.getText().length() != 2) {
+                //here, the date format has not been repected : yyyy-MM-dd hh:mm:ss
                 JOptionPane.showMessageDialog(null, "Wrong date format");
+                //if it is not respected we let it know 
             } else {
-                if (Integer.parseInt(jTextFieldMonth.getText()) > 12 || Integer.parseInt(jTextFieldMonth.getText())<1 || Integer.parseInt(jTextField1.getText()) > 31 || Integer.parseInt(jTextField1.getText())<1 || Integer.parseInt(jTextFieldHour.getText()) > 23 || Integer.parseInt(jTextFieldMinutes.getText()) > 59) {
+                //otherwise, the format is good
+                if (Integer.parseInt(jTextFieldMonth.getText()) > 12 || Integer.parseInt(jTextFieldMonth.getText()) < 1 || Integer.parseInt(jTextField1.getText()) > 31 || Integer.parseInt(jTextField1.getText()) < 1 || Integer.parseInt(jTextFieldHour.getText()) > 23 || Integer.parseInt(jTextFieldMinutes.getText()) > 59) {
+                    //we make sure the month is not bigger than 12, the days are not bigger than 31, the hour is not bigger than 23 etc 
                     JOptionPane.showMessageDialog(null, " Impossible date");
-                }
-                else
-                {
-                    if((jTextFieldMonth.getText().equals("02")|| jTextFieldMonth.getText().equals("04") ||jTextFieldMonth.getText().equals("06")|| jTextFieldMonth.getText().equals("09") || jTextFieldMonth.getText().equals("11")) && (jTextField1.getText().equals("31")))
-                    {
+                    //if it is not repecting those conditions, we let it know
+                } else {
+                    //otherwise, the dates are the good format and respect the previous conditions 
+                    if ((jTextFieldMonth.getText().equals("02") || jTextFieldMonth.getText().equals("04") || jTextFieldMonth.getText().equals("06") || jTextFieldMonth.getText().equals("09") || jTextFieldMonth.getText().equals("11")) && (jTextField1.getText().equals("31"))) {
+                        //if the user selects the 31 of february, or 31st of april... (which are days that do not exist)
                         JOptionPane.showMessageDialog(null, " This date doesn't exist");
-                    }
-                    else
-                    {
-                        String newd=(jTextFieldYear.getText()+"-"+jTextFieldMonth.getText()+"-"+jTextField1.getText()+" "+jTextFieldHour.getText()+":"+jTextFieldMinutes.getText()+":00");
-                        try
-                        {
-                            Date dateparse=sdf.parse(newd);
-                            Timestamp d=new Timestamp(dateparse.getTime());
-                            c=d.compareTo(ts);
-                       if(c<0)
-                       {
-                          JOptionPane.showMessageDialog(null, "Date already passed"); 
-                       }
-                       else
-                       {
-                           
-                           
-                           v.add(new Visit(v.get(v.size()-1).getid()+1,-1,pr.get(tampon2).getid(),emp.get(randomnumber).getid(),d,30));
-                            VisitDAOImpl vdao=new VisitDAOImpl();
-                            vdao.addvisit(v.get(v.size()-1));
-                            JOptionPane.showMessageDialog(null, "Viewing added"); 
-                            this.setVisible(false);
-                            SellerAddViewing a=new SellerAddViewing(newseller, buyers, sellers, emp, pr, v, o, myprop);
-                            a.setVisible(true);
-                           
-                       }
-                        }
-                        catch(ParseException e)
-                        {
+                        //we let it know 
+                    } else {
+                        //all the fields are filled correctly, we can finally save the date of the viewing 
+                        String newd = (jTextFieldYear.getText() + "-" + jTextFieldMonth.getText() + "-" + jTextField1.getText() + " " + jTextFieldHour.getText() + ":" + jTextFieldMinutes.getText() + ":00");
+                        //we create a new date by getting all the fields and adding some "-" between the fields to respect this format : yyyy-MM-dd hh:mm:ss
+                        try {
+                            Date dateparse = sdf.parse(newd);
+                            //we convert the date that was written in the viewing panel to the good format : yyyy-MM-dd hh:mm:ss
+                            Timestamp d = new Timestamp(dateparse.getTime());
+                            //we transform the date in a timetsamp object and we send in parameter the time in ms that passed since 1970
+                            c = d.compareTo(ts);
+                            //c compares the date d of the viewing to the current date 
+                            if (c < 0) {
+                                //if, c is negative, it means the date of the viewing is before the current date 
+                                JOptionPane.showMessageDialog(null, "Date already passed");
+                                //it means the entered date is passed
+                            } else {
+                                //otherwise, all the conditions are fine to register the date of the viewng 
+                                v.add(new Visit(v.get(v.size() - 1).getid() + 1, -1, pr.get(tampon2).getid(), emp.get(randomnumber).getid(), d, 30));
+                                //so we add the new viewing in the array list of all the viewngs of the application
+                                VisitDAOImpl vdao = new VisitDAOImpl();
+                                //we create an object of the VisitDAOImpl class, to create the viewing in the database
+                                vdao.addvisit(v.get(v.size() - 1));
+                                //we add the viewing to the database
+                                JOptionPane.showMessageDialog(null, "Viewing added");
+                                //the update worked
+                                this.setVisible(false);
+                                //we need to regenerate this frame, so we close this one
+                                SellerAddViewing a = new SellerAddViewing(newseller, buyers, sellers, emp, pr, v, o, myprop);
+                                //we open a new frame to regenerate 
+                                a.setVisible(true);
+                                //we set the new frame visible 
+                            }
+                        } catch (ParseException e) {
+                            //possible exception
                             e.printStackTrace();
-                        }
-                       /* System.out.println(jTextFieldYear.getText());
-                        int y=Integer.parseInt(jTextFieldYear.getText());
-                        System.out.println(y);*/
-                        
-                      
+                        }                        
                     }
                 }
             }
         }
-        
+
     }//GEN-LAST:event_jButton2ActionPerformed
 
+    private void jTextFieldDayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldDayActionPerformed
+        //text field corresponding of the date of the viewing
+    }//GEN-LAST:event_jTextFieldDayActionPerformed
+
     public void initjcb1() {
+        //function that enables to fill the combobox with the properties of the connected seller
         for (int i = 0; i < myprop.size(); i++) {
+            //we go through all the properties of the connected seller 
 
-            jComboBox1.addItem(myprop.get(i).getdescription()+" idproperty : "+myprop.get(i).getid());
-
+            jComboBox1.addItem(myprop.get(i).getdescription() + " idproperty : " + myprop.get(i).getid());
+            //we add his properties one by one 
         }
     }
 
@@ -568,19 +603,24 @@ public class SellerAddViewing extends javax.swing.JFrame {
         });
     }
 
-    private static ArrayList<Buyer> buyers = new ArrayList<>();//array list of all the application buyers 
-    private static ArrayList<Seller> sellers = new ArrayList<>();//array list of all the application sellers 
-    private static ArrayList<Employee> emp = new ArrayList<>();//array list of all the application sellers 
+    private static ArrayList<Buyer> buyers = new ArrayList<>();
+    //array list of all the application buyers 
+    private static ArrayList<Seller> sellers = new ArrayList<>();
+    //array list of all the application sellers 
+    private static ArrayList<Employee> emp = new ArrayList<>();
+    //array list of all the application employees 
     private static ArrayList<Property> pr = new ArrayList<>();
+    //array list of all the application properties
     private static ArrayList<Visit> v = new ArrayList<>();
+    //array list of all the application viewings
     private static ArrayList<Offer> o = new ArrayList<>();
+    //array list of all the application offers
 
     private static ArrayList<Property> myprop = new ArrayList<>();
-    private static ArrayList<Offer> myoffers = new ArrayList<>();
-   
-    
+    //array list of all the personal properties of the connnected seller
 
     private static Seller newseller;
+    //current connected seller 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
