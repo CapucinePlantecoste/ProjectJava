@@ -77,6 +77,8 @@ public class EmployeeNewProperty extends javax.swing.JFrame {
         jComboBox1 = new javax.swing.JComboBox();
         jButton1 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
+        jPanelUsername = new javax.swing.JPanel();
+        jComboBox6 = new javax.swing.JComboBox();
         jPanel1 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
@@ -135,9 +137,6 @@ public class EmployeeNewProperty extends javax.swing.JFrame {
         jPanel3 = new javax.swing.JPanel();
         jLabel12 = new javax.swing.JLabel();
         jComboBox2 = new javax.swing.JComboBox();
-        jPanelUsername = new javax.swing.JPanel();
-        jTextField1 = new javax.swing.JTextField();
-        jLabel31 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -229,6 +228,32 @@ public class EmployeeNewProperty extends javax.swing.JFrame {
         });
         jPanel2.add(jButton5);
         jButton5.setBounds(1410, 60, 100, 23);
+
+        jPanelUsername.setBackground(new java.awt.Color(255, 255, 255));
+        jPanelUsername.setForeground(new java.awt.Color(255, 255, 255));
+
+        jComboBox6.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
+        jComboBox6.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Select one of the sellers" }));
+
+        javax.swing.GroupLayout jPanelUsernameLayout = new javax.swing.GroupLayout(jPanelUsername);
+        jPanelUsername.setLayout(jPanelUsernameLayout);
+        jPanelUsernameLayout.setHorizontalGroup(
+            jPanelUsernameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelUsernameLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jComboBox6, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanelUsernameLayout.setVerticalGroup(
+            jPanelUsernameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelUsernameLayout.createSequentialGroup()
+                .addGap(40, 40, 40)
+                .addComponent(jComboBox6, javax.swing.GroupLayout.DEFAULT_SIZE, 52, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        jPanel2.add(jPanelUsername);
+        jPanelUsername.setBounds(860, 100, 261, 103);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -891,44 +916,6 @@ public class EmployeeNewProperty extends javax.swing.JFrame {
         jPanel2.add(jPanel3);
         jPanel3.setBounds(1180, 180, 370, 100);
 
-        jPanelUsername.setBackground(new java.awt.Color(255, 255, 255));
-        jPanelUsername.setForeground(new java.awt.Color(255, 255, 255));
-
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
-            }
-        });
-
-        jLabel31.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel31.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
-        jLabel31.setForeground(new java.awt.Color(0, 153, 153));
-        jLabel31.setText("Enter your username");
-
-        javax.swing.GroupLayout jPanelUsernameLayout = new javax.swing.GroupLayout(jPanelUsername);
-        jPanelUsername.setLayout(jPanelUsernameLayout);
-        jPanelUsernameLayout.setHorizontalGroup(
-            jPanelUsernameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelUsernameLayout.createSequentialGroup()
-                .addGap(26, 26, 26)
-                .addGroup(jPanelUsernameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jTextField1)
-                    .addComponent(jLabel31, javax.swing.GroupLayout.DEFAULT_SIZE, 201, Short.MAX_VALUE))
-                .addContainerGap(32, Short.MAX_VALUE))
-        );
-        jPanelUsernameLayout.setVerticalGroup(
-            jPanelUsernameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelUsernameLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel31)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(23, 23, 23))
-        );
-
-        jPanel2.add(jPanelUsername);
-        jPanelUsername.setBounds(860, 100, 259, 103);
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -1382,10 +1369,6 @@ public class EmployeeNewProperty extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButton4ActionPerformed
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
-        // text field to enter the username if the seller is already registered
-    }//GEN-LAST:event_jTextField1ActionPerformed
-
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // button confirm the introduction of the property for apartment
 
@@ -1643,6 +1626,7 @@ public class EmployeeNewProperty extends javax.swing.JFrame {
     private javax.swing.JComboBox jComboBox3;
     private javax.swing.JComboBox jComboBox4;
     private javax.swing.JComboBox jComboBox5;
+    private javax.swing.JComboBox jComboBox6;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -1667,7 +1651,6 @@ public class EmployeeNewProperty extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel30;
-    private javax.swing.JLabel jLabel31;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -1683,7 +1666,6 @@ public class EmployeeNewProperty extends javax.swing.JFrame {
     private javax.swing.JPanel jPanelUsername;
     private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JPasswordField jPasswordField2;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextFieldDescription;
     private javax.swing.JTextField jTextFieldDescription1;
     private javax.swing.JTextField jTextFieldFirstName;
