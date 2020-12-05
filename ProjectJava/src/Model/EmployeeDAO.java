@@ -1,7 +1,6 @@
 //this class consolidates access to persistent data concerning the employees  
 package Model;
 
-
 import java.util.ArrayList;
 
 /**

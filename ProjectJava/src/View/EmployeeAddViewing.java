@@ -14,7 +14,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import javax.swing.JOptionPane;
-import projectjava.First ; 
+import projectjava.First;
 
 /**
  *
@@ -25,7 +25,7 @@ public class EmployeeAddViewing extends javax.swing.JFrame {
     /**
      * Creates new form EmployeeAddViewing
      */
-    public EmployeeAddViewing(Employee coucou, ArrayList<Buyer> b, ArrayList<Seller> s, ArrayList<Employee> e, ArrayList<Property>prop, ArrayList<Visit>vis, ArrayList<Offer>off) {
+    public EmployeeAddViewing(Employee coucou, ArrayList<Buyer> b, ArrayList<Seller> s, ArrayList<Employee> e, ArrayList<Property> prop, ArrayList<Visit> vis, ArrayList<Offer> off) {
         //constructor of the class
         buyers = b;
         //Array List of all the registered buyers
@@ -33,21 +33,21 @@ public class EmployeeAddViewing extends javax.swing.JFrame {
         //Array List of all the registered sellers
         emp = e;
         //Array List of all the registered employees
-        pr=prop;
+        pr = prop;
         //Array List of all the registered properties
-        v=vis;
+        v = vis;
         //Array List of all the registered viewings
-        o=off;
+        o = off;
         //Array List of all the registered offers 
-       
+
         employee = coucou;
         //curent connected employee 
-        
+
         initComponents();
         //automatically generated constructor for components 
-        initjcb1(); 
+        initjcb1();
         //function that enables to fill the combobox with the properties of the application
-        jPanelViewing.hide(); 
+        jPanelViewing.hide();
         //in the beginning, all the other panels are hidden 
     }
 
@@ -348,11 +348,11 @@ public class EmployeeAddViewing extends javax.swing.JFrame {
         //if we click on the back button
         setVisible(false);
         //this page disappears
-        EmployeeFirst a=new EmployeeFirst(employee, buyers, sellers, emp,pr,v,o);
+        EmployeeFirst a = new EmployeeFirst(employee, buyers, sellers, emp, pr, v, o);
         //we go back on the first page
         a.setVisible(true);
         //we set visible the previous page 
-        new EmployeeFirst(employee, buyers, sellers, emp,pr,v,o).setState(java.awt.Frame.NORMAL);
+        new EmployeeFirst(employee, buyers, sellers, emp, pr, v, o).setState(java.awt.Frame.NORMAL);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
@@ -361,10 +361,10 @@ public class EmployeeAddViewing extends javax.swing.JFrame {
         //if we click on the button
         setVisible(false);
         //this page disappears
-        new First(buyers, sellers, emp, pr,v,o).toFront();
+        new First(buyers, sellers, emp, pr, v, o).toFront();
         //we go back on the first page
-        new First(buyers, sellers, emp,pr,v,o).setState(java.awt.Frame.NORMAL);
-        new First(buyers, sellers, emp,pr,v,o).setVisible(true);
+        new First(buyers, sellers, emp, pr, v, o).setState(java.awt.Frame.NORMAL);
+        new First(buyers, sellers, emp, pr, v, o).setVisible(true);
         //we set the first page visible 
     }//GEN-LAST:event_jButton5ActionPerformed
 
@@ -372,17 +372,15 @@ public class EmployeeAddViewing extends javax.swing.JFrame {
         //combo box where all the properties available for sale are displayed, so that the employee can select one and add to it a viewing
         String selected = (String) jComboBox1.getSelectedItem();
         //we get the proeprty that has been selected 
-        if (selected.equals("Select one of the properties for sale")) {  
+        if (selected.equals("Select one of the properties for sale")) {
             //if the employee doesn't select any property but remains on the first option of the combo box
             jPanelViewing.hide();
             //nothing happens, the panels remain hidden
-        }
-        else
-            //otherwise, the employee selected a property option 
+        } else //otherwise, the employee selected a property option 
         {
-            jPanelViewing.show(); 
+            jPanelViewing.show();
             //we show the viewing panel, that asks for a date for the viewing to add
-        }        
+        }
     }//GEN-LAST:event_jComboBox1ActionPerformed
 
     private void jTextFieldHourKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldHourKeyTyped
@@ -447,31 +445,30 @@ public class EmployeeAddViewing extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         //button validate the viewing
-        Date date=new Date();
+        Date date = new Date();
         //we create a date object with no arguments so that it is the current date
-        Timestamp ts= new Timestamp(date.getTime());
+        Timestamp ts = new Timestamp(date.getTime());
         //we create an object of time stamp, that enables to have the same type as in the database
-        SimpleDateFormat sdf= new SimpleDateFormat ("yyyy-MM-dd hh:mm:ss");
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
         //we will use this format for the time of the aded viewing : yyyy-MM-dd hh:mm:ss
-      
+
         int tampon = -1;
         //temporary buffer 
         int c;
         //temporary variable 
-        
-        
+
         String selected = (String) jComboBox1.getSelectedItem();
         //we get what has been selected in the combo box of all the properties 
         for (int i = 0; i < pr.size(); i++) {
             //we go through all the properties of the application 
-            if (selected.equals(pr.get(i).getdescription()+" idproperty : "+pr.get(i).getid())) {
+            if (selected.equals(pr.get(i).getdescription() + " idproperty : " + pr.get(i).getid())) {
                 //if what has been selected corresponds to the description + the id of one of the property of the application 
                 tampon = i;
                 //we set the value of the buffer to i
             }
         }
         if (jTextFieldMonth.getText().trim().isEmpty() || jTextFieldYear.getText().trim().isEmpty() || jTextFieldHour.getText().trim().isEmpty() || jTextField1.getText().trim().isEmpty() || jTextFieldMinutes.getText().trim().isEmpty()) {
-        //if one or several fields of the date are empty    
+            //if one or several fields of the date are empty    
             JOptionPane.showMessageDialog(null, "One or several fields are empty. Please, try again.");
             //we let it know 
         } else {
@@ -482,63 +479,52 @@ public class EmployeeAddViewing extends javax.swing.JFrame {
                 //if it is not respected we let it know 
             } else {
                 //otherwise, the format is good 
-                if (Integer.parseInt(jTextFieldMonth.getText()) > 12 || Integer.parseInt(jTextFieldMonth.getText())<1 || Integer.parseInt(jTextField1.getText()) > 31 || Integer.parseInt(jTextField1.getText())<1 || Integer.parseInt(jTextFieldHour.getText()) > 23 || Integer.parseInt(jTextFieldMinutes.getText()) > 59) {
-                //we make sure the month is not bigger than 12, the days are not bigger than 31, the hour is not bigger than 23 etc    
+                if (Integer.parseInt(jTextFieldMonth.getText()) > 12 || Integer.parseInt(jTextFieldMonth.getText()) < 1 || Integer.parseInt(jTextField1.getText()) > 31 || Integer.parseInt(jTextField1.getText()) < 1 || Integer.parseInt(jTextFieldHour.getText()) > 23 || Integer.parseInt(jTextFieldMinutes.getText()) > 59) {
+                    //we make sure the month is not bigger than 12, the days are not bigger than 31, the hour is not bigger than 23 etc    
                     JOptionPane.showMessageDialog(null, " Impossible date");
                     //if it is not repecting those conditions, we let it know 
-                }
-                else
-                //otherwise, the dates are the good format and respect the previous conditions 
+                } else //otherwise, the dates are the good format and respect the previous conditions 
                 {
-                    if((jTextFieldMonth.getText().equals("02")|| jTextFieldMonth.getText().equals("04") ||jTextFieldMonth.getText().equals("06")|| jTextFieldMonth.getText().equals("09") || jTextFieldMonth.getText().equals("11")) && (jTextField1.getText().equals("31")))
-                    //if the user selects the 31 of february, or 31st of april... (which are days that do not exist)
+                    if ((jTextFieldMonth.getText().equals("02") || jTextFieldMonth.getText().equals("04") || jTextFieldMonth.getText().equals("06") || jTextFieldMonth.getText().equals("09") || jTextFieldMonth.getText().equals("11")) && (jTextField1.getText().equals("31"))) //if the user selects the 31 of february, or 31st of april... (which are days that do not exist)
                     {
                         JOptionPane.showMessageDialog(null, " This date doesn't exist");
                         //we let it know 
-                    }
-                    else
-                    //all the fields are filled correctly, we can finally save the date of the viewing 
+                    } else //all the fields are filled correctly, we can finally save the date of the viewing 
                     {
-                        String newd=(jTextFieldYear.getText()+"-"+jTextFieldMonth.getText()+"-"+jTextField1.getText()+" "+jTextFieldHour.getText()+":"+jTextFieldMinutes.getText()+":00");
+                        String newd = (jTextFieldYear.getText() + "-" + jTextFieldMonth.getText() + "-" + jTextField1.getText() + " " + jTextFieldHour.getText() + ":" + jTextFieldMinutes.getText() + ":00");
                         //we create a new string by getting all the fields and adding some "-" between the fields to respect this format : yyyy-MM-dd hh:mm:ss
-                        try
-                        {
-                            Date dateparse=sdf.parse(newd);
+                        try {
+                            Date dateparse = sdf.parse(newd);
                             //we convert the date (in string) to a date  written in the viewing panel with the good format : yyyy-MM-dd hh:mm:ss
-                            Timestamp d=new Timestamp(dateparse.getTime());
+                            Timestamp d = new Timestamp(dateparse.getTime());
                             //we transform the date in a timetsamp object and we send in parameter the time in ms that passed since 1970
-                            c=d.compareTo(ts);
+                            c = d.compareTo(ts);
                             //c compares the date d of the viewing to the current date 
-                            if(c<0)
-                            //if, c is negative, it means the date of the viewing is before the current date  
+                            if (c < 0) //if, c is negative, it means the date of the viewing is before the current date  
                             {
-                               JOptionPane.showMessageDialog(null, "Date already passed"); 
-                               //it means the entered date is passed
-                            }
-                            else
-                            //otherwise, all the conditions are fine to register the date of the viewng 
+                                JOptionPane.showMessageDialog(null, "Date already passed");
+                                //it means the entered date is passed
+                            } else //otherwise, all the conditions are fine to register the date of the viewng 
                             {
-                                v.add(new Visit(v.get(v.size()-1).getid()+1,-1,pr.get(tampon).getid(),employee.getid(),d,30));
+                                v.add(new Visit(v.get(v.size() - 1).getid() + 1, -1, pr.get(tampon).getid(), employee.getid(), d, 30));
                                 //so we add the new viewing in the array list of all the viewngs of the application
-                                VisitDAOImpl vdao=new VisitDAOImpl();
+                                VisitDAOImpl vdao = new VisitDAOImpl();
                                 //we create an object of the VisitDAOImpl class, to create the viewing in the database 
-                                vdao.addvisit(v.get(v.size()-1));
+                                vdao.addvisit(v.get(v.size() - 1));
                                 //we add the viewing to the database
-                                JOptionPane.showMessageDialog(null, "Viewing added"); 
+                                JOptionPane.showMessageDialog(null, "Viewing added");
                                 //the update worked
                                 this.setVisible(false);
                                 //we need to regenerate this frame, so we close this one
-                                EmployeeAddViewing a =new EmployeeAddViewing(employee, buyers, sellers, emp, pr,v,o);
+                                EmployeeAddViewing a = new EmployeeAddViewing(employee, buyers, sellers, emp, pr, v, o);
                                 //we open a new frame to regenerate 
                                 a.setVisible(true);
                                 //we set the new frame visible 
                             }
-                        }
-                        catch(ParseException e)
-                        //possible parsing exception
+                        } catch (ParseException e) //possible parsing exception
                         {
                             e.printStackTrace();
-                        }                                              
+                        }
                     }
                 }
             }
@@ -550,11 +536,11 @@ public class EmployeeAddViewing extends javax.swing.JFrame {
         for (int i = 0; i < pr.size(); ++i) {
             //we go through all the poperties registered in the application
 
-            jComboBox1.addItem(pr.get(i).getdescription()+" idproperty : "+pr.get(i).getid());
+            jComboBox1.addItem(pr.get(i).getdescription() + " idproperty : " + pr.get(i).getid());
             //we add every property to the combo box
         }
     }
-    
+
     /**
      * @param args the command line arguments
      */
@@ -586,25 +572,24 @@ public class EmployeeAddViewing extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             @Override
             public void run() {
-                new EmployeeAddViewing(employee, buyers, sellers, emp,pr,v,o).setVisible(true);
+                new EmployeeAddViewing(employee, buyers, sellers, emp, pr, v, o).setVisible(true);
             }
         });
     }
 
-    
     private static ArrayList<Buyer> buyers = new ArrayList<>();
     //array list of all the application buyers 
     private static ArrayList<Seller> sellers = new ArrayList<>();
     //array list of all the application sellers 
     private static ArrayList<Employee> emp = new ArrayList<>();
     //array list of all the application employees 
-    private static ArrayList<Property> pr=new ArrayList<>();
+    private static ArrayList<Property> pr = new ArrayList<>();
     //array list of all the application properties
-    private static ArrayList<Visit>v=new ArrayList<>();
+    private static ArrayList<Visit> v = new ArrayList<>();
     //array list of all the application viewings
-    private static ArrayList<Offer>o=new ArrayList<>();
+    private static ArrayList<Offer> o = new ArrayList<>();
     //array list of all the application offers 
-    private static Employee employee ; 
+    private static Employee employee;
     //connected employee
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;

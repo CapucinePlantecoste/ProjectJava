@@ -170,7 +170,7 @@ public class EmployeeUpdateProperty extends javax.swing.JFrame {
         jLabel25.setBackground(new java.awt.Color(255, 255, 255));
         jLabel25.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
         jLabel25.setForeground(new java.awt.Color(0, 153, 153));
-        jLabel25.setText("Surface");
+        jLabel25.setText("Surface (m²)");
 
         jLabel26.setBackground(new java.awt.Color(255, 255, 255));
         jLabel26.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
@@ -482,7 +482,7 @@ public class EmployeeUpdateProperty extends javax.swing.JFrame {
         jLabel16.setBackground(new java.awt.Color(255, 255, 255));
         jLabel16.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
         jLabel16.setForeground(new java.awt.Color(0, 153, 153));
-        jLabel16.setText("Surface");
+        jLabel16.setText("Surface (m²)");
 
         jLabel17.setBackground(new java.awt.Color(255, 255, 255));
         jLabel17.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
@@ -503,7 +503,7 @@ public class EmployeeUpdateProperty extends javax.swing.JFrame {
         jLabel19.setBackground(new java.awt.Color(255, 255, 255));
         jLabel19.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
         jLabel19.setForeground(new java.awt.Color(0, 153, 153));
-        jLabel19.setText("Garden Surface");
+        jLabel19.setText("Garden Surface (m²)");
 
         jTextFieldGardenSurface.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
@@ -697,17 +697,17 @@ public class EmployeeUpdateProperty extends javax.swing.JFrame {
         String selected = (String) jComboBox1.getSelectedItem();
         //we get what has been selected in the combo box 
         if (selected.equals("Select a property to update")) {
-        //if the employee doesn't select any option but remains on the first option of the combo box
+            //if the employee doesn't select any option but remains on the first option of the combo box
             jPanelHouse.hide();
             jPanelApartment.hide();
             //nothing happens so we hide all the other panels
 
         } else {
-        //otherwise, if the employee selected one of the property for sale to update its properties 
+            //otherwise, if the employee selected one of the property for sale to update its properties 
             for (int i = 0; i < pr.size(); i++) {
-            //we go through the array list of all the properties of the application
+                //we go through the array list of all the properties of the application
                 if (selected.equals(pr.get(i).getdescription() + " id : " + pr.get(i).getid())) {
-                //if what has been selected corresponds to the description + id of one of the properties 
+                    //if what has been selected corresponds to the description + id of one of the properties 
                     tampon = i;
                     //we set the value of the buffer to i 
                 }
@@ -827,9 +827,9 @@ public class EmployeeUpdateProperty extends javax.swing.JFrame {
         String selected = (String) jComboBox1.getSelectedItem();
         //we get what has been selected in the combo box of the properties for sale 
         for (int i = 0; i < pr.size(); ++i) {
-        //we go through the properties contained in the database 
+            //we go through the properties contained in the database 
             if (selected.equals(pr.get(i).getdescription() + " id : " + pr.get(i).getid())) {
-            //if what is selected is the same as the decription + id of the corresponding property 
+                //if what is selected is the same as the decription + id of the corresponding property 
                 tampon = i;
                 //we set the value of the buffer to i 
             }
@@ -839,7 +839,7 @@ public class EmployeeUpdateProperty extends javax.swing.JFrame {
             //if one or several fields are empty
             JOptionPane.showMessageDialog(null, "One of several fields are empty");
             //we let it know
-        } else {            
+        } else {
             if (!jTextFieldSP.getText().equals("Yes") && !jTextFieldSP.getText().equals("No")) {
                 //otherwise, we want to make sure the swimming pool field will be filled by only "yes" or "no"
                 JOptionPane.showMessageDialog(null, " Wrong format of a field. For the field Swimming Pool you must enter 'Yes' or 'No' ");
@@ -903,9 +903,9 @@ public class EmployeeUpdateProperty extends javax.swing.JFrame {
         String selected = (String) jComboBox1.getSelectedItem();
         //we get what has been selected 
         for (int i = 0; i < pr.size(); i++) {
-        //we go through the properties contained in the database 
+            //we go through the properties contained in the database 
             if (selected.equals(pr.get(i).getdescription() + " id : " + pr.get(i).getid())) {
-            //if what is selected is the same as the decription + id of the corresponding property 
+                //if what is selected is the same as the decription + id of the corresponding property 
                 tampon = i;
                 //we set the value of the buffer to i 
             }
@@ -917,7 +917,7 @@ public class EmployeeUpdateProperty extends javax.swing.JFrame {
         } else {
             //otherwise, we want to make sure the parking and elevator fields will be filled by only "yes" or "no"
             if ((!jTextFieldParking.getText().equals("Yes") && !jTextFieldParking.getText().equals("No")) || (!jTextFieldElevator.getText().equals("Yes") && !jTextFieldElevator.getText().equals("No"))) {
-                 //if it is not the case, we let it know
+                //if it is not the case, we let it know
                 JOptionPane.showMessageDialog(null, " Wrong format of a field. For the fields Elevator and Parking you must enter 'Yes' or 'No' ");
                 //if it is not, we let it know
             } else {

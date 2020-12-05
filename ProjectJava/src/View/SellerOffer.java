@@ -38,9 +38,9 @@ public class SellerOffer extends javax.swing.JFrame {
         //Array List of all the offers of the application
         newseller = a;
         //current connected seller 
-        myoffers= myo ;
+        myoffers = myo;
         //offers of the connected seller 
-        
+
         initComponents();
         //automatically generated onstructor 
         this.initjcb1();
@@ -267,7 +267,7 @@ public class SellerOffer extends javax.swing.JFrame {
 
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
         //combo box where all the offers made for the properties of the seller are displayed
-        
+
         int tampon = 0;
         //temporary buffer        
 
@@ -282,59 +282,53 @@ public class SellerOffer extends javax.swing.JFrame {
             for (int i = 0; i < myoffers.size(); ++i) {
                 //we go through the offers of the seller  
                 {
-                    for(int j=0;j<pr.size();++j)
-                        //we go through the properties of the application 
+                    for (int j = 0; j < pr.size(); ++j) //we go through the properties of the application 
                     {
-                        if(selected.equals(pr.get(j).getdescription()+" idoffer : "+myoffers.get(i).getid()))
-                        //if what has been selected equals the description + the id of the corresponding property 
-                        {                           
-                            tampon=i;                
+                        if (selected.equals(pr.get(j).getdescription() + " idoffer : " + myoffers.get(i).getid())) //if what has been selected equals the description + the id of the corresponding property 
+                        {
+                            tampon = i;
                             //we set the value of the buffer to i
                         }
                     }
-                }               
-            }               
+                }
+            }
             this.display(myoffers.get(tampon));
             //we display the differents fields of the panel offer via the display function 
-            }               
+        }
     }//GEN-LAST:event_jComboBox1ActionPerformed
 
     //Function to display all the information from a given offer
-    public void display (Offer a)
-    {
+    public void display(Offer a) {
         //buffer
-        int stamp=0;
-    
+        int stamp = 0;
+
         //We look for the house that corresponds to the offer
         //So we look for the house that has the same id as the idprop of the offer
-        for(int i=0;i<pr.size();++i)
-        {
-            if(pr.get(i).getid()==a.getidprop())
-            {
+        for (int i = 0; i < pr.size(); ++i) {
+            if (pr.get(i).getid() == a.getidprop()) {
                 //Once we find it we that the index of it
-                stamp=i;
+                stamp = i;
             }
         }
-        
+
         //We fill all the fields with the appropriate things
-        
-        jLabelDescription.setText(" Description : "+pr.get(stamp).getdescription());
+        jLabelDescription.setText(" Description : " + pr.get(stamp).getdescription());
         //we get the description of the corresponding house
-        jLabelLocation.setText( " Location : "+pr.get(stamp).getlocation());
+        jLabelLocation.setText(" Location : " + pr.get(stamp).getlocation());
         //its location
-        jLabelRealPrice.setText("Price of the property : " +pr.get(stamp).getprice()+"€");
+        jLabelRealPrice.setText("Price of the property : " + pr.get(stamp).getprice() + "€");
         //We get the price of the house
-        jLabelPrice.setText ("Amount of the offer : "+a.getprice()+"€");
+        jLabelPrice.setText("Amount of the offer : " + a.getprice() + "€");
         //The amount of the offer
-        
-       //We show the panel
+
+        //We show the panel
         jPanelOffers.show();
     }
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         this.toBack();//if we click on the back button
         setVisible(false);//this page disappears
-        SellerFirst a=new SellerFirst(newseller, buyers, sellers, emp, pr, v, o);//we go back on the first page
+        SellerFirst a = new SellerFirst(newseller, buyers, sellers, emp, pr, v, o);//we go back on the first page
         a.setVisible(true);
         new SellerFirst(newseller, buyers, sellers, emp, pr, v, o).setState(java.awt.Frame.NORMAL);
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -350,45 +344,41 @@ public class SellerOffer extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-        OfferDAOImpl odao= new OfferDAOImpl();
+        OfferDAOImpl odao = new OfferDAOImpl();
         //We create an OfferDAOImpl object to set the changes in the databse later
-        PropertyDAOImpl pdao= new PropertyDAOImpl();
+        PropertyDAOImpl pdao = new PropertyDAOImpl();
         //We create a PropertyDAOImpl object to set the changes about the property in the database later
         //We have three buffers
-        int tampon=0;
-        int tampon2=0;
-        int tampon3=0;
+        int tampon = 0;
+        int tampon2 = 0;
+        int tampon3 = 0;
         //We get what is selected from the jcombobox
         String selected = (String) jComboBox1.getSelectedItem();
         for (int i = 0; i < myoffers.size(); ++i) {
             //We cross all the offers of the connected seller
-                {
-                    for(int j=0;j<pr.size();++j)
-                    {
-                        //We cross all the properties of the app
-                        if(selected.equals(pr.get(j).getdescription()+" idoffer : "+myoffers.get(i).getid()))
-                        {
+            {
+                for (int j = 0; j < pr.size(); ++j) {
+                    //We cross all the properties of the app
+                    if (selected.equals(pr.get(j).getdescription() + " idoffer : " + myoffers.get(i).getid())) {
                             //If what is selcted in the jcombobox corresponds to the description of house j and the id of offer i
-                           //We get those values as buffers
-                            tampon=i;
-                            tampon2=j;
-                            
-                        }
+                        //We get those values as buffers
+                        tampon = i;
+                        tampon2 = j;
+
                     }
                 }
-        }
-        
-        //We look for the offer in the arraylist of all the offers made on the app
-        for(int k=0;k<o.size();++k)
-        {
-            if(o.get(k).getid()==myoffers.get(tampon).getid())
-            {
-                //When we find it
-                //We set a third buffer to its index in the arraylist
-                tampon3=k;
             }
         }
-        
+
+        //We look for the offer in the arraylist of all the offers made on the app
+        for (int k = 0; k < o.size(); ++k) {
+            if (o.get(k).getid() == myoffers.get(tampon).getid()) {
+                //When we find it
+                //We set a third buffer to its index in the arraylist
+                tampon3 = k;
+            }
+        }
+
         odao.acceptoffer(o.get(tampon3), o);
         //We call the acceptoffer method for the corresponding offer that sets it accepted in the database
         pdao.offeraccepted(pr.get(tampon2));
@@ -399,11 +389,9 @@ public class SellerOffer extends javax.swing.JFrame {
         //We set the attribute accepted of the corresponding offer at true
         myoffers.remove(myoffers.get(tampon));
         // We remove this offer from the list my offers as it has been treated
-        for(int l=0;l<myoffers.size();++l)
-        {
+        for (int l = 0; l < myoffers.size(); ++l) {
             //We look for all the offers made on this property that are different from this offer
-            if((myoffers.get(l).getidprop()==myoffers.get(tampon).getidprop()) && (o.get(l).getid()!=myoffers.get(tampon).getid()))
-            {
+            if ((myoffers.get(l).getidprop() == myoffers.get(tampon).getidprop()) && (o.get(l).getid() != myoffers.get(tampon).getid())) {
                 //If we find one we say that this offer has been declined
                 myoffers.get(l).setdeclined(true);
                 // We consider that this offer is treated because if one offer is accepted for a house all the others for the same one are automatically declined
@@ -413,42 +401,44 @@ public class SellerOffer extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(null, "This offer has been accepted");
         //We let the seller know that the action is confirmed
         this.setVisible(false);
-        //We reload the page with all the changes
-            SellerOffer a=new SellerOffer(newseller, buyers, sellers, emp, pr, v, o, myoffers);
+        if (myoffers.isEmpty()) {
+            // If there are not any offers left we lead the seller to its main page 
+            SellerFirst b = new SellerFirst(newseller, buyers, sellers, emp, pr, v, o);
+            b.setVisible(true);
+
+        } else {
+            //if there are still offers
+            //We reload the page with all the changes
+            SellerOffer a = new SellerOffer(newseller, buyers, sellers, emp, pr, v, o, myoffers);
             a.setVisible(true);
-        
-        
-        
-        
-        
+        }
+
+
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
         // We create an OfferDAOImpl object to set the changes later in the database
-        OfferDAOImpl odao= new OfferDAOImpl();
+        OfferDAOImpl odao = new OfferDAOImpl();
         //We create a buffer
-        int tampon=0;
+        int tampon = 0;
         //We get the selected item from the combo box
         String selected = (String) jComboBox1.getSelectedItem();
         for (int i = 0; i < myoffers.size(); ++i) {
             //We cross all the offers of the connected seller
-                {
-                    for(int j=0;j<pr.size();++j)
-                    {
-                        //We cross all the properties of the app
-                        if(selected.equals(pr.get(j).getdescription()+" idoffer : "+myoffers.get(i).getid()))
-                        {
+            {
+                for (int j = 0; j < pr.size(); ++j) {
+                    //We cross all the properties of the app
+                    if (selected.equals(pr.get(j).getdescription() + " idoffer : " + myoffers.get(i).getid())) {
                            //If what is selcted in the jcombobox corresponds to the description of house j and the id of offer i
-                           //We get the index value of the offer as a buffer
-                            tampon=i;
-                            
-                            
-                        }
+                        //We get the index value of the offer as a buffer
+                        tampon = i;
+
                     }
                 }
+            }
         }
-        
+
         odao.declineoffer(myoffers.get(tampon));
         // We call the decline offer method to say in the database that the offer has been declined
         myoffers.get(tampon).setdeclined(true);
@@ -457,31 +447,36 @@ public class SellerOffer extends javax.swing.JFrame {
         //We remove it from my offers as it has been treated
         JOptionPane.showMessageDialog(null, "This offer has been declined");
         this.setVisible(false);
-        //We reload this page with the changes
-            SellerOffer a=new SellerOffer(newseller, buyers, sellers, emp, pr, v, o,myoffers);
+        if (myoffers.isEmpty()) {
+            // If there are not any offers left we lead the seller to its main page 
+            SellerFirst b = new SellerFirst(newseller, buyers, sellers, emp, pr, v, o);
+            b.setVisible(true);
+
+        } else {
+            //if there are still offers
+            //We reload the page with all the changes
+            SellerOffer a = new SellerOffer(newseller, buyers, sellers, emp, pr, v, o, myoffers);
             a.setVisible(true);
-        
-        
+        }
+
+
     }//GEN-LAST:event_jButton3ActionPerformed
 
-    public void initjcb1()
-    {
+    public void initjcb1() {
         // This function is to set the jcombobox with all the options possible
-        for(int i=0;i<myoffers.size();++i)
-        {
+        for (int i = 0; i < myoffers.size(); ++i) {
             // We cross all the offers of the seller
-            for(int j=0;j<pr.size();++j)
-            {
+            for (int j = 0; j < pr.size(); ++j) {
                 //We cross all the property of the app
-                if(myoffers.get(i).getidprop()==pr.get(j).getid())
-                {
+                if (myoffers.get(i).getidprop() == pr.get(j).getid()) {
                     //If the offer idprop and the id of the house are the same
-                    jComboBox1.addItem(pr.get(j).getdescription()+ " idoffer : "+myoffers.get(i).getid());
+                    jComboBox1.addItem(pr.get(j).getdescription() + " idoffer : " + myoffers.get(i).getid());
                     //We add an option that corresponds to that in the jcombobox
                 }
             }
         }
     }
+
     /**
      * @param args the command line arguments
      */

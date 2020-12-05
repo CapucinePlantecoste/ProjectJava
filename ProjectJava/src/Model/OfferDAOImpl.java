@@ -1,7 +1,6 @@
 //this class implements all the function of the OfferDAO class
 package Model;
 
-
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -16,8 +15,7 @@ public class OfferDAOImpl implements OfferDAO {
 //OfferDAO was an interface so we have to develop all its methods here 
 
     @Override
-    public ArrayList<Offer> registeroffer() 
-    //method used to get the offers registered in the database
+    public ArrayList<Offer> registeroffer() //method used to get the offers registered in the database
     {
         Connection conn = null;
         ArrayList<Offer> offers = new ArrayList<>();
@@ -105,8 +103,7 @@ public class OfferDAOImpl implements OfferDAO {
             conn.setAutoCommit(false);
             // we group multiple Statements under the same transaction. This transaction will be committed when "commit()" invoked
             try {
-                
-                
+
                 // we set the attribute accepted of the offer that has been accepted at true
                 stmt.executeUpdate("UPDATE offer SET accepted=true where idoffer='" + a.getid() + "';");
                 //sql request

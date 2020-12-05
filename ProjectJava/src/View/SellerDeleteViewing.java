@@ -41,7 +41,7 @@ public class SellerDeleteViewing extends javax.swing.JFrame {
         //arraylist of the personal viewings of the connected seller 
         propviewing = pbis;
         //array list of the properties of the sellers that have at least 1 viewing
-        
+
         initComponents();
         //automatically generated constructor
         this.initjcb1();
@@ -288,7 +288,7 @@ public class SellerDeleteViewing extends javax.swing.JFrame {
         String selected = (String) jComboBox1.getSelectedItem();
         //we get what has been selected 
         if (selected.equals("Select one of your properties for sale")) {
-        //if the seller doesn't select any option but remains on the first option of the combo box
+            //if the seller doesn't select any option but remains on the first option of the combo box
 
             jPanelViewings.hide();
             jPanel1.hide();
@@ -296,11 +296,11 @@ public class SellerDeleteViewing extends javax.swing.JFrame {
 
         } else {
         //otherwise, the seller choses one of the properties
-            
+
             for (int i = 0; i < propviewing.size(); ++i) {
-            //we go through the list of his properties that have at least 1 viewing
-                if (selected.equals(propviewing.get(i).getdescription()+" idproperty : "+propviewing.get(i).getid())) {
-                // if what is selected is the same as the description + the id the coresponding property 
+                //we go through the list of his properties that have at least 1 viewing
+                if (selected.equals(propviewing.get(i).getdescription() + " idproperty : " + propviewing.get(i).getid())) {
+                    // if what is selected is the same as the description + the id the coresponding property 
 
                     tampon = i;
                     //we set the value of the buffer to i
@@ -315,7 +315,7 @@ public class SellerDeleteViewing extends javax.swing.JFrame {
                 //we go through all the viewings of the connected seller 
                 if (myviewings.get(i).getidprop() == propviewing.get(tampon).getid()) {
                     // if the id of the viewing is equal to the id of the viewing of the coresponding house 
-                    jComboBox2.addItem(myviewings.get(i).displaydate()+" idviewing : "+myviewings.get(i).getid());
+                    jComboBox2.addItem(myviewings.get(i).displaydate() + " idviewing : " + myviewings.get(i).getid());
                     //we add the vewing to the combo box and we display its time 
                 }
 
@@ -333,7 +333,7 @@ public class SellerDeleteViewing extends javax.swing.JFrame {
         //if we click on the back button
         setVisible(false);
         //this page disappears
-        SellerFirst a=new SellerFirst(newseller, buyers, sellers, emp, pr, v, o);
+        SellerFirst a = new SellerFirst(newseller, buyers, sellers, emp, pr, v, o);
         //we go back on the first page
         a.setVisible(true);
         //we set the first page visible 
@@ -351,7 +351,7 @@ public class SellerDeleteViewing extends javax.swing.JFrame {
         //we get what has been selected in the first combo box
         for (int i = 0; i < propviewing.size(); i++) {
             // we go through all the properties of the connected seller that have at least 1 viewing
-            if (selected1.equals(propviewing.get(i).getdescription()+" idproperty : "+propviewing.get(i).getid())) {
+            if (selected1.equals(propviewing.get(i).getdescription() + " idproperty : " + propviewing.get(i).getid())) {
                 //if what has been selected equals the description + the id of one of the seller property
 
                 tampon = i;
@@ -360,115 +360,117 @@ public class SellerDeleteViewing extends javax.swing.JFrame {
         }
 
         //If we don't select anything nothing happens
-            if (jComboBox2.getSelectedIndex() < 0) {
+        if (jComboBox2.getSelectedIndex() < 0) {
+        } else {
+            String selected2 = (String) jComboBox2.getSelectedItem();
+            //we get what has been selected in the second combo box
+            if (selected2.equals("Viewings")) {
+                //if the seller doesn't select any option but remains on the first option of the combo box
+                jPanel1.hide();
+                //nothing happens so we hide the panel
             } else {
-                String selected2 = (String) jComboBox2.getSelectedItem();
-                //we get what has been selected in the second combo box
-                if (selected2.equals("Viewings")) {
-                    //if the seller doesn't select any option but remains on the first option of the combo box
-                    jPanel1.hide();
-                    //nothing happens so we hide the panel
-                } else {
-                    //otherwise, the seller clicked on one of the options
-                    for (int j = 0; j < myviewings.size(); ++j) {
-                        //we go through the personal viewings of the connected seller 
-                        if ((myviewings.get(j).getidprop() == propviewing.get(tampon).getid()) && ((myviewings.get(j).displaydate()+" idviewing : "+myviewings.get(j).getid()).equals(selected2))) {
-                            //if the id of the property is the same id as the property of the viewing and if what has been selected corresponds to the date + the id of the viewing  
-                            tampon2 = j;
-                            //we set the value of the buffer to j 
-                        }
+                //otherwise, the seller clicked on one of the options
+                for (int j = 0; j < myviewings.size(); ++j) {
+                    //we go through the personal viewings of the connected seller 
+                    if ((myviewings.get(j).getidprop() == propviewing.get(tampon).getid()) && ((myviewings.get(j).displaydate() + " idviewing : " + myviewings.get(j).getid()).equals(selected2))) {
+                        //if the id of the property is the same id as the property of the viewing and if what has been selected corresponds to the date + the id of the viewing  
+                        tampon2 = j;
+                        //we set the value of the buffer to j 
                     }
-                    
-                    jLabelDescription.setText(" Description : " + propviewing.get(tampon).getdescription());
-                    //we set the description in the panel to the get value 
-                    jLabelLocation.setText(" Location : " + propviewing.get(tampon).getlocation());
-                    //we set the location in the panel to the get value 
-                    jLabelId.setText(" Viewing ID : " + myviewings.get(tampon2).getid());
-                    //we set the id in the panel to the get value 
-                    jLabelDate.setText(" Date of the viewing : " + myviewings.get(tampon2).displaydate());
-                    //we set the date in the panel to the get value 
-                    jPanel1.show();
-                    //we finally show the panel where the details of the viewing are displayed 
                 }
-            }      
+
+                jLabelDescription.setText(" Description : " + propviewing.get(tampon).getdescription());
+                //we set the description in the panel to the get value 
+                jLabelLocation.setText(" Location : " + propviewing.get(tampon).getlocation());
+                //we set the location in the panel to the get value 
+                jLabelId.setText(" Viewing ID : " + myviewings.get(tampon2).getid());
+                //we set the id in the panel to the get value 
+                jLabelDate.setText(" Date of the viewing : " + myviewings.get(tampon2).displaydate());
+                //we set the date in the panel to the get value 
+                jPanel1.show();
+                //we finally show the panel where the details of the viewing are displayed 
+            }
+        }
     }//GEN-LAST:event_jComboBox2ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // delete button once the details of the viewings have been displayed 
         int tampon = -1;
         int tampon2 = -1;
-        int tampon3=-1;
+        int tampon3 = -1;
         //temporary buffers 
-        VisitDAOImpl vdao=new VisitDAOImpl();
+        VisitDAOImpl vdao = new VisitDAOImpl();
         //we create an object of the VisitDAOImpl class, to delete the viewing later in the database
         String selected1 = (String) jComboBox1.getSelectedItem();
         //we get what has been selected in the combo box 
         for (int i = 0; i < propviewing.size(); i++) {
             //we go through the properties of the connected seller that have at least one viewing 
-            if (selected1.equals(propviewing.get(i).getdescription()+" idproperty : "+propviewing.get(i).getid())) {
-            //if what has been selected equals the description + the id of the property coresponding 
+            if (selected1.equals(propviewing.get(i).getdescription() + " idproperty : " + propviewing.get(i).getid())) {
+                //if what has been selected equals the description + the id of the property coresponding 
 
                 tampon = i;
                 //we set the value of the buffer to i 
             }
         }
-            String selected2 = (String) jComboBox2.getSelectedItem();
-            //we get what has been selected in the second combo box
+        String selected2 = (String) jComboBox2.getSelectedItem();
+        //we get what has been selected in the second combo box
 
-            for (int j = 0; j < myviewings.size(); ++j) {
-                //we go through the list of the viewings of the seller 
-                if ((myviewings.get(j).getidprop() == propviewing.get(tampon).getid()) && ((myviewings.get(j).displaydate()+" idviewing : "+myviewings.get(j).getid()).equals(selected2))) {
-                   //if the id of the property is the same id as the property of the viewing and if what has been selected corresponds to the date + the id of the viewing  
-                    tampon2 = j;
-                    //we set the value of the second buffer to j
-                }
+        for (int j = 0; j < myviewings.size(); ++j) {
+            //we go through the list of the viewings of the seller 
+            if ((myviewings.get(j).getidprop() == propviewing.get(tampon).getid()) && ((myviewings.get(j).displaydate() + " idviewing : " + myviewings.get(j).getid()).equals(selected2))) {
+                //if the id of the property is the same id as the property of the viewing and if what has been selected corresponds to the date + the id of the viewing  
+                tampon2 = j;
+                //we set the value of the second buffer to j
             }
-            
-            for(int k=0;k<v.size();++k)
-                //we go through all the viewings of the app 
+        }
+
+        for (int k = 0; k < v.size(); ++k) //we go through all the viewings of the app 
+        {
+            if (v.get(k).getid() == myviewings.get(tampon2).getid()) //if the id of one of the viewing is equal to the id of the viewing of the seller
             {
-                if(v.get(k).getid()==myviewings.get(tampon2).getid())
-                    //if the id of one of the viewing is equal to the id of the viewing of the seller
-                {
-                    tampon3=k;
-                    //we set the value of the buffer to k 
-                }
+                tampon3 = k;
+                //we set the value of the buffer to k 
             }
-          
-            vdao.deleteviewing(myviewings.get(tampon2));
-            //we delete the viewing in the database 
-            myviewings.remove(myviewings.get(tampon2));
-            //we delete the considered viewing in the personal array list of viewings 
-            v.remove(v.get(tampon3));
-            //we delete the considered viewing in the array list of viewings 
-            int buffer=0;
-            //temporary buffer
-            for(int i=0;i<myviewings.size();++i)
-                //we go through the list of the personal viewings 
+        }
+
+        vdao.deleteviewing(myviewings.get(tampon2));
+        //we delete the viewing in the database 
+        myviewings.remove(myviewings.get(tampon2));
+        //we delete the considered viewing in the personal array list of viewings 
+        v.remove(v.get(tampon3));
+        //we delete the considered viewing in the array list of viewings 
+        int buffer = 0;
+        //temporary buffer
+        for (int i = 0; i < myviewings.size(); ++i) //we go through the list of the personal viewings 
+        {
+            if (myviewings.get(i).getidprop() == propviewing.get(tampon).getid()) //if the id of the property of one of the personal viewings equals the id of the corresponding property 
             {
-                if(myviewings.get(i).getidprop()==propviewing.get(tampon).getid())
-                    //if the id of the property of one of the personal viewings equals the id of the corresponding property 
-                {
-                    buffer++;
-                    //we increment the buffer 
-                }
+                buffer++;
+                //we increment the buffer 
             }
-            if(buffer==0)
-            //if the buffer has not been incremented 
-            {
-                propviewing.remove(propviewing.get(tampon));
-                //we remove the corresponding property of the personal list of properties of the seller  
-            }
-            JOptionPane.showMessageDialog(null, "Viewing deleted"); 
-            //successful delete 
-            this.setVisible(false);
-            //we need to regenerate this frame
-            SellerDeleteViewing a=new SellerDeleteViewing(newseller, buyers, sellers, emp, pr, v, o,myviewings,propviewing);
+        }
+        if (buffer == 0) //if the buffer has not been incremented 
+        {
+            propviewing.remove(propviewing.get(tampon));
+            //we remove the corresponding property of the personal list of properties of the seller  that have a viewing
+        }
+        JOptionPane.showMessageDialog(null, "Viewing deleted");
+        //successful delete 
+        this.setVisible(false);
+        //we need to regenerate this frame
+        if (myviewings.isEmpty()) {
+            //if there are no viewings left for this seller we go back on its first page
+            SellerFirst b = new SellerFirst(newseller, buyers, sellers, emp, pr, v, o);
+            b.setVisible(true);
+        } else {
+            //if there are still viewings for this seller
+            SellerDeleteViewing a = new SellerDeleteViewing(newseller, buyers, sellers, emp, pr, v, o, myviewings, propviewing);
             //we create the same new frame
             a.setVisible(true);
             //we set it visible 
-            
-            
+        }
+
+
     }//GEN-LAST:event_jButton2ActionPerformed
 
     public void initjcb1() {
@@ -476,7 +478,7 @@ public class SellerDeleteViewing extends javax.swing.JFrame {
         for (int i = 0; i < propviewing.size(); ++i) {
             //we go through the properties of the seller that have at least one viewing 
 
-            jComboBox1.addItem(propviewing.get(i).getdescription()+" idproperty : "+propviewing.get(i).getid());
+            jComboBox1.addItem(propviewing.get(i).getdescription() + " idproperty : " + propviewing.get(i).getid());
             //we add the items to the combo box one by one
 
         }

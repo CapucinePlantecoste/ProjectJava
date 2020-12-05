@@ -20,7 +20,7 @@ public class EmployeeFirst extends javax.swing.JFrame {
     /**
      * Creates new form EmployeeFirst
      */
-    public EmployeeFirst(Employee a, ArrayList<Buyer> b, ArrayList<Seller> s, ArrayList<Employee> e, ArrayList<Property> prop, ArrayList<Visit> vis, ArrayList<Offer>off) {
+    public EmployeeFirst(Employee a, ArrayList<Buyer> b, ArrayList<Seller> s, ArrayList<Employee> e, ArrayList<Property> prop, ArrayList<Visit> vis, ArrayList<Offer> off) {
         //constructor of the class
         buyers = b;
         //Array List of all the application buyers
@@ -28,15 +28,15 @@ public class EmployeeFirst extends javax.swing.JFrame {
         //Array List of all the application sellers
         emp = e;
         //Array List of all the application employees
-        pr=prop;
+        pr = prop;
         //Array List of all the application properties
-        v=vis;
+        v = vis;
         //Array List of all the application viewings
-        o=off;
+        o = off;
         //Array List of all the application offers
-        newemployee = a ; 
+        newemployee = a;
         //connected employee
-       
+
         initComponents();
         //automatically generated constructor
         this.nom();
@@ -190,10 +190,10 @@ public class EmployeeFirst extends javax.swing.JFrame {
         //if we click on the button
         setVisible(false);
         //this page disappears 
-        new First(buyers, sellers, emp,pr,v,o).toFront();
+        new First(buyers, sellers, emp, pr, v, o).toFront();
         //we go back on the first page 
-        new First(buyers, sellers, emp,pr,v,o).setState(java.awt.Frame.NORMAL);
-        new First(buyers, sellers, emp,pr,v,o).setVisible(true);
+        new First(buyers, sellers, emp, pr, v, o).setState(java.awt.Frame.NORMAL);
+        new First(buyers, sellers, emp, pr, v, o).setVisible(true);
         //we set the first page visible 
     }//GEN-LAST:event_jButton5ActionPerformed
 
@@ -204,7 +204,7 @@ public class EmployeeFirst extends javax.swing.JFrame {
 
         for (int i = 0; i < pr.size(); ++i) {
             //we go through all the properties of the application 
-            if (pr.get(i).getsold()==true) {
+            if (pr.get(i).getsold() == true) {
                 //if one of these properties has the attribute "sold" to true, it means it is sold 
                 soldprop.add(pr.get(i));
                 //so we add it to the sold properties array list
@@ -212,27 +212,27 @@ public class EmployeeFirst extends javax.swing.JFrame {
         }
         if (soldprop.isEmpty()) {
             //if there is no sold properties 
-            JOptionPane.showMessageDialog(null, "None property has been sold"); 
+            JOptionPane.showMessageDialog(null, "None property has been sold");
             //message shown to say so
         } else {
             //otherwise, there are sold properties, 
             this.setVisible(false);
             //so we close this frame 
-            EmployeeRemoveSoldProperty a = new EmployeeRemoveSoldProperty(newemployee, buyers, sellers, emp,pr,v,o, soldprop);
+            EmployeeRemoveSoldProperty a = new EmployeeRemoveSoldProperty(newemployee, buyers, sellers, emp, pr, v, o, soldprop);
             //we open a new frame to remove the sold properties 
-            a.setVisible(true) ; 
+            a.setVisible(true);
             //we set the new frame visible 
         }
-        
+
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         //add a viewig button
         this.setVisible(false);
         //we close this frame 
-        EmployeeAddViewing a = new EmployeeAddViewing (newemployee, buyers, sellers, emp,pr,v,o); 
+        EmployeeAddViewing a = new EmployeeAddViewing(newemployee, buyers, sellers, emp, pr, v, o);
         //we open a new frame to add a viewing 
-        a.setVisible(true);        
+        a.setVisible(true);
         //we set the new frame visible
     }//GEN-LAST:event_jButton2ActionPerformed
 
@@ -240,7 +240,7 @@ public class EmployeeFirst extends javax.swing.JFrame {
         // button introduce a new property
         this.setVisible(false);
         //we close this frame 
-        EmployeeNewProperty a = new EmployeeNewProperty (newemployee, buyers, sellers, emp,pr,v,o); 
+        EmployeeNewProperty a = new EmployeeNewProperty(newemployee, buyers, sellers, emp, pr, v, o);
         //we open a new frame to introduce a new property 
         a.setVisible(true);
         //we set the new frame visible
@@ -250,29 +250,29 @@ public class EmployeeFirst extends javax.swing.JFrame {
         // button to update the details of a property
         this.setVisible(false);
         //we close this frame 
-        EmployeeUpdateProperty a = new EmployeeUpdateProperty (newemployee,buyers, sellers, emp,pr,v,o) ; 
+        EmployeeUpdateProperty a = new EmployeeUpdateProperty(newemployee, buyers, sellers, emp, pr, v, o);
         //we open a new frame to update the details of a property 
-        a.setVisible(true) ; 
+        a.setVisible(true);
         //we set the new frame visible
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
         // Button to see the statistics 
-        this.setVisible(false) ; 
+        this.setVisible(false);
         //we close this frame
-        ChartFrameClassEmployee a = new ChartFrameClassEmployee (newemployee, buyers, sellers, emp, pr, v, o) ; 
+        ChartFrameStats a = new ChartFrameStats("employee", null, newemployee, buyers, sellers, emp, pr, v, o);
         //we open a new frame to see the charts 
-        a.setVisible(true) ;  
+        //We precise that it is an employee who is connected and not a buyer that is why it is equals to null the second element
+        a.setVisible(true);
         //we set it visible 
     }//GEN-LAST:event_jButton6ActionPerformed
 
-    public void nom()
-    //function that enables to display the name of the employee on the frame as soon as he connects
+    public void nom() //function that enables to display the name of the employee on the frame as soon as he connects
     {
-        jLabel1.setText("We are very pleased to see you again " + newemployee.getname()+ "!");
+        jLabel1.setText("We are very pleased to see you again " + newemployee.getname() + "!");
         //we fill the empty label with the name of the employee
     }
-    
+
     /**
      * @param args the command line arguments
      */
@@ -304,7 +304,7 @@ public class EmployeeFirst extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             @Override
             public void run() {
-                new EmployeeFirst(newemployee, buyers, sellers, emp,pr,v,o).setVisible(true);
+                new EmployeeFirst(newemployee, buyers, sellers, emp, pr, v, o).setVisible(true);
             }
         });
     }
@@ -315,16 +315,16 @@ public class EmployeeFirst extends javax.swing.JFrame {
     //array list of all the application sellers 
     private static ArrayList<Employee> emp = new ArrayList<>();
     //array list of all the application employees 
-    private static ArrayList<Property> pr=new ArrayList<>();
+    private static ArrayList<Property> pr = new ArrayList<>();
     //array list of all the application properties 
-    private static ArrayList<Visit>v=new ArrayList<>();
+    private static ArrayList<Visit> v = new ArrayList<>();
     //array list of all the application viewings 
-    private static ArrayList<Offer>o=new ArrayList<>();
+    private static ArrayList<Offer> o = new ArrayList<>();
     //array list of all the application offers 
-    
-    private static Employee newemployee ;
+
+    private static Employee newemployee;
     //connected employee
-    
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;

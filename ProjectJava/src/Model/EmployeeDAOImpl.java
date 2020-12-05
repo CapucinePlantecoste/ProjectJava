@@ -1,7 +1,6 @@
 //this class implements all the function of the employeeDAO class
 package Model;
 
-
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -50,7 +49,7 @@ public class EmployeeDAOImpl implements EmployeeDAO {
             conn.close();
             //always close the connection
         } catch (SQLException e) {
-        //Possible MY SQL exception 
+            //Possible MY SQL exception 
             System.err.println(e);
         }
         return emp;

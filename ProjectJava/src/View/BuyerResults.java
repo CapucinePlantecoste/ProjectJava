@@ -1,7 +1,6 @@
 //this class is the frame which the buyer seees after he researched a property with different criteria 
 package View;
 
-import View.BuyerFirst;
 import Model.Visit;
 import Model.Seller;
 import Model.Property;
@@ -526,20 +525,20 @@ public class BuyerResults extends javax.swing.JFrame {
         //we get what has been selected from the combo box
         if (selected.equals("Select one of the following properties")) {
             //if Select one of the following properties has been selected 
-           jPanelApartment.hide();
-           jPanelHouse.hide();
-           //nothing happens, everything remains hidden
+            jPanelApartment.hide();
+            jPanelHouse.hide();
+            //nothing happens, everything remains hidden
         } else {
             //otherwise
             for (int i = 0; i < result.size(); i++) {
                 //we go through all the results arraylist 
-                if (selected.equals(result.get(i).getdescription()+" id : "+result.get(i).getid())) {
+                if (selected.equals(result.get(i).getdescription() + " id : " + result.get(i).getid())) {
                     //if what has been selected corresponds to one of the results in the result arraylist
 
-                    tampon = i;                    
+                    tampon = i;
                     //we set the value of the buffer to i 
                 }
-            }            
+            }
             this.display(result.get(tampon));
             //then we call the display function (see behind) to display all the details about the selected property  with the help of the buffer
         }
@@ -551,7 +550,7 @@ public class BuyerResults extends javax.swing.JFrame {
         //if we click on the back button
         setVisible(false);
         //this page disappears
-        BuyerFirst a =new BuyerFirst(newbuyer, buyers, sellers, emp, pr, v, o);
+        BuyerFirst a = new BuyerFirst(newbuyer, buyers, sellers, emp, pr, v, o);
         a.setVisible(true);
         //we go back on the previous page
         new BuyerFirst(newbuyer, buyers, sellers, emp, pr, v, o).setState(java.awt.Frame.NORMAL);
@@ -584,183 +583,149 @@ public class BuyerResults extends javax.swing.JFrame {
 
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
         //Button to validate the offer for an apartment
-        int tampon=-1;
-        int tampon2=0;
+        int tampon = -1;
+        int tampon2 = 0;
         //temporary buffers 
-       String selected = (String) jComboBox1.getSelectedItem();
-       //we get what has been selected from the first jcombobox
-        for(int i=0;i<result.size();++i)
-        //we go through our arraylist containing all the properties that correspond to the criteria entered 
+        String selected = (String) jComboBox1.getSelectedItem();
+        //we get what has been selected from the first jcombobox
+        for (int i = 0; i < result.size(); ++i) //we go through our arraylist containing all the properties that correspond to the criteria entered 
         {
-            if((result.get(i).getdescription()+" id : "+result.get(i).getid()).equals(selected))
-            // if what has been selected is equal to the description + the id of a property contained in the arraylist of results
+            if ((result.get(i).getdescription() + " id : " + result.get(i).getid()).equals(selected)) // if what has been selected is equal to the description + the id of a property contained in the arraylist of results
             {
-                tampon=i;
+                tampon = i;
                 //we set the value of the buffer to i 
             }
         }
-        if(jTextField2.getText().trim().isEmpty())
-            //if the buyer wants to make an offer but the field for the offer is empty
+        if (jTextField2.getText().trim().isEmpty()) //if the buyer wants to make an offer but the field for the offer is empty
         {
             JOptionPane.showMessageDialog(null, "Please enter an amount if you want to make an order");
             //we let him know 
-        }
-        else
-        //otherwise, the field for the amount of the offer is not empty
+        } else //otherwise, the field for the amount of the offer is not empty
         {
-            for(int i=0;i<o.size();++i)
-            //we go through the arraylist of all the offers of the database  
+            for (int i = 0; i < o.size(); ++i) //we go through the arraylist of all the offers of the database  
             {
-                if((o.get(i).getidprop()==result.get(tampon).getid())&&(o.get(i).getidbuyer()==newbuyer.getid())&& (o.get(i).getdeclined()==false))
-                {
-                               //We check if in the offer array list, there is one offer made by this buyer on this house that has not been declined yet
+                if ((o.get(i).getidprop() == result.get(tampon).getid()) && (o.get(i).getidbuyer() == newbuyer.getid()) && (o.get(i).getdeclined() == false)) {
+                    //We check if in the offer array list, there is one offer made by this buyer on this house that has not been declined yet
                     tampon2++;
                     //we increment the buffer
                 }
             }
-            if(tampon2!=0)
-            //if the buffer has been incremented, it means the buyer has already made an offer that has not been declined
+            if (tampon2 != 0) //if the buffer has been incremented, it means the buyer has already made an offer that has not been declined
             {
                 JOptionPane.showMessageDialog(null, "You have already made an offer for this property that  has either been accepted or not treated");
                 //we let him know 
-            }
-            else
-            //otherwise, he has no current offer that has not been declined
+            } else //otherwise, he has no current offer that has not been declined
             {
                 this.addoffer(result.get(tampon).getid(), Double.parseDouble(jTextField2.getText()));
-               // So we call the function add offer that gets into parameter the id of the property and the amount of the offer
-            }            
+                // So we call the function add offer that gets into parameter the id of the property and the amount of the offer
+            }
         }
     }//GEN-LAST:event_jButton9ActionPerformed
 
     private void jComboBoxViewingHouseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxViewingHouseActionPerformed
         //the combobox of the available viewings for a house, to book one
-        int tampon=-1;
+        int tampon = -1;
         //temporary buffer 
-       String selected = (String) jComboBoxViewingHouse.getSelectedItem();
-       //we get what has been selected in the combo box of the viewings 
-       if(selected.equals("Book a Viewing"))
-        //if "Book a viewing"
-       {
-           //nothing happens
-       }
-       else
-        //otherwise, 
+        String selected = (String) jComboBoxViewingHouse.getSelectedItem();
+        //we get what has been selected in the combo box of the viewings 
+        if (selected.equals("Book a Viewing")) //if "Book a viewing"
         {
-           for(int i=0;i<v.size();++i)
-            //we go through the arraylist of all the viewings contained in the database 
+            //nothing happens
+        } else //otherwise, 
+        {
+            for (int i = 0; i < v.size(); ++i) //we go through the arraylist of all the viewings contained in the database 
             {
-               if((v.get(i).gettime()+" idvisit : "+v.get(i).getid()).equals(selected))
-                //if what has been selected in the viewing combobox corresponds to the time and id of a viewing contained in the viewing arraylist
+                if ((v.get(i).gettime() + " idvisit : " + v.get(i).getid()).equals(selected)) //if what has been selected in the viewing combobox corresponds to the time and id of a viewing contained in the viewing arraylist
                 {
-                   tampon=i;
-                   //we set the value of the buffer to i 
+                    tampon = i;
+                    //we set the value of the buffer to i 
                 }
-           }
-           this.bookviewinghouse(v.get(tampon)); 
-           //we book this viewing by sending the selected viewing in parameters of the function 
-       }
+            }
+            this.bookviewinghouse(v.get(tampon));
+            //we book this viewing by sending the selected viewing in parameters of the function 
+        }
     }//GEN-LAST:event_jComboBoxViewingHouseActionPerformed
 
     private void jComboBoxViewingApartmentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxViewingApartmentActionPerformed
         //the combobox of the available viewings for an apartment, to book one
-        int tampon=-1;
+        int tampon = -1;
         //temporary buffer
         String selected = (String) jComboBoxViewingApartment.getSelectedItem();
         //we get what has been selected in the combo box of the viewings
-        if(selected.equals("Book a Viewing"))
-        //if Book a viewing
+        if (selected.equals("Book a Viewing")) //if Book a viewing
         {
-           //nothing happens
-        }
-        else
-        //otherwise,
+            //nothing happens
+        } else //otherwise,
         {
-           for(int i=0;i<v.size();++i)
-            //we go through the arraylist of all the viewings contained in the database 
+            for (int i = 0; i < v.size(); ++i) //we go through the arraylist of all the viewings contained in the database 
             {
-                if((v.get(i).gettime()+" idvisit : "+v.get(i).getid()).equals(selected))
-                //if what has been selected in the viewing combobox corresponds to the time and id of a viewing contained in the viewing arraylist
+                if ((v.get(i).gettime() + " idvisit : " + v.get(i).getid()).equals(selected)) //if what has been selected in the viewing combobox corresponds to the time and id of a viewing contained in the viewing arraylist
                 {
-                   tampon=i;
-                   //we set the value of the buffer to i 
+                    tampon = i;
+                    //we set the value of the buffer to i 
                 }
             }
-            this.bookviewingapartment(v.get(tampon));  
+            this.bookviewingapartment(v.get(tampon));
             //we book this viewing by sending the selected viewing in parameters of the function bookviewingapartment
         }
     }//GEN-LAST:event_jComboBoxViewingApartmentActionPerformed
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
         //Button to validate the offer for a house
-        int tampon=-1;
-        int tampon2=0;
+        int tampon = -1;
+        int tampon2 = 0;
         //temporary buffers
         String selected = (String) jComboBox1.getSelectedItem();
         //we get what has been selected from the combobox
-        for(int i=0;i<result.size();++i)
-        {
-        //we go through all the properties available after the buyer entered the criteria for his research 
-            if((result.get(i).getdescription()+" id : "+result.get(i).getid()).equals(selected))
-            // if what has been selected is equal to the description + the id of a property contained in the arraylist of results
+        for (int i = 0; i < result.size(); ++i) {
+            //we go through all the properties available after the buyer entered the criteria for his research 
+            if ((result.get(i).getdescription() + " id : " + result.get(i).getid()).equals(selected)) // if what has been selected is equal to the description + the id of a property contained in the arraylist of results
             {
-                tampon=i;
+                tampon = i;
                 //we set the value of the buffer to i
             }
         }
-        if(jTextField1.getText().trim().isEmpty())
-        //if the field for the amount of the offer is empty 
+        if (jTextField1.getText().trim().isEmpty()) //if the field for the amount of the offer is empty 
         {
             JOptionPane.showMessageDialog(null, "Please enter an amount if you want to make an order");
             //we let it know to the user 
-        }
-        else
-        //otherwise 
+        } else //otherwise 
         {
-            for(int i=0;i<o.size();++i)
-            //we go through the arraylist of all the offer in the database 
+            for (int i = 0; i < o.size(); ++i) //we go through the arraylist of all the offer in the database 
             {
-                if((o.get(i).getidprop()==result.get(tampon).getid())&&(o.get(i).getidbuyer()==newbuyer.getid())&& (o.get(i).getdeclined()==false))
-                //We check if in the offer array list, there is one offer made by this buyer on this house that has not been declined yet
+                if ((o.get(i).getidprop() == result.get(tampon).getid()) && (o.get(i).getidbuyer() == newbuyer.getid()) && (o.get(i).getdeclined() == false)) //We check if in the offer array list, there is one offer made by this buyer on this house that has not been declined yet
                 {
                     tampon2++;
                     //we increment the buffer if there is one or more 
                 }
             }
-            if(tampon2!=0)
-            //if the buffer has been incremented, it means the buyer has already made an offer that has not been declined for the moment
+            if (tampon2 != 0) //if the buffer has been incremented, it means the buyer has already made an offer that has not been declined for the moment
             {
                 JOptionPane.showMessageDialog(null, "You have already made an offer for this property that  has either been accepted or not treated");
                 //we let him know
-            }
-            else
-            //otherwise, there is no offer corresponding to these criterias
+            } else //otherwise, there is no offer corresponding to these criterias
             {
-                this.addoffer(result.get(tampon).getid(), Double.parseDouble(jTextField1.getText())); 
+                this.addoffer(result.get(tampon).getid(), Double.parseDouble(jTextField1.getText()));
                 //so we call the add offer function that takes into parameters the id of the property and the amount of the offer
-            }            
+            }
         }
     }//GEN-LAST:event_jButton8ActionPerformed
 
-    public void display(Property nprop)
-    //this method is used to display a single property once it has been selected in the results combobox
+    public void display(Property nprop) //this method is used to display a single property once it has been selected in the results combobox
     {
-        if (nprop.gettype().equals("Apartment"))
-        //if the considered property is an apartment 
+        if (nprop.gettype().equals("Apartment")) //if the considered property is an apartment 
         {
             jTextField2.setText("");
             //the textfield corresponding to the amount of the offer is empty, to let the buyer complete it 
-            if(jComboBoxViewingApartment.getItemCount()>1)
-            //if there is more than 1 viewing available for the considered apartment
+            if (jComboBoxViewingApartment.getItemCount() > 1) //if there is more than 1 viewing available for the considered apartment
             {
-                while(jComboBoxViewingApartment.getItemAt(1)!=null)
-                //when we click twice on the box, the viewings of one apartment are added to the vsit of another one,
-                {                     
+                while (jComboBoxViewingApartment.getItemAt(1) != null) //when we click twice on the box, the viewings of one apartment are added to the vsit of another one,
+                {
                     jComboBoxViewingApartment.removeItem(jComboBoxViewingApartment.getItemAt(1));
                     //in order to remove that, we remove all the item that are not "book a viewing" from the combo box everytime we click on an apartment
-                }     
-            } 
-           
+                }
+            }
+
             jLabelDescription1.setText(" Description : " + nprop.getdescription());
             //we set the field of the description with the description of the selected apartment
             jLabelPrice2.setText(" Price : " + Double.toString(nprop.getprice()));
@@ -768,11 +733,10 @@ public class BuyerResults extends javax.swing.JFrame {
             jLabelNumberFloors1.setText(" Number of floors : " + Integer.toString(nprop.getnumberfloors()));
             jLabelFloorNumber.setText(" Floor Number : " + Integer.toString(nprop.getfloornumber()));
             if (nprop.getparking() == true) {
-            //if there is a parking, the boolean is true
+                //if there is a parking, the boolean is true
                 jLabelParking.setText(" Parking : Yes");
                 //we set the field of the parking to yes
-            } else 
-            //otherwise, there is no parking, the boolean is false 
+            } else //otherwise, there is no parking, the boolean is false 
             {
                 jLabelParking.setText(" Parking : No");
                 //we set the field of the parking to no
@@ -781,7 +745,7 @@ public class BuyerResults extends javax.swing.JFrame {
             //we set the field of the number of rooms with the number of rooms of the selected apartment
             jLabelLocation2.setText(" Location : " + nprop.getlocation());
             jLabelNumberBedrooms3.setText(" Number of bedrooms : " + Integer.toString(nprop.getnumberbedrooms()));
-            jLabelNumberSurface1.setText(" Surface : " + Double.toString(nprop.getsurface()));
+            jLabelNumberSurface1.setText(" Surface (m²) : " + Double.toString(nprop.getsurface()));
             if (nprop.getelevator() == true) {
                 //if there is an elevator, the boolean is true
                 jLabelElevator.setText(" Elevator : Yes");
@@ -791,51 +755,47 @@ public class BuyerResults extends javax.swing.JFrame {
                 jLabelElevator.setText("Elevator : No");
                 //we set the field of the elevator to no
             }
-            
-            for(int i=0;i<v.size();++i)
-            //then we go through all the viewings of the database
+
+            for (int i = 0; i < v.size(); ++i) //then we go through all the viewings of the database
             {
-                if(v.get(i).getidprop()==nprop.getid() && v.get(i).getidbuyer()==0)
-                //if the id of the property and the id of the buyer of the viewing corresponds to the selected property
+                if (v.get(i).getidprop() == nprop.getid() && v.get(i).getidbuyer() == 0) //if the id of the property and the id of the buyer of the viewing corresponds to the selected property
                 {
-                    jComboBoxViewingApartment.addItem(v.get(i).gettime()+" idvisit : "+v.get(i).getid());
+                    jComboBoxViewingApartment.addItem(v.get(i).gettime() + " idvisit : " + v.get(i).getid());
                     //we add this viewing in the combobox
                 }
             }
-            
-           jPanelApartment.show();
-           //we finally show the apartment panel
+
+            jPanelApartment.show();
+            //we finally show the apartment panel
             jPanelHouse.hide();
             //and we hide the house panel
 
-        } else {      
-        //if the considered property is a house 
-  
+        } else {
+            //if the considered property is a house 
+
             jTextField1.setText("");
             //the textfield corresponding to the amount of the offer is empty, to let the buyer complete it
-            
-                if(jComboBoxViewingHouse.getItemCount()>1)
-                //if there is more than 1 viewing available for the considered house
+
+            if (jComboBoxViewingHouse.getItemCount() > 1) //if there is more than 1 viewing available for the considered house
+            {
+                while (jComboBoxViewingHouse.getItemAt(1) != null) //when we click twice on the box, the viewings of one house are added to the vsit of another one,
                 {
-                    while(jComboBoxViewingHouse.getItemAt(1)!=null)
-                    //when we click twice on the box, the viewings of one house are added to the vsit of another one,
-                    {
-                        jComboBoxViewingHouse.removeItem(jComboBoxViewingHouse.getItemAt(1));
-                        //in order to remove that, we remove all the item that are not "book a viewing" from the combo box everytime we click on a house
-                    }     
+                    jComboBoxViewingHouse.removeItem(jComboBoxViewingHouse.getItemAt(1));
+                    //in order to remove that, we remove all the item that are not "book a viewing" from the combo box everytime we click on a house
                 }
-          
+            }
+
             jLabelDescription.setText(" Description : " + nprop.getdescription());
             //we set the field of the description with the description of the selected house
             jLabelPrice.setText(" Price : " + Double.toString(nprop.getprice()));
             //we set the field of the price with the price of the selected house
             jLabelNumberFloors.setText(" Number of floors : " + Integer.toString(nprop.getnumberfloors()));
             //we set the field of the number of floors with the number of floors of the selected house
-            jLabelGardenSurface.setText(" Garden surface : " + Double.toString(nprop.getgardensurface()));
+            jLabelGardenSurface.setText(" Garden surface (m²) : " + Double.toString(nprop.getgardensurface()));
             jLabelLocation1.setText(" Location : " + nprop.getlocation());
             jLabelNumberRooms1.setText(" Number of rooms : " + Integer.toString(nprop.getnumberrooms()));
             jLabelNumberBedrooms2.setText(" Number of bedrooms : " + Integer.toString(nprop.getnumberbedrooms()));
-            jLabelNumberSurface.setText(" Surface : " + Double.toString(nprop.getsurface()));
+            jLabelNumberSurface.setText(" Surface (m²) : " + Double.toString(nprop.getsurface()));
             if (nprop.getswimmingpool() == true) {
                 //if there is a swimming pool, the boolean is true
                 jLabelSwimmingPool.setText(" Swimmingpool : Yes");
@@ -845,90 +805,85 @@ public class BuyerResults extends javax.swing.JFrame {
                 jLabelSwimmingPool.setText("Swimmingpool : No");
                 //we set the fields to no
             }
-           
-            for(int i=0;i<v.size();++i)
-            // then we go through all the viewings of the database
+
+            for (int i = 0; i < v.size(); ++i) // then we go through all the viewings of the database
             {
-                if(v.get(i).getidprop()==nprop.getid()&&v.get(i).getidbuyer()==0)
-                //if the id of the property and the id of the buyer of the viewing corresponds to the selected property
-                {                 
-                    jComboBoxViewingHouse.addItem(v.get(i).gettime()+" idvisit : "+v.get(i).getid());
+                if (v.get(i).getidprop() == nprop.getid() && v.get(i).getidbuyer() == 0) //if the id of the property and the id of the buyer of the viewing corresponds to the selected property
+                {
+                    jComboBoxViewingHouse.addItem(v.get(i).gettime() + " idvisit : " + v.get(i).getid());
                     //then we add the viewing to the combo box
                 }
             }
-            jPanelHouse.show();            
+            jPanelHouse.show();
             //finally, we show the panel of the house
             jPanelApartment.hide();
             //and we hide the panel of the apartment
         }
     }
-    
-    public void bookviewinghouse(Visit a)
-    //method that enables to book a viewing for a house
+
+    public void bookviewinghouse(Visit a) //method that enables to book a viewing for a house
     {
-        VisitDAOImpl vdao=new VisitDAOImpl();
+        VisitDAOImpl vdao = new VisitDAOImpl();
         //we create an object of the VisitDAOImpl class, to update the properties of the viewing in the database   
         a.setidbuyer(newbuyer.getid());
         //we set the id of the buyer of the viewing to the id of the connected buyer
         vdao.updatebuyer(a);
         //we update the buyer of the viewing in the database
-        JOptionPane.showMessageDialog(null," Your viewing has been registered");
+        JOptionPane.showMessageDialog(null, " Your viewing has been registered");
         //the viewing is registered 
         this.setVisible(false);
         //we finally close this frame to regenerate a new one
-        BuyerResults b=new BuyerResults(newbuyer, buyers, sellers, emp, pr, v, o, result);
+        BuyerResults b = new BuyerResults(newbuyer, buyers, sellers, emp, pr, v, o, result);
         //and we open a new frame, from BuyerResult again, to regenerate the frame
         b.setVisible(true);
         //we set the regenerated frame visible
     }
 
     public void initjcb1() {
-    //this function adds the properties corresponding to the criteria researched before by the user to the jcombobox
+        //this function adds the properties corresponding to the criteria researched before by the user to the jcombobox
         for (int i = 0; i < result.size(); ++i) {
-        //we go through the result array list (array list where all the properties that result from the selection are)
+            //we go through the result array list (array list where all the properties that result from the selection are)
 
-            jComboBox1.addItem(result.get(i).getdescription()+" id : "+result.get(i).getid());
+            jComboBox1.addItem(result.get(i).getdescription() + " id : " + result.get(i).getid());
             //we add the items one by one
         }
     }
-    
-    public void bookviewingapartment(Visit a)
-    //method that enables to book a viewing for a house
+
+    public void bookviewingapartment(Visit a) //method that enables to book a viewing for a house
     {
-        VisitDAOImpl vdao=new VisitDAOImpl();
+        VisitDAOImpl vdao = new VisitDAOImpl();
         //we create an object of the VisitDAOImpl class, to update the properties of a viewing in the database 
         a.setidbuyer(newbuyer.getid());
         //we set the id of the buyer of the viewing to the id of the connected buyer
         vdao.updatebuyer(a);
         //we update the buyer of the viewing in the database 
-        JOptionPane.showMessageDialog(null," Your viewing has been registered");
+        JOptionPane.showMessageDialog(null, " Your viewing has been registered");
         //the viewing is registered
         this.setVisible(false);
         //we finally close this frame to regenerate a new one
-        BuyerResults b=new BuyerResults(newbuyer, buyers, sellers, emp, pr, v, o, result);
+        BuyerResults b = new BuyerResults(newbuyer, buyers, sellers, emp, pr, v, o, result);
         //and we open a new frame, from BuyerResult again, to regenerate the frame
         b.setVisible(true);
         //we set the regenerated frame visible 
     }
-      
-    public void addoffer(int idprop, double p)
-    //method that enables to add an offer
-    {        
-        OfferDAOImpl odao=new OfferDAOImpl();
+
+    public void addoffer(int idprop, double p) //method that enables to add an offer
+    {
+        OfferDAOImpl odao = new OfferDAOImpl();
         //we create an object of the OfferDAOImpl class, to add the offer to the database
-        o.add(new Offer(o.get(o.size()-1).getid()+1,newbuyer.getid(),idprop,p,false,false));
+        o.add(new Offer(o.get(o.size() - 1).getid() + 1, newbuyer.getid(), idprop, p, false, false));
         //we add in the offer arraylist the new offer : the offer has the id buyer of the connected buyer, it is not accepted nor declined 
-        odao.addoffer(o.get(o.size()-1));
+        odao.addoffer(o.get(o.size() - 1));
         //we add the offer in the database by calling the method addoffer from the OfferDAOImpl class 
         JOptionPane.showMessageDialog(null, "Your offer has been registered");
         //the offer has been registered
         this.setVisible(false);
         //we finally close this frame to regenerate a new one
-        BuyerResults b=new BuyerResults(newbuyer, buyers, sellers, emp, pr, v, o, result);
+        BuyerResults b = new BuyerResults(newbuyer, buyers, sellers, emp, pr, v, o, result);
         //and we open a new frame, from BuyerResult again, to regenerate the frame
         b.setVisible(true);
         //we set the regenerated frame visible
-      }
+    }
 
     /**
      * @param args the command line arguments

@@ -1,12 +1,13 @@
 //this class if the second frame that is visible when you want to log in (as a buyer, a seller or an employee, the frame is the same)
 package View;
+
 import Model.Visit;
 import Model.Seller;
 import Model.Property;
 import Model.Offer;
 import Model.Employee;
 import Model.Buyer;
-import javax.swing.JOptionPane; 
+import javax.swing.JOptionPane;
 
 import java.util.ArrayList;
 import projectjava.First;
@@ -33,11 +34,11 @@ public class ConnectingJFrame extends javax.swing.JFrame {
         //Array List of all the sellers of the application
         emp = e;
         //Array List of all the employees of the application
-        pr=prop;
+        pr = prop;
         //Array List of all the properties of the application
-        v=vis;
+        v = vis;
         //Array List of all the viewings of the application
-        o=off;
+        o = off;
         //Array List of all the offers of the application
     }
 
@@ -139,10 +140,10 @@ public class ConnectingJFrame extends javax.swing.JFrame {
         jLabel9.setFont(new java.awt.Font("Calibri", 0, 24)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(0, 153, 153));
         jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel9.setText("Username");
+        jLabel9.setText("Username (email adress)");
         jLabel9.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel2.add(jLabel9);
-        jLabel9.setBounds(1020, 220, 110, 30);
+        jLabel9.setBounds(1000, 220, 270, 30);
 
         jTextField2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -184,58 +185,55 @@ public class ConnectingJFrame extends javax.swing.JFrame {
         //we get the field of the password 
         username = jTextField2.getText();
         //we get the field of the username
-        int j=0;
+        int j = 0;
         //temporary buffer 
         if (type.equals("buyers")) {
-        //if the customer is a buyer
+            //if the customer is a buyer
 
             for (int i = 0; i < buyers.size(); ++i) {
-            //we go through the whole list of buyers 
+                //we go through the whole list of buyers 
 
                 if (buyers.get(i).getpassword().equals(password) && buyers.get(i).getusername().equals(username)) {
                 //we check if the username and password correspond to those in the database  
                     //Connexion succeeded
-                    
+
                     j++;
                     //we increment the buffer 
-                    BuyerFirst newframe = new BuyerFirst(buyers.get(i),buyers, sellers, emp,pr,v,o);
+                    BuyerFirst newframe = new BuyerFirst(buyers.get(i), buyers, sellers, emp, pr, v, o);
                     //we open a new frame for the buyer, because the customer is a buyer 
-                    newframe.nom();  
+                    newframe.nom();
                     //we add the name of the customer on this following page
-         
-                    newframe.setVisible (true); 
+
+                    newframe.setVisible(true);
                     //we open the new frame
                     newframe.toFront();
                     this.setVisible(false);
                     //we close this frame
                 }
-                
 
             }
-            if(j==0)
-            //here, the connection did not succeed because password and/or username are wrong
+            if (j == 0) //here, the connection did not succeed because password and/or username are wrong
             {
-                JOptionPane.showMessageDialog(null, "Password and username are not correct. Try again."); 
+                JOptionPane.showMessageDialog(null, "Password and username are not correct. Try again.");
                 //message shown to say so
             }
-        }
-        else if (type.equals("sellers")) {
-        //if the customer is a seller
+        } else if (type.equals("sellers")) {
+            //if the customer is a seller
 
             for (int i = 0; i < sellers.size(); ++i) {
-            //we go through the whole list of sellers
+                //we go through the whole list of sellers
 
                 if (sellers.get(i).getpassword().equals(password) && sellers.get(i).getusername().equals(username)) {
-                //we check if the username and password correspond to those in the database  
+                    //we check if the username and password correspond to those in the database  
                     //connexion succeeded
                     j++;
                     //we increment the buffer 
-                    SellerFirst newframe = new SellerFirst(sellers.get(i),buyers, sellers, emp,pr,v,o);
+                    SellerFirst newframe = new SellerFirst(sellers.get(i), buyers, sellers, emp, pr, v, o);
                     //we open a new frame for the seller, because the customer is a seller 
                     newframe.nom();
                     //we add the name of the customer on this following page
 
-                    newframe.setVisible (true); 
+                    newframe.setVisible(true);
                     //we open the new frame
                     newframe.toFront();
                     this.setVisible(false);
@@ -243,39 +241,33 @@ public class ConnectingJFrame extends javax.swing.JFrame {
 
                 }
             }
-            if(j==0)
-            //connection didn't succeed because password and/or username are wrong
+            if (j == 0) //connection didn't succeed because password and/or username are wrong
             {
-                JOptionPane.showMessageDialog(null, "Password and username are not correct. Try again."); 
+                JOptionPane.showMessageDialog(null, "Password and username are not correct. Try again.");
                 //message shown to say so
             }
-        }
-        else
-        //if the customer is an employee
+        } else //if the customer is an employee
         {
-            for (int i=0;i<emp.size();++i)
-            //we go through the whole list of employees
+            for (int i = 0; i < emp.size(); ++i) //we go through the whole list of employees
             {
-                if(emp.get(i).getpassword().equals(password) && emp.get(i).getusername().equals(username))
-                //we check if the username and password correspond to those in the database  
+                if (emp.get(i).getpassword().equals(password) && emp.get(i).getusername().equals(username)) //we check if the username and password correspond to those in the database  
                 {//connexion worked
-                    j++; 
+                    j++;
                     //we increment the buffer
-                    EmployeeFirst newframe = new EmployeeFirst(emp.get(i),buyers, sellers, emp,pr,v,o);
+                    EmployeeFirst newframe = new EmployeeFirst(emp.get(i), buyers, sellers, emp, pr, v, o);
                     //we open a new frame for the employee, because the person is an employee 
                     newframe.nom();
                     //we add the name of the employee on the following page 
-         
-                    newframe.setVisible (true); 
+
+                    newframe.setVisible(true);
                     //we open the new frame
-                    
+
                     newframe.toFront();
                     this.setVisible(false);
                     //we close this frame 
                 }
             }
-            if(j==0)
-            //connection didn't succeed because password and/or username are wrong
+            if (j == 0) //connection didn't succeed because password and/or username are wrong
             {
                 JOptionPane.showMessageDialog(null, "Password and username are not correct. Try again.");
                 //message shown to say so
@@ -283,7 +275,7 @@ public class ConnectingJFrame extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButton5ActionPerformed
 
-    
+
     private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
         //text field of the username
     }//GEN-LAST:event_jTextField2ActionPerformed
@@ -294,9 +286,9 @@ public class ConnectingJFrame extends javax.swing.JFrame {
         //if we click on the back button
         setVisible(false);
         //this page disappears 
-        First a=new First(buyers, sellers, emp, pr,v,o);
+        First a = new First(buyers, sellers, emp, pr, v, o);
         //we open a new frame of the first page 
-        a.toFront();    
+        a.toFront();
         //we go back on the first page 
         a.setState(java.awt.Frame.NORMAL);
         a.setVisible(true);
@@ -308,7 +300,7 @@ public class ConnectingJFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_jPasswordField1ActionPerformed
 
     public String getusername() {
-    //function to get the username 
+        //function to get the username 
         return username;
     }
 
@@ -318,7 +310,7 @@ public class ConnectingJFrame extends javax.swing.JFrame {
     }
 
     public void setArrayList(ArrayList<Buyer> b) {
-    //we set the buyers arraylist with the b array list in parameter 
+        //we set the buyers arraylist with the b array list in parameter 
         buyers = b;
     }
 
@@ -353,7 +345,7 @@ public class ConnectingJFrame extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             @Override
             public void run() {
-                new ConnectingJFrame(type, buyers, sellers, emp,pr,v,o).setVisible(true);//we open the frame when we run it 
+                new ConnectingJFrame(type, buyers, sellers, emp, pr, v, o).setVisible(true);//we open the frame when we run it 
             }
         });
     }
@@ -364,11 +356,11 @@ public class ConnectingJFrame extends javax.swing.JFrame {
     //array list of all the application sellers 
     private static ArrayList<Employee> emp = new ArrayList<>();
     //array list of all the application employees 
-    private static ArrayList<Property> pr=new ArrayList<>();
+    private static ArrayList<Property> pr = new ArrayList<>();
     //array list of all the application properties
-    private static ArrayList<Visit> v=new ArrayList<>();
+    private static ArrayList<Visit> v = new ArrayList<>();
     //array list of all the application viewings
-    private static ArrayList<Offer> o=new ArrayList<>();
+    private static ArrayList<Offer> o = new ArrayList<>();
     //array list of all the application offers
     private static String type;
     //String corresponding of the type of the customer (buyer, seller, employee)
@@ -376,7 +368,7 @@ public class ConnectingJFrame extends javax.swing.JFrame {
     //password of the customer
     private String username;
     //username of the username
-    
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton5;

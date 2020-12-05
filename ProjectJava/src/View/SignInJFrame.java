@@ -183,10 +183,10 @@ public class SignInJFrame extends javax.swing.JFrame {
         jLabel10.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(0, 153, 153));
         jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel10.setText("Username");
+        jLabel10.setText("Username (email adress)");
         jLabel10.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel2.add(jLabel10);
-        jLabel10.setBounds(940, 380, 80, 26);
+        jLabel10.setBounds(940, 380, 200, 26);
 
         jLabel11.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(0, 153, 153));
@@ -265,7 +265,6 @@ public class SignInJFrame extends javax.swing.JFrame {
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
 
         // TODO add your handling code here:
-        
         int t;
 
         // We check that each textfield is not empty.
@@ -280,8 +279,7 @@ public class SignInJFrame extends javax.swing.JFrame {
         } else if (!jPasswordField2.getText().equals(jPasswordField1.getText())) {
             //We check if the password field and the check passwordfield are the same
             JOptionPane.showMessageDialog(null, "The two passwords are not the same. Please, try again.");
-        }
-        //This next else if checks if the username field has an email format
+        } //This next else if checks if the username field has an email format
         // We use a regex in order to deal with that
         //We use the Pattern.matches function that checks if the patternf of the text field is valid for an email adress
         //^:indicate that the field must start with a character that can only be a letter(lower or upper case) or a number 
@@ -291,13 +289,10 @@ public class SignInJFrame extends javax.swing.JFrame {
         // Then we have 1 and only 1 point that is why we have [.]{1}
         // It is followed by a string which contains only letters
         //The $ sign indicates that the string must end here
-        else if(!(Pattern.matches("^[a-zA-Z0-9]{1}+[a-zA-Z0-9-.]{0,10000}+[@]{1}+[a-zA-Z0-9]+[.]{1}+[a-zA-Z]+$",jTextField4.getText())))
-        {
-            JOptionPane.showMessageDialog(null," Please enter a valid email adress");
+        else if (!(Pattern.matches("^[a-zA-Z0-9]{1}+[a-zA-Z0-9-.]{0,10000}+[@]{1}+[a-zA-Z0-9]+[.]{1}+[a-zA-Z]+$", jTextField4.getText()))) {
+            JOptionPane.showMessageDialog(null, " Please enter a valid email adress");
             //if the format of the email adress is not correct, we let it kow
-        }
-        
-                else {
+        } else {
             if (tampon == 1) {
                 //if we click on buyer
                 t = this.test();
@@ -306,7 +301,7 @@ public class SignInJFrame extends javax.swing.JFrame {
                 if (t != 0) {
                     //if t !=0, it means the entered username is amready used by someone else
                     JOptionPane.showMessageDialog(null, "Username already used. Please, chose another one.");
-                     //so we let it know 
+                    //so we let it know 
                 } else {
                     //otherwise, the username is good 
                     this.addbuyer();
@@ -321,7 +316,6 @@ public class SignInJFrame extends javax.swing.JFrame {
 
                     newframe.setVisible(true); //we open the new frame
                     newframe.toFront();
-                   
 
                 }
 
@@ -340,7 +334,7 @@ public class SignInJFrame extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(null, "The account has been successfully created");
                     //We lead the new seller to his account
                     SellerFirst newframe = new SellerFirst(sellers.get(sellers.size() - 1), buyers, sellers, emp, pr, v, o);
-                     //We show him his name
+                    //We show him his name
                     newframe.nom();
                     this.setVisible(false);
                     newframe.setVisible(true); //we open the new frame

@@ -8,7 +8,6 @@ package Model;
 public class Offer {
 
     //The attributes of the offer : id (primary key), idbuyer, idproperty....
-
     private int id;
     private int idbuyer;
     private int idproperty;

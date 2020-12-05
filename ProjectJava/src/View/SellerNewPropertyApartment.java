@@ -1,7 +1,6 @@
 //this frame is displayed when the seller wants to introduce a new apartment 
 package View;
 
-
 import Model.Visit;
 import Model.Seller;
 import Model.Property;
@@ -163,7 +162,7 @@ public class SellerNewPropertyApartment extends javax.swing.JFrame {
         jLabel4.setBackground(new java.awt.Color(255, 255, 255));
         jLabel4.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(0, 153, 153));
-        jLabel4.setText("Surface");
+        jLabel4.setText("Surface (m²)");
         jPanel2.add(jLabel4);
         jLabel4.setBounds(1210, 360, 200, 30);
 
@@ -362,7 +361,7 @@ public class SellerNewPropertyApartment extends javax.swing.JFrame {
 
     private void jTextField3KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField3KeyTyped
         //function that unables the user to enter anything else than a number (because we want a price)
-         char c = evt.getKeyChar();
+        char c = evt.getKeyChar();
         if (!Character.isDigit(c)) {
             evt.consume();
         }
@@ -370,7 +369,7 @@ public class SellerNewPropertyApartment extends javax.swing.JFrame {
 
     private void jTextField5KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField5KeyTyped
         //function that unables the user to enter antything else than a digit (because we want a number of rooms)
-       char c = evt.getKeyChar();
+        char c = evt.getKeyChar();
         if (!Character.isDigit(c)) {
             evt.consume();
         }
@@ -378,7 +377,7 @@ public class SellerNewPropertyApartment extends javax.swing.JFrame {
 
     private void jTextField6KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField6KeyTyped
         //function that unables the user to enter anything else than a digit (because we want a number of floors)
-         char c = evt.getKeyChar();
+        char c = evt.getKeyChar();
         if (!Character.isDigit(c)) {
             evt.consume();
         }
@@ -386,7 +385,7 @@ public class SellerNewPropertyApartment extends javax.swing.JFrame {
 
     private void jTextField7KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField7KeyTyped
         //function that unables the user to enter anything else than a digit (because we want a surface)
-         char c = evt.getKeyChar();
+        char c = evt.getKeyChar();
         if (!Character.isDigit(c)) {
             evt.consume();
         }
@@ -394,7 +393,7 @@ public class SellerNewPropertyApartment extends javax.swing.JFrame {
 
     private void jTextField2KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField2KeyTyped
         //function that unables the user to enter anything else than a digit (because we want a number of bedrooms)
-         char c = evt.getKeyChar();
+        char c = evt.getKeyChar();
         if (!Character.isDigit(c)) {
             evt.consume();
         }
@@ -402,7 +401,7 @@ public class SellerNewPropertyApartment extends javax.swing.JFrame {
 
     private void jTextField4KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField4KeyTyped
         //function that unables the user to enter anything else than a digit (because we want a floor number)
-         char c = evt.getKeyChar();
+        char c = evt.getKeyChar();
         if (!Character.isDigit(c)) {
             evt.consume();
         }
@@ -446,27 +445,30 @@ public class SellerNewPropertyApartment extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "One or several fields are empty. Please, try again.");
             //we let it know
         } else {
-              if(Integer.parseInt(jTextField5.getText())<Integer.parseInt(jTextField2.getText()))
-                    {
-                        //We check if the number of rooms is higher than the number of bedrooms
-                        //If it is not we display a message
-                        JOptionPane.showMessageDialog(null, "The number of bedrooms can be higher than the number of rooms.");
-                    }
-                    else
-                    {
+            if (Integer.parseInt(jTextField5.getText()) < Integer.parseInt(jTextField2.getText())) {
+                //We check if the number of rooms is higher than the number of bedrooms
+                //If it is not we display a message
+                JOptionPane.showMessageDialog(null, "The number of bedrooms can be higher than the number of rooms.");
+            } else {
+                if (Integer.parseInt(jTextField5.getText()) == 0 || Integer.parseInt(jTextField6.getText()) == 0 || Double.parseDouble(jTextField7.getText()) == 0) {
+                    //if the number of floord or the number of room or the surface is equal to 0 we show a message error
+                    JOptionPane.showMessageDialog(null, "The following fields cannot be 0 : Number of floors, Surface, Number of rooms");
+
+                } else {
                     //if all the conditions are respected 
-            
-            this.addapartment();
-            //we add the appartment thanks to the addapartment function 
-            JOptionPane.showMessageDialog(null, "Your apartment has been successfully registered for sale");
-            //successful adding
-            this.setVisible(false);
-            //we need to close this frame after the registration of the property 
-            SellerFirst a = new SellerFirst(newseller, buyers, sellers, emp, pr, v, o);
-            //we go back on the first page 
-            a.setVisible(true);
-            //we set the first page visible 
-                    }
+
+                    this.addapartment();
+                    //we add the appartment thanks to the addapartment function 
+                    JOptionPane.showMessageDialog(null, "Your apartment has been successfully registered for sale");
+                    //successful adding
+                    this.setVisible(false);
+                    //we need to close this frame after the registration of the property 
+                    SellerFirst a = new SellerFirst(newseller, buyers, sellers, emp, pr, v, o);
+                    //we go back on the first page 
+                    a.setVisible(true);
+                    //we set the first page visible 
+                }
+            }
         }
     }//GEN-LAST:event_jButton2ActionPerformed
 

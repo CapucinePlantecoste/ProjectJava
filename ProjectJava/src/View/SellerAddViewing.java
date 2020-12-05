@@ -379,7 +379,7 @@ public class SellerAddViewing extends javax.swing.JFrame {
         String selected = (String) jComboBox1.getSelectedItem();
         //we get what has been selected
         if (selected.equals("Select one of your properties for sale")) {
-        //if the seller doesn't select any option but remains on the first option of the combo box
+            //if the seller doesn't select any option but remains on the first option of the combo box
             jPanel1.hide();
             //nothing happens so we hide all the other panels
 
@@ -469,9 +469,9 @@ public class SellerAddViewing extends javax.swing.JFrame {
         String selected = (String) jComboBox1.getSelectedItem();
         //we get what has been selected 
         for (int i = 0; i < myprop.size(); i++) {
-        //we go through the properties that belong to the connected sller
+            //we go through the properties that belong to the connected sller
             if (selected.equals(myprop.get(i).getdescription() + " idproperty : " + myprop.get(i).getid())) {
-            //if what is selected corresponds to the description + the id of the coresponding property 
+                //if what is selected corresponds to the description + the id of the coresponding property 
                 tampon = i;
                 //we set the value of the buffer to i 
             }
@@ -490,7 +490,7 @@ public class SellerAddViewing extends javax.swing.JFrame {
         //we define this employee randomly
 
         if (jTextFieldYear.getText().trim().isEmpty() || jTextFieldMonth.getText().trim().isEmpty() || jTextField1.getText().trim().isEmpty() || jTextFieldHour.getText().trim().isEmpty() || jTextFieldMinutes.getText().trim().isEmpty()) {
-        //if one or several fields of the date are empty 
+            //if one or several fields of the date are empty 
             JOptionPane.showMessageDialog(null, "One or several fields are empty. Please, try again.");
             //we let it know
         } else {
@@ -546,7 +546,7 @@ public class SellerAddViewing extends javax.swing.JFrame {
                         } catch (ParseException e) {
                             //possible exception
                             e.printStackTrace();
-                        }                        
+                        }
                     }
                 }
             }
@@ -562,9 +562,12 @@ public class SellerAddViewing extends javax.swing.JFrame {
         //function that enables to fill the combobox with the properties of the connected seller
         for (int i = 0; i < myprop.size(); ++i) {
             //we go through all the properties of the connected seller 
-
+            if(myprop.get(i).getsold()==false)
+                //We can only add a viewing to a non sold house
+            {
             jComboBox1.addItem(myprop.get(i).getdescription() + " idproperty : " + myprop.get(i).getid());
             //we add his properties one by one 
+            }
         }
     }
 

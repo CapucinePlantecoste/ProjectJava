@@ -21,7 +21,7 @@ public class Appartment extends Property {
     {
         //constructor of property
         super(i, d, p, l, nr, nbr, nbf, tv, s, ids, soldprop, t);
-       
+
         elevator = e;
         floornumber = fnb;
         parking = prkg;

@@ -34,9 +34,9 @@ public class SellerProperty extends javax.swing.JFrame {
         //ArrayList of  all the offers on the app
         newseller = a;
         //Seller connected
-        myprop = myp ; 
+        myprop = myp;
         //ArrayList of all the properties of the seller connected
-        
+
         initComponents();
         jPanelApartment.hide();
         jPanelHouse.hide();
@@ -414,14 +414,14 @@ public class SellerProperty extends javax.swing.JFrame {
         if (selected.equals("Select one of your properties for sale")) {
             //If Select one of your properties for sale has been selected
             jPanelApartment.hide();
-        jPanelHouse.hide();
+            jPanelHouse.hide();
         //We hide the panels
-            
+
         } else {
             //If its a house
             for (int i = 0; i < myprop.size(); ++i) {
                 //We cross all the properties of the connected seller 
-                if (selected.equals(myprop.get(i).getdescription()+" idproperty : "+myprop.get(i).getid())) {
+                if (selected.equals(myprop.get(i).getdescription() + " idproperty : " + myprop.get(i).getid())) {
                     //If the id of the myprop.get(i) house and its description  match with what has been selected in the jcombobox
                     tampon = i;
                     //We stock the index i as a buffer
@@ -434,9 +434,7 @@ public class SellerProperty extends javax.swing.JFrame {
         //We display all the information of the house selected using the displat method
     }//GEN-LAST:event_jComboBox1ActionPerformed
 
-    
-    public void display (Property nprop)
-    {
+    public void display(Property nprop) {
         //This function is used to remind the seller all the information of a selected property
         if (nprop.gettype().equals("Apartment")) {
             //First we look for the type of the property
@@ -464,7 +462,7 @@ public class SellerProperty extends javax.swing.JFrame {
             // The location of the apartment
             jLabelNumberBedrooms3.setText(" Number of bedrooms : " + Integer.toString(nprop.getnumberbedrooms()));
             // The number of bedrooms
-            jLabelNumberSurface1.setText(" Surface : " + Double.toString(nprop.getsurface()));
+            jLabelNumberSurface1.setText(" Surface (m²) : " + Double.toString(nprop.getsurface()));
             // The surface of the house
             if (nprop.getelevator() == true) {
                 //if the apartment has an elevator access
@@ -474,20 +472,17 @@ public class SellerProperty extends javax.swing.JFrame {
                 jLabelElevator.setText("Elevator : No");
                 //We show it too
             }
-             //We show the status of the house sold or not sold using the boolean attribute sold
+            //We show the status of the house sold or not sold using the boolean attribute sold
 
-            if(nprop.getsold()==true)
-            {
+            if (nprop.getsold() == true) {
                 //If it is true we say that it is sold
                 jLabel3.setText(" Status : Sold");
-            }
-            else
-            {
+            } else {
                 //If it is false we say that it is not sold
                 jLabel3.setText(" Status : Not sold");
             }
             //We hide the panel of a house and show the one of an apartment
-           jPanelApartment.show();
+            jPanelApartment.show();
             jPanelHouse.hide();
 
         } else {
@@ -498,7 +493,7 @@ public class SellerProperty extends javax.swing.JFrame {
             //Its price
             jLabelNumberFloors.setText(" Number of floors : " + Integer.toString(nprop.getnumberfloors()));
             //The number of floors of the house
-            jLabelGardenSurface.setText(" Garden surface : " + Double.toString(nprop.getgardensurface()));
+            jLabelGardenSurface.setText(" Garden surface (m²) : " + Double.toString(nprop.getgardensurface()));
             //The surface of the garden of the house
             jLabelLocation1.setText(" Location : " + nprop.getlocation());
             //The location of the house
@@ -506,10 +501,10 @@ public class SellerProperty extends javax.swing.JFrame {
             //The number of rooms of the house
             jLabelNumberBedrooms2.setText(" Number of bedrooms : " + Integer.toString(nprop.getnumberbedrooms()));
             //The number of bedrooms of the house
-            jLabelNumberSurface.setText(" Surface : " + Double.toString(nprop.getsurface()));
+            jLabelNumberSurface.setText(" Surface (m²) : " + Double.toString(nprop.getsurface()));
             //The surface of the house
             if (nprop.getswimmingpool() == true) {
-               //It the attribute swimmingpool is true
+                //It the attribute swimmingpool is true
                 jLabelSwimmingPool.setText(" Swimmingpool : Yes");
                 //We show it
             } else {
@@ -518,30 +513,27 @@ public class SellerProperty extends javax.swing.JFrame {
                 //we show it too
             }
             //We show the status of the house sold or not sold using the boolean attribute sold
-             if(nprop.getsold()==true)
-            {
+            if (nprop.getsold() == true) {
                 //If it is true we say that it is sold
                 jLabel1.setText(" Status : Sold");
-            }
-            else
-            {
-              //If it is false we say that it is not sold
+            } else {
+                //If it is false we say that it is not sold
                 jLabel1.setText(" Status : Not sold");
             }
-             //We hide the panel of an apartment and show the one of a house
+            //We hide the panel of an apartment and show the one of a house
             jPanelHouse.show();
-            
+
             jPanelApartment.hide();
 
         }
-        
+
     }
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         this.toBack();//if we click on the back button
         setVisible(false);//this page disappears
-       SellerFirst a= new SellerFirst(newseller, buyers, sellers, emp, pr, v, o); //we go back on the first page
-       a.setVisible(true);
+        SellerFirst a = new SellerFirst(newseller, buyers, sellers, emp, pr, v, o); //we go back on the first page
+        a.setVisible(true);
         new SellerFirst(newseller, buyers, sellers, emp, pr, v, o).setState(java.awt.Frame.NORMAL);
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -554,15 +546,15 @@ public class SellerProperty extends javax.swing.JFrame {
         new First(buyers, sellers, emp, pr, v, o).setVisible(true);
     }//GEN-LAST:event_jButton5ActionPerformed
 
-    public void initjcb1()
-    {
+    public void initjcb1() {
         //This function is used to add all the elements needed in the jcombobox
-         for (int i = 0; i < myprop.size(); ++i) {
-             //We add all the properties of the seller connected
-            jComboBox1.addItem(myprop.get(i).getdescription()+ " idproperty : "+myprop.get(i).getid());
+        for (int i = 0; i < myprop.size(); ++i) {
+            //We add all the properties of the seller connected
+            jComboBox1.addItem(myprop.get(i).getdescription() + " idproperty : " + myprop.get(i).getid());
 
         }
     }
+
     /**
      * @param args the command line arguments
      */

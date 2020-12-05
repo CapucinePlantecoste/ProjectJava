@@ -1,7 +1,6 @@
 //this frame is displayed when the seller wants to introduce a new house 
 package View;
 
-
 import Model.Visit;
 import Model.Seller;
 import Model.Property;
@@ -160,7 +159,7 @@ public class SellerNewPropertyHouse extends javax.swing.JFrame {
         jLabel4.setBackground(new java.awt.Color(255, 255, 255));
         jLabel4.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(0, 153, 153));
-        jLabel4.setText("Surface");
+        jLabel4.setText("Surface (m²)");
         jPanel2.add(jLabel4);
         jLabel4.setBounds(1210, 360, 200, 30);
 
@@ -209,7 +208,7 @@ public class SellerNewPropertyHouse extends javax.swing.JFrame {
         jLabel13.setBackground(new java.awt.Color(255, 255, 255));
         jLabel13.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
         jLabel13.setForeground(new java.awt.Color(0, 153, 153));
-        jLabel13.setText("Garden Surface");
+        jLabel13.setText("Garden Surface (m²)");
         jPanel2.add(jLabel13);
         jLabel13.setBounds(1210, 450, 200, 30);
 
@@ -320,18 +319,18 @@ public class SellerNewPropertyHouse extends javax.swing.JFrame {
         //if we click on the back button
         setVisible(false);
         //this page disappears
-        SellerNewProperty a=new SellerNewProperty(newseller, buyers, sellers, emp, pr, v, o);
+        SellerNewProperty a = new SellerNewProperty(newseller, buyers, sellers, emp, pr, v, o);
         //we go back on the previous page
         a.setVisible(true);
         //we set the previous frame visible 
- 
+
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         //log out button
         this.toBack();
         //if we click on the button
-        setVisible(false);  
+        setVisible(false);
         //this page disappears
         new First(buyers, sellers, emp, pr, v, o).toFront();
         //we go back on the first page
@@ -357,7 +356,7 @@ public class SellerNewPropertyHouse extends javax.swing.JFrame {
 
     private void jTextField3KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField3KeyTyped
         //function that unables the user to enter anything else than a digit (because we want a price)
-         char c = evt.getKeyChar();
+        char c = evt.getKeyChar();
         if (!Character.isDigit(c)) {
             evt.consume();
         }
@@ -365,7 +364,7 @@ public class SellerNewPropertyHouse extends javax.swing.JFrame {
 
     private void jTextField5KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField5KeyTyped
         //function that unables the user to enter anything else than a digit (because we want a number of rooms)
-         char c = evt.getKeyChar();
+        char c = evt.getKeyChar();
         if (!Character.isDigit(c)) {
             evt.consume();
         }
@@ -373,7 +372,7 @@ public class SellerNewPropertyHouse extends javax.swing.JFrame {
 
     private void jTextField2KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField2KeyTyped
         //function that unables the user to enter anything else than a digit (because we want a number of bedrooms)
-         char c = evt.getKeyChar();
+        char c = evt.getKeyChar();
         if (!Character.isDigit(c)) {
             evt.consume();
         }
@@ -381,7 +380,7 @@ public class SellerNewPropertyHouse extends javax.swing.JFrame {
 
     private void jTextField6KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField6KeyTyped
         //function that unables the user to enter anything else than a digit (because we want a number of floors)
-         char c = evt.getKeyChar();
+        char c = evt.getKeyChar();
         if (!Character.isDigit(c)) {
             evt.consume();
         }
@@ -389,7 +388,7 @@ public class SellerNewPropertyHouse extends javax.swing.JFrame {
 
     private void jTextField7KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField7KeyTyped
         //function that unables the user to enter anythign else than a digit (because we want a surface)
-         char c = evt.getKeyChar();
+        char c = evt.getKeyChar();
         if (!Character.isDigit(c)) {
             evt.consume();
         }
@@ -397,7 +396,7 @@ public class SellerNewPropertyHouse extends javax.swing.JFrame {
 
     private void jTextField4KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField4KeyTyped
         //function that unables the user to enter anything else than a digit (because we want a garden surface)
-         char c = evt.getKeyChar();
+        char c = evt.getKeyChar();
         if (!Character.isDigit(c)) {
             evt.consume();
         }
@@ -410,35 +409,37 @@ public class SellerNewPropertyHouse extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "One or several fields are empty. Please, try again.");
             //we let it know
         } else {
-              if(Integer.parseInt(jTextField5.getText())<Integer.parseInt(jTextField2.getText()))
-                    {
-                        //We check if the number of rooms is higher than the number of bedrooms
-                        //If it is not we display a message
-                        JOptionPane.showMessageDialog(null, "The number of bedrooms can be higher than the number of rooms.");
-                    }
-                    else
-                    {
+            if (Integer.parseInt(jTextField5.getText()) < Integer.parseInt(jTextField2.getText())) {
+                //We check if the number of rooms is higher than the number of bedrooms
+                //If it is not we display a message
+                JOptionPane.showMessageDialog(null, "The number of bedrooms can be higher than the number of rooms.");
+            } else {
+                if (Integer.parseInt(jTextField5.getText()) == 0 || Integer.parseInt(jTextField6.getText()) == 0 || Double.parseDouble(jTextField7.getText()) == 0) {
+                    //if the number of floord or the number of room or the surface is equal to 0 we show a message error
+                    JOptionPane.showMessageDialog(null, "The following fields cannot be 0 : Number of floors, Surface, Number of rooms");
+
+                } else {
                     //if all the conditions are respected 
-            //otherwise
-            this.addhouse();
-            //we add the house thanks to the addhouseapartment function 
-            JOptionPane.showMessageDialog(null, "Your house has been successfully registered for sale");
-            //successful adding
-            this.setVisible(false);
-            //we need to close this frame after the house has been added
-            SellerFirst a=new SellerFirst(newseller, buyers, sellers, emp, pr, v, o);
-            //we create a new frame
-            a.setVisible(true);
-            //we set the frame visible 
-                    }
+                    //otherwise
+                    this.addhouse();
+                    //we add the house thanks to the addhouseapartment function 
+                    JOptionPane.showMessageDialog(null, "Your house has been successfully registered for sale");
+                    //successful adding
+                    this.setVisible(false);
+                    //we need to close this frame after the house has been added
+                    SellerFirst a = new SellerFirst(newseller, buyers, sellers, emp, pr, v, o);
+                    //we create a new frame
+                    a.setVisible(true);
+                    //we set the frame visible 
+                }
+            }
         }
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jTextField1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField1KeyTyped
         // TODO add your handling code here:
-        char c=evt.getKeyChar();
-        if(Character.isDigit(c))
-        {
+        char c = evt.getKeyChar();
+        if (Character.isDigit(c)) {
             evt.consume();
         }
     }//GEN-LAST:event_jTextField1KeyTyped
@@ -454,11 +455,11 @@ public class SellerNewPropertyHouse extends javax.swing.JFrame {
 
         if (tampon == 1) {
             //if there is a swimming pool
-            pr.add(new House(newid, jTextField8.getText(), Double.parseDouble(jTextField3.getText()), jTextField1.getText(), Integer.parseInt(jTextField5.getText()), Integer.parseInt(jTextField2.getText()), Integer.parseInt(jTextField6.getText()), 0, Double.parseDouble(jTextField7.getText()), newseller.getid(),false, "House", Double.parseDouble(jTextField4.getText()), true));
+            pr.add(new House(newid, jTextField8.getText(), Double.parseDouble(jTextField3.getText()), jTextField1.getText(), Integer.parseInt(jTextField5.getText()), Integer.parseInt(jTextField2.getText()), Integer.parseInt(jTextField6.getText()), 0, Double.parseDouble(jTextField7.getText()), newseller.getid(), false, "House", Double.parseDouble(jTextField4.getText()), true));
             //we add the house with the coresponding fields 
         } else {
             //if there is no swimming pool
-            pr.add(new House(newid, jTextField8.getText(), Double.parseDouble(jTextField3.getText()), jTextField1.getText(), Integer.parseInt(jTextField5.getText()), Integer.parseInt(jTextField2.getText()), Integer.parseInt(jTextField6.getText()), 0, Double.parseDouble(jTextField7.getText()), newseller.getid(),false,"House", Double.parseDouble(jTextField4.getText()), false));
+            pr.add(new House(newid, jTextField8.getText(), Double.parseDouble(jTextField3.getText()), jTextField1.getText(), Integer.parseInt(jTextField5.getText()), Integer.parseInt(jTextField2.getText()), Integer.parseInt(jTextField6.getText()), 0, Double.parseDouble(jTextField7.getText()), newseller.getid(), false, "House", Double.parseDouble(jTextField4.getText()), false));
             // we add the house with the corresponding fields 
         }
         pdao.addproperty(pr.get(pr.size() - 1), 2);

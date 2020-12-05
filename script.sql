@@ -2,23 +2,23 @@ create database ptest ;
 use ptest ; 
 drop table buyer;
 create table buyer ( idbuyer int, name text not null, familyname text not null, username text not null, password text not null, primary key (idbuyer)) ; 
-insert into buyer values ( 01,'Thomas', 'Poulain', 'thomaspln', 'password') ; 
-insert into buyer values ( 02,'Capucine', 'Plantecoste', 'capuplt', 'thisismypassword'); 
-insert into buyer values ( 03,'Emmanuel', 'Macron', 'manu', 'president') ; 
-insert into buyer values ( 04,'Franck', 'Poulain', 'franckpln', 'microsoft123') ; 
-insert into buyer values ( 05,'Laurence', 'Godnair', 'laurencegdr', 'melann!') ; 
-insert into buyer values ( 06,'Killian', 'Poulain', 'killianpln', '123456') ; 
+insert into buyer values ( 01,'Thomas', 'Poulain', 'thomaspln@gmail.com', 'password') ; 
+insert into buyer values ( 02,'Capucine', 'Plantecoste', 'capuplt@outlook.fr', 'thisismypassword'); 
+insert into buyer values ( 03,'Emmanuel', 'Macron', 'manu@europe.com', 'president') ; 
+insert into buyer values ( 04,'Franck', 'Poulain', 'franckpln@gmail.com', 'microsoft123') ; 
+insert into buyer values ( 05,'Laurence', 'Godnair', 'laurencegdr@lol.fr', 'melann!') ; 
+insert into buyer values ( 06,'Killian', 'Poulain', 'killianpln@ri.fr', '123456') ; 
 delete from buyer where idbuyer='7';
 select * from buyer ;
 
 drop table employee;
 create table employee (idemployee int, name text not null, familyname text not null, username text not null, password text not null, primary key (idemployee)) ; 
-insert into employee values ( 1001,'Pauline', 'Durand', 'paulinedrd', '12345') ; 
-insert into employee values ( 1002,'Cathleen', 'West', 'cathwest', 'heyhey'); 
-insert into employee values ( 1003,'John', 'Dalton', 'joedltn', 'ineedapassword') ; 
-insert into employee values ( 1004,'Marie', 'Lebourg', 'marielbg', 'secret') ; 
-insert into employee values ( 1005,'Therese', 'Marcoux', 'thmarcoux', 'changeme') ; 
-insert into employee values ( 1006,'Joe', 'Biden', 'joebdn', 'usapresident') ; 
+insert into employee values ( 1001,'Pauline', 'Durand', 'paulinedrd@gmail.com', '12345') ; 
+insert into employee values ( 1002,'Cathleen', 'West', 'cathwest@live.fr', 'heyhey'); 
+insert into employee values ( 1003,'John', 'Dalton', 'joedltn@lucky.luke', 'ineedapassword') ; 
+insert into employee values ( 1004,'Marie', 'Lebourg', 'marielbg@lpc.fr', 'secret') ; 
+insert into employee values ( 1005,'Therese', 'Marcoux', 'thmarcoux@gmail.com', 'changeme') ; 
+insert into employee values ( 1006,'Joe', 'Biden', 'joebdn@usa.usa', 'usapresident') ; 
 select * from employee ;
 
 
@@ -44,12 +44,12 @@ select * from property;
 
 drop table seller;
 create table seller ( idseller int,name text, familyname text, username text, password text, primary key (idseller)) ; 
-insert into seller values ( 10001,'Apolline', 'Cherrey', 'apocherrey', 'lili123') ; 
-insert into seller values ( 10002,'Lilian', 'Biscarrat', 'lilibisc', 'thais'); 
-insert into seller values ( 10003,'Henri', 'Petrelli', 'henriptl', 'corsica') ; 
-insert into seller values ( 10004,'Thierry', 'Cancelier', 'thierryplt', 'trouville') ; 
-insert into seller values ( 10005,'Delphine', 'Fontaine', 'delphineplt', 'jetmonchat') ; 
-insert into seller values ( 10006,'Cassandre', 'Ferrand', 'cassandreplt', '123456') ; 
+insert into seller values ( 10001,'Apolline', 'Cherrey', 'apocherrey@ece.fr', 'lili123') ; 
+insert into seller values ( 10002,'Lilian', 'Biscarrat', 'lilibisc@live.com', 'thais'); 
+insert into seller values ( 10003,'Henri', 'Petrelli', 'henriptl@gmail.fr', 'corsica') ; 
+insert into seller values ( 10004,'Thierry', 'Cancelier', 'thierryplt@titi.fr', 'trouville') ; 
+insert into seller values ( 10005,'Delphine', 'Fontaine', 'delphineplt@dedel.com', 'jetmonchat') ; 
+insert into seller values ( 10006,'Cassandre', 'Ferrand', 'cassandreplt@cass.fr', '123456') ; 
 
 select * from seller ;
 
@@ -62,5 +62,11 @@ drop table visit;
 create table visit(idvisit int, schedule datetime , idemployee int, idbuyer int, idproperty int, duration int,  foreign key (idproperty) references Property(id), foreign key (idemployee) references Employee(idemployee), foreign key (idbuyer) references Buyer(idbuyer), primary key (idvisit));
 insert into visit values(01, '2000-01-01 18:00:00', 1001, 01, 01, 30);
 insert into visit values (02, '2000-01-02 19:00:00', 1001, null, 01,30);
+insert into visit values(05,'2000-01-05 19:00:00', 1001, 01,04,30);
+insert into visit values(06, '2019-04-06 20:00:00', 1001, 01, 10,30);
+insert into visit values(07, '2019-04-06 20:00:00', 1001, 01, 10,30);
+insert into visit values(09, '2019-04-06 20:00:00', 1001, 01, 10,30);
+insert into  visit values (10, '2019-11-12 10:00:00', 1001, 01, 01,30);
+insert into  visit values (11, '2020-11-12 10:00:00', 1001, 01, 01,30);
 delete from visit where idvisit='6';
 select * from visit;

@@ -66,7 +66,7 @@ public class BuyerViewings extends javax.swing.JFrame {
         for (int i = 0; i < pr.size(); ++i) {
             //we go through all the properties registered 
             if (pr.get(i).getid() == inch.getidprop()) {
-            //if the viewing that has been selected corresponds to a property of the database 
+                //if the viewing that has been selected corresponds to a property of the database 
                 stamp = i;
                 //we set the value of the buffer to i 
             }
@@ -306,7 +306,7 @@ public class BuyerViewings extends javax.swing.JFrame {
                 for (int j = 0; j < pr.size(); ++j) {
                     //we go through the all the properties of the database 
                     if (selected.equals(pr.get(j).getdescription() + " idvisit:" + myviewings.get(i).getid())) {
-                         //if the selected viewing corresponds to a property of the database
+                        //if the selected viewing corresponds to a property of the database
                         tampon = i;
                         //we set the value of the buffer to i 
                     }
@@ -324,7 +324,7 @@ public class BuyerViewings extends javax.swing.JFrame {
         //if we click on the back button
         setVisible(false);
         //this page disappears
-        BuyerFirst a = new BuyerFirst(newbuyer, buyers, sellers, emp, pr, v, o);    
+        BuyerFirst a = new BuyerFirst(newbuyer, buyers, sellers, emp, pr, v, o);
         //we go back on the previous page
         a.setVisible(true);
         //we set the previous page visible
@@ -390,17 +390,23 @@ public class BuyerViewings extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(null, " Thank you for this update");
         //the update has been successfull
         this.setVisible(false);
-        //we need to reload the page so we set this on to unvisible
-        BuyerViewings a = new BuyerViewings(newbuyer, buyers, sellers, emp, pr, v, o, myviewings);
-        //we open a new frame of buyerViewings
-        a.setVisible(true);
-        //we set it visible 
+        if (myviewings.isEmpty()) {
+            //if the buyer has no viewings left we go back on his first page
+            BuyerFirst b = new BuyerFirst(newbuyer, buyers, sellers, emp, pr, v, o);
+            b.setVisible(true);
+        } else {
+            //we need to reload the page so we set this on to unvisible
+            BuyerViewings a = new BuyerViewings(newbuyer, buyers, sellers, emp, pr, v, o, myviewings);
+            //we open a new frame of buyerViewings
+            a.setVisible(true);
+            //we set it visible 
+        }
 
 
     }//GEN-LAST:event_jButton2ActionPerformed
 
     public void initjcb1() {
-    //this function adds the viewings of the connected buyer to the jcombobox 
+        //this function adds the viewings of the connected buyer to the jcombobox 
         for (int i = 0; i < myviewings.size(); ++i) {
             //we go through the arralist of the personal viewings of the connected buyer
             for (int j = 0; j < pr.size(); ++j) {

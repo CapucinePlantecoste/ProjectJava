@@ -290,7 +290,7 @@ public class SellerFirst extends javax.swing.JFrame {
         this.setmyprop();
         //we set the properties of the seller and we add the sellers properties in my prop
         if (myprop.isEmpty()) {
-        //if the seller has no properties 
+            //if the seller has no properties 
             JOptionPane.showMessageDialog(null, "You have no properties for sale so you cannot add no viewings"); //message shown to say so
             //message to say so 
         } else {
@@ -328,7 +328,7 @@ public class SellerFirst extends javax.swing.JFrame {
         //we clear the personal properties of the seller  
         this.setmyprop();
         //we set the properties of the seller and we add the sellers properties in my prop
-        
+
         for (int i = 0; i < o.size(); ++i) {
             //we go through the offers of the application 
             for (int j = 0; j < myprop.size(); ++j) {

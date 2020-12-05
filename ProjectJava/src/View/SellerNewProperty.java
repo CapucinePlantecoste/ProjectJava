@@ -200,7 +200,7 @@ public class SellerNewProperty extends javax.swing.JFrame {
         String selected = (String) jComboBox1.getSelectedItem();
         //we get what has been selected in the combo box
         if (selected.equals("Apartment")) {
-        //if the seller selected apartment 
+            //if the seller selected apartment 
             tampon = 1;
             //the buffer equals 1
         } else if (selected.equals("House")) {
@@ -227,7 +227,7 @@ public class SellerNewProperty extends javax.swing.JFrame {
         // the go button, to start the introduction of the new property 
 
         if (tampon == 1) {
-        //if the seller chose to introduce an apartment 
+            //if the seller chose to introduce an apartment 
 
             this.setVisible(false);
             //we close this frame 

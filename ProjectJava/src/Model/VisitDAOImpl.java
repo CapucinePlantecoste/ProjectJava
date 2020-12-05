@@ -1,7 +1,6 @@
 //this class implements all the function of the ViewingsDAO class
 package Model;
 
-
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -16,10 +15,9 @@ import java.sql.Timestamp;
 public class VisitDAOImpl implements VisitDAO {
 //the class VisitDAO is an interface so we have to implement all its functions here
 
-
     @Override
     public ArrayList<Visit> registervisit() {
-    //this method enables to get all the viewings contained in the database    
+        //this method enables to get all the viewings contained in the database    
         Connection conn = null;
         ArrayList<Visit> visits = new ArrayList<>();
         //we create an arraylist of viewings to store them later
@@ -36,7 +34,7 @@ public class VisitDAOImpl implements VisitDAO {
             ResultSet result = stmt.executeQuery(sqtStat1);
             //we execute the query 
             while (result.next()) {
-            //we get ALL the values
+                //we get ALL the values
 
                 int a = result.getInt("idvisit");
                 //First column of the table 
@@ -55,7 +53,7 @@ public class VisitDAOImpl implements VisitDAO {
             //always close the connection
 
         } catch (SQLException e) {
-        //Possible MY SQL exception 
+            //Possible MY SQL exception 
             System.err.println(e);
         }
         return visits;
@@ -64,7 +62,7 @@ public class VisitDAOImpl implements VisitDAO {
 
     @Override
     public void addvisit(Visit a) {
-    //this method enables us to add a viewing into the database
+        //this method enables us to add a viewing into the database
         Connection conn = null;
         try {
 
@@ -77,7 +75,7 @@ public class VisitDAOImpl implements VisitDAO {
 
             conn.setAutoCommit(false);
             // we group multiple Statements under the same transaction. This transaction will be committed when "commit()" invoked
-            try { 
+            try {
 
                 stmt.executeUpdate("INSERT INTO visit " + " (idvisit,schedule, idemployee, idbuyer, idproperty,duration) " + "VALUES" + "('" + a.getid() + "','" + a.gettime() + "','" + a.getidemp() + "',null,'" + a.getidprop() + "','" + a.getduration() + "' )");
                 //we add new values for a new visit into the database through this sql query 
@@ -87,11 +85,11 @@ public class VisitDAOImpl implements VisitDAO {
                 conn.close();
                 //always clsoe the connection
             } catch (SQLException f) {
-            //possible MySql exception
+                //possible MySql exception
                 System.err.println(f);
             }
         } catch (SQLException e) {
-        //Possible MySql connection exception
+            //Possible MySql connection exception
             System.err.println(e);
         }
 
@@ -99,7 +97,7 @@ public class VisitDAOImpl implements VisitDAO {
 
     @Override
     public void deleteviewing(Visit a) {
-    //method that deletes the viewiing from the database 
+        //method that deletes the viewiing from the database 
         Connection conn = null;
         try {
 
@@ -121,18 +119,17 @@ public class VisitDAOImpl implements VisitDAO {
                 conn.close();
                 //always close the connection
             } catch (SQLException f) {
-            //possible MySql exception
+                //possible MySql exception
                 System.err.println(f);
             }
         } catch (SQLException e) {
-        //Possible MySql connection exception
+            //Possible MySql connection exception
             System.err.println(e);
         }
     }
-    
+
     @Override
-    public void updatebuyer(Visit a)
-    //method that enables us to update the buyer of the viewing 
+    public void updatebuyer(Visit a) //method that enables us to update the buyer of the viewing 
     {
         Connection conn = null;
         try {
@@ -148,7 +145,7 @@ public class VisitDAOImpl implements VisitDAO {
             // we group multiple Statements under the same transaction. This transaction will be committed when "commit()" invoked
             try {
 
-                stmt.executeUpdate("UPDATE visit SET idbuyer='"+a.getidbuyer()+"' where idvisit='" + a.getid() + "';");
+                stmt.executeUpdate("UPDATE visit SET idbuyer='" + a.getidbuyer() + "' where idvisit='" + a.getid() + "';");
                 //as we said before a viewing doesn't have a buyer that wants to visit the property at the begining but when a buyer books this viewing we have to update the idbuyer field of the viewing
                 conn.commit();
                 //COMMIT statement to the MySQL server
@@ -156,11 +153,11 @@ public class VisitDAOImpl implements VisitDAO {
                 //always close the connection
 
             } catch (SQLException f) {
-            //possible MySql exception
+                //possible MySql exception
                 System.err.println(f);
             }
         } catch (SQLException e) {
-        //Possible MySql connection exception
+            //Possible MySql connection exception
             System.err.println(e);
         }
     }

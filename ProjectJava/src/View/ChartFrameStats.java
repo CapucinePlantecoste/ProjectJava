@@ -24,12 +24,12 @@ import projectjava.First;
  *
  * @author CAP
  */
-public class ChartFrameClassEmployee extends javax.swing.JFrame {
+public class ChartFrameStats extends javax.swing.JFrame {
 
     /**
-     * Creates new form ChartFrameClassEmployee
+     * Creates new form ChartFrameClass
      */
-    public ChartFrameClassEmployee(Employee a, ArrayList<Buyer> b, ArrayList<Seller> s, ArrayList<Employee> e, ArrayList<Property> prop, ArrayList<Visit> vis, ArrayList<Offer> off) {
+    public ChartFrameStats(String type, Buyer a, Employee employ, ArrayList<Buyer> b, ArrayList<Seller> s, ArrayList<Employee> e, ArrayList<Property> prop, ArrayList<Visit> vis, ArrayList<Offer> off) {
         buyers = b;
         //Array List of all the buyers of the database
         sellers = s;
@@ -42,7 +42,22 @@ public class ChartFrameClassEmployee extends javax.swing.JFrame {
         //Array List of all the viewings of the database
         o = off;
         //Array List of all the offers of the database
-        newemployee = a ; 
+        typeconnected = type;
+        //We get the type of person who is connected
+        if (typeconnected.equals("employee")) {
+            //If it is an employee
+            employee = employ;
+            //employee is the employee that is connected employ
+            newbuyer = null;
+            //Newbuyer equals null
+        } else {
+            //If it is not employee it is buyer so
+            employee = null;
+            //employee equals null
+            newbuyer = a;
+            //Newbuyer is the buyer connected
+        }
+
         initComponents();
     }
 
@@ -168,19 +183,6 @@ public class ChartFrameClassEmployee extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        //back button
-        this.toBack();
-        //if we click on the back button
-        setVisible(false);
-        //this page disappears
-        EmployeeFirst a = new EmployeeFirst(newemployee, buyers, sellers, emp, pr, v, o);
-        //we go back on the previous page
-        a.setVisible(true);
-        //we set the previous page visible
-        new EmployeeFirst(newemployee, buyers, sellers, emp, pr, v, o).setState(java.awt.Frame.NORMAL);
-    }//GEN-LAST:event_jButton1ActionPerformed
-
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         //this button is the log out button
         setVisible(false);
@@ -192,43 +194,65 @@ public class ChartFrameClassEmployee extends javax.swing.JFrame {
         //we set the first page visible
     }//GEN-LAST:event_jButton5ActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        //back button
+        this.toBack();
+        //if we click on the back button
+        setVisible(false);
+        //this page disappears
+        if (typeconnected.equals("buyer")) {
+            //If we click on the back button if we are connected as a buyer we return on his main page
+            BuyerFirst a = new BuyerFirst(newbuyer, buyers, sellers, emp, pr, v, o);
+            //we go back on the previous page
+            a.setVisible(true);
+            //we set the previous page visible
+            new BuyerFirst(newbuyer, buyers, sellers, emp, pr, v, o).setState(java.awt.Frame.NORMAL);
+        } else {
+            //If we click on the back button if we are connected as an employee we return on his main page
+            EmployeeFirst a = new EmployeeFirst(employee, buyers, sellers, emp, pr, v, o);
+            //we go back on the previous page
+            a.setVisible(true);
+            //we set the previous page visible
+            new EmployeeFirst(employee, buyers, sellers, emp, pr, v, o).setState(java.awt.Frame.NORMAL);
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
 
-        XYSeries series = new XYSeries ("Donnees ") ;
-        //creation of a graph
-        for (int i=0 ; i<pr.size(); ++i)
-        //we go through our properties list
+        XYSeries series = new XYSeries("Donnees ");
+        //creation of a graph 
+        for (int i = 0; i < pr.size(); ++i) //we go through our properties list
         {
-            series.add(i+1, pr.get(i).gettimevisited());
+            series.add(i + 1, pr.get(i).gettimevisited());
             //we add to the graph the times visites of each house
         }
 
-        XYSeriesCollection dataset = new XYSeriesCollection (series);
-        JFreeChart chart = ChartFactory.createXYBarChart ("Time visited for each house", "Property Id", false, "Times visited", dataset, PlotOrientation.VERTICAL, false, false, false);
+        XYSeriesCollection dataset = new XYSeriesCollection(series);
+        JFreeChart chart = ChartFactory.createXYBarChart("Time visited for each house", "Property Id", false, "Times visited", dataset, PlotOrientation.VERTICAL, false, false, false);
         //Properties of the graph : title, axes...
-        ChartFrame frame = new ChartFrame ("Graph", chart);
+        ChartFrame frame = new ChartFrame("Graph", chart);
         frame.pack();
         frame.setVisible(true);
-        //we set it visible
+        //we set it visible 
+
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        XYSeries series = new XYSeries ("Donnees ") ;
+        XYSeries series = new XYSeries("Donnees ");
         //creation of a graph
-        for (int i=0 ; i<pr.size(); ++i)
-        //we go through our properties list
+        for (int i = 0; i < pr.size(); ++i) //we go through our properties list
         {
-            series.add(i+1, pr.get(i).getprice());
+            series.add(i + 1, pr.get(i).getprice());
             //we add to the graph the price of each house
         }
 
-        XYSeriesCollection dataset = new XYSeriesCollection (series);
-        JFreeChart chart = ChartFactory.createXYBarChart ("Price of the properties", "Property Id", false, "Price", dataset, PlotOrientation.VERTICAL, false, false, false);
+        XYSeriesCollection dataset = new XYSeriesCollection(series);
+        JFreeChart chart = ChartFactory.createXYBarChart("Price of the properties", "Property Id", false, "Price (€)", dataset, PlotOrientation.VERTICAL, false, false, false);
         //Properties of the graph : title, axes...
-        ChartFrame frame = new ChartFrame ("Graph", chart);
+        ChartFrame frame = new ChartFrame("Graph", chart);
         frame.pack();
         frame.setVisible(true);
-        //we set it visible
+        //we set it visible 
     }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
@@ -248,20 +272,24 @@ public class ChartFrameClassEmployee extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ChartFrameClassEmployee.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ChartFrameStats.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ChartFrameClassEmployee.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ChartFrameStats.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ChartFrameClassEmployee.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ChartFrameStats.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ChartFrameClassEmployee.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ChartFrameStats.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
+            @Override
             public void run() {
-                new ChartFrameClassEmployee(newemployee, buyers, sellers, emp, pr, v, o).setVisible(true);
+                new ChartFrameStats(typeconnected, newbuyer, employee, buyers, sellers, emp, pr, v, o).setVisible(true);
             }
         });
     }
@@ -278,7 +306,12 @@ public class ChartFrameClassEmployee extends javax.swing.JFrame {
     //array list of all the application viewings 
     private static ArrayList<Offer> o = new ArrayList<>();
     //array list of all the application offers 
-    private static Employee newemployee  ; 
+    private static Buyer newbuyer;
+    //buyer that may be connected
+    private static Employee employee;
+    //employee that may be connected
+    private static String typeconnected;
+    //String that contains "buyer" if a buyer is connected and "employee" if it is an employee
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;

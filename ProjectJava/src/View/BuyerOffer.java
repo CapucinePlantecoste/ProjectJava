@@ -1,7 +1,6 @@
 //this class is the frame which the buyer seees when he wants to consult his offers
 package View;
 
-import View.BuyerFirst;
 import Model.Visit;
 import Model.Seller;
 import Model.Property;
@@ -37,10 +36,10 @@ public class BuyerOffer extends javax.swing.JFrame {
 
         newbuyer = a;
         //the buyer who is connected 
-       
+
         myoffers = myo;
         //the arraylist of the offers corresponding to this particular buyer
-       
+
         initComponents();
         //automatically generated constructor
         this.initjcb1();
@@ -114,16 +113,17 @@ public class BuyerOffer extends javax.swing.JFrame {
                 .addComponent(jButton1)
                 .addContainerGap(621, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                .addContainerGap(171, Short.MAX_VALUE)
+                .addContainerGap(188, Short.MAX_VALUE)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
                         .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(253, 253, 253))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 352, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 409, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(160, 160, 160))))
+                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 352, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(160, 160, 160))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 409, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(143, 143, 143))))
             .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel4Layout.createSequentialGroup()
                     .addGap(173, 173, 173)
@@ -139,9 +139,9 @@ public class BuyerOffer extends javax.swing.JFrame {
                 .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(36, 36, 36)
                 .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 310, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 298, Short.MAX_VALUE)
                 .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(20, 20, 20))
+                .addGap(26, 26, 26))
             .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel4Layout.createSequentialGroup()
                     .addGap(70, 70, 70)
@@ -247,14 +247,14 @@ public class BuyerOffer extends javax.swing.JFrame {
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
         //the combo box that displays all the offers belonging to the connected buyer
 
-        int tampon = 0;  
+        int tampon = 0;
         //temporary buffer 
 
         String selected = (String) jComboBox1.getSelectedItem();
         //we get what has been selected in the combobox
         if (selected.equals("Select one of your following offers")) {
             //if Select One of your following offers has been selected
-            
+
             jPanelOffers.hide();
             //we do not show anything but the actual combo box
         } else {
@@ -262,76 +262,65 @@ public class BuyerOffer extends javax.swing.JFrame {
             for (int i = 0; i < myoffers.size(); i++) {
                 //we go through all the offers belonging to the connected buyer
                 {
-                    for(int j=0;j<pr.size();++j)
-                        //we go through all the properties of the database 
+                    for (int j = 0; j < pr.size(); ++j) //we go through all the properties of the database 
                     {
-                        if(selected.equals(pr.get(j).getdescription()+" idoffer : "+myoffers.get(i).getid()))
-                            //if the selected offer corresponds to a property of the database 
+                        if (selected.equals(pr.get(j).getdescription() + " idoffer : " + myoffers.get(i).getid())) //if the selected offer corresponds to a property of the database 
                         {
-                            tampon=i;
+                            tampon = i;
                             //we set the value of the buffer to i 
                         }
                     }
                 }
-            }               
+            }
             this.display(myoffers.get(tampon));
             //we show the details of the offer, through the display method, see behind with the help of the buffer
-            }
+        }
     }//GEN-LAST:event_jComboBox1ActionPerformed
 
-    
-    public void display (Offer a )
-            //method that enables to show the details of an offer once selected 
+    public void display(Offer a) //method that enables to show the details of an offer once selected 
     {
-        int stamp=0;
+        int stamp = 0;
         //temporary buffer 
-    
-        for(int i=0;i<pr.size();++i)
-            //we go through all the properties of the database 
+
+        for (int i = 0; i < pr.size(); ++i) //we go through all the properties of the database 
         {
-            if(pr.get(i).getid()==a.getidprop())
-                //if the offer that has been selected corresponds to a property of the database 
+            if (pr.get(i).getid() == a.getidprop()) //if the offer that has been selected corresponds to a property of the database 
             {
-                stamp=i;
+                stamp = i;
                 //we set the buffer to i
             }
         }
-        
-        jLabelDescription.setText(" Description : "+pr.get(stamp).getdescription());
+
+        jLabelDescription.setText(" Description : " + pr.get(stamp).getdescription());
         //we set Text to the description field, to show more details about the selected offer
-        jLabelLocation.setText( " Location : "+pr.get(stamp).getlocation());
+        jLabelLocation.setText(" Location : " + pr.get(stamp).getlocation());
         //we set Text to the location field, to show more details about the selected offer
-        jLabelPrice.setText ("Amount : "+a.getprice()+"€");
+        jLabelPrice.setText("Amount : " + a.getprice() + "€");
         //we set Text to the amount of the offer field, to show more details about the selected offer
-        jLabelRealPrice.setText("Price of the property : " +pr.get(stamp).getprice()+"€");
+        jLabelRealPrice.setText("Price of the property : " + pr.get(stamp).getprice() + "€");
         //we set Text to the price field, to show more details about the selected offer
-        if(a.getaccepted()==true && a.getdeclined()==false)
-            //we want to show if the offer has been accepted or declined
+        if (a.getaccepted() == true && a.getdeclined() == false) //we want to show if the offer has been accepted or declined
         {
             jLabel3.setText(" Status of the offer : Accepted ");
             //if it has been accepted, we show it
-        }
-        else if( a.getaccepted()==false && a.getdeclined()==true)
-        {
+        } else if (a.getaccepted() == false && a.getdeclined() == true) {
             jLabel3.setText(" Status of the offer : Declined");
             //if it has been declined, we show it 
-        }
-        else if( a.getaccepted()==false && a.getdeclined()==false)
-        {
+        } else if (a.getaccepted() == false && a.getdeclined() == false) {
             jLabel3.setText(" Status of the offer : Not treated");
             //if it has not been accepted nor declined, it is not treated
-        }       
-        jPanelOffers.show();        
+        }
+        jPanelOffers.show();
         //after all the fields have been filled, we show the panel offer 
-        
+
     }
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         //back Button 
         this.toBack();
         //if we click on the back button
-        setVisible(false);  
+        setVisible(false);
         //this page disappears
-        BuyerFirst a=new BuyerFirst(newbuyer, buyers, sellers, emp, pr, v, o);
+        BuyerFirst a = new BuyerFirst(newbuyer, buyers, sellers, emp, pr, v, o);
         a.setVisible(true);
         //we go back on the previous page
         new BuyerFirst(newbuyer, buyers, sellers, emp, pr, v, o).setState(java.awt.Frame.NORMAL);
@@ -349,19 +338,19 @@ public class BuyerOffer extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton5ActionPerformed
 
     public void initjcb1() {
-    //function that enables to add the offers of the connected buyer to the jcombobox
+        //function that enables to add the offers of the connected buyer to the jcombobox
         for (int i = 0; i < myoffers.size(); ++i) {
             //we go through all the offers belonging to the connected customer 
             for (int j = 0; j < pr.size(); ++j) {
                 //we go through all the properties contained in the database 
-                
+
                 if (myoffers.get(i).getidprop() == pr.get(j).getid()) {
                     //if an offer corresponds to the selected property 
-                    jComboBox1.addItem(pr.get(j).getdescription()+" idoffer : "+myoffers.get(i).getid()); 
+                    jComboBox1.addItem(pr.get(j).getdescription() + " idoffer : " + myoffers.get(i).getid());
                     //we add this offer to the jcombobox
                 }
             }
-        }        
+        }
         //here, all the offers of the connected buyer will be displayed in the combox
     }
 
@@ -418,7 +407,7 @@ public class BuyerOffer extends javax.swing.JFrame {
 
     private static Buyer newbuyer;
     //buyer connected 
-    
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton5;

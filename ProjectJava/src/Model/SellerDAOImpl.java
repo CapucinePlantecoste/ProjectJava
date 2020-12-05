@@ -1,7 +1,6 @@
 //this class implements all the function of the SellerDAO class
 package Model;
 
-
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -16,8 +15,7 @@ public class SellerDAOImpl implements SellerDAO {
 //the class sellerDAO is an interface so we have to implement all its functions here 
 
     @Override
-    public ArrayList<Seller> registerseller() 
-    //this method enables to get all the sellers contained in the database
+    public ArrayList<Seller> registerseller() //this method enables to get all the sellers contained in the database
     {
         Connection conn = null;
         ArrayList<Seller> sellers = new ArrayList<>();
@@ -59,8 +57,7 @@ public class SellerDAOImpl implements SellerDAO {
     }
 
     @Override
-    public void addseller(Seller a) 
-    //method used to add a seller to the database 
+    public void addseller(Seller a) //method used to add a seller to the database 
     {
         Connection conn = null;
         try {
@@ -84,11 +81,11 @@ public class SellerDAOImpl implements SellerDAO {
                 //always close the connection
 
             } catch (SQLException f) {
-            //possible MySql exception
+                //possible MySql exception
                 System.err.println(f);
             }
         } catch (SQLException e) {
-        //Possible MySql connection exception
+            //Possible MySql connection exception
             System.err.println(e);
         }
     }

@@ -1,7 +1,6 @@
 //this class implements all the function of the buyer DAO class
 package Model;
 
-
 import java.util.ArrayList;
 import java.sql.Statement;
 import java.sql.Connection;

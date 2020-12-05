@@ -5,7 +5,7 @@ package Model;
  *
  * @author thoma
  */
-public class Buyer extends Person{
+public class Buyer extends Person {
 
     //there is no other attribute in Buyer than in Person
     public Buyer(int i, String n, String fn, String u, String p) //constructor of the class
@@ -14,5 +14,4 @@ public class Buyer extends Person{
         //constructor of Person (superclass) class
     }
 
-   
 }

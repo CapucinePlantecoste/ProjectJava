@@ -51,7 +51,7 @@ public class App {
         SellerDAOImpl sdao = new SellerDAOImpl();
         //creation of an object SellerDAOIMPl that will enable to get all the sellers from our seller table
         PropertyDAOImpl pdao = new PropertyDAOImpl();
-       //creation of an object PropertyDAOIMPl that will enable to get all the properties from our property table
+        //creation of an object PropertyDAOIMPl that will enable to get all the properties from our property table
         EmployeeDAOImpl edao = new EmployeeDAOImpl();
         //creation of an object EmployeeDAOIMPl that will enable to get all the employees from our employee table
         VisitDAOImpl vdao = new VisitDAOImpl();
@@ -72,6 +72,7 @@ public class App {
         o = odao.registeroffer();
         //we set our arraylist of Offer according to those contained in the offer table
     }
+
     public void application() {
 
         this.register();
@@ -81,6 +82,6 @@ public class App {
 
         f.setVisible(true);
         //we open the frame and let it visible 
-       
+
     }
 }

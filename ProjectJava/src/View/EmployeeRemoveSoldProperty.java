@@ -1,5 +1,6 @@
 //this class is the frame employees see when they remove a sold property
 package View;
+
 import Model.Buyer;
 import Model.Employee;
 import Model.Offer;
@@ -9,7 +10,7 @@ import Model.Seller;
 import Model.Visit;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
-import projectjava.First ; 
+import projectjava.First;
 
 /**
  *
@@ -20,7 +21,7 @@ public class EmployeeRemoveSoldProperty extends javax.swing.JFrame {
     /**
      * Creates new form EmployeeRemoveSoldProperty
      */
-    public EmployeeRemoveSoldProperty(Employee coucou, ArrayList<Buyer> b, ArrayList<Seller> s, ArrayList<Employee> e, ArrayList<Property>prop, ArrayList<Visit>vis, ArrayList<Offer>off, ArrayList<Property> sp) {
+    public EmployeeRemoveSoldProperty(Employee coucou, ArrayList<Buyer> b, ArrayList<Seller> s, ArrayList<Employee> e, ArrayList<Property> prop, ArrayList<Visit> vis, ArrayList<Offer> off, ArrayList<Property> sp) {
         //constructor of the application 
         buyers = b;
         //Array List of all the buyers of the application 
@@ -28,23 +29,23 @@ public class EmployeeRemoveSoldProperty extends javax.swing.JFrame {
         //Array List of all the sellers of the application 
         emp = e;
         //Array List of all the employees of the application 
-        pr=prop;
+        pr = prop;
         //Array List of all the properties of the application 
-        v=vis;
+        v = vis;
         //Array List of all the viewings of the application 
-        o=off;
+        o = off;
         //Array List of all the offers of the application 
- 
-        employee = coucou; 
+
+        employee = coucou;
         //current connected employee
-        soldProperties = sp ; 
+        soldProperties = sp;
         //arraylist of the sold properties of the application 
-        
+
         initComponents();
         //automatically generated constructor
-        initjcb1(); 
+        initjcb1();
         //function that enables to fill the combobox with the sold properties of the application
-       
+
         jPanel10.hide();
         //in the beginning, all the other panels are hidden 
     }
@@ -284,11 +285,11 @@ public class EmployeeRemoveSoldProperty extends javax.swing.JFrame {
         //if we click on the back button
         setVisible(false);
         //this page disappears
-        EmployeeFirst a=new EmployeeFirst(employee, buyers, sellers, emp,pr,v,o);
+        EmployeeFirst a = new EmployeeFirst(employee, buyers, sellers, emp, pr, v, o);
         //we go back on the previous page
         a.setVisible(true);
         //we set the previous page visible 
-        new EmployeeFirst(employee, buyers, sellers, emp,pr,v,o).setState(java.awt.Frame.NORMAL);
+        new EmployeeFirst(employee, buyers, sellers, emp, pr, v, o).setState(java.awt.Frame.NORMAL);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
@@ -297,91 +298,79 @@ public class EmployeeRemoveSoldProperty extends javax.swing.JFrame {
         //if we click on the button
         setVisible(false);
         //this page disappears
-        new First(buyers, sellers, emp, pr,v,o).toFront();
+        new First(buyers, sellers, emp, pr, v, o).toFront();
         //we go back on the first page
-        new First(buyers, sellers, emp,pr,v,o).setState(java.awt.Frame.NORMAL);
-        new First(buyers, sellers, emp,pr,v,o).setVisible(true);
+        new First(buyers, sellers, emp, pr, v, o).setState(java.awt.Frame.NORMAL);
+        new First(buyers, sellers, emp, pr, v, o).setVisible(true);
         //we set the first page visible
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
         //combo box where the sold properties appear so that the employee can remove it 
-        int tampon=-1;
+        int tampon = -1;
         //temporary buffer 
         String selected = (String) jComboBox1.getSelectedItem();
         //we get what has been selected from the combo box of the sol properties
         if (selected.equals("Select a property to remove")) {
-        //if the employee doesn't select any option but remains on the first option of the combo box
-            jPanel10.hide();           
+            //if the employee doesn't select any option but remains on the first option of the combo box
+            jPanel10.hide();
             //nothing happens, so we hide the next panel
-        }
-        else
-        //if the employee selected one of the sold property displayed in the combo box
+        } else //if the employee selected one of the sold property displayed in the combo box
         {
-            for(int i=0;i<pr.size();++i)
-            //we go through all the properties of the application 
+            for (int i = 0; i < pr.size(); ++i) //we go through all the properties of the application 
             {
-                if((pr.get(i).getdescription()+" id : "+pr.get(i).getid()).equals(selected))
-                //if what is selected corresponds to the description + the id of a property in the arraylist
+                if ((pr.get(i).getdescription() + " id : " + pr.get(i).getid()).equals(selected)) //if what is selected corresponds to the description + the id of a property in the arraylist
                 {
-                    tampon=i;
+                    tampon = i;
                     //we set the value of the buffer to i 
                 }
             }
-            this.display(pr.get(tampon));            
+            this.display(pr.get(tampon));
             //we display the information of the property once it is selected via the display function 
-        }       
-        
+        }
+
     }//GEN-LAST:event_jComboBox1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         //button remove the sold property once a property has been selected 
-        int tampon=-1;
-        int tampon2=-1;
+        int tampon = -1;
+        int tampon2 = -1;
         //two temporary buffers 
-        PropertyDAOImpl pdao= new PropertyDAOImpl();
+        PropertyDAOImpl pdao = new PropertyDAOImpl();
         //we create an object of the PropertyDAOImpl class, to remove the property later in the database
         String selected = (String) jComboBox1.getSelectedItem();
         //we get what has been selected in the combo box
-        for(int i=0;i<pr.size();++i)
-        //we go through all the properties of the application 
+        for (int i = 0; i < pr.size(); ++i) //we go through all the properties of the application 
         {
-            if((pr.get(i).getdescription()+" id : "+pr.get(i).getid()).equals(selected))
-            //if what is selected corresponds to the description + the id of a property contained in the arraylist 
+            if ((pr.get(i).getdescription() + " id : " + pr.get(i).getid()).equals(selected)) //if what is selected corresponds to the description + the id of a property contained in the arraylist 
             {
-                tampon=i;
+                tampon = i;
                 //we set the value of the buffer to i 
             }
         }
-        for(int l=0;l<soldProperties.size();++l)
-        //we go through the sold properties arraylist 
+        for (int l = 0; l < soldProperties.size(); ++l) //we go through the sold properties arraylist 
         {
-            if(soldProperties.get(l).getid()==pr.get(tampon).getid())
-            //if the id of the sold property considered is the same id as the property considered  
+            if (soldProperties.get(l).getid() == pr.get(tampon).getid()) //if the id of the sold property considered is the same id as the property considered  
             {
-                tampon2=l;
+                tampon2 = l;
                 //we set the value of the second buffer to 1
             }
         }
         pdao.deleteproperty(pr.get(tampon));
         //we delete the property in the database thanks to the function delete property in dao
-        for(int j=0;j<v.size();++j)
-        //if the property has been deleted, we need to remove everything that is related to it like the viewings 
+        for (int j = 0; j < v.size(); ++j) //if the property has been deleted, we need to remove everything that is related to it like the viewings 
         //we go through the viewings of the application
         {
-            if(v.get(j).getidprop()==pr.get(tampon).getid())
-            //if the id of the property of the considered viewing is the same id as the removed property 
+            if (v.get(j).getidprop() == pr.get(tampon).getid()) //if the id of the property of the considered viewing is the same id as the removed property 
             {
                 v.remove(v.get(j));
                 //we remove the viewing thanks to the remove function 
             }
         }
-        for(int k=0;k<o.size();++k)
-        //if the property has been deleted, we need to remove everything that is related to it like the offers
+        for (int k = 0; k < o.size(); ++k) //if the property has been deleted, we need to remove everything that is related to it like the offers
         //we go through the offers of the application    
         {
-            if(o.get(k).getidprop()==pr.get(tampon).getid())
-            //if the id of the property of the considered offer is the same id as the removed property 
+            if (o.get(k).getidprop() == pr.get(tampon).getid()) //if the id of the property of the considered offer is the same id as the removed property 
             {
                 o.remove(o.get(k));
                 //we remove the offer thanks to the remove function
@@ -391,27 +380,32 @@ public class EmployeeRemoveSoldProperty extends javax.swing.JFrame {
         //after this manipulations, we can finally remove the property from the array list 
         soldProperties.remove(soldProperties.get(tampon2));
         //we also remove the sold property from the sold property array list 
-        JOptionPane.showMessageDialog(null," This property has been removed from the app");
+        JOptionPane.showMessageDialog(null, " This property has been removed from the app");
         //we show it as worked 
         this.setVisible(false);
-        //we need to refresh the frame so we close this one
-        EmployeeRemoveSoldProperty a =new EmployeeRemoveSoldProperty(employee, buyers, sellers, emp,pr,v,o, soldProperties);
-        //we create a new frame to regenerate this one
-        a.setVisible(true);
-        //we set the new frame visible        
+        if (soldProperties.isEmpty()) {
+            //if there are no other sale properties to deal with we go back on the first page of the employee
+            EmployeeFirst b = new EmployeeFirst(employee, buyers, sellers, emp, pr, v, o);
+            b.setVisible(true);
+        } else {
+            //we need to refresh the frame so we close this one
+            EmployeeRemoveSoldProperty a = new EmployeeRemoveSoldProperty(employee, buyers, sellers, emp, pr, v, o, soldProperties);
+            //we create a new frame to regenerate this one
+            a.setVisible(true);
+            //we set the new frame visible     
+        }
     }//GEN-LAST:event_jButton2ActionPerformed
 
     public void initjcb1() {
         //this function adds the soldproperties of the application to the jcombobox 
         for (int i = 0; i < soldProperties.size(); ++i) {
-        //we go through the sold properties of the application 
-            jComboBox1.addItem(soldProperties.get(i).getdescription()+" id : "+soldProperties.get(i).getid());
+            //we go through the sold properties of the application 
+            jComboBox1.addItem(soldProperties.get(i).getdescription() + " id : " + soldProperties.get(i).getid());
             //we add every sold properties to the combobox
         }
     }
-    
-    public void display(Property a)
-    //this method has for goal to fill the fields of the property panel, that displays when the employee selects one of the viewings for sale 
+
+    public void display(Property a) //this method has for goal to fill the fields of the property panel, that displays when the employee selects one of the viewings for sale 
     {
         jLabelDescription1.setText(a.getdescription());
         //we fill the field of the description with the corresponding value
@@ -426,6 +420,7 @@ public class EmployeeRemoveSoldProperty extends javax.swing.JFrame {
         jPanel10.show();
         //we can finally show the panel with all the information about the sold property to remove 
     }
+
     /**
      * @param args the command line arguments
      */
@@ -457,7 +452,7 @@ public class EmployeeRemoveSoldProperty extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             @Override
             public void run() {
-                new EmployeeRemoveSoldProperty(employee, buyers, sellers, emp,pr,v,o, soldProperties).setVisible(true);
+                new EmployeeRemoveSoldProperty(employee, buyers, sellers, emp, pr, v, o, soldProperties).setVisible(true);
             }
         });
     }
@@ -468,16 +463,16 @@ public class EmployeeRemoveSoldProperty extends javax.swing.JFrame {
     //array list of all the application sellers 
     private static ArrayList<Employee> emp = new ArrayList<>();
     //array list of all the application employees 
-    private static ArrayList<Property> pr=new ArrayList<>();
+    private static ArrayList<Property> pr = new ArrayList<>();
     //array list of all the application properties
-    private static ArrayList<Visit>v=new ArrayList<>();
+    private static ArrayList<Visit> v = new ArrayList<>();
     //array list of all the application viewings
-    private static ArrayList<Offer>o=new ArrayList<>();
+    private static ArrayList<Offer> o = new ArrayList<>();
     //array list of all the application offers
-    private static ArrayList <Property> soldProperties = new ArrayList <> () ; 
+    private static ArrayList<Property> soldProperties = new ArrayList<>();
     //array list of all the properties for sale
-    
-    private static Employee employee ;
+
+    private static Employee employee;
     //connected employee
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;

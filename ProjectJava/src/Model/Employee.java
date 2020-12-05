@@ -14,5 +14,4 @@ public class Employee extends Person {
         //constructor of the Person class
     }
 
-   
 }

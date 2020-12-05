@@ -119,10 +119,10 @@ public class EmployeeNewProperty extends javax.swing.JFrame {
         jTextFieldPrice = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
-        jTextFieldLocation = new javax.swing.JTextField();
         jLabel14 = new javax.swing.JLabel();
         jTextFieldNumberRoom = new javax.swing.JTextField();
         jTextFieldNumberBedroom = new javax.swing.JTextField();
+        jTextFieldLocation = new javax.swing.JTextField();
         jLabel15 = new javax.swing.JLabel();
         jTextFieldSurface = new javax.swing.JTextField();
         jLabel16 = new javax.swing.JLabel();
@@ -274,7 +274,7 @@ public class EmployeeNewProperty extends javax.swing.JFrame {
         jLabel10.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(0, 153, 153));
         jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel10.setText("Username");
+        jLabel10.setText("Username (email adress)");
         jLabel10.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         jTextFieldUsername.addActionListener(new java.awt.event.ActionListener() {
@@ -320,9 +320,9 @@ public class EmployeeNewProperty extends javax.swing.JFrame {
                     .addComponent(jTextFieldFirstName)
                     .addComponent(jLabel8)
                     .addComponent(jTextFieldUsername)
-                    .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextFieldSurname)
-                    .addComponent(jPasswordField2, javax.swing.GroupLayout.DEFAULT_SIZE, 210, Short.MAX_VALUE))
+                    .addComponent(jPasswordField2, javax.swing.GroupLayout.DEFAULT_SIZE, 210, Short.MAX_VALUE)
+                    .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(35, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -464,7 +464,7 @@ public class EmployeeNewProperty extends javax.swing.JFrame {
         jLabel25.setBackground(new java.awt.Color(255, 255, 255));
         jLabel25.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
         jLabel25.setForeground(new java.awt.Color(0, 153, 153));
-        jLabel25.setText("Surface");
+        jLabel25.setText("Surface (m²)");
 
         jLabel26.setBackground(new java.awt.Color(255, 255, 255));
         jLabel26.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
@@ -644,7 +644,7 @@ public class EmployeeNewProperty extends javax.swing.JFrame {
         );
 
         jPanel2.add(jPanelApartment);
-        jPanelApartment.setBounds(760, 500, 801, 330);
+        jPanelApartment.setBounds(760, 500, 806, 330);
 
         jPanelHouse.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -663,12 +663,6 @@ public class EmployeeNewProperty extends javax.swing.JFrame {
         jLabel13.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
         jLabel13.setForeground(new java.awt.Color(0, 153, 153));
         jLabel13.setText("Location");
-
-        jTextFieldLocation.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                jTextFieldLocationKeyTyped(evt);
-            }
-        });
 
         jLabel14.setBackground(new java.awt.Color(255, 255, 255));
         jLabel14.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
@@ -692,6 +686,12 @@ public class EmployeeNewProperty extends javax.swing.JFrame {
             }
         });
 
+        jTextFieldLocation.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextFieldLocationKeyTyped(evt);
+            }
+        });
+
         jLabel15.setBackground(new java.awt.Color(255, 255, 255));
         jLabel15.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
         jLabel15.setForeground(new java.awt.Color(0, 153, 153));
@@ -706,7 +706,7 @@ public class EmployeeNewProperty extends javax.swing.JFrame {
         jLabel16.setBackground(new java.awt.Color(255, 255, 255));
         jLabel16.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
         jLabel16.setForeground(new java.awt.Color(0, 153, 153));
-        jLabel16.setText("Surface");
+        jLabel16.setText("Surface (m²)");
 
         jLabel17.setBackground(new java.awt.Color(255, 255, 255));
         jLabel17.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
@@ -899,7 +899,7 @@ public class EmployeeNewProperty extends javax.swing.JFrame {
         );
 
         jPanel2.add(jPanelUsername);
-        jPanelUsername.setBounds(860, 100, 259, 103);
+        jPanelUsername.setBounds(860, 100, 259, 108);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -930,8 +930,7 @@ public class EmployeeNewProperty extends javax.swing.JFrame {
             jPanelHouse.hide();
             //nothing happens so all the panels remain hidden 
 
-        }
-        else  if (selected.equals("Yes")) {
+        } else if (selected.equals("Yes")) {
             //if the seller already has an account 
             tampon = 1;
             //we set the buffer to 1
@@ -1022,7 +1021,7 @@ public class EmployeeNewProperty extends javax.swing.JFrame {
         int t;
         //temporary buffer 
         if (jPasswordField2.getText().trim().isEmpty() || jTextFieldSurname.getText().trim().isEmpty() || jTextFieldFirstName.getText().trim().isEmpty() || jTextFieldUsername.getText().trim().isEmpty() || jPasswordField2.getText().trim().isEmpty()) {
-        //if one or several fields are empty
+            //if one or several fields are empty
             JOptionPane.showMessageDialog(null, "One or several fields are empty. Please, try again.");
             //we let it know 
 
@@ -1108,11 +1107,11 @@ public class EmployeeNewProperty extends javax.swing.JFrame {
         String selected = (String) jComboBox3.getSelectedItem();
         //we get what has been selected from the combo box 
         if (selected.equals("Yes")) {
-        //if yes has been selected 
+            //if yes has been selected 
             tampon4 = 1;
             //we set the value of the fourth buffer to 1 
         } else if (selected.equals("No")) {
-        //otherwise, there is no swimming pool 
+            //otherwise, there is no swimming pool 
             tampon4 = -1;
             //we set the value of the fourth buffer to -1 
         }
@@ -1135,7 +1134,7 @@ public class EmployeeNewProperty extends javax.swing.JFrame {
         String selected = (String) jComboBox2.getSelectedItem();
         //we get what has been selected in the combo box
         if (selected.equals("Select")) {
-             //if the seller doesn't select a type but remains on the first option of the combo box or click on it
+            //if the seller doesn't select a type but remains on the first option of the combo box or click on it
             jPanelApartment.hide();
             jPanelHouse.hide();
             //nothing happens so we hide all the panels 
@@ -1149,7 +1148,7 @@ public class EmployeeNewProperty extends javax.swing.JFrame {
             //we hide the pane to introduce a house 
 
         } else if (selected.equals("House")) {
-             //otherwise, if the seller choses house
+            //otherwise, if the seller choses house
 
             jPanelHouse.show();
             //we show the panel to introduce a house 
@@ -1199,7 +1198,7 @@ public class EmployeeNewProperty extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextFieldNumberFloor1KeyTyped
 
     private void jTextFieldFloorNumberKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldFloorNumberKeyTyped
-         //function that unables the user to enter something else than digit (because we want a floor number)
+        //function that unables the user to enter something else than digit (because we want a floor number)
         char c = evt.getKeyChar();
         if (!Character.isDigit(c)) {
             evt.consume();
@@ -1215,11 +1214,11 @@ public class EmployeeNewProperty extends javax.swing.JFrame {
         String selected = (String) jComboBox4.getSelectedItem();
         //we get what has been selected in the combo box 
         if (selected.equals("Yes")) {
-        //if there is an elevator 
+            //if there is an elevator 
             tampon5 = 1;
             //we set the value of the fifth buffer to 1
         } else if (selected.equals("No")) {
-        //otherwise,there is no elevator 
+            //otherwise,there is no elevator 
             tampon5 = -1;
             //we set the value of the fifth buffer to -1
         }
@@ -1292,27 +1291,30 @@ public class EmployeeNewProperty extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(null, "One or several fields are empty. Please, try again.");
                     //if there is, we let it know 
                 } else {
-                    
-                    if(Integer.parseInt(jTextFieldNumberRoom.getText())<Integer.parseInt(jTextFieldNumberBedroom.getText()))
-                    {
+
+                    if (Integer.parseInt(jTextFieldNumberRoom.getText()) < Integer.parseInt(jTextFieldNumberBedroom.getText())) {
                         //We check if the number of rooms is higher than the number of bedrooms
                         //If it is not we display a message
                         JOptionPane.showMessageDialog(null, "The number of bedrooms can be higher than the number of rooms.");
-                    }
-                    else
-                    {
-                    //if all the conditions are respected
-                    this.addhouse(sellers.get(tampon2).getid());
-                    //we call the addhouse function to add the house to the application 
-                    JOptionPane.showMessageDialog(null, "This house has been registered");
-                    //we let know it was successful
-                    this.setVisible(false);
-                    //we close this frame once it is done  
-                    EmployeeFirst a = new EmployeeFirst(employee, buyers, sellers, emp, pr, v, o);
-                    //we go back on the previous frame
-                    a.setVisible(true);
-                    //we set it visible 
-                    a.toFront();
+                    } else {
+                        if (Integer.parseInt(jTextFieldNumberRoom.getText()) == 0 || Integer.parseInt(jTextFieldNumberFloor.getText()) == 0 || Double.parseDouble(jTextFieldSurface.getText()) == 0) {
+                            //if the number of floord or the number of room or the surface is equal to 0 we show a message error
+                            JOptionPane.showMessageDialog(null, "The following fields cannot be 0 : Number of floors, Surface, Number of Rooms");
+
+                        } else {
+                            //if all the conditions are respected
+                            this.addhouse(sellers.get(tampon2).getid());
+                            //we call the addhouse function to add the house to the application 
+                            JOptionPane.showMessageDialog(null, "This house has been registered");
+                            //we let know it was successful
+                            this.setVisible(false);
+                            //we close this frame once it is done  
+                            EmployeeFirst a = new EmployeeFirst(employee, buyers, sellers, emp, pr, v, o);
+                            //we go back on the previous frame
+                            a.setVisible(true);
+                            //we set it visible 
+                            a.toFront();
+                        }
                     }
                 }
             }
@@ -1324,26 +1326,29 @@ public class EmployeeNewProperty extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, "One or several fields are empty. Please, try again.");
                 //if one or several fields are empty, we let it know 
             } else {
-                if(Integer.parseInt(jTextFieldNumberRoom.getText())<Integer.parseInt(jTextFieldNumberBedroom.getText()))
-                    {
-                        //We check if the number of rooms is higher than the number of bedrooms
-                        //If it is not we display a message
-                        JOptionPane.showMessageDialog(null, "The number of bedrooms can be higher than the number of rooms.");
+                if (Integer.parseInt(jTextFieldNumberRoom.getText()) < Integer.parseInt(jTextFieldNumberBedroom.getText())) {
+                    //We check if the number of rooms is higher than the number of bedrooms
+                    //If it is not we display a message
+                    JOptionPane.showMessageDialog(null, "The number of bedrooms can be higher than the number of rooms.");
+                } else {
+                    if (Integer.parseInt(jTextFieldNumberRoom.getText()) == 0 || Integer.parseInt(jTextFieldNumberFloor.getText()) == 0 || Double.parseDouble(jTextFieldSurface.getText()) == 0) {
+                        //if the number of floord or the number of room or the surface is equal to 0 we show a message error
+                        JOptionPane.showMessageDialog(null, "The following fields cannot be 0 : Number of floors, Surface, Number of Rooms");
+
+                    } else {
+                        //if all the conditions are respected
+                        this.addhouse(sellers.get(sellers.size() - 1).getid());
+                        //we call the addhouse function to add the house to the application 
+                        JOptionPane.showMessageDialog(null, "This house has been registered");
+                        //we let know it was successful
+                        this.setVisible(false);
+                        //we close this frame once it is done 
+                        EmployeeFirst a = new EmployeeFirst(employee, buyers, sellers, emp, pr, v, o);
+                        //we go back on the previous frame
+                        a.setVisible(true);
+                        //we set it visible 
+                        a.toFront();
                     }
-                else
-                {
-                //if all the conditions are respected
-                this.addhouse(sellers.get(sellers.size() - 1).getid());
-                //we call the addhouse function to add the house to the application 
-                JOptionPane.showMessageDialog(null, "This house has been registered");
-                //we let know it was successful
-                this.setVisible(false);
-                //we close this frame once it is done 
-                EmployeeFirst a = new EmployeeFirst(employee, buyers, sellers, emp, pr, v, o);
-                //we go back on the previous frame
-                a.setVisible(true);
-                //we set it visible 
-                a.toFront();
                 }
             }
         }
@@ -1379,26 +1384,29 @@ public class EmployeeNewProperty extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(null, "One or several fields are empty. Please, try again.");
                     //if there is, we let it know 
                 } else {
-                     if(Integer.parseInt(jTextFieldNumberRoom1.getText())<Integer.parseInt(jTextFieldNumberBedroom1.getText()))
-                    {
+                    if (Integer.parseInt(jTextFieldNumberRoom1.getText()) < Integer.parseInt(jTextFieldNumberBedroom1.getText())) {
                         //We check if the number of rooms is higher than the number of bedrooms
                         //If it is not we display a message
                         JOptionPane.showMessageDialog(null, "The number of bedrooms can be higher than the number of rooms.");
-                    }
-                    else
-                    {
-                    //if all the conditions are respected 
-                    this.addapartment(sellers.get(tampon2).getid());
-                    //we call the addapartment function to add the apartment to the application 
-                    JOptionPane.showMessageDialog(null, "This apartment has been registered");
-                    //we let know it was successful
-                    this.setVisible(false);
-                    //we close this frame once it is done 
-                    EmployeeFirst a = new EmployeeFirst(employee, buyers, sellers, emp, pr, v, o);
-                    //we go back on the previous frame
-                    a.setVisible(true);
-                    //we set it visible 
-                    a.toFront();
+                    } else {
+                        if (Integer.parseInt(jTextFieldNumberRoom1.getText()) == 0 || Integer.parseInt(jTextFieldNumberFloor1.getText()) == 0 || Double.parseDouble(jTextFieldSurface1.getText()) == 0) {
+                            //if the number of floord or the number of room or the surface is equal to 0 we show a message error
+                            JOptionPane.showMessageDialog(null, "The following fields cannot be 0 : Number of floors, Surface, Number of Rooms");
+
+                        } else {
+                            //if all the conditions are respected 
+                            this.addapartment(sellers.get(tampon2).getid());
+                            //we call the addapartment function to add the apartment to the application 
+                            JOptionPane.showMessageDialog(null, "This apartment has been registered");
+                            //we let know it was successful
+                            this.setVisible(false);
+                            //we close this frame once it is done 
+                            EmployeeFirst a = new EmployeeFirst(employee, buyers, sellers, emp, pr, v, o);
+                            //we go back on the previous frame
+                            a.setVisible(true);
+                            //we set it visible 
+                            a.toFront();
+                        }
                     }
                 }
             }
@@ -1410,33 +1418,36 @@ public class EmployeeNewProperty extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, "One or several fields are empty. Please, try again.");
                 //if one or several fields are empty, we let it know 
             } else {
-                  if(Integer.parseInt(jTextFieldNumberRoom1.getText())<Integer.parseInt(jTextFieldNumberBedroom1.getText()))
-                    {
-                        //We check if the number of rooms is higher than the number of bedrooms
-                        //If it is not we display a message
-                        JOptionPane.showMessageDialog(null, "The number of bedrooms can be higher than the number of rooms.");
+                if (Integer.parseInt(jTextFieldNumberRoom1.getText()) < Integer.parseInt(jTextFieldNumberBedroom1.getText())) {
+                    //We check if the number of rooms is higher than the number of bedrooms
+                    //If it is not we display a message
+                    JOptionPane.showMessageDialog(null, "The number of bedrooms can be higher than the number of rooms.");
+                } else {
+                    if (Integer.parseInt(jTextFieldNumberRoom1.getText()) == 0 || Integer.parseInt(jTextFieldNumberFloor1.getText()) == 0 || Double.parseDouble(jTextFieldSurface1.getText()) == 0) {
+                        //if the number of floord or the number of room or the surface is equal to 0 we show a message error
+                        JOptionPane.showMessageDialog(null, "The following fields cannot be 0 : Number of floors, Surface, Number of Rooms");
+
+                    } else {
+                        //if all the conditions are respected 
+                        this.addapartment(sellers.get(sellers.size() - 1).getid());
+                        //we call the addapartment function to add the apartment to the application
+                        JOptionPane.showMessageDialog(null, "This apartment has been registered");
+                        //we let know it was successful
+                        this.setVisible(false);
+                        //we close this frame once it is done 
+                        EmployeeFirst a = new EmployeeFirst(employee, buyers, sellers, emp, pr, v, o);
+                        //we go back on the previous frame
+                        a.setVisible(true);
+                        //we set it visible 
+                        a.toFront();
                     }
-                    else
-                    {
-                    //if all the conditions are respected 
-                this.addapartment(sellers.get(sellers.size() - 1).getid());
-                 //we call the addapartment function to add the apartment to the application
-                JOptionPane.showMessageDialog(null, "This apartment has been registered");
-                //we let know it was successful
-                this.setVisible(false);
-                //we close this frame once it is done 
-                EmployeeFirst a = new EmployeeFirst(employee, buyers, sellers, emp, pr, v, o);
-                //we go back on the previous frame
-                a.setVisible(true);
-                //we set it visible 
-                a.toFront();
-                    }
+                }
             }
         }
     }//GEN-LAST:event_jButton3ActionPerformed
 
     public int test() {
-             //fuction that checks if the entered username is not already in the application 
+        //fuction that checks if the entered username is not already in the application 
         int t = 0;
         //temporary variable 
         for (int i = 0; i < buyers.size(); ++i) {
@@ -1557,7 +1568,7 @@ public class EmployeeNewProperty extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(EmployeeNewProperty.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-        
+
         //</editor-fold>
 
         /* Create and display the form */
@@ -1569,7 +1580,7 @@ public class EmployeeNewProperty extends javax.swing.JFrame {
         });
     }
 
-    private int tampon; 
+    private int tampon;
     // buffer to know if we are dealing with a new seller or a seller that already has an account
     private int tampon2;
     // buffer for recognizing a seller from his username
