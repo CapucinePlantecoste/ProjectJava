@@ -198,7 +198,7 @@ public class EmployeeFirst extends javax.swing.JFrame {
                 //so we add it to the sold properties array list
             }
         }
-        if (soldprop.size() == 0) {
+        if (soldprop.isEmpty()) {
             //if there is no sold properties 
             JOptionPane.showMessageDialog(null, "None property has been sold"); 
             //message shown to say so
@@ -280,6 +280,7 @@ public class EmployeeFirst extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
+            @Override
             public void run() {
                 new EmployeeFirst(newemployee, buyers, sellers, emp,pr,v,o).setVisible(true);
             }

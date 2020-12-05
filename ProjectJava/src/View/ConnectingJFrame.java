@@ -1,8 +1,5 @@
 //this class if the second frame that is visible when you want to log in (as a buyer, a seller or an employee, the frame is the same)
 package View;
-import View.BuyerFirst;
-import View.EmployeeFirst;
-import View.SellerFirst;
 import Model.Visit;
 import Model.Seller;
 import Model.Property;
@@ -29,7 +26,7 @@ public class ConnectingJFrame extends javax.swing.JFrame {
         initComponents();
         //automatically generated initialisation of the frame components
         type = t;
-        //String corresponding to the type of the customer (employee, buyer or seller)
+        //String corresponding to the type of the person who is trying to connect (employee,buyer or seller)
         buyers = b;
         //Array List of all the buyers of the application
         sellers = s;

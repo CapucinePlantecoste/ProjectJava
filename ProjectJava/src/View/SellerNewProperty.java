@@ -1,7 +1,6 @@
 //this frame is the frame that is shown when a seller wants to introduce a new property 
 package View;
 
-import View.SellerFirst;
 import Model.Visit;
 import Model.Seller;
 import Model.Property;
@@ -274,6 +273,7 @@ public class SellerNewProperty extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
+            @Override
             public void run() {
                 new SellerNewProperty(newseller, buyers, sellers, emp, pr, v, o).setVisible(true);
             }

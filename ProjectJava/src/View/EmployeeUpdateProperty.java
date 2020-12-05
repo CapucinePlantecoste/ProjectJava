@@ -703,7 +703,7 @@ public class EmployeeUpdateProperty extends javax.swing.JFrame {
             //nothing happens so we hide all the other panels
 
         } else {
-        //otherwise, the employee selected one of the property for sale to update its properties 
+        //otherwise, if the employee selected one of the property for sale to update its properties 
             for (int i = 0; i < pr.size(); i++) {
             //we go through the array list of all the properties of the application
                 if (selected.equals(pr.get(i).getdescription() + " id : " + pr.get(i).getid())) {
@@ -826,7 +826,7 @@ public class EmployeeUpdateProperty extends javax.swing.JFrame {
         //temporary buffer
         String selected = (String) jComboBox1.getSelectedItem();
         //we get what has been selected in the combo box of the properties for sale 
-        for (int i = 0; i < pr.size(); i++) {
+        for (int i = 0; i < pr.size(); ++i) {
         //we go through the properties contained in the database 
             if (selected.equals(pr.get(i).getdescription() + " id : " + pr.get(i).getid())) {
             //if what is selected is the same as the decription + id of the corresponding property 
@@ -873,6 +873,7 @@ public class EmployeeUpdateProperty extends javax.swing.JFrame {
                 }
                 pdao.update(pr.get(tampon), 2);
                 //with all those new information, we can update the property
+                //we send 2 to distinguish the house from the apartment which number is 1
                 JOptionPane.showMessageDialog(null, "The changes have been updated");
                 //update successful
                 this.setVisible(false);
@@ -1086,7 +1087,7 @@ public class EmployeeUpdateProperty extends javax.swing.JFrame {
 
     public void initjcb1() {
         //function that enables to fill the combobox with the properties of the application
-        for (int i = 0; i < pr.size(); i++) {
+        for (int i = 0; i < pr.size(); ++i) {
             //we go through all the properties of the application
             jComboBox1.addItem(pr.get(i).getdescription() + " id : " + pr.get(i).getid());
             //we add the items one by one to the combo box
@@ -1122,6 +1123,7 @@ public class EmployeeUpdateProperty extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
+            @Override
             public void run() {
                 new EmployeeUpdateProperty(employee, buyers, sellers, emp, pr, v, o).setVisible(true);
             }

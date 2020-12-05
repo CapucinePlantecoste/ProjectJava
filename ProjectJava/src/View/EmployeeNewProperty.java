@@ -931,7 +931,7 @@ public class EmployeeNewProperty extends javax.swing.JFrame {
             //nothing happens so all the panels remain hidden 
 
         }
-        if (selected.equals("Yes")) {
+        else  if (selected.equals("Yes")) {
             //if the seller already has an account 
             tampon = 1;
             //we set the buffer to 1
@@ -1019,7 +1019,7 @@ public class EmployeeNewProperty extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         //sign in button once the new seller filled all the fields
-        int t = 0;
+        int t;
         //temporary buffer 
         if (jPasswordField2.getText().trim().isEmpty() || jTextFieldSurname.getText().trim().isEmpty() || jTextFieldFirstName.getText().trim().isEmpty() || jTextFieldUsername.getText().trim().isEmpty() || jPasswordField2.getText().trim().isEmpty()) {
         //if one or several fields are empty
@@ -1045,7 +1045,7 @@ public class EmployeeNewProperty extends javax.swing.JFrame {
             //if the format of the email adress is not correct, we let it kow
         } else {
             t = this.test();
-            //by calling the test fuction, we check if the entered username is not already taken by one of our sellers 
+            //by calling the test fuction, we check if the entered username is not already taken by one of our sellers or buyers or employee
             if (t != 0) {
                 //if t !=0, it means the entered username is amready used by someone else 
                 JOptionPane.showMessageDialog(null, "Username already used. Please, chose another one.");
@@ -1135,13 +1135,13 @@ public class EmployeeNewProperty extends javax.swing.JFrame {
         String selected = (String) jComboBox2.getSelectedItem();
         //we get what has been selected in the combo box
         if (selected.equals("Select")) {
-             //if the seller doesn't select a type but remains on the first option of the combo box
+             //if the seller doesn't select a type but remains on the first option of the combo box or click on it
             jPanelApartment.hide();
             jPanelHouse.hide();
-            //nothing happens so we add all the panels 
+            //nothing happens so we hide all the panels 
 
         } else if (selected.equals("Apartment")) {
-            //otherwise, if the seller choses an apartment  
+            //otherwise, if the seller choses  apartment  
 
             jPanelApartment.show();
             //we show the panel to introduce an apartment 
@@ -1149,7 +1149,7 @@ public class EmployeeNewProperty extends javax.swing.JFrame {
             //we hide the pane to introduce a house 
 
         } else if (selected.equals("House")) {
-             //otherwise, if the seller choses a house
+             //otherwise, if the seller choses house
 
             jPanelHouse.show();
             //we show the panel to introduce a house 
@@ -1292,7 +1292,16 @@ public class EmployeeNewProperty extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(null, "One or several fields are empty. Please, try again.");
                     //if there is, we let it know 
                 } else {
-                    //if not, 
+                    
+                    if(Integer.parseInt(jTextFieldNumberRoom.getText())<Integer.parseInt(jTextFieldNumberBedroom.getText()))
+                    {
+                        //We check if the number of rooms is higher than the number of bedrooms
+                        //If it is not we display a message
+                        JOptionPane.showMessageDialog(null, "The number of bedrooms can be higher than the number of rooms.");
+                    }
+                    else
+                    {
+                    //if all the conditions are respected
                     this.addhouse(sellers.get(tampon2).getid());
                     //we call the addhouse function to add the house to the application 
                     JOptionPane.showMessageDialog(null, "This house has been registered");
@@ -1304,6 +1313,7 @@ public class EmployeeNewProperty extends javax.swing.JFrame {
                     a.setVisible(true);
                     //we set it visible 
                     a.toFront();
+                    }
                 }
             }
         } else {
@@ -1314,7 +1324,15 @@ public class EmployeeNewProperty extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, "One or several fields are empty. Please, try again.");
                 //if one or several fields are empty, we let it know 
             } else {
-                //otherwise, 
+                if(Integer.parseInt(jTextFieldNumberRoom.getText())<Integer.parseInt(jTextFieldNumberBedroom.getText()))
+                    {
+                        //We check if the number of rooms is higher than the number of bedrooms
+                        //If it is not we display a message
+                        JOptionPane.showMessageDialog(null, "The number of bedrooms can be higher than the number of rooms.");
+                    }
+                else
+                {
+                //if all the conditions are respected
                 this.addhouse(sellers.get(sellers.size() - 1).getid());
                 //we call the addhouse function to add the house to the application 
                 JOptionPane.showMessageDialog(null, "This house has been registered");
@@ -1326,6 +1344,7 @@ public class EmployeeNewProperty extends javax.swing.JFrame {
                 a.setVisible(true);
                 //we set it visible 
                 a.toFront();
+                }
             }
         }
     }//GEN-LAST:event_jButton4ActionPerformed
@@ -1360,7 +1379,15 @@ public class EmployeeNewProperty extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(null, "One or several fields are empty. Please, try again.");
                     //if there is, we let it know 
                 } else {
-                    //if not, 
+                     if(Integer.parseInt(jTextFieldNumberRoom1.getText())<Integer.parseInt(jTextFieldNumberBedroom1.getText()))
+                    {
+                        //We check if the number of rooms is higher than the number of bedrooms
+                        //If it is not we display a message
+                        JOptionPane.showMessageDialog(null, "The number of bedrooms can be higher than the number of rooms.");
+                    }
+                    else
+                    {
+                    //if all the conditions are respected 
                     this.addapartment(sellers.get(tampon2).getid());
                     //we call the addapartment function to add the apartment to the application 
                     JOptionPane.showMessageDialog(null, "This apartment has been registered");
@@ -1372,6 +1399,7 @@ public class EmployeeNewProperty extends javax.swing.JFrame {
                     a.setVisible(true);
                     //we set it visible 
                     a.toFront();
+                    }
                 }
             }
         } else {
@@ -1382,7 +1410,15 @@ public class EmployeeNewProperty extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, "One or several fields are empty. Please, try again.");
                 //if one or several fields are empty, we let it know 
             } else {
-                //otherwise, 
+                  if(Integer.parseInt(jTextFieldNumberRoom1.getText())<Integer.parseInt(jTextFieldNumberBedroom1.getText()))
+                    {
+                        //We check if the number of rooms is higher than the number of bedrooms
+                        //If it is not we display a message
+                        JOptionPane.showMessageDialog(null, "The number of bedrooms can be higher than the number of rooms.");
+                    }
+                    else
+                    {
+                    //if all the conditions are respected 
                 this.addapartment(sellers.get(sellers.size() - 1).getid());
                  //we call the addapartment function to add the apartment to the application
                 JOptionPane.showMessageDialog(null, "This apartment has been registered");
@@ -1394,24 +1430,41 @@ public class EmployeeNewProperty extends javax.swing.JFrame {
                 a.setVisible(true);
                 //we set it visible 
                 a.toFront();
+                    }
             }
         }
     }//GEN-LAST:event_jButton3ActionPerformed
 
     public int test() {
-        //fuction that checks if the entered username is not already in the application 
+             //fuction that checks if the entered username is not already in the application 
         int t = 0;
         //temporary variable 
+        for (int i = 0; i < buyers.size(); ++i) {
+            //we go through all the buyers of the application 
+            if (buyers.get(i).getusername().equals(jTextFieldUsername.getText())) {
+                //if the username of the buyer at the index i is equal to the one that the new customer wants
+                t++;
+                //We increment the variable
+            }
+        }
         for (int j = 0; j < sellers.size(); ++j) {
             //we go through all the sellers of the application 
             if (sellers.get(j).getusername().equals(jTextFieldUsername.getText())) {
-                //if the username entered is already is the database
+                //if the username of the seller at the index j is equal to the one that the new customer wants
                 t++;
-                //we increment t ; 
+                // We increment the variable
+            }
+        }
+        for (int k = 0; k < emp.size(); ++k) {
+            //we go through all the employees of the application 
+            if (emp.get(k).getusername().equals(jTextFieldUsername.getText())) {
+                //if the username of the employee at the index k is equal to the one that the new customer wants
+                t++;
+                //We increment the variable
             }
         }
         return t;
-        //we return the t 
+        //We return variable t
     }
 
     public void addseller() {
@@ -1509,6 +1562,7 @@ public class EmployeeNewProperty extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
+            @Override
             public void run() {
                 new EmployeeNewProperty(employee, buyers, sellers, emp, pr, v, o).setVisible(true);
             }

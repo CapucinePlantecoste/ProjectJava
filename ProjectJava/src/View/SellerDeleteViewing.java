@@ -297,7 +297,7 @@ public class SellerDeleteViewing extends javax.swing.JFrame {
         } else {
         //otherwise, the seller choses one of the properties
             
-            for (int i = 0; i < propviewing.size(); i++) {
+            for (int i = 0; i < propviewing.size(); ++i) {
             //we go through the list of his properties that have at least 1 viewing
                 if (selected.equals(propviewing.get(i).getdescription()+" idproperty : "+propviewing.get(i).getid())) {
                 // if what is selected is the same as the description + the id the coresponding property 
@@ -359,6 +359,7 @@ public class SellerDeleteViewing extends javax.swing.JFrame {
             }
         }
 
+        //If we don't select anything nothing happens
             if (jComboBox2.getSelectedIndex() < 0) {
             } else {
                 String selected2 = (String) jComboBox2.getSelectedItem();
@@ -510,6 +511,7 @@ public class SellerDeleteViewing extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
+            @Override
             public void run() {
                 new SellerDeleteViewing(newseller, buyers, sellers, emp, pr, v, o, myviewings, propviewing).setVisible(true);
             }

@@ -448,9 +448,9 @@ public class EmployeeAddViewing extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         //button validate the viewing
         Date date=new Date();
-        //we create a date object 
+        //we create a date object with no arguments so that it is the current date
         Timestamp ts= new Timestamp(date.getTime());
-        //we create an object of time stamp, that enables to get the date
+        //we create an object of time stamp, that enables to have the same type as in the database
         SimpleDateFormat sdf= new SimpleDateFormat ("yyyy-MM-dd hh:mm:ss");
         //we will use this format for the time of the aded viewing : yyyy-MM-dd hh:mm:ss
       
@@ -500,11 +500,11 @@ public class EmployeeAddViewing extends javax.swing.JFrame {
                     //all the fields are filled correctly, we can finally save the date of the viewing 
                     {
                         String newd=(jTextFieldYear.getText()+"-"+jTextFieldMonth.getText()+"-"+jTextField1.getText()+" "+jTextFieldHour.getText()+":"+jTextFieldMinutes.getText()+":00");
-                        //we create a new date by getting all the fields and adding some "-" between the fields to respect this format : yyyy-MM-dd hh:mm:ss
+                        //we create a new string by getting all the fields and adding some "-" between the fields to respect this format : yyyy-MM-dd hh:mm:ss
                         try
                         {
                             Date dateparse=sdf.parse(newd);
-                            //we convert the date that was written in the viewing panel to the good format : yyyy-MM-dd hh:mm:ss
+                            //we convert the date (in string) to a date  written in the viewing panel with the good format : yyyy-MM-dd hh:mm:ss
                             Timestamp d=new Timestamp(dateparse.getTime());
                             //we transform the date in a timetsamp object and we send in parameter the time in ms that passed since 1970
                             c=d.compareTo(ts);
@@ -547,7 +547,7 @@ public class EmployeeAddViewing extends javax.swing.JFrame {
 
     public void initjcb1() {
         //this function adds the properties of the application to the jcombobox 
-        for (int i = 0; i < pr.size(); i++) {
+        for (int i = 0; i < pr.size(); ++i) {
             //we go through all the poperties registered in the application
 
             jComboBox1.addItem(pr.get(i).getdescription()+" idproperty : "+pr.get(i).getid());
@@ -584,6 +584,7 @@ public class EmployeeAddViewing extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
+            @Override
             public void run() {
                 new EmployeeAddViewing(employee, buyers, sellers, emp,pr,v,o).setVisible(true);
             }

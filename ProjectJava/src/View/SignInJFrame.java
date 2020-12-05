@@ -12,9 +12,6 @@ import Model.Offer;
 import Model.Employee;
 import Model.Buyer;
 import java.util.ArrayList;
-import java.sql.DriverManager;
-import java.sql.SQLException;
-import java.sql.*;
 import javax.swing.JOptionPane;
 import Model.BuyerDAOImpl;
 import projectjava.First;
@@ -35,10 +32,10 @@ public class SignInJFrame extends javax.swing.JFrame {
         buyers = b;//array list of all the buyers 
         sellers = s;//array list of all the sellers 
         emp = e;//array list of all the employees 
-        pr = prop;
-        v = vis;
-        o = off;
-        tampon = 1;
+        pr = prop;// arraylist of all the properties
+        v = vis;//arraylist of all the viewings
+        o = off;//arraylist of all the offers
+        tampon = 1;//buffer initialized at 1
 
     }
 
@@ -268,19 +265,20 @@ public class SignInJFrame extends javax.swing.JFrame {
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
 
         // TODO add your handling code here:
+        
+        int t;
+
         // We check that each textfield is not empty.
         // In order to do that we use the get text function to see if what the text field contains
         // We then use the trim function that doesn't take in consideration the blank ( in case the user has put blanks)
         // Then we test if the text is empty without the blanks
-        // if one of the text field is empty we ask the user to retake the fields
-        int t = 0;
-
-        // rajouter dans ce if la condition le password et le check password egaux
         if (jPasswordField2.getText().trim().isEmpty() || jTextField2.getText().trim().isEmpty() || jTextField3.getText().trim().isEmpty() || jTextField4.getText().trim().isEmpty() || jPasswordField2.getText().trim().isEmpty()) {
 
             JOptionPane.showMessageDialog(null, "One or several fields are empty. Please, try again.");
+            //We show a message if one of them is empty
 
         } else if (!jPasswordField2.getText().equals(jPasswordField1.getText())) {
+            //We check if the password field and the check passwordfield are the same
             JOptionPane.showMessageDialog(null, "The two passwords are not the same. Please, try again.");
         }
         //This next else if checks if the username field has an email format
@@ -296,51 +294,57 @@ public class SignInJFrame extends javax.swing.JFrame {
         else if(!(Pattern.matches("^[a-zA-Z0-9]{1}+[a-zA-Z0-9-.]{0,10000}+[@]{1}+[a-zA-Z0-9]+[.]{1}+[a-zA-Z]+$",jTextField4.getText())))
         {
             JOptionPane.showMessageDialog(null," Please enter a valid email adress");
+            //if the format of the email adress is not correct, we let it kow
         }
+        
                 else {
-            
-
             if (tampon == 1) {
-
+                //if we click on buyer
                 t = this.test();
+                //by calling the test fuction, we check if the entered username is not already taken by one of our sellers or buyers or employees
 
                 if (t != 0) {
+                    //if t !=0, it means the entered username is amready used by someone else
                     JOptionPane.showMessageDialog(null, "Username already used. Please, chose another one.");
+                     //so we let it know 
                 } else {
-
+                    //otherwise, the username is good 
                     this.addbuyer();
-
-                    //add buyer.get(buyers.size()-1)
+                    //we call the addbuyer function to add the new buyer to the application 
                     JOptionPane.showMessageDialog(null, "The account has been successfully created");
-
+                    //We lead the new buyer to his account
                     BuyerFirst newframe = new BuyerFirst(buyers.get(buyers.size() - 1), buyers, sellers, emp, pr, v, o);
-                    
+                    //We show him his name
                     newframe.nom();
                     this.setVisible(false);
                     //If the user clicks on connect as a buyer
 
                     newframe.setVisible(true); //we open the new frame
                     newframe.toFront();
-                    //AFFICHER L'INTERFACE DU NOUVEL ARRIVANT
+                   
 
                 }
 
             } else {
-
+                //if we click on seller
                 t = this.test();
+                //by calling the test fuction, we check if the entered username is not already taken by one of our sellers or buyers or employees
                 if (t != 0) {
+                    //if t !=0, it means the entered username is amready used by someone else
                     JOptionPane.showMessageDialog(null, "Username already used. Please, chose another one.");
+                    //so we let it know 
                 } else {
+                    //otherwise, the username is good 
                     this.addseller();
+                    //we call the addseller function to add the new seller to the application 
                     JOptionPane.showMessageDialog(null, "The account has been successfully created");
+                    //We lead the new seller to his account
                     SellerFirst newframe = new SellerFirst(sellers.get(sellers.size() - 1), buyers, sellers, emp, pr, v, o);
+                     //We show him his name
                     newframe.nom();
                     this.setVisible(false);
                     newframe.setVisible(true); //we open the new frame
                     newframe.toFront();
-                    
-                    //AFFICHER L'INTERFACE DU NOUVEL ARRIVANT
-
                 }
 
             }
@@ -349,41 +353,65 @@ public class SignInJFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton5ActionPerformed
 
     public void addbuyer() {
+        //function to add a buyer in the app and in the database
         BuyerDAOImpl bdao = new BuyerDAOImpl();
+        //We create a BuyerDAOImpl object to add the buyer to the database
         int idlast = buyers.get(buyers.size() - 1).getid();
+        // we get the id of the last buyer on the buyers list
         int newid = idlast + 1;
+        //We add one to the value of the id of the last buyer
         buyers.add(new Buyer(newid, jTextField3.getText(), jTextField2.getText(), jTextField4.getText(), jPasswordField2.getText()));
+        //We create our new object buyer with all the needed attributes
         bdao.addbuyer(buyers.get(buyers.size() - 1));
+        //We add the buyer to the database
 
     }
 
     public void addseller() {
+        //function to add a seller in the app and in the database
         SellerDAOImpl sdao = new SellerDAOImpl();
+        //We create a SellerDAOImpl object to add the seller to the database
         int idlast = sellers.get(sellers.size() - 1).getid();
+        // we get the id of the last seller on the sellers list
         int newid = idlast + 1;
+        //We add one to the value of the id of the last buyer
         sellers.add(new Seller(newid, jTextField3.getText(), jTextField2.getText(), jTextField4.getText(), jPasswordField2.getText()));
+        //We create our new object seller with all the needed attributes
         sdao.addseller(sellers.get(sellers.size() - 1));
+        //We add the buyer to the database
 
     }
 
     public int test() {
+        //fuction that checks if the entered username is not already in the application 
         int t = 0;
+        //temporary variable 
         for (int i = 0; i < buyers.size(); ++i) {
+            //we go through all the buyers of the application 
             if (buyers.get(i).getusername().equals(jTextField4.getText())) {
+                //if the username of the buyer at the index i is equal to the one that the new customer wants
                 t++;
+                //We increment the variable
             }
         }
         for (int j = 0; j < sellers.size(); ++j) {
+            //we go through all the sellers of the application 
             if (sellers.get(j).getusername().equals(jTextField4.getText())) {
+                //if the username of the seller at the index j is equal to the one that the new customer wants
                 t++;
+                // We increment the variable
             }
         }
         for (int k = 0; k < emp.size(); ++k) {
+            //we go through all the employees of the application 
             if (emp.get(k).getusername().equals(jTextField4.getText())) {
+                //if the username of the employee at the index k is equal to the one that the new customer wants
                 t++;
+                //We increment the variable
             }
         }
         return t;
+        //We return variable t
 
     }
     private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
@@ -401,11 +429,13 @@ public class SignInJFrame extends javax.swing.JFrame {
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
         // TODO add your handling code here:
         String selected = (String) jComboBox1.getSelectedItem();
-
+        // We get what has been selected in the jcombobox
         if (selected.equals("Buyer")) {
             tampon = 1;
+            //if it is buyer the value of the buffer is 1
         } else {
             tampon = 2;
+            //else it is 2
         }
     }//GEN-LAST:event_jComboBox1ActionPerformed
 
@@ -429,7 +459,7 @@ public class SignInJFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_jPasswordField2ActionPerformed
 
     private void jTextField3KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField3KeyTyped
-
+        //function that doesn't allow the buyer to enter a digit for the name field
         char c = evt.getKeyChar();
         if (Character.isDigit(c)) {
             evt.consume();
@@ -444,6 +474,7 @@ public class SignInJFrame extends javax.swing.JFrame {
 
     private void jTextField2KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField2KeyTyped
         // TODO add your handling code here:
+        //function that doesn't allow the buyer to enter a digit for the surname field
         char c = evt.getKeyChar();
         if (Character.isDigit(c)) {
             evt.consume();
@@ -489,11 +520,11 @@ public class SignInJFrame extends javax.swing.JFrame {
     private static ArrayList<Buyer> buyers = new ArrayList<>();//array list of all the buyers of the application
     private static ArrayList<Seller> sellers = new ArrayList<>();//array list of all the sellers of the application
     private static ArrayList<Employee> emp = new ArrayList<>();//array list of all the employees of the application
-    private static ArrayList<Property> pr = new ArrayList<>();
-    private static ArrayList<Visit> v = new ArrayList<>();
-    private static ArrayList<Offer> o = new ArrayList<>();
+    private static ArrayList<Property> pr = new ArrayList<>();// arraylist of all the properties
+    private static ArrayList<Visit> v = new ArrayList<>();// arraylist of all the viewings
+    private static ArrayList<Offer> o = new ArrayList<>();// arraylist of all the offers
 
-    private int tampon;
+    private int tampon;//buffer
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;

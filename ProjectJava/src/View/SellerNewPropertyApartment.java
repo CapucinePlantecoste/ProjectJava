@@ -1,7 +1,7 @@
 //this frame is displayed when the seller wants to introduce a new apartment 
 package View;
 
-import View.SellerFirst;
+
 import Model.Visit;
 import Model.Seller;
 import Model.Property;
@@ -361,49 +361,49 @@ public class SellerNewPropertyApartment extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jTextField3KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField3KeyTyped
-        //function that unables the user to enter a letter (because we want a price)
-        char c = evt.getKeyChar();
-        if (Character.isLetter(c) && !evt.isAltDown()) {
+        //function that unables the user to enter anything else than a number (because we want a price)
+         char c = evt.getKeyChar();
+        if (!Character.isDigit(c)) {
             evt.consume();
         }
     }//GEN-LAST:event_jTextField3KeyTyped
 
     private void jTextField5KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField5KeyTyped
-        //function that unables the user to enter a letter (because we want a number of rooms)
-        char c = evt.getKeyChar();
-        if (Character.isLetter(c) && !evt.isAltDown()) {
+        //function that unables the user to enter antything else than a digit (because we want a number of rooms)
+       char c = evt.getKeyChar();
+        if (!Character.isDigit(c)) {
             evt.consume();
         }
     }//GEN-LAST:event_jTextField5KeyTyped
 
     private void jTextField6KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField6KeyTyped
-        //function that unables the user to enter a letter (because we want a number of floors)
-        char c = evt.getKeyChar();
-        if (Character.isLetter(c) && !evt.isAltDown()) {
+        //function that unables the user to enter anything else than a digit (because we want a number of floors)
+         char c = evt.getKeyChar();
+        if (!Character.isDigit(c)) {
             evt.consume();
         }
     }//GEN-LAST:event_jTextField6KeyTyped
 
     private void jTextField7KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField7KeyTyped
-        //function that unables the user to enter a letter (because we want a surface)
-        char c = evt.getKeyChar();
-        if (Character.isLetter(c) && !evt.isAltDown()) {
+        //function that unables the user to enter anything else than a digit (because we want a surface)
+         char c = evt.getKeyChar();
+        if (!Character.isDigit(c)) {
             evt.consume();
         }
     }//GEN-LAST:event_jTextField7KeyTyped
 
     private void jTextField2KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField2KeyTyped
-        //function that unables the user to enter a letter (because we want a number of bedrooms)
-        char c = evt.getKeyChar();
-        if (Character.isLetter(c) && !evt.isAltDown()) {
+        //function that unables the user to enter anything else than a digit (because we want a number of bedrooms)
+         char c = evt.getKeyChar();
+        if (!Character.isDigit(c)) {
             evt.consume();
         }
     }//GEN-LAST:event_jTextField2KeyTyped
 
     private void jTextField4KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField4KeyTyped
-        //function that unables the user to enter a letter (because we want a floor number)
-        char c = evt.getKeyChar();
-        if (Character.isLetter(c) && !evt.isAltDown()) {
+        //function that unables the user to enter anything else than a digit (because we want a floor number)
+         char c = evt.getKeyChar();
+        if (!Character.isDigit(c)) {
             evt.consume();
         }
     }//GEN-LAST:event_jTextField4KeyTyped
@@ -446,7 +446,16 @@ public class SellerNewPropertyApartment extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "One or several fields are empty. Please, try again.");
             //we let it know
         } else {
-            //otherwise, all the fields have been filled 
+              if(Integer.parseInt(jTextField5.getText())<Integer.parseInt(jTextField2.getText()))
+                    {
+                        //We check if the number of rooms is higher than the number of bedrooms
+                        //If it is not we display a message
+                        JOptionPane.showMessageDialog(null, "The number of bedrooms can be higher than the number of rooms.");
+                    }
+                    else
+                    {
+                    //if all the conditions are respected 
+            
             this.addapartment();
             //we add the appartment thanks to the addapartment function 
             JOptionPane.showMessageDialog(null, "Your apartment has been successfully registered for sale");
@@ -457,6 +466,7 @@ public class SellerNewPropertyApartment extends javax.swing.JFrame {
             //we go back on the first page 
             a.setVisible(true);
             //we set the first page visible 
+                    }
         }
     }//GEN-LAST:event_jButton2ActionPerformed
 
@@ -531,6 +541,7 @@ public class SellerNewPropertyApartment extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
+            @Override
             public void run() {
                 new SellerNewPropertyApartment(newseller, buyers, sellers, emp, pr, v, o).setVisible(true);
             }

@@ -225,7 +225,7 @@ public class SellerFirst extends javax.swing.JFrame {
                 }
             }
         }
-        if (propviewing.size() == 0) {
+        if (propviewing.isEmpty()) {
             //if there is no property that has at least one viewing 
             JOptionPane.showMessageDialog(null, "No visit found for any of your properties");
             //we say so
@@ -246,7 +246,7 @@ public class SellerFirst extends javax.swing.JFrame {
         //first, we clean the array list of the offers of the connected seller
         this.setmyoffers();
         //we set the offers of the seller and we add the sellers offers in my offers 
-        if (myoffers.size() == 0) {
+        if (myoffers.isEmpty()) {
             //if the seller has no offer 
             JOptionPane.showMessageDialog(null, "No offers made for one of your properties or you don't have any property"); //message shown to say so
             //message to say so
@@ -268,7 +268,7 @@ public class SellerFirst extends javax.swing.JFrame {
         this.setmyprop();
         //we set the properties of the seller and we add the sellers properties in my prop
 
-        if (myprop.size() == 0) {
+        if (myprop.isEmpty()) {
             //if the seller has no properties 
             JOptionPane.showMessageDialog(null, "You have no properties for sale"); //message shown to say so
             //message to say so
@@ -289,7 +289,7 @@ public class SellerFirst extends javax.swing.JFrame {
         //first, we clear the array list of the properties of the connected seller
         this.setmyprop();
         //we set the properties of the seller and we add the sellers properties in my prop
-        if (myprop.size() == 0) {
+        if (myprop.isEmpty()) {
         //if the seller has no properties 
             JOptionPane.showMessageDialog(null, "You have no properties for sale so you cannot add no viewings"); //message shown to say so
             //message to say so 
@@ -390,6 +390,7 @@ public class SellerFirst extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
+            @Override
             public void run() {
                 new SellerFirst(newseller, buyers, sellers, emp, pr, v, o).setVisible(true);
 

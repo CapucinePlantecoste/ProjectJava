@@ -316,7 +316,7 @@ public class EmployeeRemoveSoldProperty extends javax.swing.JFrame {
             //nothing happens, so we hide the next panel
         }
         else
-        //the employee selected one of the sold property displayed in the combo box
+        //if the employee selected one of the sold property displayed in the combo box
         {
             for(int i=0;i<pr.size();++i)
             //we go through all the properties of the application 
@@ -403,7 +403,7 @@ public class EmployeeRemoveSoldProperty extends javax.swing.JFrame {
 
     public void initjcb1() {
         //this function adds the soldproperties of the application to the jcombobox 
-        for (int i = 0; i < soldProperties.size(); i++) {
+        for (int i = 0; i < soldProperties.size(); ++i) {
         //we go through the sold properties of the application 
             jComboBox1.addItem(soldProperties.get(i).getdescription()+" id : "+soldProperties.get(i).getid());
             //we add every sold properties to the combobox
@@ -455,6 +455,7 @@ public class EmployeeRemoveSoldProperty extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
+            @Override
             public void run() {
                 new EmployeeRemoveSoldProperty(employee, buyers, sellers, emp,pr,v,o, soldProperties).setVisible(true);
             }

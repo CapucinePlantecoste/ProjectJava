@@ -11,7 +11,6 @@ import Model.Buyer;
 import java.util.ArrayList;
 import projectjava.First;
 import java.sql.Timestamp;
-import java.util.Calendar;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.text.ParseException;
@@ -455,9 +454,10 @@ public class SellerAddViewing extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         //button add a viewing once all the fields have been selected
         Date date = new Date();
-        //we create a date object 
+        //we create a date object with no argument so it is the current date
         Timestamp ts = new Timestamp(date.getTime());
-        //we create an object of time stamp, that enables to get the date
+        //we create an object of time stamp, that enables to get the date in the same format that the one in our database. We get as the attribute date.gettime() which
+        //is the time that passed from the current date since 1970 1 january
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
         //we will use this format for the time of the aded viewing : yyyy-MM-dd hh:mm:ss
 
@@ -514,10 +514,10 @@ public class SellerAddViewing extends javax.swing.JFrame {
                     } else {
                         //all the fields are filled correctly, we can finally save the date of the viewing 
                         String newd = (jTextFieldYear.getText() + "-" + jTextFieldMonth.getText() + "-" + jTextField1.getText() + " " + jTextFieldHour.getText() + ":" + jTextFieldMinutes.getText() + ":00");
-                        //we create a new date by getting all the fields and adding some "-" between the fields to respect this format : yyyy-MM-dd hh:mm:ss
+                        //we create a String date by getting all the fields and adding some "-" between the fields to respect this format : yyyy-MM-dd hh:mm:ss
                         try {
                             Date dateparse = sdf.parse(newd);
-                            //we convert the date that was written in the viewing panel to the good format : yyyy-MM-dd hh:mm:ss
+                            //we convert the string date that was written in the viewing panel to the good format : yyyy-MM-dd hh:mm:ss
                             Timestamp d = new Timestamp(dateparse.getTime());
                             //we transform the date in a timetsamp object and we send in parameter the time in ms that passed since 1970
                             c = d.compareTo(ts);
@@ -560,7 +560,7 @@ public class SellerAddViewing extends javax.swing.JFrame {
 
     public void initjcb1() {
         //function that enables to fill the combobox with the properties of the connected seller
-        for (int i = 0; i < myprop.size(); i++) {
+        for (int i = 0; i < myprop.size(); ++i) {
             //we go through all the properties of the connected seller 
 
             jComboBox1.addItem(myprop.get(i).getdescription() + " idproperty : " + myprop.get(i).getid());
@@ -597,6 +597,7 @@ public class SellerAddViewing extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
+            @Override
             public void run() {
                 new SellerAddViewing(newseller, buyers, sellers, emp, pr, v, o, myprop).setVisible(true);
             }

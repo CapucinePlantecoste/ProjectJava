@@ -10,7 +10,6 @@ import Model.Buyer;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import projectjava.First;
-import Model.PropertyDAO;
 import Model.PropertyDAOImpl;
 import Model.VisitDAOImpl;
 
@@ -345,7 +344,7 @@ public class BuyerViewings extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        //button "this visit has been done", that the buyer has to click after a viewing 
+        //button "this visit has been done", that the buyer has to click after he has done a viewing 
 
         PropertyDAOImpl pdao = new PropertyDAOImpl();
         //we create an object of the PropertyDAOImpl class, to update the properties of the visited property in the database 
@@ -445,6 +444,7 @@ public class BuyerViewings extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
+            @Override
             public void run() {
                 new BuyerViewings(newbuyer, buyers, sellers, emp, pr, v, o, myviewings).setVisible(true);
             }
