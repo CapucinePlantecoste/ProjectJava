@@ -68,7 +68,7 @@ public class SellerNewProperty extends javax.swing.JFrame {
         jPanel2.add(jLabel2);
         jLabel2.setBounds(1090, 100, 60, 100);
 
-        jPanel4.setBackground(new java.awt.Color(0, 153, 153));
+        jPanel4.setBackground(new java.awt.Color(204, 204, 0));
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/projectjava/logo 2 projet info.png"))); // NOI18N
 

@@ -88,7 +88,7 @@ public class BuyerFirst extends javax.swing.JFrame {
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setLayout(null);
 
-        jPanel4.setBackground(new java.awt.Color(0, 153, 153));
+        jPanel4.setBackground(new java.awt.Color(102, 102, 255));
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/projectjava/logo 2 projet info.png"))); // NOI18N
 
@@ -110,7 +110,8 @@ public class BuyerFirst extends javax.swing.JFrame {
             }
         });
 
-        jLabel2.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
+        jLabel2.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel2.setFont(new java.awt.Font("Calibri", 0, 24)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
 
         jButton4.setBackground(new java.awt.Color(255, 255, 255));
@@ -139,9 +140,9 @@ public class BuyerFirst extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel4Layout.createSequentialGroup()
-                    .addGap(173, 173, 173)
-                    .addComponent(jLabel2)
-                    .addContainerGap(567, Short.MAX_VALUE)))
+                    .addContainerGap()
+                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 720, Short.MAX_VALUE)
+                    .addContainerGap()))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -177,12 +178,13 @@ public class BuyerFirst extends javax.swing.JFrame {
         jButton5.setBounds(1350, 80, 100, 23);
 
         jLabel1.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(102, 102, 255));
         jLabel1.setText("Minimum nb bedrooms");
         jPanel2.add(jLabel1);
         jLabel1.setBounds(1200, 460, 190, 40);
 
         jButton3.setBackground(new java.awt.Color(255, 255, 255));
-        jButton3.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
+        jButton3.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
         jButton3.setText("Search");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -192,6 +194,7 @@ public class BuyerFirst extends javax.swing.JFrame {
         jPanel2.add(jButton3);
         jButton3.setBounds(1095, 620, 120, 40);
 
+        jComboBox1.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "No preferences", "House", "Apartment" }));
         jComboBox1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -199,19 +202,21 @@ public class BuyerFirst extends javax.swing.JFrame {
             }
         });
         jPanel2.add(jComboBox1);
-        jComboBox1.setBounds(930, 360, 99, 20);
+        jComboBox1.setBounds(930, 360, 160, 30);
 
         jLabel4.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(102, 102, 255));
         jLabel4.setText("Type of property");
         jPanel2.add(jLabel4);
         jLabel4.setBounds(930, 320, 170, 40);
 
         jLabel6.setFont(new java.awt.Font("Calibri", 0, 24)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(0, 153, 153));
+        jLabel6.setForeground(new java.awt.Color(102, 102, 255));
         jLabel6.setText("Searching for a new property ? Chose your criteria ");
         jPanel2.add(jLabel6);
         jLabel6.setBounds(920, 250, 530, 60);
 
+        jTextField1.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
         jTextField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField1ActionPerformed(evt);
@@ -223,13 +228,15 @@ public class BuyerFirst extends javax.swing.JFrame {
             }
         });
         jPanel2.add(jTextField1);
-        jTextField1.setBounds(930, 550, 130, 30);
+        jTextField1.setBounds(930, 550, 170, 30);
 
         jLabel7.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(102, 102, 255));
         jLabel7.setText("Maximum Price");
         jPanel2.add(jLabel7);
         jLabel7.setBounds(1200, 390, 170, 40);
 
+        jTextField2.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
         jTextField2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField2ActionPerformed(evt);
@@ -241,33 +248,40 @@ public class BuyerFirst extends javax.swing.JFrame {
             }
         });
         jPanel2.add(jTextField2);
-        jTextField2.setBounds(1200, 420, 130, 30);
+        jTextField2.setBounds(1200, 420, 170, 30);
 
         jLabel8.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(102, 102, 255));
         jLabel8.setText("Minimum Surface ");
         jPanel2.add(jLabel8);
         jLabel8.setBounds(930, 520, 210, 40);
+
+        jTextField3.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
         jPanel2.add(jTextField3);
-        jTextField3.setBounds(1200, 360, 130, 30);
+        jTextField3.setBounds(1200, 360, 170, 30);
 
         jLabel9.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(102, 102, 255));
         jLabel9.setText("Location");
         jPanel2.add(jLabel9);
         jLabel9.setBounds(1200, 330, 170, 40);
 
+        jTextField4.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
         jTextField4.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 jTextField4KeyTyped(evt);
             }
         });
         jPanel2.add(jTextField4);
-        jTextField4.setBounds(1200, 490, 130, 30);
+        jTextField4.setBounds(1200, 490, 170, 30);
 
         jLabel10.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(102, 102, 255));
         jLabel10.setText("Maximum surface");
         jPanel2.add(jLabel10);
         jLabel10.setBounds(1200, 520, 210, 40);
 
+        jTextField5.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
         jTextField5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField5ActionPerformed(evt);
@@ -279,14 +293,16 @@ public class BuyerFirst extends javax.swing.JFrame {
             }
         });
         jPanel2.add(jTextField5);
-        jTextField5.setBounds(1200, 550, 130, 30);
+        jTextField5.setBounds(1200, 550, 170, 30);
 
         jLabel11.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(102, 102, 255));
         jLabel11.setText("Minimum nb Rooms");
         jPanel2.add(jLabel11);
         jLabel11.setBounds(930, 460, 210, 40);
         jLabel11.getAccessibleContext().setAccessibleName("Minimun nb Rooms");
 
+        jTextField6.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
         jTextField6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField6ActionPerformed(evt);
@@ -298,13 +314,15 @@ public class BuyerFirst extends javax.swing.JFrame {
             }
         });
         jPanel2.add(jTextField6);
-        jTextField6.setBounds(930, 490, 130, 30);
+        jTextField6.setBounds(930, 490, 170, 30);
 
         jLabel12.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
+        jLabel12.setForeground(new java.awt.Color(102, 102, 255));
         jLabel12.setText("Minimum Price");
         jPanel2.add(jLabel12);
         jLabel12.setBounds(930, 390, 170, 40);
 
+        jTextField7.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
         jTextField7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField7ActionPerformed(evt);
@@ -316,7 +334,7 @@ public class BuyerFirst extends javax.swing.JFrame {
             }
         });
         jPanel2.add(jTextField7);
-        jTextField7.setBounds(930, 420, 130, 30);
+        jTextField7.setBounds(930, 420, 170, 30);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

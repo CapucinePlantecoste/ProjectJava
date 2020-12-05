@@ -64,6 +64,7 @@ public class SellerOffer extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jComboBox1 = new javax.swing.JComboBox();
         jButton1 = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
         jButton5 = new javax.swing.JButton();
         jPanelOffers = new javax.swing.JPanel();
         jLabelDescription = new javax.swing.JLabel();
@@ -79,14 +80,14 @@ public class SellerOffer extends javax.swing.JFrame {
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setLayout(null);
 
-        jPanel4.setBackground(new java.awt.Color(0, 153, 153));
+        jPanel4.setBackground(new java.awt.Color(204, 204, 0));
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/projectjava/logo 2 projet info.png"))); // NOI18N
 
         jLabel2.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
 
-        jComboBox1.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
+        jComboBox1.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Select one of your offers" }));
         jComboBox1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -101,6 +102,10 @@ public class SellerOffer extends javax.swing.JFrame {
             }
         });
 
+        jLabel3.setFont(new java.awt.Font("Calibri", 0, 36)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setText("See the offers for your properties");
+
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
@@ -110,14 +115,17 @@ public class SellerOffer extends javax.swing.JFrame {
                 .addComponent(jButton1)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                .addContainerGap(184, Short.MAX_VALUE)
+                .addContainerGap(138, Short.MAX_VALUE)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
                         .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 409, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(147, 147, 147))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
                         .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 353, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(160, 160, 160))))
+                        .addGap(181, 181, 181))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 504, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(98, 98, 98))))
             .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel4Layout.createSequentialGroup()
                     .addGap(173, 173, 173)
@@ -129,9 +137,11 @@ public class SellerOffer extends javax.swing.JFrame {
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addGap(42, 42, 42)
                 .addComponent(jButton1)
-                .addGap(139, 139, 139)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 135, Short.MAX_VALUE)
+                .addComponent(jLabel3)
+                .addGap(61, 61, 61)
                 .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 220, Short.MAX_VALUE)
+                .addGap(125, 125, 125)
                 .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(105, 105, 105))
             .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -159,25 +169,27 @@ public class SellerOffer extends javax.swing.JFrame {
 
         jLabelDescription.setBackground(new java.awt.Color(255, 255, 255));
         jLabelDescription.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
-        jLabelDescription.setForeground(new java.awt.Color(0, 153, 153));
+        jLabelDescription.setForeground(new java.awt.Color(204, 204, 0));
 
         jLabelLocation.setBackground(new java.awt.Color(255, 255, 255));
         jLabelLocation.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
-        jLabelLocation.setForeground(new java.awt.Color(0, 153, 153));
+        jLabelLocation.setForeground(new java.awt.Color(204, 204, 0));
 
         jLabelPrice.setBackground(new java.awt.Color(255, 255, 255));
         jLabelPrice.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
-        jLabelPrice.setForeground(new java.awt.Color(0, 153, 153));
+        jLabelPrice.setForeground(new java.awt.Color(204, 204, 0));
 
         jLabel1.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel1.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(0, 153, 153));
+        jLabel1.setFont(new java.awt.Font("Calibri", 0, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(204, 204, 0));
         jLabel1.setText("Details of the Offer : ");
 
         jLabelRealPrice.setBackground(new java.awt.Color(255, 255, 255));
         jLabelRealPrice.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
-        jLabelRealPrice.setForeground(new java.awt.Color(0, 153, 153));
+        jLabelRealPrice.setForeground(new java.awt.Color(204, 204, 0));
 
+        jButton2.setBackground(new java.awt.Color(255, 255, 255));
+        jButton2.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
         jButton2.setText("Accept the offer");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -185,6 +197,8 @@ public class SellerOffer extends javax.swing.JFrame {
             }
         });
 
+        jButton3.setBackground(new java.awt.Color(255, 255, 255));
+        jButton3.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
         jButton3.setText("Decline the offer");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -196,32 +210,31 @@ public class SellerOffer extends javax.swing.JFrame {
         jPanelOffers.setLayout(jPanelOffersLayout);
         jPanelOffersLayout.setHorizontalGroup(
             jPanelOffersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelOffersLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
+            .addGroup(jPanelOffersLayout.createSequentialGroup()
+                .addGap(201, 201, 201)
                 .addComponent(jLabel1)
-                .addGap(239, 239, 239))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelOffersLayout.createSequentialGroup()
-                .addGroup(jPanelOffersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanelOffersLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jPanelOffersLayout.createSequentialGroup()
+                .addGroup(jPanelOffersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelOffersLayout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jLabelDescription, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(jPanelOffersLayout.createSequentialGroup()
-                        .addGap(162, 162, 162)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelOffersLayout.createSequentialGroup()
+                        .addGap(134, 134, 134)
                         .addComponent(jButton2)
-                        .addGap(57, 57, 57)
+                        .addGap(54, 54, 54)
                         .addComponent(jButton3)
-                        .addGap(0, 167, Short.MAX_VALUE)))
-                .addContainerGap())
-            .addGroup(jPanelOffersLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanelOffersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGap(0, 116, Short.MAX_VALUE))
                     .addGroup(jPanelOffersLayout.createSequentialGroup()
-                        .addComponent(jLabelLocation, javax.swing.GroupLayout.PREFERRED_SIZE, 327, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(jPanelOffersLayout.createSequentialGroup()
-                        .addComponent(jLabelPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 292, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabelRealPrice, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addContainerGap()
+                        .addGroup(jPanelOffersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanelOffersLayout.createSequentialGroup()
+                                .addComponent(jLabelLocation, javax.swing.GroupLayout.PREFERRED_SIZE, 327, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addGroup(jPanelOffersLayout.createSequentialGroup()
+                                .addComponent(jLabelPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 292, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jLabelRealPrice, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
                 .addContainerGap())
         );
         jPanelOffersLayout.setVerticalGroup(
@@ -237,7 +250,7 @@ public class SellerOffer extends javax.swing.JFrame {
                 .addGroup(jPanelOffersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabelPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabelRealPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 65, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 57, Short.MAX_VALUE)
                 .addGroup(jPanelOffersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton2)
                     .addComponent(jButton3))
@@ -530,6 +543,7 @@ public class SellerOffer extends javax.swing.JFrame {
     private javax.swing.JComboBox jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabelDescription;
     private javax.swing.JLabel jLabelLocation;

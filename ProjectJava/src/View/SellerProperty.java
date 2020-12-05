@@ -61,7 +61,18 @@ public class SellerProperty extends javax.swing.JFrame {
         jComboBox1 = new javax.swing.JComboBox();
         jLabel6 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
+        jPanelHouse = new javax.swing.JPanel();
+        jLabelType = new javax.swing.JLabel();
+        jLabelPrice = new javax.swing.JLabel();
+        jLabelNumberFloors = new javax.swing.JLabel();
+        jLabelLocation1 = new javax.swing.JLabel();
+        jLabelNumberRooms1 = new javax.swing.JLabel();
+        jLabelNumberSurface = new javax.swing.JLabel();
+        jLabelNumberBedrooms2 = new javax.swing.JLabel();
+        jLabelGardenSurface = new javax.swing.JLabel();
+        jLabelSwimmingPool = new javax.swing.JLabel();
+        jLabelDescription = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
         jPanelApartment = new javax.swing.JPanel();
         jLabelType1 = new javax.swing.JLabel();
         jLabelDescription1 = new javax.swing.JLabel();
@@ -75,32 +86,21 @@ public class SellerProperty extends javax.swing.JFrame {
         jLabelElevator = new javax.swing.JLabel();
         jLabelParking = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jPanelHouse = new javax.swing.JPanel();
-        jLabelType = new javax.swing.JLabel();
-        jLabelPrice = new javax.swing.JLabel();
-        jLabelNumberFloors = new javax.swing.JLabel();
-        jLabelLocation1 = new javax.swing.JLabel();
-        jLabelNumberRooms1 = new javax.swing.JLabel();
-        jLabelNumberSurface = new javax.swing.JLabel();
-        jLabelNumberBedrooms2 = new javax.swing.JLabel();
-        jLabelGardenSurface = new javax.swing.JLabel();
-        jLabelSwimmingPool = new javax.swing.JLabel();
-        jLabelDescription = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
+        jButton5 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setLayout(null);
 
-        jPanel4.setBackground(new java.awt.Color(0, 153, 153));
+        jPanel4.setBackground(new java.awt.Color(204, 204, 0));
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/projectjava/logo 2 projet info.png"))); // NOI18N
 
         jLabel2.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
 
-        jComboBox1.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
+        jComboBox1.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Select one of your properties for sale" }));
         jComboBox1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -108,7 +108,7 @@ public class SellerProperty extends javax.swing.JFrame {
             }
         });
 
-        jLabel6.setFont(new java.awt.Font("Calibri", 0, 24)); // NOI18N
+        jLabel6.setFont(new java.awt.Font("Calibri", 0, 36)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Your current available properties");
 
@@ -128,16 +128,17 @@ public class SellerProperty extends javax.swing.JFrame {
                 .addComponent(jButton1)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                .addContainerGap(171, Short.MAX_VALUE)
+                .addContainerGap(124, Short.MAX_VALUE)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 349, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(177, 177, 177))
+                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 533, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(83, 83, 83))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 409, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(160, 160, 160))))
+                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 409, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(160, 160, 160))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 456, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(133, 133, 133))))
             .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel4Layout.createSequentialGroup()
                     .addGap(173, 173, 173)
@@ -149,11 +150,11 @@ public class SellerProperty extends javax.swing.JFrame {
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addGap(42, 42, 42)
                 .addComponent(jButton1)
-                .addGap(52, 52, 52)
+                .addGap(161, 161, 161)
                 .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(28, 28, 28)
-                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 304, Short.MAX_VALUE)
+                .addGap(72, 72, 72)
+                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 150, Short.MAX_VALUE)
                 .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(20, 20, 20))
             .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -166,162 +167,44 @@ public class SellerProperty extends javax.swing.JFrame {
         jPanel2.add(jPanel4);
         jPanel4.setBounds(0, 0, 740, 830);
 
-        jButton5.setBackground(new java.awt.Color(255, 255, 255));
-        jButton5.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
-        jButton5.setText("Log Out");
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
-            }
-        });
-        jPanel2.add(jButton5);
-        jButton5.setBounds(1350, 80, 100, 23);
-
-        jPanelApartment.setBackground(new java.awt.Color(255, 255, 255));
-
-        jLabelType1.setBackground(new java.awt.Color(0, 153, 153));
-        jLabelType1.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
-        jLabelType1.setForeground(new java.awt.Color(0, 153, 153));
-        jLabelType1.setText("Type : Apartment");
-
-        jLabelDescription1.setBackground(new java.awt.Color(255, 255, 255));
-        jLabelDescription1.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
-        jLabelDescription1.setForeground(new java.awt.Color(0, 153, 153));
-
-        jLabelPrice2.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
-        jLabelPrice2.setForeground(new java.awt.Color(0, 153, 153));
-
-        jLabelNumberFloors1.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
-        jLabelNumberFloors1.setForeground(new java.awt.Color(0, 153, 153));
-
-        jLabelLocation2.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
-        jLabelLocation2.setForeground(new java.awt.Color(0, 153, 153));
-
-        jLabelNumberRooms2.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
-        jLabelNumberRooms2.setForeground(new java.awt.Color(0, 153, 153));
-
-        jLabelNumberSurface1.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
-        jLabelNumberSurface1.setForeground(new java.awt.Color(0, 153, 153));
-
-        jLabelNumberBedrooms3.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
-        jLabelNumberBedrooms3.setForeground(new java.awt.Color(0, 153, 153));
-
-        jLabelFloorNumber.setBackground(new java.awt.Color(255, 255, 255));
-        jLabelFloorNumber.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
-        jLabelFloorNumber.setForeground(new java.awt.Color(0, 153, 153));
-
-        jLabelElevator.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
-        jLabelElevator.setForeground(new java.awt.Color(0, 153, 153));
-
-        jLabelParking.setBackground(new java.awt.Color(255, 255, 255));
-        jLabelParking.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
-        jLabelParking.setForeground(new java.awt.Color(0, 153, 153));
-
-        javax.swing.GroupLayout jPanelApartmentLayout = new javax.swing.GroupLayout(jPanelApartment);
-        jPanelApartment.setLayout(jPanelApartmentLayout);
-        jPanelApartmentLayout.setHorizontalGroup(
-            jPanelApartmentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelApartmentLayout.createSequentialGroup()
-                .addGap(76, 76, 76)
-                .addGroup(jPanelApartmentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanelApartmentLayout.createSequentialGroup()
-                        .addGroup(jPanelApartmentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabelPrice2, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabelNumberFloors1, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabelType1, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabelFloorNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabelParking, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(126, 126, 126)
-                        .addGroup(jPanelApartmentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanelApartmentLayout.createSequentialGroup()
-                                .addGroup(jPanelApartmentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabelNumberBedrooms3, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabelNumberRooms2, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabelNumberSurface1, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabelLocation2, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addGroup(jPanelApartmentLayout.createSequentialGroup()
-                                .addComponent(jLabelElevator, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addContainerGap(140, Short.MAX_VALUE))))
-                    .addGroup(jPanelApartmentLayout.createSequentialGroup()
-                        .addComponent(jLabelDescription1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(123, 123, 123))))
-            .addGroup(jPanelApartmentLayout.createSequentialGroup()
-                .addGap(199, 199, 199)
-                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 374, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-        );
-        jPanelApartmentLayout.setVerticalGroup(
-            jPanelApartmentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelApartmentLayout.createSequentialGroup()
-                .addGap(36, 36, 36)
-                .addGroup(jPanelApartmentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addGroup(jPanelApartmentLayout.createSequentialGroup()
-                        .addComponent(jLabelLocation2, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabelNumberRooms2, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabelNumberBedrooms3, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabelNumberSurface1, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabelElevator, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanelApartmentLayout.createSequentialGroup()
-                        .addComponent(jLabelType1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabelParking, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(11, 11, 11)
-                        .addComponent(jLabelPrice2, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabelNumberFloors1, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabelFloorNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(1, 1, 1)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
-                .addComponent(jLabelDescription1, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(11, 11, 11)
-                .addComponent(jLabel3)
-                .addContainerGap())
-        );
-
-        jPanel2.add(jPanelApartment);
-        jPanelApartment.setBounds(800, 280, 780, 385);
-
         jPanelHouse.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabelType.setBackground(new java.awt.Color(255, 255, 255));
-        jLabelType.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
-        jLabelType.setForeground(new java.awt.Color(0, 153, 153));
+        jLabelType.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
+        jLabelType.setForeground(new java.awt.Color(204, 204, 0));
         jLabelType.setText("Type : House");
 
         jLabelPrice.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
-        jLabelPrice.setForeground(new java.awt.Color(0, 153, 153));
+        jLabelPrice.setForeground(new java.awt.Color(204, 204, 0));
 
         jLabelNumberFloors.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
-        jLabelNumberFloors.setForeground(new java.awt.Color(0, 153, 153));
+        jLabelNumberFloors.setForeground(new java.awt.Color(204, 204, 0));
 
         jLabelLocation1.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
-        jLabelLocation1.setForeground(new java.awt.Color(0, 153, 153));
+        jLabelLocation1.setForeground(new java.awt.Color(204, 204, 0));
 
         jLabelNumberRooms1.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
-        jLabelNumberRooms1.setForeground(new java.awt.Color(0, 153, 153));
+        jLabelNumberRooms1.setForeground(new java.awt.Color(204, 204, 0));
 
         jLabelNumberSurface.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
-        jLabelNumberSurface.setForeground(new java.awt.Color(0, 153, 153));
+        jLabelNumberSurface.setForeground(new java.awt.Color(204, 204, 0));
 
         jLabelNumberBedrooms2.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
-        jLabelNumberBedrooms2.setForeground(new java.awt.Color(0, 153, 153));
+        jLabelNumberBedrooms2.setForeground(new java.awt.Color(204, 204, 0));
 
         jLabelGardenSurface.setBackground(new java.awt.Color(255, 255, 255));
         jLabelGardenSurface.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
-        jLabelGardenSurface.setForeground(new java.awt.Color(0, 153, 153));
+        jLabelGardenSurface.setForeground(new java.awt.Color(204, 204, 0));
 
         jLabelSwimmingPool.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
-        jLabelSwimmingPool.setForeground(new java.awt.Color(0, 153, 153));
+        jLabelSwimmingPool.setForeground(new java.awt.Color(204, 204, 0));
 
         jLabelDescription.setBackground(new java.awt.Color(255, 255, 255));
         jLabelDescription.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
-        jLabelDescription.setForeground(new java.awt.Color(0, 153, 153));
+        jLabelDescription.setForeground(new java.awt.Color(204, 204, 0));
+
+        jLabel1.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 51, 0));
 
         javax.swing.GroupLayout jPanelHouseLayout = new javax.swing.GroupLayout(jPanelHouse);
         jPanelHouse.setLayout(jPanelHouseLayout);
@@ -380,12 +263,132 @@ public class SellerProperty extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jLabelDescription, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addComponent(jLabel1)
-                .addGap(70, 70, 70))
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         jPanel2.add(jPanelHouse);
         jPanelHouse.setBounds(780, 230, 760, 390);
+
+        jPanelApartment.setBackground(new java.awt.Color(255, 255, 255));
+
+        jLabelType1.setBackground(new java.awt.Color(0, 153, 153));
+        jLabelType1.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
+        jLabelType1.setForeground(new java.awt.Color(204, 204, 0));
+        jLabelType1.setText("Type : Apartment");
+
+        jLabelDescription1.setBackground(new java.awt.Color(255, 255, 255));
+        jLabelDescription1.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
+        jLabelDescription1.setForeground(new java.awt.Color(204, 204, 0));
+
+        jLabelPrice2.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
+        jLabelPrice2.setForeground(new java.awt.Color(204, 204, 0));
+
+        jLabelNumberFloors1.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
+        jLabelNumberFloors1.setForeground(new java.awt.Color(204, 204, 0));
+
+        jLabelLocation2.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
+        jLabelLocation2.setForeground(new java.awt.Color(204, 204, 0));
+
+        jLabelNumberRooms2.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
+        jLabelNumberRooms2.setForeground(new java.awt.Color(204, 204, 0));
+
+        jLabelNumberSurface1.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
+        jLabelNumberSurface1.setForeground(new java.awt.Color(204, 204, 0));
+
+        jLabelNumberBedrooms3.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
+        jLabelNumberBedrooms3.setForeground(new java.awt.Color(204, 204, 0));
+
+        jLabelFloorNumber.setBackground(new java.awt.Color(255, 255, 255));
+        jLabelFloorNumber.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
+        jLabelFloorNumber.setForeground(new java.awt.Color(204, 204, 0));
+
+        jLabelElevator.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
+        jLabelElevator.setForeground(new java.awt.Color(204, 204, 0));
+
+        jLabelParking.setBackground(new java.awt.Color(255, 255, 255));
+        jLabelParking.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
+        jLabelParking.setForeground(new java.awt.Color(204, 204, 0));
+
+        jLabel3.setFont(new java.awt.Font("Calibri", 0, 24)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 51, 0));
+
+        javax.swing.GroupLayout jPanelApartmentLayout = new javax.swing.GroupLayout(jPanelApartment);
+        jPanelApartment.setLayout(jPanelApartmentLayout);
+        jPanelApartmentLayout.setHorizontalGroup(
+            jPanelApartmentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelApartmentLayout.createSequentialGroup()
+                .addGap(76, 76, 76)
+                .addGroup(jPanelApartmentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanelApartmentLayout.createSequentialGroup()
+                        .addGroup(jPanelApartmentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabelType1, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabelParking, javax.swing.GroupLayout.DEFAULT_SIZE, 293, Short.MAX_VALUE)
+                            .addComponent(jLabelPrice2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabelNumberFloors1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabelFloorNumber, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(52, 52, 52)
+                        .addGroup(jPanelApartmentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabelElevator, javax.swing.GroupLayout.DEFAULT_SIZE, 282, Short.MAX_VALUE)
+                            .addComponent(jLabelNumberSurface1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabelNumberBedrooms3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabelNumberRooms2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabelLocation2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(jPanelApartmentLayout.createSequentialGroup()
+                        .addComponent(jLabelDescription1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(123, 123, 123))))
+            .addGroup(jPanelApartmentLayout.createSequentialGroup()
+                .addGap(199, 199, 199)
+                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 374, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 207, Short.MAX_VALUE))
+        );
+        jPanelApartmentLayout.setVerticalGroup(
+            jPanelApartmentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelApartmentLayout.createSequentialGroup()
+                .addGap(36, 36, 36)
+                .addGroup(jPanelApartmentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addGroup(jPanelApartmentLayout.createSequentialGroup()
+                        .addComponent(jLabelLocation2, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabelNumberRooms2, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jLabelNumberBedrooms3, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jLabelNumberSurface1, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jLabelElevator, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanelApartmentLayout.createSequentialGroup()
+                        .addComponent(jLabelType1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jLabelParking, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(11, 11, 11)
+                        .addComponent(jLabelPrice2, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jLabelNumberFloors1, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabelFloorNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(1, 1, 1)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabelDescription1, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(11, 11, 11)
+                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+
+        jPanel2.add(jPanelApartment);
+        jPanelApartment.setBounds(800, 280, 780, 413);
+
+        jButton5.setBackground(new java.awt.Color(255, 255, 255));
+        jButton5.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
+        jButton5.setText("Log Out");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
+        jPanel2.add(jButton5);
+        jButton5.setBounds(1350, 80, 100, 23);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

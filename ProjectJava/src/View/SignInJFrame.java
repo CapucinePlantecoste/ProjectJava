@@ -83,7 +83,7 @@ public class SignInJFrame extends javax.swing.JFrame {
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Please, select whether you are a buyer or a seller");
 
-        jComboBox1.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
+        jComboBox1.setFont(new java.awt.Font("Calibri", 0, 24)); // NOI18N
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Buyer", "Seller" }));
         jComboBox1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -107,9 +107,6 @@ public class SignInJFrame extends javax.swing.JFrame {
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGap(304, 304, 304)
-                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel4Layout.createSequentialGroup()
                         .addGap(160, 160, 160)
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 512, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -119,7 +116,10 @@ public class SignInJFrame extends javax.swing.JFrame {
                         .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 409, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addGap(37, 37, 37)
-                        .addComponent(jButton1)))
+                        .addComponent(jButton1))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGap(304, 304, 304)
+                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(68, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
@@ -132,8 +132,8 @@ public class SignInJFrame extends javax.swing.JFrame {
                 .addGap(66, 66, 66)
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(76, 76, 76)
-                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 162, Short.MAX_VALUE)
+                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 133, Short.MAX_VALUE)
                 .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
@@ -141,7 +141,7 @@ public class SignInJFrame extends javax.swing.JFrame {
         jPanel4.setBounds(0, 0, 740, 830);
 
         jButton5.setBackground(new java.awt.Color(255, 255, 255));
-        jButton5.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
+        jButton5.setFont(new java.awt.Font("Calibri", 0, 24)); // NOI18N
         jButton5.setText("Sign In");
         jButton5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -149,24 +149,25 @@ public class SignInJFrame extends javax.swing.JFrame {
             }
         });
         jPanel2.add(jButton5);
-        jButton5.setBounds(990, 630, 100, 23);
+        jButton5.setBounds(1000, 650, 130, 40);
 
-        jLabel7.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
+        jLabel7.setFont(new java.awt.Font("Calibri", 0, 24)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(0, 153, 153));
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel7.setText("Confirm Password ");
         jLabel7.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel2.add(jLabel7);
-        jLabel7.setBounds(940, 540, 150, 26);
+        jLabel7.setBounds(940, 540, 200, 26);
 
-        jLabel9.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
+        jLabel9.setFont(new java.awt.Font("Calibri", 0, 24)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(0, 153, 153));
         jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel9.setText("First Name");
         jLabel9.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel2.add(jLabel9);
-        jLabel9.setBounds(940, 220, 80, 26);
+        jLabel9.setBounds(940, 220, 120, 26);
 
+        jTextField2.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
         jTextField2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField2ActionPerformed(evt);
@@ -178,24 +179,25 @@ public class SignInJFrame extends javax.swing.JFrame {
             }
         });
         jPanel2.add(jTextField2);
-        jTextField2.setBounds(940, 330, 210, 40);
+        jTextField2.setBounds(940, 330, 260, 40);
 
-        jLabel10.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
+        jLabel10.setFont(new java.awt.Font("Calibri", 0, 24)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(0, 153, 153));
         jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel10.setText("Username (email adress)");
         jLabel10.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel2.add(jLabel10);
-        jLabel10.setBounds(940, 380, 200, 26);
+        jLabel10.setBounds(940, 380, 260, 26);
 
-        jLabel11.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
+        jLabel11.setFont(new java.awt.Font("Calibri", 0, 24)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(0, 153, 153));
         jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel11.setText("Surname");
         jLabel11.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel2.add(jLabel11);
-        jLabel11.setBounds(940, 300, 80, 26);
+        jLabel11.setBounds(940, 300, 110, 26);
 
+        jTextField3.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
         jTextField3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField3ActionPerformed(evt);
@@ -210,43 +212,46 @@ public class SignInJFrame extends javax.swing.JFrame {
             }
         });
         jPanel2.add(jTextField3);
-        jTextField3.setBounds(940, 250, 210, 40);
+        jTextField3.setBounds(940, 250, 260, 40);
 
+        jTextField4.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
         jTextField4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField4ActionPerformed(evt);
             }
         });
         jPanel2.add(jTextField4);
-        jTextField4.setBounds(940, 410, 210, 40);
+        jTextField4.setBounds(940, 410, 260, 40);
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/projectjava/logo projet info.png"))); // NOI18N
         jPanel2.add(jLabel4);
         jLabel4.setBounds(1010, 130, 70, 70);
 
-        jLabel8.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
+        jLabel8.setFont(new java.awt.Font("Calibri", 0, 24)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(0, 153, 153));
         jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel8.setText("Password");
         jLabel8.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel2.add(jLabel8);
-        jLabel8.setBounds(940, 460, 70, 26);
+        jLabel8.setBounds(940, 460, 100, 26);
 
+        jPasswordField1.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
         jPasswordField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jPasswordField1ActionPerformed(evt);
             }
         });
         jPanel2.add(jPasswordField1);
-        jPasswordField1.setBounds(940, 570, 210, 40);
+        jPasswordField1.setBounds(940, 570, 260, 40);
 
+        jPasswordField2.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
         jPasswordField2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jPasswordField2ActionPerformed(evt);
             }
         });
         jPanel2.add(jPasswordField2);
-        jPasswordField2.setBounds(940, 490, 210, 40);
+        jPasswordField2.setBounds(940, 490, 260, 40);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

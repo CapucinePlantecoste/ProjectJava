@@ -112,40 +112,41 @@ public class BuyerResults extends javax.swing.JFrame {
         jPanelHouse.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabelType.setBackground(new java.awt.Color(255, 255, 255));
-        jLabelType.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
-        jLabelType.setForeground(new java.awt.Color(0, 153, 153));
+        jLabelType.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
+        jLabelType.setForeground(new java.awt.Color(102, 102, 255));
         jLabelType.setText("Type : House");
 
-        jLabelPrice.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
-        jLabelPrice.setForeground(new java.awt.Color(0, 153, 153));
+        jLabelPrice.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
+        jLabelPrice.setForeground(new java.awt.Color(102, 102, 255));
 
-        jLabelNumberFloors.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
-        jLabelNumberFloors.setForeground(new java.awt.Color(0, 153, 153));
+        jLabelNumberFloors.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
+        jLabelNumberFloors.setForeground(new java.awt.Color(102, 102, 255));
 
-        jLabelLocation1.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
-        jLabelLocation1.setForeground(new java.awt.Color(0, 153, 153));
+        jLabelLocation1.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
+        jLabelLocation1.setForeground(new java.awt.Color(102, 102, 255));
 
-        jLabelNumberRooms1.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
-        jLabelNumberRooms1.setForeground(new java.awt.Color(0, 153, 153));
+        jLabelNumberRooms1.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
+        jLabelNumberRooms1.setForeground(new java.awt.Color(102, 102, 255));
 
-        jLabelNumberSurface.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
-        jLabelNumberSurface.setForeground(new java.awt.Color(0, 153, 153));
+        jLabelNumberSurface.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
+        jLabelNumberSurface.setForeground(new java.awt.Color(102, 102, 255));
 
-        jLabelNumberBedrooms2.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
-        jLabelNumberBedrooms2.setForeground(new java.awt.Color(0, 153, 153));
+        jLabelNumberBedrooms2.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
+        jLabelNumberBedrooms2.setForeground(new java.awt.Color(102, 102, 255));
 
         jLabelGardenSurface.setBackground(new java.awt.Color(255, 255, 255));
-        jLabelGardenSurface.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
-        jLabelGardenSurface.setForeground(new java.awt.Color(0, 153, 153));
+        jLabelGardenSurface.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
+        jLabelGardenSurface.setForeground(new java.awt.Color(102, 102, 255));
 
-        jLabelSwimmingPool.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
-        jLabelSwimmingPool.setForeground(new java.awt.Color(0, 153, 153));
+        jLabelSwimmingPool.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
+        jLabelSwimmingPool.setForeground(new java.awt.Color(102, 102, 255));
 
         jLabelDescription.setBackground(new java.awt.Color(255, 255, 255));
-        jLabelDescription.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
-        jLabelDescription.setForeground(new java.awt.Color(0, 153, 153));
+        jLabelDescription.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
+        jLabelDescription.setForeground(new java.awt.Color(102, 102, 255));
 
-        jButton8.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
+        jButton8.setBackground(new java.awt.Color(255, 255, 255));
+        jButton8.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
         jButton8.setText("Validate");
         jButton8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -154,7 +155,7 @@ public class BuyerResults extends javax.swing.JFrame {
         });
 
         jLabel1.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel1.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
         jLabel1.setText("Make an offer ?");
 
         jTextField1.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
@@ -170,7 +171,8 @@ public class BuyerResults extends javax.swing.JFrame {
             }
         });
 
-        jComboBoxViewingHouse.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
+        jComboBoxViewingHouse.setBackground(new java.awt.Color(240, 240, 240));
+        jComboBoxViewingHouse.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
         jComboBoxViewingHouse.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Book a Viewing" }));
         jComboBoxViewingHouse.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -189,7 +191,7 @@ public class BuyerResults extends javax.swing.JFrame {
                         .addGap(135, 135, 135)
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField1)
+                        .addComponent(jTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 202, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButton8)
                         .addGap(116, 116, 116))
@@ -201,12 +203,12 @@ public class BuyerResults extends javax.swing.JFrame {
                             .addComponent(jLabelNumberFloors, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabelDescription, javax.swing.GroupLayout.PREFERRED_SIZE, 423, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanelHouseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabelNumberSurface, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabelLocation1, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabelNumberBedrooms2, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabelNumberRooms1, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabelSwimmingPool, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(jPanelHouseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabelNumberSurface, javax.swing.GroupLayout.DEFAULT_SIZE, 219, Short.MAX_VALUE)
+                            .addComponent(jLabelLocation1, javax.swing.GroupLayout.DEFAULT_SIZE, 219, Short.MAX_VALUE)
+                            .addComponent(jLabelNumberBedrooms2, javax.swing.GroupLayout.DEFAULT_SIZE, 219, Short.MAX_VALUE)
+                            .addComponent(jLabelNumberRooms1, javax.swing.GroupLayout.DEFAULT_SIZE, 219, Short.MAX_VALUE)
+                            .addComponent(jLabelSwimmingPool, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
             .addGroup(jPanelHouseLayout.createSequentialGroup()
                 .addGap(38, 38, 38)
@@ -251,50 +253,50 @@ public class BuyerResults extends javax.swing.JFrame {
         );
 
         jPanel2.add(jPanelHouse);
-        jPanelHouse.setBounds(770, 190, 760, 390);
+        jPanelHouse.setBounds(770, 190, 760, 400);
 
         jPanelApartment.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabelType1.setBackground(new java.awt.Color(0, 153, 153));
-        jLabelType1.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
-        jLabelType1.setForeground(new java.awt.Color(0, 153, 153));
+        jLabelType1.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
+        jLabelType1.setForeground(new java.awt.Color(102, 102, 255));
         jLabelType1.setText("Type : Apartment");
 
         jLabelDescription1.setBackground(new java.awt.Color(255, 255, 255));
-        jLabelDescription1.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
-        jLabelDescription1.setForeground(new java.awt.Color(0, 153, 153));
+        jLabelDescription1.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
+        jLabelDescription1.setForeground(new java.awt.Color(102, 102, 255));
 
-        jLabelPrice2.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
-        jLabelPrice2.setForeground(new java.awt.Color(0, 153, 153));
+        jLabelPrice2.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
+        jLabelPrice2.setForeground(new java.awt.Color(102, 102, 255));
 
-        jLabelNumberFloors1.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
-        jLabelNumberFloors1.setForeground(new java.awt.Color(0, 153, 153));
+        jLabelNumberFloors1.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
+        jLabelNumberFloors1.setForeground(new java.awt.Color(102, 102, 255));
 
-        jLabelLocation2.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
-        jLabelLocation2.setForeground(new java.awt.Color(0, 153, 153));
+        jLabelLocation2.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
+        jLabelLocation2.setForeground(new java.awt.Color(102, 102, 255));
 
-        jLabelNumberRooms2.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
-        jLabelNumberRooms2.setForeground(new java.awt.Color(0, 153, 153));
+        jLabelNumberRooms2.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
+        jLabelNumberRooms2.setForeground(new java.awt.Color(102, 102, 255));
 
-        jLabelNumberSurface1.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
-        jLabelNumberSurface1.setForeground(new java.awt.Color(0, 153, 153));
+        jLabelNumberSurface1.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
+        jLabelNumberSurface1.setForeground(new java.awt.Color(102, 102, 255));
 
-        jLabelNumberBedrooms3.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
-        jLabelNumberBedrooms3.setForeground(new java.awt.Color(0, 153, 153));
+        jLabelNumberBedrooms3.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
+        jLabelNumberBedrooms3.setForeground(new java.awt.Color(102, 102, 255));
 
         jLabelFloorNumber.setBackground(new java.awt.Color(255, 255, 255));
-        jLabelFloorNumber.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
-        jLabelFloorNumber.setForeground(new java.awt.Color(0, 153, 153));
+        jLabelFloorNumber.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
+        jLabelFloorNumber.setForeground(new java.awt.Color(102, 102, 255));
 
-        jLabelElevator.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
-        jLabelElevator.setForeground(new java.awt.Color(0, 153, 153));
+        jLabelElevator.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
+        jLabelElevator.setForeground(new java.awt.Color(102, 102, 255));
 
         jLabelParking.setBackground(new java.awt.Color(255, 255, 255));
-        jLabelParking.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
-        jLabelParking.setForeground(new java.awt.Color(0, 153, 153));
+        jLabelParking.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
+        jLabelParking.setForeground(new java.awt.Color(102, 102, 255));
 
         jLabel3.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel3.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
         jLabel3.setText("Make an offer ?");
 
         jTextField2.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
@@ -310,7 +312,8 @@ public class BuyerResults extends javax.swing.JFrame {
             }
         });
 
-        jButton9.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
+        jButton9.setBackground(new java.awt.Color(255, 255, 255));
+        jButton9.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
         jButton9.setText("Validate");
         jButton9.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -318,7 +321,8 @@ public class BuyerResults extends javax.swing.JFrame {
             }
         });
 
-        jComboBoxViewingApartment.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
+        jComboBoxViewingApartment.setBackground(new java.awt.Color(240, 240, 240));
+        jComboBoxViewingApartment.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
         jComboBoxViewingApartment.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Book a Viewing" }));
         jComboBoxViewingApartment.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -335,9 +339,9 @@ public class BuyerResults extends javax.swing.JFrame {
                 .addGroup(jPanelApartmentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabelPrice2, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabelNumberFloors1, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabelType1, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabelParking, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabelFloorNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 335, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabelFloorNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 335, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabelType1, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanelApartmentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabelNumberBedrooms3, javax.swing.GroupLayout.DEFAULT_SIZE, 219, Short.MAX_VALUE)
@@ -357,7 +361,7 @@ public class BuyerResults extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jLabel3)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField2, javax.swing.GroupLayout.DEFAULT_SIZE, 271, Short.MAX_VALUE)
+                        .addComponent(jTextField2, javax.swing.GroupLayout.DEFAULT_SIZE, 229, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButton9)
                         .addGap(43, 43, 43)))
@@ -403,14 +407,14 @@ public class BuyerResults extends javax.swing.JFrame {
         jPanel2.add(jPanelApartment);
         jPanelApartment.setBounds(800, 230, 740, 400);
 
-        jPanel4.setBackground(new java.awt.Color(0, 153, 153));
+        jPanel4.setBackground(new java.awt.Color(102, 102, 255));
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/projectjava/logo 2 projet info.png"))); // NOI18N
 
         jLabel2.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
 
-        jComboBox1.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
+        jComboBox1.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Select one of the following properties" }));
         jComboBox1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -418,7 +422,7 @@ public class BuyerResults extends javax.swing.JFrame {
             }
         });
 
-        jLabel6.setFont(new java.awt.Font("Calibri", 0, 24)); // NOI18N
+        jLabel6.setFont(new java.awt.Font("Calibri", 0, 36)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Properties corresponding to your criteria ");
 
@@ -443,11 +447,11 @@ public class BuyerResults extends javax.swing.JFrame {
                         .addGap(46, 46, 46)
                         .addComponent(jButton1))
                     .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGap(196, 196, 196)
-                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 410, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(57, 57, 57)
+                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 623, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGap(265, 265, 265)
-                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(140, 140, 140)
+                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 438, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel4Layout.createSequentialGroup()
@@ -460,11 +464,11 @@ public class BuyerResults extends javax.swing.JFrame {
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addGap(42, 42, 42)
                 .addComponent(jButton1)
-                .addGap(19, 19, 19)
+                .addGap(139, 139, 139)
                 .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(31, 31, 31)
+                .addGap(51, 51, 51)
                 .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 200, Short.MAX_VALUE)
                 .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(20, 20, 20))
             .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

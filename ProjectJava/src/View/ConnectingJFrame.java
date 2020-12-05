@@ -119,7 +119,7 @@ public class ConnectingJFrame extends javax.swing.JFrame {
         jPanel4.setBounds(0, 0, 740, 830);
 
         jButton5.setBackground(new java.awt.Color(255, 255, 255));
-        jButton5.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
+        jButton5.setFont(new java.awt.Font("Calibri", 0, 24)); // NOI18N
         jButton5.setText("Log In");
         jButton5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -127,39 +127,41 @@ public class ConnectingJFrame extends javax.swing.JFrame {
             }
         });
         jPanel2.add(jButton5);
-        jButton5.setBounds(1100, 510, 100, 23);
+        jButton5.setBounds(1120, 520, 140, 50);
 
-        jLabel7.setFont(new java.awt.Font("Calibri", 0, 24)); // NOI18N
+        jLabel7.setFont(new java.awt.Font("Calibri", 0, 36)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(0, 153, 153));
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel7.setText("Password");
         jLabel7.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel2.add(jLabel7);
-        jLabel7.setBounds(1020, 350, 100, 26);
+        jLabel7.setBounds(970, 350, 160, 40);
 
-        jLabel9.setFont(new java.awt.Font("Calibri", 0, 24)); // NOI18N
+        jLabel9.setFont(new java.awt.Font("Calibri", 0, 36)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(0, 153, 153));
         jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel9.setText("Username (email adress)");
         jLabel9.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel2.add(jLabel9);
-        jLabel9.setBounds(1000, 220, 270, 30);
+        jLabel9.setBounds(960, 210, 380, 30);
 
+        jTextField2.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
         jTextField2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField2ActionPerformed(evt);
             }
         });
         jPanel2.add(jTextField2);
-        jTextField2.setBounds(1020, 250, 230, 50);
+        jTextField2.setBounds(970, 250, 410, 50);
 
+        jPasswordField1.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
         jPasswordField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jPasswordField1ActionPerformed(evt);
             }
         });
         jPanel2.add(jPasswordField1);
-        jPasswordField1.setBounds(1030, 390, 220, 50);
+        jPasswordField1.setBounds(980, 390, 400, 50);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

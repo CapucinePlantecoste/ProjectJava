@@ -82,9 +82,9 @@ public class SellerDeleteViewing extends javax.swing.JFrame {
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setLayout(null);
 
-        jPanel4.setBackground(new java.awt.Color(0, 153, 153));
+        jPanel4.setBackground(new java.awt.Color(204, 204, 0));
 
-        jLabel1.setFont(new java.awt.Font("Calibri", 0, 24)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Calibri", 0, 36)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Delete a viewing");
 
@@ -101,7 +101,7 @@ public class SellerDeleteViewing extends javax.swing.JFrame {
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Select one of your property to  delete a viewing");
 
-        jComboBox1.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
+        jComboBox1.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Select one of your properties for sale" }));
         jComboBox1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -124,14 +124,15 @@ public class SellerDeleteViewing extends javax.swing.JFrame {
                         .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 509, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(101, 101, 101))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 391, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(78, 78, 78))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
                         .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 409, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(160, 160, 160))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 359, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(187, 187, 187))))
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 265, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(233, 233, 233))))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 472, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -143,8 +144,8 @@ public class SellerDeleteViewing extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 190, Short.MAX_VALUE)
+                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 194, Short.MAX_VALUE)
                 .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(20, 20, 20))
         );
@@ -165,7 +166,7 @@ public class SellerDeleteViewing extends javax.swing.JFrame {
 
         jPanelViewings.setBackground(new java.awt.Color(255, 255, 255));
 
-        jComboBox2.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
+        jComboBox2.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
         jComboBox2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Viewings" }));
         jComboBox2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -179,34 +180,36 @@ public class SellerDeleteViewing extends javax.swing.JFrame {
             jPanelViewingsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelViewingsLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jComboBox2, 0, 240, Short.MAX_VALUE)
+                .addContainerGap())
         );
         jPanelViewingsLayout.setVerticalGroup(
             jPanelViewingsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelViewingsLayout.createSequentialGroup()
                 .addGap(55, 55, 55)
-                .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(145, Short.MAX_VALUE))
+                .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(132, Short.MAX_VALUE))
         );
 
         jPanel2.add(jPanelViewings);
-        jPanelViewings.setBounds(760, 180, 250, 230);
+        jPanelViewings.setBounds(750, 180, 260, 230);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
-        jLabelDescription.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
-        jLabelDescription.setForeground(new java.awt.Color(0, 153, 153));
+        jLabelDescription.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
+        jLabelDescription.setForeground(new java.awt.Color(204, 204, 0));
 
-        jLabelId.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
-        jLabelId.setForeground(new java.awt.Color(0, 153, 153));
+        jLabelId.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
+        jLabelId.setForeground(new java.awt.Color(204, 204, 0));
 
-        jLabelDate.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
-        jLabelDate.setForeground(new java.awt.Color(0, 153, 153));
+        jLabelDate.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
+        jLabelDate.setForeground(new java.awt.Color(204, 204, 0));
 
-        jLabelLocation.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
-        jLabelLocation.setForeground(new java.awt.Color(0, 153, 153));
+        jLabelLocation.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
+        jLabelLocation.setForeground(new java.awt.Color(204, 204, 0));
 
+        jButton2.setBackground(new java.awt.Color(255, 255, 255));
+        jButton2.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
         jButton2.setText("Delete");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -245,7 +248,7 @@ public class SellerDeleteViewing extends javax.swing.JFrame {
                 .addComponent(jLabelDate, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(41, 41, 41)
                 .addComponent(jButton2)
-                .addContainerGap(72, Short.MAX_VALUE))
+                .addContainerGap(70, Short.MAX_VALUE))
         );
 
         jPanel2.add(jPanel1);

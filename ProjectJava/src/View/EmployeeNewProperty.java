@@ -90,9 +90,6 @@ public class EmployeeNewProperty extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
         jPasswordField1 = new javax.swing.JPasswordField();
         jPasswordField2 = new javax.swing.JPasswordField();
-        jPanel3 = new javax.swing.JPanel();
-        jLabel12 = new javax.swing.JLabel();
-        jComboBox2 = new javax.swing.JComboBox();
         jPanelApartment = new javax.swing.JPanel();
         jTextFieldPrice1 = new javax.swing.JTextField();
         jLabel21 = new javax.swing.JLabel();
@@ -135,6 +132,9 @@ public class EmployeeNewProperty extends javax.swing.JFrame {
         jLabel20 = new javax.swing.JLabel();
         jTextFieldDescription = new javax.swing.JTextField();
         jButton4 = new javax.swing.JButton();
+        jPanel3 = new javax.swing.JPanel();
+        jLabel12 = new javax.swing.JLabel();
+        jComboBox2 = new javax.swing.JComboBox();
         jPanelUsername = new javax.swing.JPanel();
         jTextField1 = new javax.swing.JTextField();
         jLabel31 = new javax.swing.JLabel();
@@ -146,7 +146,7 @@ public class EmployeeNewProperty extends javax.swing.JFrame {
         jPanel2.add(jLabel2);
         jLabel2.setBounds(1090, 100, 60, 100);
 
-        jPanel4.setBackground(new java.awt.Color(0, 153, 153));
+        jPanel4.setBackground(new java.awt.Color(255, 153, 102));
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/projectjava/logo 2 projet info.png"))); // NOI18N
 
@@ -235,11 +235,12 @@ public class EmployeeNewProperty extends javax.swing.JFrame {
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/projectjava/logo projet info.png"))); // NOI18N
 
         jLabel9.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
-        jLabel9.setForeground(new java.awt.Color(0, 153, 153));
+        jLabel9.setForeground(new java.awt.Color(255, 153, 102));
         jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel9.setText("First Name");
         jLabel9.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
+        jTextFieldFirstName.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
         jTextFieldFirstName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldFirstNameActionPerformed(evt);
@@ -255,11 +256,12 @@ public class EmployeeNewProperty extends javax.swing.JFrame {
         });
 
         jLabel11.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
-        jLabel11.setForeground(new java.awt.Color(0, 153, 153));
+        jLabel11.setForeground(new java.awt.Color(255, 153, 102));
         jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel11.setText("Surname");
         jLabel11.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
+        jTextFieldSurname.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
         jTextFieldSurname.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldSurnameActionPerformed(evt);
@@ -272,11 +274,12 @@ public class EmployeeNewProperty extends javax.swing.JFrame {
         });
 
         jLabel10.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
-        jLabel10.setForeground(new java.awt.Color(0, 153, 153));
+        jLabel10.setForeground(new java.awt.Color(255, 153, 102));
         jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel10.setText("Username (email adress)");
         jLabel10.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
+        jTextFieldUsername.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
         jTextFieldUsername.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldUsernameActionPerformed(evt);
@@ -284,25 +287,29 @@ public class EmployeeNewProperty extends javax.swing.JFrame {
         });
 
         jLabel8.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(0, 153, 153));
+        jLabel8.setForeground(new java.awt.Color(255, 153, 102));
         jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel8.setText("Password");
         jLabel8.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         jLabel7.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(0, 153, 153));
+        jLabel7.setForeground(new java.awt.Color(255, 153, 102));
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel7.setText("Confirm Password ");
         jLabel7.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         jButton2.setBackground(new java.awt.Color(255, 255, 255));
-        jButton2.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
+        jButton2.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
         jButton2.setText("Sign In");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
             }
         });
+
+        jPasswordField1.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
+
+        jPasswordField2.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -357,55 +364,17 @@ public class EmployeeNewProperty extends javax.swing.JFrame {
                 .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPasswordField2, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jButton2)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(24, Short.MAX_VALUE))
         );
 
         jPanel2.add(jPanel1);
         jPanel1.setBounds(720, 30, 380, 480);
 
-        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
-
-        jLabel12.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
-        jLabel12.setForeground(new java.awt.Color(0, 153, 153));
-        jLabel12.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel12.setText("What kind of property do you want to introduce ? ");
-        jLabel12.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-
-        jComboBox2.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Select", "Apartment", "House" }));
-        jComboBox2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox2ActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel12, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 370, Short.MAX_VALUE)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(118, 118, 118))
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jComboBox2)
-                .addContainerGap())
-        );
-
-        jPanel2.add(jPanel3);
-        jPanel3.setBounds(1180, 180, 370, 100);
-
         jPanelApartment.setBackground(new java.awt.Color(255, 255, 255));
 
+        jTextFieldPrice1.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
         jTextFieldPrice1.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 jTextFieldPrice1KeyTyped(evt);
@@ -414,14 +383,15 @@ public class EmployeeNewProperty extends javax.swing.JFrame {
 
         jLabel21.setBackground(new java.awt.Color(255, 255, 255));
         jLabel21.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
-        jLabel21.setForeground(new java.awt.Color(0, 153, 153));
+        jLabel21.setForeground(new java.awt.Color(255, 153, 102));
         jLabel21.setText("Price (in €)");
 
         jLabel22.setBackground(new java.awt.Color(255, 255, 255));
         jLabel22.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
-        jLabel22.setForeground(new java.awt.Color(0, 153, 153));
+        jLabel22.setForeground(new java.awt.Color(255, 153, 102));
         jLabel22.setText("Location");
 
+        jTextFieldLocation1.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
         jTextFieldLocation1.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 jTextFieldLocation1KeyTyped(evt);
@@ -430,9 +400,10 @@ public class EmployeeNewProperty extends javax.swing.JFrame {
 
         jLabel23.setBackground(new java.awt.Color(255, 255, 255));
         jLabel23.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
-        jLabel23.setForeground(new java.awt.Color(0, 153, 153));
+        jLabel23.setForeground(new java.awt.Color(255, 153, 102));
         jLabel23.setText("Number of rooms");
 
+        jTextFieldNumberRoom1.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
         jTextFieldNumberRoom1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldNumberRoom1ActionPerformed(evt);
@@ -444,6 +415,7 @@ public class EmployeeNewProperty extends javax.swing.JFrame {
             }
         });
 
+        jTextFieldNumberBedroom1.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
         jTextFieldNumberBedroom1.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 jTextFieldNumberBedroom1KeyTyped(evt);
@@ -452,9 +424,10 @@ public class EmployeeNewProperty extends javax.swing.JFrame {
 
         jLabel24.setBackground(new java.awt.Color(255, 255, 255));
         jLabel24.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
-        jLabel24.setForeground(new java.awt.Color(0, 153, 153));
+        jLabel24.setForeground(new java.awt.Color(255, 153, 102));
         jLabel24.setText("Number of Bedrooms");
 
+        jTextFieldSurface1.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
         jTextFieldSurface1.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 jTextFieldSurface1KeyTyped(evt);
@@ -463,14 +436,15 @@ public class EmployeeNewProperty extends javax.swing.JFrame {
 
         jLabel25.setBackground(new java.awt.Color(255, 255, 255));
         jLabel25.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
-        jLabel25.setForeground(new java.awt.Color(0, 153, 153));
+        jLabel25.setForeground(new java.awt.Color(255, 153, 102));
         jLabel25.setText("Surface (m²)");
 
         jLabel26.setBackground(new java.awt.Color(255, 255, 255));
         jLabel26.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
-        jLabel26.setForeground(new java.awt.Color(0, 153, 153));
+        jLabel26.setForeground(new java.awt.Color(255, 153, 102));
         jLabel26.setText("Number of floors");
 
+        jTextFieldNumberFloor1.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
         jTextFieldNumberFloor1.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 jTextFieldNumberFloor1KeyTyped(evt);
@@ -479,7 +453,7 @@ public class EmployeeNewProperty extends javax.swing.JFrame {
 
         jLabel27.setBackground(new java.awt.Color(255, 255, 255));
         jLabel27.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
-        jLabel27.setForeground(new java.awt.Color(0, 153, 153));
+        jLabel27.setForeground(new java.awt.Color(255, 153, 102));
         jLabel27.setText("Parking");
 
         jComboBox4.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
@@ -492,9 +466,10 @@ public class EmployeeNewProperty extends javax.swing.JFrame {
 
         jLabel28.setBackground(new java.awt.Color(255, 255, 255));
         jLabel28.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
-        jLabel28.setForeground(new java.awt.Color(0, 153, 153));
+        jLabel28.setForeground(new java.awt.Color(255, 153, 102));
         jLabel28.setText("Floor Number");
 
+        jTextFieldFloorNumber.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
         jTextFieldFloorNumber.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 jTextFieldFloorNumberKeyTyped(evt);
@@ -502,9 +477,10 @@ public class EmployeeNewProperty extends javax.swing.JFrame {
         });
 
         jLabel29.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
-        jLabel29.setForeground(new java.awt.Color(0, 153, 153));
+        jLabel29.setForeground(new java.awt.Color(255, 153, 102));
         jLabel29.setText("Description");
 
+        jTextFieldDescription1.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
         jTextFieldDescription1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldDescription1ActionPerformed(evt);
@@ -513,7 +489,7 @@ public class EmployeeNewProperty extends javax.swing.JFrame {
 
         jLabel30.setBackground(new java.awt.Color(255, 255, 255));
         jLabel30.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
-        jLabel30.setForeground(new java.awt.Color(0, 153, 153));
+        jLabel30.setForeground(new java.awt.Color(255, 153, 102));
         jLabel30.setText("Elevator");
 
         jComboBox5.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
@@ -524,7 +500,8 @@ public class EmployeeNewProperty extends javax.swing.JFrame {
             }
         });
 
-        jButton3.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
+        jButton3.setBackground(new java.awt.Color(255, 255, 255));
+        jButton3.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
         jButton3.setText("Confirm the introduction of the property");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -583,7 +560,7 @@ public class EmployeeNewProperty extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jTextFieldDescription1, javax.swing.GroupLayout.PREFERRED_SIZE, 631, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanelApartmentLayout.createSequentialGroup()
-                        .addGap(244, 244, 244)
+                        .addGap(186, 186, 186)
                         .addComponent(jButton3)))
                 .addContainerGap(34, Short.MAX_VALUE))
         );
@@ -644,10 +621,11 @@ public class EmployeeNewProperty extends javax.swing.JFrame {
         );
 
         jPanel2.add(jPanelApartment);
-        jPanelApartment.setBounds(760, 500, 806, 330);
+        jPanelApartment.setBounds(760, 500, 801, 330);
 
         jPanelHouse.setBackground(new java.awt.Color(255, 255, 255));
 
+        jTextFieldPrice.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
         jTextFieldPrice.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 jTextFieldPriceKeyTyped(evt);
@@ -656,25 +634,27 @@ public class EmployeeNewProperty extends javax.swing.JFrame {
 
         jLabel6.setBackground(new java.awt.Color(255, 255, 255));
         jLabel6.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(0, 153, 153));
+        jLabel6.setForeground(new java.awt.Color(255, 153, 102));
         jLabel6.setText("Price (in €)");
 
         jLabel13.setBackground(new java.awt.Color(255, 255, 255));
         jLabel13.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
-        jLabel13.setForeground(new java.awt.Color(0, 153, 153));
+        jLabel13.setForeground(new java.awt.Color(255, 153, 102));
         jLabel13.setText("Location");
 
         jLabel14.setBackground(new java.awt.Color(255, 255, 255));
         jLabel14.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
-        jLabel14.setForeground(new java.awt.Color(0, 153, 153));
+        jLabel14.setForeground(new java.awt.Color(255, 153, 102));
         jLabel14.setText("Number of rooms");
 
+        jTextFieldNumberRoom.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
         jTextFieldNumberRoom.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 jTextFieldNumberRoomKeyTyped(evt);
             }
         });
 
+        jTextFieldNumberBedroom.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
         jTextFieldNumberBedroom.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldNumberBedroomActionPerformed(evt);
@@ -686,6 +666,7 @@ public class EmployeeNewProperty extends javax.swing.JFrame {
             }
         });
 
+        jTextFieldLocation.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
         jTextFieldLocation.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 jTextFieldLocationKeyTyped(evt);
@@ -694,9 +675,10 @@ public class EmployeeNewProperty extends javax.swing.JFrame {
 
         jLabel15.setBackground(new java.awt.Color(255, 255, 255));
         jLabel15.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
-        jLabel15.setForeground(new java.awt.Color(0, 153, 153));
+        jLabel15.setForeground(new java.awt.Color(255, 153, 102));
         jLabel15.setText("Number of Bedrooms");
 
+        jTextFieldSurface.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
         jTextFieldSurface.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 jTextFieldSurfaceKeyTyped(evt);
@@ -705,14 +687,15 @@ public class EmployeeNewProperty extends javax.swing.JFrame {
 
         jLabel16.setBackground(new java.awt.Color(255, 255, 255));
         jLabel16.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
-        jLabel16.setForeground(new java.awt.Color(0, 153, 153));
+        jLabel16.setForeground(new java.awt.Color(255, 153, 102));
         jLabel16.setText("Surface (m²)");
 
         jLabel17.setBackground(new java.awt.Color(255, 255, 255));
         jLabel17.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
-        jLabel17.setForeground(new java.awt.Color(0, 153, 153));
+        jLabel17.setForeground(new java.awt.Color(255, 153, 102));
         jLabel17.setText("Number of floors");
 
+        jTextFieldNumberFloor.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
         jTextFieldNumberFloor.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 jTextFieldNumberFloorKeyTyped(evt);
@@ -721,7 +704,7 @@ public class EmployeeNewProperty extends javax.swing.JFrame {
 
         jLabel18.setBackground(new java.awt.Color(255, 255, 255));
         jLabel18.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
-        jLabel18.setForeground(new java.awt.Color(0, 153, 153));
+        jLabel18.setForeground(new java.awt.Color(255, 153, 102));
         jLabel18.setText("Swimming Pool");
 
         jComboBox3.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
@@ -734,9 +717,10 @@ public class EmployeeNewProperty extends javax.swing.JFrame {
 
         jLabel19.setBackground(new java.awt.Color(255, 255, 255));
         jLabel19.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
-        jLabel19.setForeground(new java.awt.Color(0, 153, 153));
+        jLabel19.setForeground(new java.awt.Color(255, 153, 102));
         jLabel19.setText("Garden Surface");
 
+        jTextFieldGardenSurface.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
         jTextFieldGardenSurface.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 jTextFieldGardenSurfaceKeyTyped(evt);
@@ -744,16 +728,18 @@ public class EmployeeNewProperty extends javax.swing.JFrame {
         });
 
         jLabel20.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
-        jLabel20.setForeground(new java.awt.Color(0, 153, 153));
+        jLabel20.setForeground(new java.awt.Color(255, 153, 102));
         jLabel20.setText("Description");
 
+        jTextFieldDescription.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
         jTextFieldDescription.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldDescriptionActionPerformed(evt);
             }
         });
 
-        jButton4.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
+        jButton4.setBackground(new java.awt.Color(255, 255, 255));
+        jButton4.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
         jButton4.setText("Confirm the introduction of the property");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -783,7 +769,6 @@ public class EmployeeNewProperty extends javax.swing.JFrame {
                                     .addComponent(jTextFieldSurface, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanelHouseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton4)
                             .addGroup(jPanelHouseLayout.createSequentialGroup()
                                 .addGroup(jPanelHouseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -809,6 +794,10 @@ public class EmployeeNewProperty extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jTextFieldDescription)))
                 .addContainerGap())
+            .addGroup(jPanelHouseLayout.createSequentialGroup()
+                .addGap(169, 169, 169)
+                .addComponent(jButton4)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanelHouseLayout.setVerticalGroup(
             jPanelHouseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -863,6 +852,45 @@ public class EmployeeNewProperty extends javax.swing.JFrame {
         jPanel2.add(jPanelHouse);
         jPanelHouse.setBounds(770, 500, 770, 330);
 
+        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
+
+        jLabel12.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
+        jLabel12.setForeground(new java.awt.Color(255, 153, 102));
+        jLabel12.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel12.setText("What kind of property do you want to introduce ? ");
+        jLabel12.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
+        jComboBox2.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
+        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Select", "Apartment", "House" }));
+        jComboBox2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox2ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel12, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 370, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(118, 118, 118))
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jComboBox2)
+                .addContainerGap())
+        );
+
+        jPanel2.add(jPanel3);
+        jPanel3.setBounds(1180, 180, 370, 100);
+
         jPanelUsername.setBackground(new java.awt.Color(255, 255, 255));
         jPanelUsername.setForeground(new java.awt.Color(255, 255, 255));
 
@@ -899,7 +927,7 @@ public class EmployeeNewProperty extends javax.swing.JFrame {
         );
 
         jPanel2.add(jPanelUsername);
-        jPanelUsername.setBounds(860, 100, 259, 108);
+        jPanelUsername.setBounds(860, 100, 259, 103);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

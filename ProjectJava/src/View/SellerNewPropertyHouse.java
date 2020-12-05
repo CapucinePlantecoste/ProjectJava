@@ -88,7 +88,7 @@ public class SellerNewPropertyHouse extends javax.swing.JFrame {
         jPanel2.add(jLabel2);
         jLabel2.setBounds(1090, 100, 60, 100);
 
-        jPanel4.setBackground(new java.awt.Color(0, 153, 153));
+        jPanel4.setBackground(new java.awt.Color(204, 204, 0));
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/projectjava/logo 2 projet info.png"))); // NOI18N
 
@@ -158,60 +158,61 @@ public class SellerNewPropertyHouse extends javax.swing.JFrame {
 
         jLabel4.setBackground(new java.awt.Color(255, 255, 255));
         jLabel4.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(0, 153, 153));
+        jLabel4.setForeground(new java.awt.Color(204, 204, 0));
         jLabel4.setText("Surface (m²)");
         jPanel2.add(jLabel4);
         jLabel4.setBounds(1210, 360, 200, 30);
 
         jLabel6.setBackground(new java.awt.Color(255, 255, 255));
         jLabel6.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(0, 153, 153));
+        jLabel6.setForeground(new java.awt.Color(204, 204, 0));
         jLabel6.setText("Price (in €)");
         jPanel2.add(jLabel6);
         jLabel6.setBounds(950, 180, 150, 30);
 
         jLabel7.setBackground(new java.awt.Color(255, 255, 255));
         jLabel7.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(0, 153, 153));
+        jLabel7.setForeground(new java.awt.Color(204, 204, 0));
         jLabel7.setText("Location");
         jPanel2.add(jLabel7);
         jLabel7.setBounds(1210, 180, 200, 30);
 
         jLabel8.setBackground(new java.awt.Color(255, 255, 255));
         jLabel8.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(0, 153, 153));
+        jLabel8.setForeground(new java.awt.Color(204, 204, 0));
         jLabel8.setText("Number of rooms");
         jPanel2.add(jLabel8);
         jLabel8.setBounds(950, 270, 200, 30);
 
         jLabel9.setBackground(new java.awt.Color(255, 255, 255));
         jLabel9.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
-        jLabel9.setForeground(new java.awt.Color(0, 153, 153));
+        jLabel9.setForeground(new java.awt.Color(204, 204, 0));
         jLabel9.setText("Number of Bedrooms");
         jPanel2.add(jLabel9);
         jLabel9.setBounds(1210, 270, 200, 30);
 
         jLabel10.setBackground(new java.awt.Color(255, 255, 255));
         jLabel10.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
-        jLabel10.setForeground(new java.awt.Color(0, 153, 153));
+        jLabel10.setForeground(new java.awt.Color(204, 204, 0));
         jLabel10.setText("Swimming Pool");
         jPanel2.add(jLabel10);
         jLabel10.setBounds(950, 450, 200, 30);
 
         jLabel12.setBackground(new java.awt.Color(255, 255, 255));
         jLabel12.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
-        jLabel12.setForeground(new java.awt.Color(0, 153, 153));
+        jLabel12.setForeground(new java.awt.Color(204, 204, 0));
         jLabel12.setText("Number of floors");
         jPanel2.add(jLabel12);
         jLabel12.setBounds(950, 360, 200, 30);
 
         jLabel13.setBackground(new java.awt.Color(255, 255, 255));
         jLabel13.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
-        jLabel13.setForeground(new java.awt.Color(0, 153, 153));
+        jLabel13.setForeground(new java.awt.Color(204, 204, 0));
         jLabel13.setText("Garden Surface (m²)");
         jPanel2.add(jLabel13);
         jLabel13.setBounds(1210, 450, 200, 30);
 
+        jTextField1.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
         jTextField1.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 jTextField1KeyTyped(evt);
@@ -220,6 +221,7 @@ public class SellerNewPropertyHouse extends javax.swing.JFrame {
         jPanel2.add(jTextField1);
         jTextField1.setBounds(1210, 210, 200, 30);
 
+        jTextField2.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
         jTextField2.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 jTextField2KeyTyped(evt);
@@ -228,6 +230,7 @@ public class SellerNewPropertyHouse extends javax.swing.JFrame {
         jPanel2.add(jTextField2);
         jTextField2.setBounds(1210, 300, 200, 30);
 
+        jTextField3.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
         jTextField3.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 jTextField3KeyTyped(evt);
@@ -236,6 +239,7 @@ public class SellerNewPropertyHouse extends javax.swing.JFrame {
         jPanel2.add(jTextField3);
         jTextField3.setBounds(950, 210, 160, 30);
 
+        jTextField4.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
         jTextField4.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 jTextField4KeyTyped(evt);
@@ -244,6 +248,7 @@ public class SellerNewPropertyHouse extends javax.swing.JFrame {
         jPanel2.add(jTextField4);
         jTextField4.setBounds(1210, 480, 200, 30);
 
+        jTextField5.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
         jTextField5.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 jTextField5KeyTyped(evt);
@@ -252,6 +257,7 @@ public class SellerNewPropertyHouse extends javax.swing.JFrame {
         jPanel2.add(jTextField5);
         jTextField5.setBounds(950, 300, 160, 30);
 
+        jTextField6.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
         jTextField6.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 jTextField6KeyTyped(evt);
@@ -260,6 +266,7 @@ public class SellerNewPropertyHouse extends javax.swing.JFrame {
         jPanel2.add(jTextField6);
         jTextField6.setBounds(950, 390, 160, 30);
 
+        jTextField7.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
         jTextField7.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 jTextField7KeyTyped(evt);
@@ -288,11 +295,13 @@ public class SellerNewPropertyHouse extends javax.swing.JFrame {
         });
         jPanel2.add(jButton2);
         jButton2.setBounds(1010, 660, 350, 40);
+
+        jTextField8.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
         jPanel2.add(jTextField8);
         jTextField8.setBounds(960, 590, 460, 30);
 
         jLabel11.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
-        jLabel11.setForeground(new java.awt.Color(0, 153, 153));
+        jLabel11.setForeground(new java.awt.Color(204, 204, 0));
         jLabel11.setText("Description");
         jPanel2.add(jLabel11);
         jLabel11.setBounds(960, 560, 150, 23);
