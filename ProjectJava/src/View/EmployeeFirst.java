@@ -61,6 +61,7 @@ public class EmployeeFirst extends javax.swing.JFrame {
         jButton3 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
+        jButton6 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -143,7 +144,7 @@ public class EmployeeFirst extends javax.swing.JFrame {
             }
         });
         jPanel2.add(jButton2);
-        jButton2.setBounds(1010, 540, 300, 40);
+        jButton2.setBounds(1010, 550, 300, 40);
 
         jButton4.setBackground(new java.awt.Color(255, 255, 255));
         jButton4.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
@@ -155,6 +156,17 @@ public class EmployeeFirst extends javax.swing.JFrame {
         });
         jPanel2.add(jButton4);
         jButton4.setBounds(1010, 410, 300, 40);
+
+        jButton6.setBackground(new java.awt.Color(255, 255, 255));
+        jButton6.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
+        jButton6.setText("See Statistics");
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
+        jPanel2.add(jButton6);
+        jButton6.setBounds(1010, 620, 300, 40);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -244,6 +256,16 @@ public class EmployeeFirst extends javax.swing.JFrame {
         //we set the new frame visible
     }//GEN-LAST:event_jButton4ActionPerformed
 
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        // Button to see the statistics 
+        this.setVisible(false) ; 
+        //we close this frame
+        ChartFrameClassEmployee a = new ChartFrameClassEmployee (newemployee, buyers, sellers, emp, pr, v, o) ; 
+        //we open a new frame to see the charts 
+        a.setVisible(true) ;  
+        //we set it visible 
+    }//GEN-LAST:event_jButton6ActionPerformed
+
     public void nom()
     //function that enables to display the name of the employee on the frame as soon as he connects
     {
@@ -309,6 +331,7 @@ public class EmployeeFirst extends javax.swing.JFrame {
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
+    private javax.swing.JButton jButton6;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel2;

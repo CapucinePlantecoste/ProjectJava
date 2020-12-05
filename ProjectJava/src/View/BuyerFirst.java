@@ -63,6 +63,7 @@ public class BuyerFirst extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
+        jButton4 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jButton3 = new javax.swing.JButton();
@@ -113,6 +114,15 @@ public class BuyerFirst extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
 
+        jButton4.setBackground(new java.awt.Color(255, 255, 255));
+        jButton4.setFont(new java.awt.Font("Calibri", 0, 24)); // NOI18N
+        jButton4.setText("See Statistics");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
@@ -124,6 +134,7 @@ public class BuyerFirst extends javax.swing.JFrame {
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addGap(250, 250, 250)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 262, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 262, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 262, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -138,9 +149,11 @@ public class BuyerFirst extends javax.swing.JFrame {
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addContainerGap(259, Short.MAX_VALUE)
                 .addComponent(jButton2)
-                .addGap(86, 86, 86)
+                .addGap(35, 35, 35)
                 .addComponent(jButton1)
-                .addGap(147, 147, 147)
+                .addGap(43, 43, 43)
+                .addComponent(jButton4)
+                .addGap(116, 116, 116)
                 .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(20, 20, 20))
             .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -588,6 +601,17 @@ public class BuyerFirst extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        //button to see the charts 
+        this.setVisible(false) ;
+        //we close this frame
+        ChartFrameClassBuyer a = new ChartFrameClassBuyer (newbuyer, buyers, sellers, emp, pr, v, o) ; 
+        //we open a new one to see the charts 
+        a.setVisible(true) ;
+        //we set it visible 
+        
+    }//GEN-LAST:event_jButton4ActionPerformed
+
     public double getvalue7() {
         //method to get the minimum price 
         double minpr;
@@ -749,6 +773,7 @@ public class BuyerFirst extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JComboBox jComboBox1;
     private javax.swing.JLabel jLabel1;
