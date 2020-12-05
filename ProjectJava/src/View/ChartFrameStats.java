@@ -15,7 +15,9 @@ import java.util.ArrayList;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartFrame;
 import org.jfree.chart.JFreeChart;
+import org.jfree.chart.plot.CategoryPlot;
 import org.jfree.chart.plot.PlotOrientation;
+import org.jfree.chart.renderer.category.BarRenderer;
 import org.jfree.data.xy.XYSeries;
 import org.jfree.data.xy.XYSeriesCollection;
 import projectjava.First;
@@ -205,6 +207,7 @@ public class ChartFrameStats extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
 
+        
         XYSeries series = new XYSeries("Donnees ");
         //creation of a graph 
         for (int i = 0; i < pr.size(); ++i) //we go through our properties list
@@ -237,6 +240,7 @@ public class ChartFrameStats extends javax.swing.JFrame {
         //Properties of the graph : title, axes...
         ChartFrame frame = new ChartFrame("Graph", chart);
         frame.pack();
+        
         frame.setVisible(true);
         //we set it visible 
     }//GEN-LAST:event_jButton3ActionPerformed
@@ -264,6 +268,7 @@ public class ChartFrameStats extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
+  
     /**
      * @param args the command line arguments
      */

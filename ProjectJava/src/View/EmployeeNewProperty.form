@@ -243,6 +243,9 @@
                   </StringArray>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jComboBox6ActionPerformed"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>
@@ -319,7 +322,7 @@
                       <Component id="jPasswordField2" min="-2" pref="35" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="jButton2" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="24" max="32767" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>

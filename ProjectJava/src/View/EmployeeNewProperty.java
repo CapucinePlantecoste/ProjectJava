@@ -57,6 +57,8 @@ public class EmployeeNewProperty extends javax.swing.JFrame {
         jPanelApartment.hide();
         jPanelUsername.hide();
         //in the beginning, all the other panels are hidden 
+        this.initjcb6();
+        // We add every seller to the jcombobx
     }
 
     /**
@@ -234,6 +236,11 @@ public class EmployeeNewProperty extends javax.swing.JFrame {
 
         jComboBox6.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
         jComboBox6.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Select one of the sellers" }));
+        jComboBox6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox6ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanelUsernameLayout = new javax.swing.GroupLayout(jPanelUsername);
         jPanelUsername.setLayout(jPanelUsernameLayout);
@@ -253,7 +260,7 @@ public class EmployeeNewProperty extends javax.swing.JFrame {
         );
 
         jPanel2.add(jPanelUsername);
-        jPanelUsername.setBounds(860, 100, 261, 103);
+        jPanelUsername.setBounds(860, 100, 271, 108);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -391,7 +398,7 @@ public class EmployeeNewProperty extends javax.swing.JFrame {
                 .addComponent(jPasswordField2, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jButton2)
-                .addContainerGap(24, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jPanel2.add(jPanel1);
@@ -646,7 +653,7 @@ public class EmployeeNewProperty extends javax.swing.JFrame {
         );
 
         jPanel2.add(jPanelApartment);
-        jPanelApartment.setBounds(760, 500, 801, 330);
+        jPanelApartment.setBounds(760, 500, 806, 330);
 
         jPanelHouse.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -951,7 +958,7 @@ public class EmployeeNewProperty extends javax.swing.JFrame {
             //we set the buffer to 1
             jPanelUsername.show();
             //we let him introduce his application username in the panelusername 
-            jPanel3.show();
+            jPanel3.hide();
             //we let him chose in the panel 3 if he wants to introduce a house or an apartment 
             jPanel1.hide();
             jPanelApartment.hide();
@@ -1285,9 +1292,11 @@ public class EmployeeNewProperty extends javax.swing.JFrame {
 
         if (tampon == 1) {
             //if the seller is not a new seller 
+            String selected=(String) jComboBox6.getSelectedItem();
+            //We get the username of the seller that has been selected
             for (int i = 0; i < sellers.size(); ++i) {
                 //we go through all the sellers of the application 
-                if (jTextField1.getText().equals(sellers.get(i).getusername())) {
+                if (selected.equals(sellers.get(i).getusername())) {
                     //if the username entered by this seller is the same than one of the seller already registered in the database 
                     tampon2 = i;
                     //we set the value of the second buffer to i
@@ -1373,10 +1382,12 @@ public class EmployeeNewProperty extends javax.swing.JFrame {
         // button confirm the introduction of the property for apartment
 
         if (tampon == 1) {
+            
             //if the seller is not a new seller 
+            String selected=(String)jComboBox6.getSelectedItem();
             for (int i = 0; i < sellers.size(); ++i) {
                 //we go through all the sellers of the application 
-                if (jTextField1.getText().equals(sellers.get(i).getusername())) {
+                if (selected.equals(sellers.get(i).getusername())) {
                     //if the username entered by this seller is the same than one of the seller already registered in the database 
                     tampon2 = i;
                     //we set the value of the second buffer to i
@@ -1456,6 +1467,23 @@ public class EmployeeNewProperty extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jComboBox6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox6ActionPerformed
+        // TODO add your handling code here:
+        String selected= (String) jComboBox6.getSelectedItem();
+        if(selected.equals("Select one of the sellers"))
+        {
+            //If we click on the title of the jcombobox we hide every panels
+            jPanelHouse.hide();
+            jPanelApartment.hide();
+            jPanel3.hide();
+        }
+        else
+        {
+            //if we click on anohter option we automatically show the choice between house and aprtment
+            jPanel3.show();
+        }
+    }//GEN-LAST:event_jComboBox6ActionPerformed
 
     public int test() {
         //fuction that checks if the entered username is not already in the application 
@@ -1556,6 +1584,15 @@ public class EmployeeNewProperty extends javax.swing.JFrame {
         }
         pdao.addproperty(pr.get(pr.size() - 1), 2);
         //we add the property in the database 
+    }
+    
+    public void initjcb6()
+    {
+        for(int i=0;i<sellers.size();++i)
+        {
+            //We add all the usernames of all the sellers
+            jComboBox6.addItem(sellers.get(i).getusername());
+        }
     }
 
     /**
