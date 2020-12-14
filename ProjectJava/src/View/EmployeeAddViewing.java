@@ -158,13 +158,13 @@ public class EmployeeAddViewing extends javax.swing.JFrame {
                 .addComponent(jLabel3)
                 .addGap(44, 44, 44)
                 .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 119, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 139, Short.MAX_VALUE)
                 .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(46, 46, 46))
         );
 
         jPanel2.add(jPanel4);
-        jPanel4.setBounds(0, 0, 740, 830);
+        jPanel4.setBounds(0, 0, 740, 850);
 
         jButton5.setBackground(new java.awt.Color(255, 255, 255));
         jButton5.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
@@ -284,14 +284,10 @@ public class EmployeeAddViewing extends javax.swing.JFrame {
                         .addGroup(jPanelViewingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanelViewingLayout.createSequentialGroup()
                                 .addGroup(jPanelViewingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanelViewingLayout.createSequentialGroup()
-                                        .addGroup(jPanelViewingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jLabel10)
-                                            .addComponent(jLabel9))
-                                        .addGap(22, 22, 22))
-                                    .addGroup(jPanelViewingLayout.createSequentialGroup()
-                                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
+                                    .addComponent(jLabel10)
+                                    .addComponent(jLabel9)
+                                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(19, 19, 19)
                                 .addGroup(jPanelViewingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jTextFieldMinutes, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)

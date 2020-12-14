@@ -62,7 +62,7 @@
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="0" y="0" width="740" height="830"/>
+              <AbsoluteConstraints x="0" y="0" width="740" height="850"/>
             </Constraint>
           </Constraints>
 
@@ -107,7 +107,7 @@
                       <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
                       <Component id="jComboBox1" min="-2" pref="52" max="-2" attributes="0"/>
-                      <EmptySpace pref="119" max="32767" attributes="0"/>
+                      <EmptySpace pref="139" max="32767" attributes="0"/>
                       <Component id="jLabel5" min="-2" pref="240" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
                   </Group>
@@ -214,18 +214,11 @@
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" attributes="0">
                                       <Group type="103" groupAlignment="0" attributes="0">
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <Group type="103" groupAlignment="0" attributes="0">
-                                                  <Component id="jLabel10" min="-2" max="-2" attributes="0"/>
-                                                  <Component id="jLabel9" min="-2" max="-2" attributes="0"/>
-                                              </Group>
-                                              <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
-                                          </Group>
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <Component id="jLabel6" min="-2" pref="104" max="-2" attributes="0"/>
-                                              <EmptySpace max="-2" attributes="0"/>
-                                          </Group>
+                                          <Component id="jLabel10" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLabel9" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLabel6" alignment="0" min="-2" pref="104" max="-2" attributes="0"/>
                                       </Group>
+                                      <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
                                           <Component id="jTextField1" min="-2" pref="212" max="-2" attributes="0"/>
                                           <Component id="jTextFieldMinutes" min="-2" pref="212" max="-2" attributes="0"/>

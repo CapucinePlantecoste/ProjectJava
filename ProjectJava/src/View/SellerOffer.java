@@ -148,7 +148,7 @@ public class SellerOffer extends javax.swing.JFrame {
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addGap(42, 42, 42)
                 .addComponent(jButton1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 135, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 175, Short.MAX_VALUE)
                 .addComponent(jLabel3)
                 .addGap(61, 61, 61)
                 .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -159,11 +159,11 @@ public class SellerOffer extends javax.swing.JFrame {
                 .addGroup(jPanel4Layout.createSequentialGroup()
                     .addGap(70, 70, 70)
                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(700, Short.MAX_VALUE)))
+                    .addContainerGap(740, Short.MAX_VALUE)))
         );
 
         jPanel2.add(jPanel4);
-        jPanel4.setBounds(0, 0, 740, 830);
+        jPanel4.setBounds(0, 0, 740, 870);
 
         jButton5.setBackground(new java.awt.Color(255, 255, 255));
         jButton5.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N

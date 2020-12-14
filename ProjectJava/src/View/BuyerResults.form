@@ -65,39 +65,32 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="100" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
-                              <EmptySpace min="-2" pref="135" max="-2" attributes="0"/>
-                              <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jTextField1" pref="202" max="32767" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jButton8" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="116" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" attributes="0">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jLabelType" alignment="0" min="-2" pref="103" max="-2" attributes="0"/>
-                                  <Component id="jLabelGardenSurface" alignment="0" min="-2" pref="219" max="-2" attributes="0"/>
-                                  <Component id="jLabelPrice" alignment="0" min="-2" pref="219" max="-2" attributes="0"/>
-                                  <Component id="jLabelNumberFloors" alignment="0" min="-2" pref="219" max="-2" attributes="0"/>
-                                  <Component id="jLabelDescription" min="-2" pref="423" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="jLabelNumberSurface" pref="219" max="32767" attributes="0"/>
-                                  <Component id="jLabelLocation1" pref="219" max="32767" attributes="0"/>
-                                  <Component id="jLabelNumberBedrooms2" alignment="0" pref="219" max="32767" attributes="0"/>
-                                  <Component id="jLabelNumberRooms1" alignment="0" pref="219" max="32767" attributes="0"/>
-                                  <Component id="jLabelSwimmingPool" alignment="0" max="32767" attributes="0"/>
-                              </Group>
-                              <EmptySpace max="32767" attributes="0"/>
-                          </Group>
+                          <Component id="jLabelType" alignment="0" min="-2" pref="103" max="-2" attributes="0"/>
+                          <Component id="jLabelGardenSurface" alignment="0" min="-2" pref="219" max="-2" attributes="0"/>
+                          <Component id="jLabelPrice" alignment="0" min="-2" pref="219" max="-2" attributes="0"/>
+                          <Component id="jLabelNumberFloors" alignment="0" min="-2" pref="219" max="-2" attributes="0"/>
+                          <Component id="jLabelDescription" min="-2" pref="423" max="-2" attributes="0"/>
                       </Group>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="jLabelNumberSurface" pref="219" max="32767" attributes="0"/>
+                          <Component id="jLabelLocation1" pref="219" max="32767" attributes="0"/>
+                          <Component id="jLabelNumberBedrooms2" alignment="0" pref="219" max="32767" attributes="0"/>
+                          <Component id="jLabelNumberRooms1" alignment="0" pref="219" max="32767" attributes="0"/>
+                          <Component id="jLabelSwimmingPool" alignment="0" max="32767" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="32767" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
-                      <Component id="jComboBoxViewingHouse" min="-2" pref="196" max="-2" attributes="0"/>
-                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jComboBoxViewingHouse" min="-2" pref="253" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jTextField1" pref="202" max="32767" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jButton8" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="74" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -106,6 +99,17 @@
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace min="-2" pref="67" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="jLabelType" min="-2" pref="35" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="13" max="-2" attributes="0"/>
+                              <Component id="jLabelGardenSurface" min="-2" pref="40" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Component id="jLabelPrice" min="-2" pref="40" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Component id="jLabelNumberFloors" min="-2" pref="42" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Component id="jLabelDescription" min="-2" pref="42" max="-2" attributes="0"/>
+                          </Group>
                           <Group type="102" attributes="0">
                               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                               <Component id="jLabelLocation1" min="-2" pref="44" max="-2" attributes="0"/>
@@ -117,29 +121,21 @@
                               <Component id="jLabelNumberSurface" min="-2" pref="41" max="-2" attributes="0"/>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Component id="jLabelSwimmingPool" min="-2" pref="40" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
                           </Group>
+                      </Group>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="jComboBoxViewingHouse" min="-2" max="-2" attributes="0"/>
                           <Group type="102" alignment="0" attributes="0">
-                              <Component id="jLabelType" min="-2" pref="35" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="13" max="-2" attributes="0"/>
-                              <Component id="jLabelGardenSurface" min="-2" pref="40" max="-2" attributes="0"/>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="jLabelPrice" min="-2" pref="40" max="-2" attributes="0"/>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="jLabelNumberFloors" min="-2" pref="42" max="-2" attributes="0"/>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="jLabelDescription" min="-2" pref="42" max="-2" attributes="0"/>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="jComboBoxViewingHouse" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="32767" attributes="0"/>
+                              <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="jButton8" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jTextField1" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
+                              </Group>
                           </Group>
                       </Group>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jButton8" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jTextField1" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
+                      <EmptySpace pref="32" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -356,11 +352,11 @@
                           </Group>
                           <Group type="102" attributes="0">
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jComboBoxViewingApartment" min="-2" pref="219" max="-2" attributes="0"/>
+                              <Component id="jComboBoxViewingApartment" min="-2" pref="262" max="-2" attributes="0"/>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jTextField2" pref="229" max="32767" attributes="0"/>
+                              <Component id="jTextField2" pref="186" max="32767" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="jButton9" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
@@ -604,18 +600,13 @@
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="0" y="0" width="740" height="830"/>
+              <AbsoluteConstraints x="0" y="0" width="740" height="850"/>
             </Constraint>
           </Constraints>
 
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace max="32767" attributes="0"/>
-                      <Component id="jLabel5" min="-2" pref="409" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="1344" max="-2" attributes="0"/>
-                  </Group>
                   <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
@@ -628,16 +619,19 @@
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="140" max="-2" attributes="0"/>
-                              <Component id="jComboBox1" min="-2" pref="438" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="jLabel5" min="-2" pref="409" max="-2" attributes="0"/>
+                                  <Component id="jComboBox1" min="-2" pref="438" max="-2" attributes="0"/>
+                              </Group>
                           </Group>
                       </Group>
-                      <EmptySpace max="32767" attributes="0"/>
+                      <EmptySpace pref="60" max="32767" attributes="0"/>
                   </Group>
                   <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="173" max="-2" attributes="0"/>
                           <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace pref="1590" max="32767" attributes="0"/>
+                          <EmptySpace pref="567" max="32767" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -651,15 +645,15 @@
                       <Component id="jLabel6" min="-2" pref="60" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
                       <Component id="jComboBox1" min="-2" pref="55" max="-2" attributes="0"/>
-                      <EmptySpace pref="200" max="32767" attributes="0"/>
+                      <EmptySpace pref="216" max="32767" attributes="0"/>
                       <Component id="jLabel5" min="-2" pref="240" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
                   </Group>
                   <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="70" max="-2" attributes="0"/>
                           <Component id="jLabel2" min="-2" pref="60" max="-2" attributes="0"/>
-                          <EmptySpace pref="700" max="32767" attributes="0"/>
+                          <EmptySpace pref="720" max="32767" attributes="0"/>
                       </Group>
                   </Group>
               </Group>

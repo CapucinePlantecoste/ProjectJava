@@ -119,7 +119,7 @@ public class BuyerFirst extends javax.swing.JFrame {
         });
 
         jLabel2.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel2.setFont(new java.awt.Font("Calibri", 0, 24)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Calibri", 0, 36)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
 
         jButton4.setBackground(new java.awt.Color(255, 255, 255));
@@ -155,7 +155,7 @@ public class BuyerFirst extends javax.swing.JFrame {
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addContainerGap(259, Short.MAX_VALUE)
+                .addContainerGap(279, Short.MAX_VALUE)
                 .addComponent(jButton2)
                 .addGap(35, 35, 35)
                 .addComponent(jButton1)
@@ -168,11 +168,11 @@ public class BuyerFirst extends javax.swing.JFrame {
                 .addGroup(jPanel4Layout.createSequentialGroup()
                     .addGap(70, 70, 70)
                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(700, Short.MAX_VALUE)))
+                    .addContainerGap(720, Short.MAX_VALUE)))
         );
 
         jPanel2.add(jPanel4);
-        jPanel4.setBounds(0, 0, 740, 830);
+        jPanel4.setBounds(0, 0, 740, 850);
 
         jButton5.setBackground(new java.awt.Color(255, 255, 255));
         jButton5.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
