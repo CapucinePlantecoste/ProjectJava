@@ -7,9 +7,21 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+/**
+ * Class BuyerDAOImpl that implements the BuyerDAO class.
+ * Used to do every actions that link a buyer object to the database
+ * @author thoma
+ */
 public class BuyerDAOImpl implements BuyerDAO {
 //we implement the superclass buyerDAO 
 
+    /**
+     * Method that loads all the buyers from the database and create a Buyer
+     * object for every one of them.
+     *
+     * @return the ArrayList which contains all the Buyer objects registered
+     * from the database
+     */
     @Override
     public ArrayList<Buyer> registerbuyer() {
         //this method is used to get the buyers registered in the database
@@ -54,6 +66,10 @@ public class BuyerDAOImpl implements BuyerDAO {
 
     }
 
+    /**
+     * Method to add a new Buyer to the database.
+     * @param a which is the new Buyer to be added.
+     */
     @Override
     public void addbuyer(Buyer a) {
         //function that enables to add a buyer into the database from a given buyer

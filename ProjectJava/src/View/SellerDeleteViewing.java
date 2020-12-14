@@ -9,17 +9,29 @@ import Model.Seller;
 import Model.Visit;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
-import projectjava.First;
 import Model.VisitDAOImpl;
 
 /**
+ * Class SellerDeleteViewing which is a JFrame that displays all the elements
+ * needed and allows the seller connected to delete a viewing
  *
  * @author thoma
  */
 public class SellerDeleteViewing extends javax.swing.JFrame {
 
     /**
-     * Creates new form SellerDeleteViewing
+     * Constructor of the class
+     *
+     * @param a is the Seller who is connected
+     * @param b is the ArrayList of all the buyers of the app
+     * @param s is the ArrayList of all the sellers of the app
+     * @param e is the ArrayList of all the employees of the app
+     * @param prop is the ArrayList of all the properties of the app
+     * @param vis is the ArrayList of all the visits of the app
+     * @param off is the ArrayList of all the offers of the app
+     * @param mv is the ArrayList of all the viewings of the connected seller
+     * @param pbis is the ArrayList of all the properties of the seller
+     * connected that have at least one viewing
      */
     public SellerDeleteViewing(Seller a, ArrayList<Buyer> b, ArrayList<Seller> s, ArrayList<Employee> e, ArrayList<Property> prop, ArrayList<Visit> vis, ArrayList<Offer> off, ArrayList<Visit> mv, ArrayList<Property> pbis) {
         //constructor of the class
@@ -298,7 +310,7 @@ public class SellerDeleteViewing extends javax.swing.JFrame {
             //we do not do anything so all the panels remain hiden 
 
         } else {
-        //otherwise, the seller choses one of the properties
+            //otherwise, the seller choses one of the properties
 
             for (int i = 0; i < propviewing.size(); ++i) {
                 //we go through the list of his properties that have at least 1 viewing
@@ -476,6 +488,10 @@ public class SellerDeleteViewing extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jButton2ActionPerformed
 
+    /**
+     * Method that fills a jComboBox with all the properties of the connected
+     * seller that have at least 1 viewing
+     */
     public void initjcb1() {
         //function that enables to fill the combobox with the properties of the connected seller that have at least one viewing 
         for (int i = 0; i < propviewing.size(); ++i) {

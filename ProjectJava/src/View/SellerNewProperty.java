@@ -8,16 +8,23 @@ import Model.Offer;
 import Model.Employee;
 import Model.Buyer;
 import java.util.ArrayList;
-import projectjava.First;
 
 /**
- *
+ *Class SellerNewProperty which is a Jframe that displays elements needed and that allorw the seller to add a property to the app
  * @author CAP
  */
 public class SellerNewProperty extends javax.swing.JFrame {
 
-    /**
-     * Creates new form SellerNewProperty
+      /**
+     * Constructor of the class
+     *
+     * @param a is the Seller who is connected
+     * @param b is the ArrayList of all the buyers of the app
+     * @param s is the ArrayList of all the sellers of the app
+     * @param e is the ArrayList of all the employees of the app
+     * @param prop is the ArrayList of all the properties of the app
+     * @param vis is the ArrayList of all the visits of the app
+     * @param off is the ArrayList of all the offers of the app
      */
     public SellerNewProperty(Seller a, ArrayList<Buyer> b, ArrayList<Seller> s, ArrayList<Employee> e, ArrayList<Property> prop, ArrayList<Visit> vis, ArrayList<Offer> off) {
 

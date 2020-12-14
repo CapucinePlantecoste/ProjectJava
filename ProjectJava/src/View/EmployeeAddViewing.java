@@ -14,16 +14,23 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import javax.swing.JOptionPane;
-import projectjava.First;
 
 /**
- *
+ *Class EmployeeAddViewing that allows an Employee to add a viewing (and display the appropriate JFrame)
  * @author CAP
  */
 public class EmployeeAddViewing extends javax.swing.JFrame {
 
-    /**
-     * Creates new form EmployeeAddViewing
+     /**
+     * Constructor of the class
+     *
+     * @param coucou is the Employee who is connected
+     * @param b is the ArrayList of all the buyers of the app
+     * @param s is the ArrayList of all the sellers of the app
+     * @param e is the ArrayList of all the employees of the app
+     * @param prop is the ArrayList of all the properties of the app
+     * @param vis is the ArrayList of all the visits of the app
+     * @param off is the ArrayList of all the offers of the app
      */
     public EmployeeAddViewing(Employee coucou, ArrayList<Buyer> b, ArrayList<Seller> s, ArrayList<Employee> e, ArrayList<Property> prop, ArrayList<Visit> vis, ArrayList<Offer> off) {
         //constructor of the class
@@ -541,6 +548,9 @@ public class EmployeeAddViewing extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButton2ActionPerformed
 
+    /**
+     * Method that fills a jComboBox with all the properties of the app
+     */
     public void initjcb1() {
         //this function adds the properties of the application to the jcombobox 
         for (int i = 0; i < pr.size(); ++i) {

@@ -10,16 +10,26 @@ import Model.Seller;
 import Model.Visit;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
-import projectjava.First;
 
 /**
+ * Class that allows an Employee to remove the properties that have been sold
+ * from the app( and displays all the items needed)
  *
  * @author CAP
  */
 public class EmployeeRemoveSoldProperty extends javax.swing.JFrame {
 
     /**
-     * Creates new form EmployeeRemoveSoldProperty
+     * Constructor of the class
+     *
+     * @param coucou is the Employee who is connected
+     * @param b is the ArrayList of all the buyers of the app
+     * @param s is the ArrayList of all the sellers of the app
+     * @param e is the ArrayList of all the employees of the app
+     * @param prop is the ArrayList of all the properties of the app
+     * @param vis is the ArrayList of all the visits of the app
+     * @param off is the ArrayList of all the offers of the app
+     * @param sp is the ArrayList of all the properties that have been sold
      */
     public EmployeeRemoveSoldProperty(Employee coucou, ArrayList<Buyer> b, ArrayList<Seller> s, ArrayList<Employee> e, ArrayList<Property> prop, ArrayList<Visit> vis, ArrayList<Offer> off, ArrayList<Property> sp) {
         //constructor of the application 
@@ -409,6 +419,9 @@ public class EmployeeRemoveSoldProperty extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButton2ActionPerformed
 
+    /**
+     * Method that fills a jComboBox with all the sold properties
+     */
     public void initjcb1() {
         //this function adds the soldproperties of the application to the jcombobox 
         for (int i = 0; i < soldProperties.size(); ++i) {
@@ -418,6 +431,11 @@ public class EmployeeRemoveSoldProperty extends javax.swing.JFrame {
         }
     }
 
+    /**
+     * Method that displays all the information of a sold property
+     *
+     * @param a is the sold Property
+     */
     public void display(Property a) //this method has for goal to fill the fields of the property panel, that displays when the employee selects one of the viewings for sale 
     {
         jLabelDescription1.setText(a.getdescription());

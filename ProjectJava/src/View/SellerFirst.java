@@ -9,16 +9,25 @@ import Model.Employee;
 import Model.Buyer;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
-import projectjava.First;
 
 /**
+ * Class SellerFirst which is the first JFrame that appears when a seller is
+ * connected to his account
  *
  * @author CAP
  */
 public class SellerFirst extends javax.swing.JFrame {
 
     /**
-     * Creates new form SellerFirst
+     * Constructor of the class
+     *
+     * @param a is the Seller who is connected
+     * @param b is the ArrayList of all the buyers of the app
+     * @param s is the ArrayList of all the sellers of the app
+     * @param e is the ArrayList of all the employees of the app
+     * @param prop is the ArrayList of all the properties of the app
+     * @param vis is the ArrayList of all the visits of the app
+     * @param off is the ArrayList of all the offers of the app
      */
     public SellerFirst(Seller a, ArrayList<Buyer> b, ArrayList<Seller> s, ArrayList<Employee> e, ArrayList<Property> prop, ArrayList<Visit> vis, ArrayList<Offer> off) {
         //constructor of the class
@@ -304,12 +313,19 @@ public class SellerFirst extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButton6ActionPerformed
 
+    /**
+     * Method that displays a welcoming message for the connected seller
+     */
     public void nom() {
         //function that is used to display the name of the seller when he first connects 
         jLabel1.setText("We are very pleased to see you again " + newseller.getname() + "!");
         // we fill the field with the name of the seller 
     }
 
+    /**
+     * Method that adds all the properties of the seller connected to a specific
+     * ArrayList of his properties
+     */
     public void setmyprop() {
         //function that adds the seller properties in the arraylist myprop
         for (int i = 0; i < pr.size(); ++i) {
@@ -322,6 +338,10 @@ public class SellerFirst extends javax.swing.JFrame {
         }
     }
 
+    /**
+     * Method that adds all the offers of the connected seller to an ArrayList
+     * among all the offers of the app
+     */
     public void setmyoffers() {
         //function that adds the seller offers in the arraylist myoffers
         myprop.clear();
@@ -342,6 +362,10 @@ public class SellerFirst extends javax.swing.JFrame {
         }
     }
 
+    /**
+     * Method that adds all the viewings of the connected seller to an ArrayList
+     * among all the viewings of the app
+     */
     public void setmyviewings() {
         //function that adds the seller viewings in the arraylist myviewings
         myprop.clear();

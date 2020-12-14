@@ -9,7 +9,6 @@ import Model.House;
 import Model.Property;
 import Model.Seller;
 import Model.Visit;
-import projectjava.First;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import Model.PropertyDAOImpl;
@@ -17,13 +16,23 @@ import Model.SellerDAOImpl;
 import java.util.regex.Pattern;
 
 /**
+ * Class EmployeeNewProperty that allows an Employee to add a property ( and
+ * that displays all the necessaries items)
  *
  * @author CAP
  */
 public class EmployeeNewProperty extends javax.swing.JFrame {
 
     /**
-     * Creates new form EmployeeNewProperty
+     * Constructor of the class
+     *
+     * @param coucou is the Employee who is connected
+     * @param b is the ArrayList of all the buyers of the app
+     * @param s is the ArrayList of all the sellers of the app
+     * @param e is the ArrayList of all the employees of the app
+     * @param prop is the ArrayList of all the properties of the app
+     * @param vis is the ArrayList of all the visits of the app
+     * @param off is the ArrayList of all the offers of the app
      */
     public EmployeeNewProperty(Employee coucou, ArrayList<Buyer> b, ArrayList<Seller> s, ArrayList<Employee> e, ArrayList<Property> prop, ArrayList<Visit> vis, ArrayList<Offer> off) {
         //constructor of the class
@@ -1292,7 +1301,7 @@ public class EmployeeNewProperty extends javax.swing.JFrame {
 
         if (tampon == 1) {
             //if the seller is not a new seller 
-            String selected=(String) jComboBox6.getSelectedItem();
+            String selected = (String) jComboBox6.getSelectedItem();
             //We get the username of the seller that has been selected
             for (int i = 0; i < sellers.size(); ++i) {
                 //we go through all the sellers of the application 
@@ -1382,9 +1391,9 @@ public class EmployeeNewProperty extends javax.swing.JFrame {
         // button confirm the introduction of the property for apartment
 
         if (tampon == 1) {
-            
+
             //if the seller is not a new seller 
-            String selected=(String)jComboBox6.getSelectedItem();
+            String selected = (String) jComboBox6.getSelectedItem();
             for (int i = 0; i < sellers.size(); ++i) {
                 //we go through all the sellers of the application 
                 if (selected.equals(sellers.get(i).getusername())) {
@@ -1470,21 +1479,24 @@ public class EmployeeNewProperty extends javax.swing.JFrame {
 
     private void jComboBox6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox6ActionPerformed
         // TODO add your handling code here:
-        String selected= (String) jComboBox6.getSelectedItem();
-        if(selected.equals("Select one of the sellers"))
-        {
+        String selected = (String) jComboBox6.getSelectedItem();
+        if (selected.equals("Select one of the sellers")) {
             //If we click on the title of the jcombobox we hide every panels
             jPanelHouse.hide();
             jPanelApartment.hide();
             jPanel3.hide();
-        }
-        else
-        {
+        } else {
             //if we click on anohter option we automatically show the choice between house and aprtment
             jPanel3.show();
         }
     }//GEN-LAST:event_jComboBox6ActionPerformed
 
+    /**
+     * Method that counts the number of times that the username that the
+     * newseller chose has been used ( to see if he can use it)
+     *
+     * @return this number
+     */
     public int test() {
         //fuction that checks if the entered username is not already in the application 
         int t = 0;
@@ -1517,6 +1529,9 @@ public class EmployeeNewProperty extends javax.swing.JFrame {
         //We return variable t
     }
 
+    /**
+     * Method that add a seller to the database but also to the programe
+     */
     public void addseller() {
         //this function is used to add a seller both to the application and to the database
         SellerDAOImpl sdao = new SellerDAOImpl();
@@ -1530,6 +1545,12 @@ public class EmployeeNewProperty extends javax.swing.JFrame {
         //we add the new seller in the database
     }
 
+    /**
+     * Method that adds an apartment to the database and to the program from
+     * given values for attributes
+     *
+     * @param idseller is the id of the seller of the apartment
+     */
     public void addapartment(int idseller) {
         //this function is used to add an apartment both to the application and to the database
         int idlast = pr.get(pr.size() - 1).getid();
@@ -1565,6 +1586,12 @@ public class EmployeeNewProperty extends javax.swing.JFrame {
 
     }
 
+    /**
+     * Method that adds a house to the database and to the program from given
+     * values for attributes
+     *
+     * @param idseller is the id of the seller of the house
+     */
     public void addhouse(int idseller) {
         //this function is used to add an apartment both to the application and to the database
         int idlast = pr.get(pr.size() - 1).getid();
@@ -1585,11 +1612,12 @@ public class EmployeeNewProperty extends javax.swing.JFrame {
         pdao.addproperty(pr.get(pr.size() - 1), 2);
         //we add the property in the database 
     }
-    
-    public void initjcb6()
-    {
-        for(int i=0;i<sellers.size();++i)
-        {
+
+    /**
+     * Method that fills a jComboBox with all the usernames of the sellers
+     */
+    public void initjcb6() {
+        for (int i = 0; i < sellers.size(); ++i) {
             //We add all the usernames of all the sellers
             jComboBox6.addItem(sellers.get(i).getusername());
         }

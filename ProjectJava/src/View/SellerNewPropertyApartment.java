@@ -10,17 +10,27 @@ import Model.Appartment;
 import Model.Buyer;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
-import projectjava.First;
 import Model.PropertyDAOImpl;
 
 /**
+ * Class SellerNewPropertyApartment which is a Jframe that displays all the
+ * elements needed and that allows the seller connected to add a new apartment
+ * to the app
  *
  * @author CAP
  */
 public class SellerNewPropertyApartment extends javax.swing.JFrame {
 
     /**
-     * Creates new form SellerNewPropertyApartment
+     * Constructor of the class
+     *
+     * @param a is the Seller who is connected
+     * @param b is the ArrayList of all the buyers of the app
+     * @param s is the ArrayList of all the sellers of the app
+     * @param e is the ArrayList of all the employees of the app
+     * @param prop is the ArrayList of all the properties of the app
+     * @param vis is the ArrayList of all the visits of the app
+     * @param off is the ArrayList of all the offers of the app
      */
     public SellerNewPropertyApartment(Seller a, ArrayList<Buyer> b, ArrayList<Seller> s, ArrayList<Employee> e, ArrayList<Property> prop, ArrayList<Visit> vis, ArrayList<Offer> off) {
         //constructor of the class
@@ -489,6 +499,9 @@ public class SellerNewPropertyApartment extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jTextField1KeyTyped
 
+    /**
+     * Method that adds an apartment to the program but also to the database
+     */
     public void addapartment() {
         //fonction that enables to add an apartment both in the database and in the application 
         int idlast = pr.get(pr.size() - 1).getid();

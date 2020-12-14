@@ -12,16 +12,26 @@ import Model.Offer;
 import Model.Employee;
 import Model.Buyer;
 import java.util.ArrayList;
-import projectjava.First;
 
 /**
+ * Class SellerProperty which is a JFrame that allows the seller to see his
+ * properties
  *
  * @author CAP
  */
 public class SellerProperty extends javax.swing.JFrame {
 
     /**
-     * Creates new form SellerProperty
+     * Constructor of the class
+     *
+     * @param a is the Buyer who is connected
+     * @param b is the ArrayList of all the buyers of the app
+     * @param s is the ArrayList of all the sellers of the app
+     * @param e is the ArrayList of all the employees of the app
+     * @param prop is the ArrayList of all the properties of the app
+     * @param vis is the ArrayList of all the visits of the app
+     * @param off is the ArrayList of all the offers of the app
+     * @param myp is the ArrayList of all the properties of the seller connected
      */
     public SellerProperty(Seller a, ArrayList<Buyer> b, ArrayList<Seller> s, ArrayList<Employee> e, ArrayList<Property> prop, ArrayList<Visit> vis, ArrayList<Offer> off, ArrayList<Property> myp) {
         buyers = b;//Array List of buyers
@@ -418,7 +428,7 @@ public class SellerProperty extends javax.swing.JFrame {
             //If Select one of your properties for sale has been selected
             jPanelApartment.hide();
             jPanelHouse.hide();
-        //We hide the panels
+            //We hide the panels
 
         } else {
             //If its a house
@@ -437,6 +447,12 @@ public class SellerProperty extends javax.swing.JFrame {
         //We display all the information of the house selected using the displat method
     }//GEN-LAST:event_jComboBox1ActionPerformed
 
+    /**
+     * Method that displays all the information about one of the property of the
+     * connected seller
+     *
+     * @param nprop is the Property considered
+     */
     public void display(Property nprop) {
         //This function is used to remind the seller all the information of a selected property
         if (nprop.gettype().equals("Apartment")) {
@@ -549,6 +565,10 @@ public class SellerProperty extends javax.swing.JFrame {
         new First(buyers, sellers, emp, pr, v, o).setVisible(true);
     }//GEN-LAST:event_jButton5ActionPerformed
 
+    /**
+     * Method used to fill a jComboBox with all the properties (id+description)
+     * of the connected seller
+     */
     public void initjcb1() {
         //This function is used to add all the elements needed in the jcombobox
         for (int i = 0; i < myprop.size(); ++i) {

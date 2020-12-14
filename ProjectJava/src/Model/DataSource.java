@@ -5,6 +5,8 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 
 /**
+ * Class which establishes the link between the data source and the program
+ * Netbeans. It is used each time that we want to connect to the database
  *
  * @author thoma
  */
@@ -12,6 +14,12 @@ public class DataSource {
 
     Connection conn = null;
 
+    /**
+     * Method to create the connection between the program and the database.
+     *
+     * @return conn which is the connection (if the connection has been
+     * succesful)
+     */
     public Connection createConnection() //we create the connection, this method is reused everytime we link with the database, so in every DAO methods
     {
         try {

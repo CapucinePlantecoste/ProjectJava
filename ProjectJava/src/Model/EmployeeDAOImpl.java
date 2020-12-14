@@ -8,12 +8,21 @@ import java.sql.Statement;
 import java.util.ArrayList;
 
 /**
+ * Class EmployeeDAOImpl that implements EmployeeDAO
  *
- * @author thoma
+ * @author thoma An instance of this class must be used every time we want to do
+ * a new statement concerning one or more employee
  */
 public class EmployeeDAOImpl implements EmployeeDAO {
 //we implement the superclass employeeDAO
 
+    /**
+     * Method that loads all the employees from the database and create a
+     * Employee object for every one of them.
+     *
+     * @return the ArrayList which contains all the Employee objects registered
+     * from the database
+     */
     @Override
     public ArrayList<Employee> registeremployee() //this method is used to get the employees registered from the database
     {

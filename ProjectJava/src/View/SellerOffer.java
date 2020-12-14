@@ -9,18 +9,29 @@ import Model.Employee;
 import Model.Buyer;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
-import projectjava.First;
 import Model.OfferDAOImpl;
 import Model.PropertyDAOImpl;
 
 /**
+ * Class SellerOffer which is a JFrame which can display all the offers made on
+ * one of the properties of the seller connected
  *
  * @author CAP
  */
 public class SellerOffer extends javax.swing.JFrame {
 
     /**
-     * Creates new form SellerOffer
+     * Constructor of the class
+     *
+     * @param a is the Seller who is connected
+     * @param b is the ArrayList of all the buyers of the app
+     * @param s is the ArrayList of all the sellers of the app
+     * @param e is the ArrayList of all the employees of the app
+     * @param prop is the ArrayList of all the properties of the app
+     * @param vis is the ArrayList of all the visits of the app
+     * @param off is the ArrayList of all the offers of the app
+     * @param myo is the ArrayList of all the offers made on one of the
+     * properties of the seller connected
      */
     public SellerOffer(Seller a, ArrayList<Buyer> b, ArrayList<Seller> s, ArrayList<Employee> e, ArrayList<Property> prop, ArrayList<Visit> vis, ArrayList<Offer> off, ArrayList<Offer> myo) {
         //constructor 
@@ -311,6 +322,12 @@ public class SellerOffer extends javax.swing.JFrame {
     }//GEN-LAST:event_jComboBox1ActionPerformed
 
     //Function to display all the information from a given offer
+    /**
+     * Method that dsiplays all the information about an offer made on one of
+     * the properties of the seller connected
+     *
+     * @param a is the Offer considered
+     */
     public void display(Offer a) {
         //buffer
         int stamp = 0;
@@ -373,7 +390,7 @@ public class SellerOffer extends javax.swing.JFrame {
                 for (int j = 0; j < pr.size(); ++j) {
                     //We cross all the properties of the app
                     if (selected.equals(pr.get(j).getdescription() + " idoffer : " + myoffers.get(i).getid())) {
-                            //If what is selcted in the jcombobox corresponds to the description of house j and the id of offer i
+                        //If what is selcted in the jcombobox corresponds to the description of house j and the id of offer i
                         //We get those values as buffers
                         tampon = i;
                         tampon2 = j;
@@ -443,7 +460,7 @@ public class SellerOffer extends javax.swing.JFrame {
                 for (int j = 0; j < pr.size(); ++j) {
                     //We cross all the properties of the app
                     if (selected.equals(pr.get(j).getdescription() + " idoffer : " + myoffers.get(i).getid())) {
-                           //If what is selcted in the jcombobox corresponds to the description of house j and the id of offer i
+                        //If what is selcted in the jcombobox corresponds to the description of house j and the id of offer i
                         //We get the index value of the offer as a buffer
                         tampon = i;
 
@@ -475,6 +492,10 @@ public class SellerOffer extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jButton3ActionPerformed
 
+    /**
+     * Method that fills a jCOmboBox with all the offers made on one of the
+     * properties of the seller connected
+     */
     public void initjcb1() {
         // This function is to set the jcombobox with all the options possible
         for (int i = 0; i < myoffers.size(); ++i) {

@@ -8,12 +8,18 @@ import java.sql.Statement;
 import java.util.ArrayList;
 
 /**
+ * Class SellerDAOImpl which implements SellerDAO
  *
  * @author thoma
  */
 public class SellerDAOImpl implements SellerDAO {
 //the class sellerDAO is an interface so we have to implement all its functions here 
 
+    /**
+     * This method is used to register every seller from the database
+     *
+     * @return an ArrayList of all those sellers
+     */
     @Override
     public ArrayList<Seller> registerseller() //this method enables to get all the sellers contained in the database
     {
@@ -56,6 +62,11 @@ public class SellerDAOImpl implements SellerDAO {
 
     }
 
+    /**
+     * Method to add a seller to the database
+     *
+     * @param a is the new Seller
+     */
     @Override
     public void addseller(Seller a) //method used to add a seller to the database 
     {

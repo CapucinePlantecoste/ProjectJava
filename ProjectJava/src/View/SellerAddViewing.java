@@ -9,7 +9,6 @@ import Model.Offer;
 import Model.Employee;
 import Model.Buyer;
 import java.util.ArrayList;
-import projectjava.First;
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -17,13 +16,24 @@ import java.text.ParseException;
 import Model.VisitDAOImpl;
 
 /**
+ * Class SellerAddViewing which is a JFrame that displays all the items needed
+ * and enables the seller to add a viewing on one of his properties
  *
  * @author CAP
  */
 public class SellerAddViewing extends javax.swing.JFrame {
 
     /**
-     * Creates new form SellerAddViewing
+     * Constructor of the class
+     *
+     * @param a is the Seller who is connected
+     * @param b is the ArrayList of all the buyers of the app
+     * @param s is the ArrayList of all the sellers of the app
+     * @param e is the ArrayList of all the employees of the app
+     * @param prop is the ArrayList of all the properties of the app
+     * @param vis is the ArrayList of all the visits of the app
+     * @param off is the ArrayList of all the offers of the app
+     * @param myp is the ArrayList of all the properties of the seller connected
      */
     public SellerAddViewing(Seller a, ArrayList<Buyer> b, ArrayList<Seller> s, ArrayList<Employee> e, ArrayList<Property> prop, ArrayList<Visit> vis, ArrayList<Offer> off, ArrayList<Property> myp) {
         //constructor 
@@ -573,15 +583,18 @@ public class SellerAddViewing extends javax.swing.JFrame {
         //text field corresponding of the date of the viewing
     }//GEN-LAST:event_jTextFieldDayActionPerformed
 
+    /**
+     * Method that fills a jComboBox with all the properties of the seller
+     * connect which have not been sold
+     */
     public void initjcb1() {
         //function that enables to fill the combobox with the properties of the connected seller
         for (int i = 0; i < myprop.size(); ++i) {
             //we go through all the properties of the connected seller 
-            if(myprop.get(i).getsold()==false)
-                //We can only add a viewing to a non sold house
+            if (myprop.get(i).getsold() == false) //We can only add a viewing to a non sold house
             {
-            jComboBox1.addItem(myprop.get(i).getdescription() + " idproperty : " + myprop.get(i).getid());
-            //we add his properties one by one 
+                jComboBox1.addItem(myprop.get(i).getdescription() + " idproperty : " + myprop.get(i).getid());
+                //we add his properties one by one 
             }
         }
     }

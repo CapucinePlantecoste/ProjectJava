@@ -10,17 +10,26 @@ import Model.Employee;
 import Model.Buyer;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
-import projectjava.First;
 import Model.PropertyDAOImpl;
 
 /**
+ * Class SellerNewPropertyHouse which is a Jframe that contains all the elements
+ * needed and allows the seller connected to add a house
  *
  * @author CAP
  */
 public class SellerNewPropertyHouse extends javax.swing.JFrame {
 
     /**
-     * Creates new form SellerNewPropertyHouse
+     * Constructor of the class
+     *
+     * @param a is the Seller who is connected
+     * @param b is the ArrayList of all the buyers of the app
+     * @param s is the ArrayList of all the sellers of the app
+     * @param e is the ArrayList of all the employees of the app
+     * @param prop is the ArrayList of all the properties of the app
+     * @param vis is the ArrayList of all the visits of the app
+     * @param off is the ArrayList of all the offers of the app
      */
     public SellerNewPropertyHouse(Seller a, ArrayList<Buyer> b, ArrayList<Seller> s, ArrayList<Employee> e, ArrayList<Property> prop, ArrayList<Visit> vis, ArrayList<Offer> off) {
         //constructor of the class
@@ -453,6 +462,10 @@ public class SellerNewPropertyHouse extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jTextField1KeyTyped
 
+    /**
+     * Method that allows the seller to add a house to the program and to the
+     * database
+     */
     public void addhouse() {
         //function to add a house both to the application and to the database
 

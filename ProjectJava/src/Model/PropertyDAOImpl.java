@@ -9,12 +9,16 @@ import java.sql.Statement;
 import java.util.ArrayList;
 
 /**
- *
+ *Class PropertyDAOImpl that implements PropertyDAO
  * @author thoma
  */
 public class PropertyDAOImpl implements PropertyDAO {
 //PropertyDAO was an interface so we have to develop all its methods here
 
+    /**
+     * Method that registers all the properties from the databse
+     * @return an ArrayList of all those properties
+     */
     @Override
     public ArrayList<Property> registerproperty() {
         //method used to get the properties registered in the database
@@ -84,6 +88,12 @@ public class PropertyDAOImpl implements PropertyDAO {
         //we return the arraylist of all the properties we get in the database 
     }
 
+
+    /**
+     * Method that adds a property to the database
+     * @param a is the property that i about to be added
+     * @param b is a number to distinguish if this property is a house or an apartment
+     */
     @Override
     public void addproperty(Property a, int b) {
         //this method is used to add a property to the database 
@@ -126,6 +136,10 @@ public class PropertyDAOImpl implements PropertyDAO {
         }
     }
 
+    /**
+     * Method that updates the number of times that a property has been visited in the database when a visit has been done in this property
+     * @param a is this Property
+     */
     @Override
     public void updatetv(Property a) {
         //method that enables to update the number of visits of a property into the database
@@ -160,6 +174,10 @@ public class PropertyDAOImpl implements PropertyDAO {
         }
     }
 
+    /**
+     * Method that specifies that the property is sold in the databse if an offer has been accepted on this house
+     * @param a is the particular Property
+     */
     @Override
     public void offeraccepted(Property a) {
         //method that enables us to set the boolean sold to true in the database if an offer of the corresponding property has been accepted 
@@ -196,6 +214,10 @@ public class PropertyDAOImpl implements PropertyDAO {
 
     }
 
+    /**
+     * Method to delete a property from the database
+     * @param a is the Property to delete
+     */
     @Override
     public void deleteproperty(Property a) {
         //method that enables us to delete a property in the database
@@ -236,6 +258,11 @@ public class PropertyDAOImpl implements PropertyDAO {
         }
     }
 
+    /**
+     * Method to update any details about a property in the database
+     * @param a is the Property considered
+     * @param b is a number to distinguish if the property is a house or an apartment
+     */
     @Override
     public void update(Property a, int b) //method that enables us to update a property in the database by modyfing one or several attributes 
     {

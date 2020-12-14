@@ -10,17 +10,23 @@ import Model.Buyer;
 import javax.swing.JOptionPane;
 
 import java.util.ArrayList;
-import projectjava.First;
 
 /**
- *
+ *Class ConnectingJFrame is the jFrame that appears when a user wants to connect to his account
  * @author CAP
  */
 public class ConnectingJFrame extends javax.swing.JFrame {
 //this frame corresponds to the one we open when we want to connect as a buyer, seller or employee
 
-    /**
-     * Creates new form ConnectingJFrame
+      /**
+     * Constructor of the class
+     * @param t is the type of user connected
+     * @param b is the ArrayList of all the buyers of the app
+     * @param s is the ArrayList of all the sellers of the app
+     * @param e is the ArrayList of all the employees of the app
+     * @param prop is the ArrayList of all the properties of the app
+     * @param vis is the ArrayList of all the visits of the app
+     * @param off is the ArrayList of all the offers of the app
      */
     public ConnectingJFrame(String t, ArrayList<Buyer> b, ArrayList<Seller> s, ArrayList<Employee> e, ArrayList<Property> prop, ArrayList<Visit> vis, ArrayList<Offer> off) {//constructor 
         //constructor of the class
@@ -301,20 +307,6 @@ public class ConnectingJFrame extends javax.swing.JFrame {
         //Text field for the password 
     }//GEN-LAST:event_jPasswordField1ActionPerformed
 
-    public String getusername() {
-        //function to get the username 
-        return username;
-    }
-
-    public String getpassword() {
-        //function to get the password
-        return password;
-    }
-
-    public void setArrayList(ArrayList<Buyer> b) {
-        //we set the buyers arraylist with the b array list in parameter 
-        buyers = b;
-    }
 
     /**
      * @param args the command line arguments

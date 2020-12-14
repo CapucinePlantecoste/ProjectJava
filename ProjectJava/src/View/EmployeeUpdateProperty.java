@@ -8,18 +8,27 @@ import Model.Property;
 import Model.PropertyDAOImpl;
 import Model.Seller;
 import Model.Visit;
-import projectjava.First;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
 /**
+ * Class EmployeeUpdateProperty that displays all the items needed and that
+ * enables the employee to update details about property
  *
  * @author CAP
  */
 public class EmployeeUpdateProperty extends javax.swing.JFrame {
 
     /**
-     * Creates new form EmployeeUpdateProperty
+     * Constructor of the class
+     *
+     * @param coucou is the Employee who is connected
+     * @param b is the ArrayList of all the buyers of the app
+     * @param s is the ArrayList of all the sellers of the app
+     * @param e is the ArrayList of all the employees of the app
+     * @param prop is the ArrayList of all the properties of the app
+     * @param vis is the ArrayList of all the visits of the app
+     * @param off is the ArrayList of all the offers of the app
      */
     public EmployeeUpdateProperty(Employee coucou, ArrayList<Buyer> b, ArrayList<Seller> s, ArrayList<Employee> e, ArrayList<Property> prop, ArrayList<Visit> vis, ArrayList<Offer> off) {
         //constructor of the class
@@ -1029,6 +1038,11 @@ public class EmployeeUpdateProperty extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jTextFieldSPKeyTyped
 
+    /**
+     * Method that displays all the information of the chosen Property
+     *
+     * @param a is the Property chosen
+     */
     public void display(Property a) {
         //function to display all the information of the property once selected 
         if (a.gettype().equals("Apartment")) {
@@ -1102,6 +1116,9 @@ public class EmployeeUpdateProperty extends javax.swing.JFrame {
         }
     }
 
+    /**
+     * Method that fills a jComboBox with all the properties of the app
+     */
     public void initjcb1() {
         //function that enables to fill the combobox with the properties of the application
         for (int i = 0; i < pr.size(); ++i) {

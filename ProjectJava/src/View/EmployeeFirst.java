@@ -9,16 +9,23 @@ import Model.Employee;
 import Model.Buyer;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
-import projectjava.First;
 
 /**
- *
+ *Class Employee First which is the main page when an Employee connects to his account
  * @author CAP
  */
 public class EmployeeFirst extends javax.swing.JFrame {
 
-    /**
-     * Creates new form EmployeeFirst
+      /**
+     * Constructor of the class
+     *
+     * @param a is the Employee who is connected
+     * @param b is the ArrayList of all the buyers of the app
+     * @param s is the ArrayList of all the sellers of the app
+     * @param e is the ArrayList of all the employees of the app
+     * @param prop is the ArrayList of all the properties of the app
+     * @param vis is the ArrayList of all the visits of the app
+     * @param off is the ArrayList of all the offers of the app
      */
     public EmployeeFirst(Employee a, ArrayList<Buyer> b, ArrayList<Seller> s, ArrayList<Employee> e, ArrayList<Property> prop, ArrayList<Visit> vis, ArrayList<Offer> off) {
         //constructor of the class
@@ -266,6 +273,9 @@ public class EmployeeFirst extends javax.swing.JFrame {
         //we set it visible 
     }//GEN-LAST:event_jButton6ActionPerformed
 
+    /**
+     * Method that displays a welcoming message when the Employee connects to its account
+     */
     public void nom() //function that enables to display the name of the employee on the frame as soon as he connects
     {
         jLabel1.setText("We are very pleased to see you again " + newemployee.getname() + "!");

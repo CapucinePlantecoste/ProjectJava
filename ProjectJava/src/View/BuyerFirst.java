@@ -9,9 +9,9 @@ import Model.Employee;
 import Model.Buyer;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
-import projectjava.First;
 
 /**
+ * Class BuyerFirst which is the Jframe of the first page of the space buyer
  *
  * @author CAP
  */
@@ -19,7 +19,15 @@ public class BuyerFirst extends javax.swing.JFrame {
 // a lot of code in this jframe has been automatically generated. 
 
     /**
-     * Creates new form BuyerFirst
+     * Constructor of the class
+     *
+     * @param a is the Buyer who is connected
+     * @param b is the ArrayList of all the buyers of the app
+     * @param s is the ArrayList of all the sellers of the app
+     * @param e is the ArrayList of all the employees of the app
+     * @param prop is the ArrayList of all the properties of the app
+     * @param vis is the ArrayList of all the visits of the app
+     * @param off is the ArrayList of all the offers of the app
      */
     public BuyerFirst(Buyer a, ArrayList<Buyer> b, ArrayList<Seller> s, ArrayList<Employee> e, ArrayList<Property> prop, ArrayList<Visit> vis, ArrayList<Offer> off) {
         //constructor of the class 
@@ -627,6 +635,12 @@ public class BuyerFirst extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jButton4ActionPerformed
 
+    /**
+     * Method to get the minimum price that the buyer puts in the minimum price
+     * jTextField for the research of a property
+     *
+     * @return the value of the minimum price of the research
+     */
     public double getvalue7() {
         //method to get the minimum price 
         double minpr;
@@ -644,6 +658,12 @@ public class BuyerFirst extends javax.swing.JFrame {
 
     }
 
+    /**
+     * Method to get the maximum price that the buyer puts in the maximum price
+     * jTextField for the research of a propertu
+     *
+     * @return the value of the maximum price of the research of a property
+     */
     public double getvalue2() {
         //method to get the maximum price
         double maxpr;
@@ -660,6 +680,12 @@ public class BuyerFirst extends javax.swing.JFrame {
         //we get the double value of the maximum price
     }
 
+    /**
+     * Method to get the minimum surface that the buyer puts in the minimum
+     * surface jTextField for the research of a property
+     *
+     * @return the value of the minimum surface of the research of a property
+     */
     public double getvalue1() {
         //method to get the minimum surface
         double minsurf;
@@ -676,6 +702,12 @@ public class BuyerFirst extends javax.swing.JFrame {
         //we get the double value of the minimum surface
     }
 
+    /**
+     * Method to get the maximum surface that the buyer puts in the maximum
+     * surface jTextField for the research of a property
+     *
+     * @return the value of the maximum surface for the research
+     */
     public double getvalue5() {
         //method to get the maximum surface
         double maxsurf;
@@ -693,6 +725,12 @@ public class BuyerFirst extends javax.swing.JFrame {
         //we get the value of the maximum surface
     }
 
+    /**
+     * Method to get the minimum number of rooms that the buyer puts in the
+     * minimum number of rooms jTextField for the research of a Property
+     *
+     * @return the value of the minimum number of rooms of the research
+     */
     public double getvalue6() {
         //method to get the minimum number of rooms
         double minnbrooms;
@@ -710,6 +748,12 @@ public class BuyerFirst extends javax.swing.JFrame {
 
     }
 
+    /**
+     * Method to get the minimum number of bedrooms that the buyer puts in the
+     * minimum number of bedrooms jTextField for the research of a Property
+     *
+     * @return the value of the minimum number of bedrooms of the research
+     */
     public double getvalue4() {
         //method to get the minimum number of bedrooms
         double minnbbedrooms;
@@ -726,6 +770,9 @@ public class BuyerFirst extends javax.swing.JFrame {
         //we get the value of the minimum number of bedrooms
     }
 
+    /**
+     * Method to display a welcoming message when the buyer is on this page
+     */
     public void nom() {
         //method that displays the name of the buyer
         jLabel2.setText("We are very pleased to see you again " + newbuyer.getname() + "!");

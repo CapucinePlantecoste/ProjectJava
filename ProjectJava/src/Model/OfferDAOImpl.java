@@ -8,12 +8,18 @@ import java.sql.Statement;
 import java.util.ArrayList;
 
 /**
+ * Class OfferDAOImpl that implements OfferDAO
  *
  * @author thoma
  */
 public class OfferDAOImpl implements OfferDAO {
 //OfferDAO was an interface so we have to develop all its methods here 
 
+    /**
+     * Method used to register all the offers from the database.
+     *
+     * @return an ArrayList containing all the offers that are in the database
+     */
     @Override
     public ArrayList<Offer> registeroffer() //method used to get the offers registered in the database
     {
@@ -54,6 +60,11 @@ public class OfferDAOImpl implements OfferDAO {
         //we return the arraylist of all the offers we get in the database
     }
 
+    /**
+     * Method that adds an offer to the database
+     *
+     * @param a is the offer that is about to be added
+     */
     @Override
     public void addoffer(Offer a) //this method is used to add an offer to the database 
     {
@@ -87,6 +98,14 @@ public class OfferDAOImpl implements OfferDAO {
         }
     }
 
+    /**
+     * Method that transmits to the database that an offer has been accepted and
+     * by consequence that all the other offers made for this property have been
+     * declined.
+     *
+     * @param a is the offer that has been accepted
+     * @param o is the ArrayList of all the offers of the application
+     */
     @Override
     public void acceptoffer(Offer a, ArrayList<Offer> o) {
         //this method is used to modify the database when an offer is accepted
@@ -130,6 +149,11 @@ public class OfferDAOImpl implements OfferDAO {
         }
     }
 
+    /**
+     * Method that transmits to the database that an offer has been declined
+     *
+     * @param a is the offer that has been declined
+     */
     @Override
     public void declineoffer(Offer a) {
         //this method is used to modify the database when an offer is declined

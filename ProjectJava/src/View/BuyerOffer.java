@@ -8,16 +8,23 @@ import Model.Offer;
 import Model.Employee;
 import Model.Buyer;
 import java.util.ArrayList;
-import projectjava.First;
 
 /**
- *
+ * Class BuyerOffer which is the Jframe which appears when the buyer wans to see his offers
  * @author CAP
  */
 public class BuyerOffer extends javax.swing.JFrame {
 
     /**
-     * Creates new form BuyerOffer
+     * Constructor of the class
+      * @param a is the Buyer who is connected
+     * @param b is the ArrayList of all the buyers of the app
+     * @param s is the ArrayList of all the sellers of the app
+     * @param e is the ArrayList of all the employees of the app
+     * @param prop is the ArrayList of all the properties of the app
+     * @param vis is the ArrayList of all the visits of the app
+     * @param off is the ArrayList of all the offers of the app
+     * @param myo is the ArrayList of all the offers of the buyer connected
      */
     public BuyerOffer(Buyer a, ArrayList<Buyer> b, ArrayList<Seller> s, ArrayList<Employee> e, ArrayList<Property> prop, ArrayList<Visit> vis, ArrayList<Offer> off, ArrayList<Offer> myo) {
         //constructor of the class
@@ -284,6 +291,10 @@ public class BuyerOffer extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jComboBox1ActionPerformed
 
+    /**
+     * Method that displays all the important information about one of the offers of the buyer connected
+     * @param a is the Offer concerned
+     */
     public void display(Offer a) //method that enables to show the details of an offer once selected 
     {
         int stamp = 0;
@@ -344,6 +355,9 @@ public class BuyerOffer extends javax.swing.JFrame {
         //we set it to visible 
     }//GEN-LAST:event_jButton5ActionPerformed
 
+    /**
+     * Method that fills a jComboBox with all the offers(description+id) of the buyer connected 
+     */
     public void initjcb1() {
         //function that enables to add the offers of the connected buyer to the jcombobox
         for (int i = 0; i < myoffers.size(); ++i) {

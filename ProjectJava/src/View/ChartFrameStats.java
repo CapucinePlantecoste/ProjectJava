@@ -15,21 +15,28 @@ import java.util.ArrayList;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartFrame;
 import org.jfree.chart.JFreeChart;
-import org.jfree.chart.plot.CategoryPlot;
 import org.jfree.chart.plot.PlotOrientation;
-import org.jfree.chart.renderer.category.BarRenderer;
 import org.jfree.data.xy.XYSeries;
 import org.jfree.data.xy.XYSeriesCollection;
-import projectjava.First;
 
 /**
- *
+ * Class ChartFrameStats that can display some charts about the app
  * @author CAP
  */
 public class ChartFrameStats extends javax.swing.JFrame {
 
-    /**
-     * Creates new form ChartFrameClass
+ 
+      /**
+     * Constructor of the class
+     *@param type is the type of user connected
+     * @param employ is the Employee who may be connected
+     * @param a is the Buyer who may be  connected
+     * @param b is the ArrayList of all the buyers of the app
+     * @param s is the ArrayList of all the sellers of the app
+     * @param e is the ArrayList of all the employees of the app
+     * @param prop is the ArrayList of all the properties of the app
+     * @param vis is the ArrayList of all the visits of the app
+     * @param off is the ArrayList of all the offers of the app
      */
     public ChartFrameStats(String type, Buyer a, Employee employ, ArrayList<Buyer> b, ArrayList<Seller> s, ArrayList<Employee> e, ArrayList<Property> prop, ArrayList<Visit> vis, ArrayList<Offer> off) {
         buyers = b;

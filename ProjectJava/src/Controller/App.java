@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import Model.BuyerDAOImpl;
 import Model.Employee;
 import Model.EmployeeDAOImpl;
-import projectjava.First;
+import View.First;
 import Model.OfferDAOImpl;
 import Model.Property;
 import Model.PropertyDAOImpl;
@@ -37,12 +37,27 @@ public class App {
     private First f;
     //"First" Jframe that we set visible later 
 
+    /**
+     *
+     * Constructor of the class. Takes no parameter. We call the appplication
+     * method when we create an app object
+     *
+     */
     public App() {
         this.application();
         //Constructor of the class
 
     }
 
+    /**
+     *
+     * Register function. Takes no parameter. It calls every methods that create
+     * objects (sellers,buyers,properties,employees,visits,offers) from the
+     * database. it must creates DAO objects for every class needed to get
+     * values from the database.
+     *
+     *
+     */
     public void register() {
         //function enabling the user to register 
 
@@ -73,6 +88,12 @@ public class App {
         //we set our arraylist of Offer according to those contained in the offer table
     }
 
+    /**
+     *
+     * This method is used to launch the application We call the first function
+     * register and then launch the app by launching the first page of it
+     *
+     */
     public void application() {
 
         this.register();

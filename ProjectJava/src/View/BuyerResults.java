@@ -11,7 +11,6 @@ import Model.OfferDAOImpl;
 import Model.VisitDAOImpl;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
-import projectjava.First;
 
 /**
  *
@@ -20,7 +19,15 @@ import projectjava.First;
 public class BuyerResults extends javax.swing.JFrame {
 
     /**
-     * Creates new form BuyerResults
+     * Constructor of the class
+     * @param a is the Buyer who is connected
+     * @param b is the ArrayList of all the buyers of the app
+     * @param s is the ArrayList of all the sellers of the app
+     * @param e is the ArrayList of all the employees of the app
+     * @param prop is the ArrayList of all the properties of the app
+     * @param vis is the ArrayList of all the visits of the app
+     * @param off is the ArrayList of all the offers of the app
+     * @param r is the ArrayList of all the Properties that matched with the criterias of research
      */
     public BuyerResults(Buyer a, ArrayList<Buyer> b, ArrayList<Seller> s, ArrayList<Employee> e, ArrayList<Property> prop, ArrayList<Visit> vis, ArrayList<Offer> off, ArrayList<Property> r) {
         //constructor of the class
@@ -715,6 +722,10 @@ public class BuyerResults extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButton8ActionPerformed
 
+    /**
+     * Method that is used to display all the information about one of the property whose details matched with the criterias of research
+     * @param nprop is the Property whose information are going to be displayed
+     */
     public void display(Property nprop) //this method is used to display a single property once it has been selected in the results combobox
     {
         if (nprop.gettype().equals("Apartment")) //if the considered property is an apartment 
@@ -825,6 +836,10 @@ public class BuyerResults extends javax.swing.JFrame {
         }
     }
 
+    /**
+     * Method that registers (in the program and in the database) the fact that the buyer connected booked a viewing for a house
+     * @param a is the id of the Visit that the buyer booked
+     */
     public void bookviewinghouse(Visit a) //method that enables to book a viewing for a house
     {
         VisitDAOImpl vdao = new VisitDAOImpl();
@@ -843,6 +858,9 @@ public class BuyerResults extends javax.swing.JFrame {
         //we set the regenerated frame visible
     }
 
+    /**
+     * Method that fills a jComboBox with all the properties (description+id) that matched with the criterias 
+     */
     public void initjcb1() {
         //this function adds the properties corresponding to the criteria researched before by the user to the jcombobox
         for (int i = 0; i < result.size(); ++i) {
@@ -853,6 +871,10 @@ public class BuyerResults extends javax.swing.JFrame {
         }
     }
 
+    /**
+     * Method that registers (in the program and in the database) the fact that the buyer connected booked a viewing for an apartment
+     * @param a is the id of the Visit that the buyer booked
+     */
     public void bookviewingapartment(Visit a) //method that enables to book a viewing for a house
     {
         VisitDAOImpl vdao = new VisitDAOImpl();
@@ -871,6 +893,11 @@ public class BuyerResults extends javax.swing.JFrame {
         //we set the regenerated frame visible 
     }
 
+    /**
+     * Method that adds an Offer to the database and the program that the buyer connected made for one property
+     * @param idprop is the id of the property on which the buyer made an offer
+     * @param p is the amount of the Offer
+     */
     public void addoffer(int idprop, double p) //method that enables to add an offer
     {
         OfferDAOImpl odao = new OfferDAOImpl();

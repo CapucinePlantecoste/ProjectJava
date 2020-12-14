@@ -9,12 +9,18 @@ import java.util.ArrayList;
 import java.sql.Timestamp;
 
 /**
+ * Class VisitDAOImpl which implements VisitDAO
  *
  * @author thoma
  */
 public class VisitDAOImpl implements VisitDAO {
 //the class VisitDAO is an interface so we have to implement all its functions here
 
+    /**
+     * Method to register all the visits from the database
+     *
+     * @return an ArrayList that contains all those visits
+     */
     @Override
     public ArrayList<Visit> registervisit() {
         //this method enables to get all the viewings contained in the database    
@@ -60,6 +66,11 @@ public class VisitDAOImpl implements VisitDAO {
         //we return the arraylist of viewings stored from the connection
     }
 
+    /**
+     * Method that adds a visit to the databas
+     *
+     * @param a is the Visit that is about to be added
+     */
     @Override
     public void addvisit(Visit a) {
         //this method enables us to add a viewing into the database
@@ -95,6 +106,12 @@ public class VisitDAOImpl implements VisitDAO {
 
     }
 
+    /**
+     * Method that deletes a viewing from the database when the visit has been
+     * done
+     *
+     * @param a is the Visit to delete
+     */
     @Override
     public void deleteviewing(Visit a) {
         //method that deletes the viewiing from the database 
@@ -128,6 +145,12 @@ public class VisitDAOImpl implements VisitDAO {
         }
     }
 
+    /**
+     * Method to update the id of the buyer (and so the buyer) who does the
+     * visit
+     *
+     * @param a is the Visit considered
+     */
     @Override
     public void updatebuyer(Visit a) //method that enables us to update the buyer of the viewing 
     {

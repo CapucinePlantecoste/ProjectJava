@@ -3,10 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package projectjava;
-
-import View.ConnectingJFrame;
-import View.SignInJFrame;
+package View;
 import Model.Visit;
 import Model.Seller;
 import Model.Property;
@@ -16,13 +13,19 @@ import Model.Buyer;
 import java.util.ArrayList;
 
 /**
- *
+ *Class First which is the First JFrame displayed on the app
  * @author CAP
  */
 public class First extends javax.swing.JFrame {
 
-    /**
-     * Creates new form First
+      /**
+     * Constructor of the class
+     * @param b is the ArrayList of all the buyers of the app
+     * @param s is the ArrayList of all the sellers of the app
+     * @param e is the ArrayList of all the employees of the app
+     * @param prop is the ArrayList of all the properties of the app
+     * @param vis is the ArrayList of all the visits of the app
+     * @param off is the ArrayList of all the offers of the app
      */
     //This class is used as the first frame of our app
     public First(ArrayList<Buyer> b, ArrayList<Seller> s, ArrayList<Employee> e, ArrayList<Property> prop, ArrayList<Visit> vis, ArrayList<Offer> off) {//Constructor of the First CLass
